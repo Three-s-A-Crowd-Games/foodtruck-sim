@@ -1,0 +1,52 @@
+[gd_scene load_steps=10 format=3 uid="uid://cfgqvg6rqsmoq"]
+
+[ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_jx5um"]
+[ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_fpp0y"]
+[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="3_dw4hi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_uj1um"]
+sky_material = SubResource("ProceduralSkyMaterial_nqjqw")
+
+[sub_resource type="Environment" id="Environment_hp05l"]
+background_mode = 2
+sky = SubResource("Sky_uj1um")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fjiod"]
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d002o"]
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcrk8"]
+albedo_color = Color(1, 0.231373, 1, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hp05l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0.807644, 4.96356, -5.49786)
+shadow_enabled = true
+
+[node name="XROrigin3D" parent="." instance=ExtResource("1_jx5um")]
+
+[node name="Table_mockup" parent="." instance=ExtResource("2_fpp0y")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.801208, -2.52053)
+
+[node name="Cube" parent="." instance=ExtResource("3_dw4hi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0786016, 1.00277, -2.22674)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_fjiod")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_d002o")
+surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
