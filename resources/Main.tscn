@@ -1,9 +1,13 @@
-[gd_scene load_steps=15 format=3 uid="uid://dpgw68qoplyqc"]
+[gd_scene load_steps=20 format=3 uid="uid://dpgw68qoplyqc"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_4vs0p"]
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_ky4b2"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="3_7wdbt"]
+[ext_resource type="PackedScene" uid="uid://bq86r4yll8po" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_fullglove_low.tscn" id="4_lov5k"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="4_o0poq"]
+[ext_resource type="PackedScene" uid="uid://xqimcf20s2jp" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_fullglove_low.tscn" id="5_n7pje"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_logv0"]
+[ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="11_381rp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_aw6l2"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -31,6 +35,9 @@ height = 0.5
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fyf75"]
 radius = 0.2
 height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jpx7y"]
+albedo_color = Color(0.152941, 0.286275, 0.333333, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ncmks"]
 size = Vector3(10, 0.5, 10)
@@ -63,20 +70,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
 tracker = &"left_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/LeftHand"]
+visible = false
 mesh = SubResource("BoxMesh_pn6w7")
 
 [node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/LeftHand"]
 script = ExtResource("3_7wdbt")
+
+[node name="LeftHand" parent="XROrigin3D/LeftHand" instance=ExtResource("4_lov5k")]
 
 [node name="RightHand" type="XRController3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
 tracker = &"right_hand"
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/RightHand"]
+visible = false
 mesh = SubResource("BoxMesh_pp067")
 
+[node name="RightHand" parent="XROrigin3D/RightHand" instance=ExtResource("5_n7pje")]
+
+[node name="PlayerBody" parent="XROrigin3D" instance=ExtResource("8_logv0")]
+
 [node name="XRToolsPickable" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00234169, 1.04063, -1.61136)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.529156, 2.08435, -3.14835)
 script = ExtResource("4_o0poq")
 metadata/_edit_group_ = true
 
@@ -85,6 +100,7 @@ shape = SubResource("CapsuleShape3D_a36qx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="XRToolsPickable"]
 mesh = SubResource("CapsuleMesh_fyf75")
+surface_material_override/0 = SubResource("StandardMaterial3D_jpx7y")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_mask = 0
@@ -95,3 +111,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_f36t1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_5ntvy")
+
+[node name="Table_mockup" parent="." instance=ExtResource("11_381rp")]
+transform = Transform3D(0.02981, -0.00389241, -0.999548, 0.000246861, 0.999992, -0.00388678, 0.999556, -0.000130903, 0.0298108, 0, 1.70211, -2.86374)
