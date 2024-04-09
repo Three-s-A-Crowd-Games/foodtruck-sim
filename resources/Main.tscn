@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=11 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_jx5um"]
 [ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_fpp0y"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="3_dw4hi"]
+[ext_resource type="PackedScene" uid="uid://duo6gyalywo6c" path="res://assets/models/stove_v1.blend" id="4_i0bgq"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -50,3 +51,6 @@ shape = SubResource("BoxShape3D_fjiod")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("BoxMesh_d002o")
 surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
+
+[node name="stove_v1" parent="." instance=ExtResource("4_i0bgq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94262, 0.868781, -1.67414)
