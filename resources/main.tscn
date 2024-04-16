@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=3 uid="uid://cfgqvg6rqsmoq"]
 
-[ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_jx5um"]
-[ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_fpp0y"]
-[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="3_dw4hi"]
-[ext_resource type="PackedScene" uid="uid://duo6gyalywo6c" path="res://assets/models/stove_v1.blend" id="4_i0bgq"]
-[ext_resource type="PackedScene" uid="uid://2g8x3ig1f60s" path="res://assets/models/order-paper.blend" id="5_lsvvc"]
+[ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
+[ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_3x50d"]
+[ext_resource type="PackedScene" uid="uid://duo6gyalywo6c" path="res://assets/models/stove_v1.blend" id="4_h4nnu"]
+[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="5_je68d"]
+[ext_resource type="PackedScene" uid="uid://2g8x3ig1f60s" path="res://assets/models/order-paper.blend" id="5_lul8e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -36,13 +36,10 @@ environment = SubResource("Environment_hp05l")
 transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0.807644, 4.96356, -5.49786)
 shadow_enabled = true
 
-[node name="XROrigin3D" parent="." instance=ExtResource("1_jx5um")]
+[node name="XROrigin3D" parent="." instance=ExtResource("1_delsf")]
 
-[node name="Table_mockup" parent="." instance=ExtResource("2_fpp0y")]
+[node name="Table_mockup" parent="." instance=ExtResource("2_3x50d")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.801208, -2.52053)
-
-[node name="Cube" parent="." instance=ExtResource("3_dw4hi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0786016, 1.00277, -2.22674)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -53,8 +50,17 @@ shape = SubResource("BoxShape3D_fjiod")
 mesh = SubResource("BoxMesh_d002o")
 surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 
-[node name="stove_v1" parent="." instance=ExtResource("4_i0bgq")]
+[node name="stove_v1" parent="." instance=ExtResource("4_h4nnu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94262, 0.868781, -1.67414)
 
-[node name="order-paper" parent="." instance=ExtResource("5_lsvvc")]
+[node name="order-paper" parent="." instance=ExtResource("5_lul8e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62042, 0.1, -2.71536)
+
+[node name="Cube" parent="." instance=ExtResource("5_je68d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528075, 1.02465, -1.60863)
+
+[node name="Cube2" parent="." instance=ExtResource("5_je68d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.428436, 1.04511, -1.58342)
+
+[node name="Cube3" parent="." instance=ExtResource("5_je68d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0603474, 1.04511, -1.14101)
