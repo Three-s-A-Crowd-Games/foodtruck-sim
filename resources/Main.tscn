@@ -1,8 +1,8 @@
 [gd_scene load_steps=12 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_jx5um"]
-[ext_resource type="PackedScene" path="res://assets/table_mockup.tscn" id="2_fpp0y"]
-[ext_resource type="PackedScene" path="res://resources/cube.tscn" id="3_dw4hi"]
+[ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_fpp0y"]
+[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="3_dw4hi"]
 [ext_resource type="PackedScene" uid="uid://duo6gyalywo6c" path="res://assets/models/stove_v1.blend" id="4_i0bgq"]
 [ext_resource type="PackedScene" uid="uid://2g8x3ig1f60s" path="res://assets/models/order-paper.blend" id="5_lsvvc"]
 
