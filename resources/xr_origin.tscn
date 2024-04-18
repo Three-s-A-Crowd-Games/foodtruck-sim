@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_0bs62"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="4_4jcw1"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_r7dw0"]
+[ext_resource type="PackedScene" uid="uid://bjcxf427un2wp" path="res://addons/godot-xr-tools/player/poke/poke.tscn" id="6_1c3ya"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_1yacy"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="7_55sda"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
 
@@ -33,10 +33,9 @@ tracker = &"right_hand"
 
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("3_0bs62")]
 
-[node name="PlayerBody" type="CharacterBody3D" parent="." groups=["player_body"] instance=ExtResource("6_1yacy")]
-process_priority = -100
-process_physics_priority = -100
-top_level = true
-collision_layer = 524288
-collision_mask = 1023
-script = ExtResource("7_55sda")
+[node name="Poke" parent="RightHand" instance=ExtResource("6_1c3ya")]
+radius = 0.01
+color = Color(0.85098, 0.14902, 0.227451, 1)
+layer = 131073
+
+[node name="PlayerBody" parent="." instance=ExtResource("6_1yacy")]
