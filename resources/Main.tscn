@@ -1,9 +1,12 @@
 [gd_scene load_steps=14 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_jx5um"]
+[ext_resource type="Script" path="res://resources/Main.gd" id="1_rvt4w"]
 [ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_fpp0y"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="3_dw4hi"]
 [ext_resource type="PackedScene" uid="uid://b13bmjfi1eksc" path="res://assets/models/bunbox_r.blend" id="4_xu11r"]
+[ext_resource type="PackedScene" uid="uid://duo6gyalywo6c" path="res://assets/models/stove_v1.blend" id="4_i0bgq"]
+[ext_resource type="PackedScene" uid="uid://2g8x3ig1f60s" path="res://assets/models/order-paper.blend" id="5_lsvvc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -67,6 +70,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rm64t")
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_rvt4w")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hp05l")
@@ -110,3 +114,7 @@ mesh = SubResource("ArrayMesh_t2685")
 skeleton = NodePath("")
 
 [editable path="bunbox_r"]
+
+[node name="order-paper" parent="." instance=ExtResource("5_lsvvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62042, 0.1, -2.71536)
+
