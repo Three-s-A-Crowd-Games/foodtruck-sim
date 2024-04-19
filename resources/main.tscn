@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=3 uid="uid://cfgqvg6rqsmoq"]
 
+[ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
-[ext_resource type="Script" path="res://resources/Main.gd" id="1_rvt4w"]
 [ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_3x50d"]
 [ext_resource type="PackedScene" uid="uid://duo6gyalywo6c" path="res://assets/models/stove_v1.blend" id="4_h4nnu"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="5_je68d"]
@@ -29,7 +29,7 @@ size = Vector3(10, 0.2, 10)
 albedo_color = Color(1, 0.231373, 1, 1)
 
 [node name="Main" type="Node3D"]
-script = ExtResource("1_rvt4w")
+script = ExtResource("1_d3g8y")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hp05l")
