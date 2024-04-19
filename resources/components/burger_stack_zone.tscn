@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4ldylr6ugs4s"]
+
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_ix4ty"]
+[ext_resource type="Script" path="res://resources/components/burger_stack_zone.gd" id="2_enjaw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fspem"]
+resource_local_to_scene = true
+radius = 0.3
+
+[node name="BurgerStackZone" instance=ExtResource("1_ix4ty")]
+script = ExtResource("2_enjaw")
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_fspem")

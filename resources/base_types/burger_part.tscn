@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://16vswxwb3rah"]
+
+[ext_resource type="PackedScene" uid="uid://bd5s6t3q6ef0r" path="res://resources/base_types/food.tscn" id="1_g8uvl"]
+[ext_resource type="Script" path="res://resources/base_types/burger_part.gd" id="2_abgml"]
+[ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="2_mij6w"]
+
+[node name="BurgerPart" instance=ExtResource("1_g8uvl")]
+script = ExtResource("2_abgml")
+
+[node name="BurgerStackZone" parent="." index="0" instance=ExtResource("2_mij6w")]

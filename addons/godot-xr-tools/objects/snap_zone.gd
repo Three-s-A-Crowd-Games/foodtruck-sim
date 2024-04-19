@@ -180,11 +180,6 @@ func _on_snap_zone_body_entered(target: Node3D) -> void:
 	if _object_in_grab_area.find(target) >= 0:
 		return
 
-	# Reject parent object
-	if target == get_parent():
-		print("it is")
-		return
-	
 	# Reject objects which don't support picking up
 	if not target.has_method('pick_up'):
 		return

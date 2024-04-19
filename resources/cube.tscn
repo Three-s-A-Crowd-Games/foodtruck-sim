@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbibo1k8pkiqo"]
 
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_yhp48"]
-[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_g3wef"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_kbvby"]
+[ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="3_oby0a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f7hk1"]
 size = Vector3(0.3, 0.3, 0.3)
@@ -9,7 +9,7 @@ size = Vector3(0.3, 0.3, 0.3)
 [sub_resource type="BoxMesh" id="BoxMesh_6b05e"]
 size = Vector3(0.3, 0.3, 0.3)
 
-[node name="Cube" groups=["burger_part"] instance=ExtResource("1_yhp48")]
+[node name="Cube" groups=["burger_part"] instance=ExtResource("1_kbvby")]
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_f7hk1")
@@ -17,7 +17,5 @@ shape = SubResource("BoxShape3D_f7hk1")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 mesh = SubResource("BoxMesh_6b05e")
 
-[node name="SnapZone" parent="." index="2" instance=ExtResource("2_g3wef")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
-grab_distance = 0.15
-snap_require = "burger_part"
+[node name="BurgerStackZone2" parent="." index="2" instance=ExtResource("3_oby0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, 0)
