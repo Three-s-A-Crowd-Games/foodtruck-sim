@@ -1,4 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv28krsptsa4a"]
+[gd_scene load_steps=12 format=3 uid="uid://cv28krsptsa4a"]
+
+[ext_resource type="Script" path="res://food_bucket.gd" id="1_lv6tp"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_arloj"]
 size = Vector3(0.1, 1, 1)
@@ -21,7 +23,17 @@ size = Vector3(0.0769043, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnhnm"]
 size = Vector3(1.05707, 0.001, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_qmf7e"]
+size = Vector3(0.2, 0.2, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c17t5"]
+size = Vector3(0.2, 0.2, 0.03)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bon6"]
+size = Vector3(1, 0.05, 1)
+
 [node name="Food Bucket" type="StaticBody3D"]
+script = ExtResource("1_lv6tp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
@@ -76,3 +88,23 @@ shape = SubResource("BoxShape3D_ticll")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00521851, -0.4995, 0)
 shape = SubResource("BoxShape3D_tnhnm")
+
+[node name="Button" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.636231, 0.0908595, 0)
+mesh = SubResource("BoxMesh_qmf7e")
+
+[node name="Area3D" type="Area3D" parent="Button"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Button/Area3D"]
+shape = SubResource("BoxShape3D_c17t5")
+
+[node name="full_area" type="Area3D" parent="."]
+collision_mask = 65535
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="full_area"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.568881, 0)
+shape = SubResource("BoxShape3D_6bon6")
+
+[connection signal="body_entered" from="Button/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="full_area" to="." method="_on_full_area_body_entered"]
+[connection signal="body_exited" from="full_area" to="." method="_on_full_area_body_exited"]
