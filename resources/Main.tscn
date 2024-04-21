@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=16 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_jx5um"]
 [ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_fpp0y"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="3_dw4hi"]
-[ext_resource type="PackedScene" uid="uid://b13bmjfi1eksc" path="res://assets/models/bunbox_r.blend" id="4_xu11r"]
+[ext_resource type="PackedScene" uid="uid://dosk17t0rja0m" path="res://assets/models/bunbox.blend" id="4_k1av0"]
+[ext_resource type="PackedScene" uid="uid://w3j7uqy2hp8x" path="res://assets/models/patty.blend" id="5_xp3su"]
+[ext_resource type="PackedScene" uid="uid://ct3n7fgsi6aog" path="res://assets/models/plate.blend" id="6_vb7cy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -78,10 +80,10 @@ shadow_enabled = true
 [node name="XROrigin3D" parent="." instance=ExtResource("1_jx5um")]
 
 [node name="Table_mockup" parent="." instance=ExtResource("2_fpp0y")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.801208, -2.52053)
+transform = Transform3D(-8.74228e-08, 0, -1, 0, 1, 0, 2, 0, -4.37114e-08, 0, 0.801208, -2.52053)
 
 [node name="Cube" parent="." instance=ExtResource("3_dw4hi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0786016, 1.00277, -2.22674)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.40895, 1.00277, -2.22674)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
@@ -92,15 +94,6 @@ shape = SubResource("BoxShape3D_fjiod")
 mesh = SubResource("BoxMesh_d002o")
 surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 
-[node name="bunbox_r" parent="." instance=ExtResource("4_xu11r")]
-transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 3, 0.631629, 0.903329, -2.5926)
-
-[node name="Light" parent="bunbox_r" index="0"]
-visible = false
-
-[node name="Camera" parent="bunbox_r" index="1"]
-visible = false
-
 [node name="stove_v1" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94262, 0.868781, -1.67414)
 
@@ -109,4 +102,23 @@ transform = Transform3D(0.35, 0, 0, 0, 0.575, 0, 0, 0, 0.35, 0, 0, 0)
 mesh = SubResource("ArrayMesh_t2685")
 skeleton = NodePath("")
 
-[editable path="bunbox_r"]
+[node name="bunbox" parent="." instance=ExtResource("4_k1av0")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.400742, 0.881691, -2.11686)
+
+[node name="patty" parent="." instance=ExtResource("5_xp3su")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.390374, 0.911303, -2.94168)
+
+[node name="patty3" parent="." instance=ExtResource("5_xp3su")]
+transform = Transform3D(0.133218, 0.149174, 0, -0.149174, 0.133218, 0, 0, 0, 0.2, 0.688403, 1.02439, -2.9486)
+
+[node name="patty2" parent="." instance=ExtResource("5_xp3su")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.390374, 1.03394, -2.94168)
+
+[node name="plate2" parent="." instance=ExtResource("6_vb7cy")]
+transform = Transform3D(0.4, 0, 0, 0, 0.399996, -0.00181514, 0, 0.00181514, 0.399996, 2.763, 0.06, -3)
+
+[node name="plate3" parent="." instance=ExtResource("6_vb7cy")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 2.147, 0.06, -3)
+
+[node name="plate" parent="." instance=ExtResource("6_vb7cy")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.478, 0.06, -3)
