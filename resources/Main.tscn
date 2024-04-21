@@ -1,11 +1,18 @@
 [gd_scene load_steps=16 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_jx5um"]
+[ext_resource type="Script" path="res://resources/Main.gd" id="1_rvt4w"]
 [ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_fpp0y"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="3_dw4hi"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://dosk17t0rja0m" path="res://assets/models/bunbox.blend" id="4_k1av0"]
 [ext_resource type="PackedScene" uid="uid://w3j7uqy2hp8x" path="res://assets/models/patty.blend" id="5_xp3su"]
 [ext_resource type="PackedScene" uid="uid://ct3n7fgsi6aog" path="res://assets/models/plate.blend" id="6_vb7cy"]
+=======
+[ext_resource type="PackedScene" uid="uid://b13bmjfi1eksc" path="res://assets/models/bunbox_r.blend" id="4_xu11r"]
+[ext_resource type="PackedScene" uid="uid://duo6gyalywo6c" path="res://assets/models/stove_v1.blend" id="4_i0bgq"]
+[ext_resource type="PackedScene" uid="uid://2g8x3ig1f60s" path="res://assets/models/order-paper.blend" id="5_lsvvc"]
+>>>>>>> 5b49cc9fab8cd0768434eddbe0653595eeee81d3
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -69,6 +76,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_rm64t")
 
 [node name="Main" type="Node3D"]
+script = ExtResource("1_rvt4w")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hp05l")
@@ -102,6 +110,7 @@ transform = Transform3D(0.35, 0, 0, 0, 0.575, 0, 0, 0, 0.35, 0, 0, 0)
 mesh = SubResource("ArrayMesh_t2685")
 skeleton = NodePath("")
 
+<<<<<<< HEAD
 [node name="bunbox" parent="." instance=ExtResource("4_k1av0")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.400742, 0.881691, -2.11686)
 
@@ -122,3 +131,10 @@ transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 2.147, 0.06, -3)
 
 [node name="plate" parent="." instance=ExtResource("6_vb7cy")]
 transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 1.478, 0.06, -3)
+=======
+[editable path="bunbox_r"]
+
+[node name="order-paper" parent="." instance=ExtResource("5_lsvvc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62042, 0.1, -2.71536)
+
+>>>>>>> 5b49cc9fab8cd0768434eddbe0653595eeee81d3
