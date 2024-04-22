@@ -5,7 +5,7 @@
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_fspem"]
 resource_local_to_scene = true
-radius = 0.3
+radius = 0.02
 
 [node name="BurgerStackZone" instance=ExtResource("1_ix4ty")]
 script = ExtResource("2_enjaw")

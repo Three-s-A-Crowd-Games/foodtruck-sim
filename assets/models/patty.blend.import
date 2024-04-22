@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/patty.blend-bcaec58277f5c838284892552c78943c.
 
 [params]
 
-nodes/root_type="XRToolsPickable"
+nodes/root_type="Node3D"
 nodes/root_name="Patty"
 nodes/apply_root_scale=true
 nodes/root_scale=0.1

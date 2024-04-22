@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://boqvit30nfpff"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_jk7n3"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w8rpq"]
+height = 0.37288
+radius = 0.973425
+
+[node name="BurgerPart" instance=ExtResource("1_jk7n3")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("CylinderShape3D_w8rpq")

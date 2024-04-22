@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/bottom_bun.blend-3c6b84f80a37ffa2a7f5b69cd1cb
 
 [params]
 
-nodes/root_type="XRToolsPickable"
+nodes/root_type="Node3D"
 nodes/root_name="BunBottom"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

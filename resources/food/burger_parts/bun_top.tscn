@@ -1,28 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://3yidwyx02e24"]
+[gd_scene load_steps=4 format=3 uid="uid://bqc71xcemsg8s"]
 
 [ext_resource type="PackedScene" uid="uid://ch63w0v83hyrp" path="res://assets/models/top_bun.blend" id="1_12skk"]
-[ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="2_mgrfc"]
+[ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_t230o"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_h50ry"]
-height = 0.0704742
-radius = 0.1
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_q5obm"]
+height = 0.687124
+radius = 0.960212
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_5c6hf"]
-resource_local_to_scene = true
-radius = 0.02
+[node name="BunTop" instance=ExtResource("1_t230o")]
 
-[node name="BunTop" instance=ExtResource("1_12skk")]
-collision_layer = 4
-collision_mask = 196615
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0273088, 0)
+shape = SubResource("CylinderShape3D_q5obm")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0264278, 0)
-shape = SubResource("CylinderShape3D_h50ry")
-
-[node name="BurgerStackZone" parent="." index="2" instance=ExtResource("2_mgrfc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0308325, 0)
-
-[node name="CollisionShape3D" parent="BurgerStackZone" index="0"]
-shape = SubResource("SphereShape3D_5c6hf")
-
-[editable path="BurgerStackZone"]
+[node name="BunTop" parent="." index="1" instance=ExtResource("1_12skk")]

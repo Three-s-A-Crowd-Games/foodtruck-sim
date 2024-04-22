@@ -1,39 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://7t631dybrorh"]
+[gd_scene load_steps=5 format=3 uid="uid://c3bsc5kmrbo4i"]
 
 [ext_resource type="PackedScene" uid="uid://w3j7uqy2hp8x" path="res://assets/models/patty.blend" id="1_kle5d"]
+[ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_ws3rg"]
 [ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="2_d5dj6"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_iertn"]
-height = 0.0387608
-radius = 0.0999853
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_0aq66"]
+[sub_resource type="SphereShape3D" id="SphereShape3D_rub53"]
 resource_local_to_scene = true
 radius = 0.02
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_73bxe"]
-resource_local_to_scene = true
-radius = 0.02
+[node name="Patty" instance=ExtResource("1_ws3rg")]
 
-[node name="Patty" instance=ExtResource("1_kle5d")]
-collision_layer = 4
-collision_mask = 196615
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.017474, 0)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0171781, 0)
-shape = SubResource("CylinderShape3D_iertn")
+[node name="Patty" parent="." index="1" instance=ExtResource("1_kle5d")]
 
 [node name="BurgerStackZone" parent="." index="2" instance=ExtResource("2_d5dj6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0563794, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0590222, 0)
 
 [node name="CollisionShape3D" parent="BurgerStackZone" index="0"]
-shape = SubResource("SphereShape3D_0aq66")
-
-[node name="BurgerStackZone2" parent="." index="3" instance=ExtResource("2_d5dj6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024666, 0)
-
-[node name="CollisionShape3D" parent="BurgerStackZone2" index="0"]
-shape = SubResource("SphereShape3D_73bxe")
+shape = SubResource("SphereShape3D_rub53")
 
 [editable path="BurgerStackZone"]
-[editable path="BurgerStackZone2"]
