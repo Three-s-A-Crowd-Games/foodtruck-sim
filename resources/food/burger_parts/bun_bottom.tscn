@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://djqe23eppup3t"]
+
+[ext_resource type="PackedScene" uid="uid://cnsemmhmy7i3m" path="res://assets/models/bottom_bun.blend" id="1_h8gn1"]
+[ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="2_3lji0"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dvfu1"]
+height = 0.0308325
+radius = 0.0966737
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hbl82"]
+resource_local_to_scene = true
+radius = 0.02
+
+[node name="BunBottom" instance=ExtResource("1_h8gn1")]
+collision_layer = 4
+collision_mask = 196615
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00132139, 0)
+shape = SubResource("CylinderShape3D_dvfu1")
+
+[node name="BurgerStackZone" parent="." index="2" instance=ExtResource("2_3lji0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0375043, 0)
+
+[node name="CollisionShape3D" parent="BurgerStackZone" index="0"]
+shape = SubResource("SphereShape3D_hbl82")
+
+[editable path="BurgerStackZone"]
