@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ch63w0v83hyrp"
-path="res://.godot/imported/top_bun.blend-b9dbf9d053563ad78b95ffcebc3c7509.scn"
+uid="uid://ct3n7fgsi6aog"
+path="res://.godot/imported/plate.blend-5d95031c869aab23d639d848c2841cbe.scn"
 
 [deps]
 
-source_file="res://assets/models/top_bun.blend"
-dest_files=["res://.godot/imported/top_bun.blend-b9dbf9d053563ad78b95ffcebc3c7509.scn"]
+source_file="res://assets/models/plate.blend"
+dest_files=["res://.godot/imported/plate.blend-5d95031c869aab23d639d848c2841cbe.scn"]
 
 [params]
 
@@ -29,14 +29,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"materials": {
-"Bread": {
-"use_external/enabled": true,
-"use_external/path": "res://assets/materials/bun.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
 blender/nodes/visible=0
@@ -44,7 +37,7 @@ blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
 blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
-blender/meshes/colors=true
+blender/meshes/colors=false
 blender/meshes/uvs=true
 blender/meshes/normals=true
 blender/meshes/tangents=true
