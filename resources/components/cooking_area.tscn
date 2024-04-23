@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cwwf7sktcami7"]
+
+[ext_resource type="Script" path="res://resources/components/cooking_area.gd" id="1_0wog4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjf45"]
+resource_local_to_scene = true
+size = Vector3(0.625122, 0.0263672, 0.639404)
+
+[node name="CookingArea" type="Area3D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_0wog4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jjf45")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
