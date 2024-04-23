@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ch63w0v83hyrp"
-path="res://.godot/imported/top_bun.blend-b9dbf9d053563ad78b95ffcebc3c7509.scn"
+uid="uid://t3bu35m8u0kq"
+path="res://.godot/imported/order_button.blend-876aec496aab834cb5d0846793799c8b.scn"
 
 [deps]
 
-source_file="res://assets/models/top_bun.blend"
-dest_files=["res://.godot/imported/top_bun.blend-b9dbf9d053563ad78b95ffcebc3c7509.scn"]
+source_file="res://assets/models/order_button.blend"
+dest_files=["res://.godot/imported/order_button.blend-876aec496aab834cb5d0846793799c8b.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="BunTop"
+nodes/root_type=""
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
@@ -29,14 +29,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"materials": {
-"Bread": {
-"use_external/enabled": false,
-"use_external/path": "res://assets/materials/Bread.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
 blender/nodes/visible=0
@@ -44,7 +37,7 @@ blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
 blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
-blender/meshes/colors=true
+blender/meshes/colors=false
 blender/meshes/uvs=true
 blender/meshes/normals=true
 blender/meshes/tangents=true
