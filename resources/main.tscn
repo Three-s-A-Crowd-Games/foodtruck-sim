@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=16 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
-[ext_resource type="PackedScene" path="res://assets/table_mockup.tscn" id="2_3x50d"]
+[ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_3x50d"]
 [ext_resource type="PackedScene" uid="uid://duo6gyalywo6c" path="res://assets/models/stove_v1.blend" id="4_h4nnu"]
-[ext_resource type="PackedScene" path="res://resources/cube.tscn" id="5_je68d"]
+[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="5_je68d"]
 [ext_resource type="PackedScene" uid="uid://2g8x3ig1f60s" path="res://assets/models/order-paper.blend" id="5_lul8e"]
+[ext_resource type="PackedScene" uid="uid://w3j7uqy2hp8x" path="res://assets/models/patty.blend" id="7_kkrcq"]
+[ext_resource type="PackedScene" uid="uid://ct3n7fgsi6aog" path="res://assets/models/plate.blend" id="8_l4r8o"]
+[ext_resource type="PackedScene" uid="uid://wqifidp1mmv6" path="res://assets/models/stove-v2.blend" id="9_f41nf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -59,10 +62,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94262, 0.868781, -1.67414)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62042, 0.1, -2.71536)
 
 [node name="Cube" parent="." instance=ExtResource("5_je68d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.528075, 1.02465, -1.60863)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.959445, 0.342878, -1.67277)
 
 [node name="Cube2" parent="." instance=ExtResource("5_je68d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.428436, 1.04511, -1.58342)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.772559, 0.435379, -1.46229)
 
 [node name="Cube3" parent="." instance=ExtResource("5_je68d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0603474, 1.04511, -1.14101)
+
+[node name="patty" parent="." instance=ExtResource("7_kkrcq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2357, 0.1, -2.8265)
+
+[node name="plate" parent="." instance=ExtResource("8_l4r8o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.54891, -0.106735, -0.74776)
+
+[node name="stove-v2" parent="." instance=ExtResource("9_f41nf")]
+transform = Transform3D(-0.0102624, 0, -0.999947, 0, 1, 0, 0.999947, 0, -0.0102624, -1.93224, 0.0999999, -0.0962811)
