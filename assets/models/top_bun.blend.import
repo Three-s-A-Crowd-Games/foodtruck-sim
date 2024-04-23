@@ -33,7 +33,7 @@ _subresources={
 "materials": {
 "Bread": {
 "use_external/enabled": true,
-"use_external/path": "res://assets/materials/bun.tres"
+"use_external/path": "res://assets/materials/Bread.tres"
 }
 }
 }
