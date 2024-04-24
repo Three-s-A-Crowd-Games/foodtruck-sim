@@ -107,6 +107,10 @@ var _highlight_requests : Dictionary = {}
 # Is this node highlighted
 var _highlighted : bool = false
 
+var initial_pos : Vector3
+
+var has_left : bool = false
+
 
 # Remember some state so we can return to it when the user drops the object
 @onready var original_collision_mask : int = collision_mask
@@ -125,6 +129,8 @@ func _ready():
 		var grab_point := child as XRToolsGrabPoint
 		if grab_point:
 			_grab_points.push_back(grab_point)
+	await get_tree().create_timer(0.1).timeout
+	initial_pos = global_position
 
 
 # Called when the node exits the tree
@@ -398,3 +404,4 @@ func _get_grab_point(grabber : Node3D, current : XRToolsGrabPoint) -> XRToolsGra
 func _set_ranged_grab_method(new_value: int) -> void:
 	ranged_grab_method = new_value
 	can_ranged_grab = new_value != RangedMethod.NONE
+	
