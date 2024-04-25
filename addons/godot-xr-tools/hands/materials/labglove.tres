@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://yslwgnpbpeen" path="res://addons/godot-xr-tools/hands/textures/glove_occlusionRoughnessMetallic.png" id="3_voiob"]
 
 [resource]
+albedo_color = Color(0.705882, 0.705882, 0.705882, 1)
 albedo_texture = ExtResource("1_iocxe")
+albedo_texture_msdf = true
 orm_texture = ExtResource("3_voiob")
 normal_enabled = true
 normal_scale = 0.1

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbibo1k8pkiqo"]
+[gd_scene load_steps=6 format=3 uid="uid://bbibo1k8pkiqo"]
 
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_yhp48"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_kbvby"]
+[ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="3_oby0a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f7hk1"]
 size = Vector3(0.3, 0.3, 0.3)
@@ -8,10 +9,23 @@ size = Vector3(0.3, 0.3, 0.3)
 [sub_resource type="BoxMesh" id="BoxMesh_6b05e"]
 size = Vector3(0.3, 0.3, 0.3)
 
-[node name="Cube" groups=["burger_part"] instance=ExtResource("1_yhp48")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_sby37"]
+resource_local_to_scene = true
+radius = 0.1
+
+[node name="Cube" groups=["burger_part"] instance=ExtResource("1_kbvby")]
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_f7hk1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 mesh = SubResource("BoxMesh_6b05e")
+
+[node name="BurgerStackZone2" parent="." index="2" instance=ExtResource("3_oby0a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31, 0)
+
+[node name="CollisionShape3D" parent="BurgerStackZone2" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0467046, 0)
+shape = SubResource("SphereShape3D_sby37")
+
+[editable path="BurgerStackZone2"]

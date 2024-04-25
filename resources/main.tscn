@@ -1,0 +1,80 @@
+[gd_scene load_steps=16 format=3 uid="uid://cfgqvg6rqsmoq"]
+
+[ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
+[ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
+[ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_3x50d"]
+[ext_resource type="PackedScene" uid="uid://duo6gyalywo6c" path="res://assets/models/stove_v1.blend" id="4_h4nnu"]
+[ext_resource type="PackedScene" uid="uid://2g8x3ig1f60s" path="res://assets/models/order-paper.blend" id="5_lul8e"]
+[ext_resource type="PackedScene" uid="uid://c43mpw7y30r72" path="res://resources/food/burger_parts/bun_bottom.tscn" id="7_aseve"]
+[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="8_0le5a"]
+[ext_resource type="PackedScene" uid="uid://bqc71xcemsg8s" path="res://resources/food/burger_parts/bun_top.tscn" id="9_at0fr"]
+[ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="9_yvro6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_uj1um"]
+sky_material = SubResource("ProceduralSkyMaterial_nqjqw")
+
+[sub_resource type="Environment" id="Environment_hp05l"]
+background_mode = 2
+sky = SubResource("Sky_uj1um")
+tonemap_mode = 2
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fjiod"]
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d002o"]
+size = Vector3(10, 0.2, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcrk8"]
+albedo_color = Color(1, 0.231373, 1, 1)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_d3g8y")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hp05l")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0.807644, 4.96356, -5.49786)
+shadow_enabled = true
+
+[node name="XROrigin3D" parent="." instance=ExtResource("1_delsf")]
+
+[node name="Table_mockup" parent="." instance=ExtResource("2_3x50d")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.801208, -2.52053)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_fjiod")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_d002o")
+surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
+
+[node name="stove_v1" parent="." instance=ExtResource("4_h4nnu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94262, 0.868781, -1.67414)
+
+[node name="order-paper" parent="." instance=ExtResource("5_lul8e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62042, 0.1, -2.71536)
+
+[node name="Cube" parent="." instance=ExtResource("8_0le5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.663741, 1.02465, -2.80419)
+
+[node name="Cube2" parent="." instance=ExtResource("8_0le5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165103, 1.04511, -2.82137)
+
+[node name="Cube3" parent="." instance=ExtResource("8_0le5a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.312735, 1.04511, -2.83684)
+
+[node name="BunBottom" parent="." instance=ExtResource("7_aseve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.731468, 0.966807, -2.28092)
+
+[node name="Patty" parent="." instance=ExtResource("9_yvro6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.081933, 0.939496, -2.29412)
+
+[node name="BunTop" parent="." instance=ExtResource("9_at0fr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.660925, 0.944959, -2.28866)
