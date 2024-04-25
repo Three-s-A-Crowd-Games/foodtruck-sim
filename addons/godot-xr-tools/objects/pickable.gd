@@ -107,7 +107,7 @@ var _highlight_requests : Dictionary = {}
 # Is this node highlighted
 var _highlighted : bool = false
 
-var initial_pos : Vector3
+var initial_position : Vector3
 
 var has_left : bool = false
 
@@ -129,9 +129,6 @@ func _ready():
 		var grab_point := child as XRToolsGrabPoint
 		if grab_point:
 			_grab_points.push_back(grab_point)
-	await get_tree().create_timer(0.1).timeout
-	initial_pos = global_position
-
 
 # Called when the node exits the tree
 func _exit_tree():
@@ -224,6 +221,7 @@ func drop_and_free():
 
 # Called when this object is picked up
 func pick_up(by: Node3D) -> void:
+	initial_position = global_position
 	# Skip if not enabled
 	if not enabled:
 		return

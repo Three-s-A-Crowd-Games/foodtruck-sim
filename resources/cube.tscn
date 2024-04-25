@@ -8,7 +8,7 @@ size = Vector3(0.3, 0.3, 0.3)
 [sub_resource type="BoxMesh" id="BoxMesh_6b05e"]
 size = Vector3(0.3, 0.3, 0.3)
 
-[node name="Cube" groups=["buns"] instance=ExtResource("1_yhp48")]
+[node name="Cube" groups=["burger_part"] instance=ExtResource("1_yhp48")]
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_f7hk1")
