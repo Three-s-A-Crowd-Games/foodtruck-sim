@@ -20,7 +20,6 @@ script = ExtResource("1_jta84")
 [node name="CookingArea" parent="." instance=ExtResource("2_kuxf2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.03245, -0.0629545)
 collision_layer = 0
-monitorable = false
 
 [node name="CollisionShape3D" parent="CookingArea" index="0"]
 shape = SubResource("BoxShape3D_6ypmn")
