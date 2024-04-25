@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wqifidp1mmv6" path="res://assets/models/stove-v2.blend" id="1_7ipw7"]
 [ext_resource type="Script" path="res://resources/appliances/stove.gd" id="1_jta84"]
-[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/components/cooking_area.tscn" id="2_kuxf2"]
+[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="2_kuxf2"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="4_6qxgu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ypmn"]
