@@ -13,8 +13,8 @@ func _process(delta):
 	
 
 func _on_exit_detector_body_exited(body):
-	body = body as XRToolsPickable
-	if(body.is_in_group("burger_part") && !body.has_left):
+	body = body as Food
+	if(body and !body.has_left):
 		body.has_left = true
 		var item = item_scene.instantiate()
 		add_sibling(item)

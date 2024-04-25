@@ -107,11 +107,6 @@ var _highlight_requests : Dictionary = {}
 # Is this node highlighted
 var _highlighted : bool = false
 
-var initial_position : Vector3
-
-var has_left : bool = false
-
-
 # Remember some state so we can return to it when the user drops the object
 @onready var original_collision_mask : int = collision_mask
 @onready var original_collision_layer : int = collision_layer
@@ -221,7 +216,6 @@ func drop_and_free():
 
 # Called when this object is picked up
 func pick_up(by: Node3D) -> void:
-	initial_position = global_position
 	# Skip if not enabled
 	if not enabled:
 		return

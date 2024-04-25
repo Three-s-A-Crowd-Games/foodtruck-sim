@@ -27,52 +27,52 @@ size = Vector3(0.1, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bon6"]
 size = Vector3(1.19006, 0.0186523, 1.14636)
 
-[node name="Node3D" type="Node3D"]
+[node name="FoodBucket" type="Node3D"]
 script = ExtResource("1_owpjt")
 
-[node name="Food Bucket" type="StaticBody3D" parent="."]
+[node name="Bucket" type="StaticBody3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Food Bucket"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bucket"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00521851, -0.4995, 0)
 shape = SubResource("BoxShape3D_tnhnm")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="Food Bucket"]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Bucket"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496719, 0, 0.00585938)
 shape = SubResource("BoxShape3D_8aj35")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Food Bucket"]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Bucket"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496796, 0, 0)
 shape = SubResource("BoxShape3D_p3uvt")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Food Bucket"]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Bucket"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.92196e-12, 0, 0.499933)
 shape = SubResource("BoxShape3D_srvfb")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="Food Bucket"]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Bucket"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.46736e-11, 0, -0.499664)
 shape = SubResource("BoxShape3D_c6p3o")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Food Bucket"]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Bucket"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -2.63555e-17, -0.464144, -6.02944e-10)
 shape = SubResource("BoxShape3D_ticll")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Food Bucket"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bucket"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
 mesh = SubResource("BoxMesh_arloj")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Food Bucket"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Bucket"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 mesh = SubResource("BoxMesh_arloj")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="Food Bucket"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Bucket"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.5)
 mesh = SubResource("BoxMesh_arloj")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="Food Bucket"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Bucket"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.5)
 mesh = SubResource("BoxMesh_arloj")
 
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="Food Bucket"]
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Bucket"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, -0.45035, 0)
 mesh = SubResource("BoxMesh_arloj")
 

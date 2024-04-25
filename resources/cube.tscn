@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbibo1k8pkiqo"]
+[gd_scene load_steps=7 format=3 uid="uid://bbibo1k8pkiqo"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_kbvby"]
+[ext_resource type="Script" path="res://resources/base_types/food.gd" id="2_xdndd"]
 [ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="3_oby0a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f7hk1"]
@@ -14,6 +15,7 @@ resource_local_to_scene = true
 radius = 0.1
 
 [node name="Cube" groups=["burger_part"] instance=ExtResource("1_kbvby")]
+script = ExtResource("2_xdndd")
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_f7hk1")

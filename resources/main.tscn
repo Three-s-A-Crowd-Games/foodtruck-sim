@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=17 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="8_0le5a"]
 [ext_resource type="PackedScene" uid="uid://bqc71xcemsg8s" path="res://resources/food/burger_parts/bun_top.tscn" id="9_at0fr"]
 [ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="9_yvro6"]
+[ext_resource type="PackedScene" uid="uid://cv28krsptsa4a" path="res://resources/objects/furniture/food_bucket.tscn" id="10_bac86"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -78,3 +79,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.081933, 0.939496, -2.29412
 
 [node name="BunTop" parent="." instance=ExtResource("9_at0fr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.660925, 0.944959, -2.28866)
+
+[node name="FoodBucket" parent="." instance=ExtResource("10_bac86")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35587, 0.73865, -0.45733)
