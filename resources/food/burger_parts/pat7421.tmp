@@ -15,6 +15,7 @@ radius = 0.02
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.017474, 0)
 
 [node name="Patty" parent="." index="1" instance=ExtResource("1_kle5d")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="BurgerStackZone" parent="." index="2" instance=ExtResource("2_d5dj6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0590222, 0)
