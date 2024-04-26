@@ -2,6 +2,11 @@
 class_name Recipe
 extends RefCounted
 
+enum Category{
+	MAIN,
+	SIDE
+}
+
 enum Type{
 	BURGER,
 	FRIES
@@ -12,8 +17,20 @@ enum Constraints{
 }
 
 static var recipes: Dictionary = {
-	Type.BURGER : {Ingredient.Category : [Ingredient.Category.BURGER_PART], Constraints.MINIMUM_AMOUNT : 3},
-	Type.FRIES : {Ingredient.Category : [Ingredient.Category.FRIES]}
+	Type.BURGER : {
+		Category : Category.MAIN, 
+		Ingredient.Category : [Ingredient.Category.BURGER_PART], 
+		Constraints.MINIMUM_AMOUNT : 3
+		},
+	Type.FRIES : {
+		Category : Category.SIDE, 
+		Ingredient.Category : [Ingredient.Category.FRIES]
+		}
+}
+
+static var categories: Dictionary = {
+	Category.MAIN : [Type.BURGER],
+	Category.SIDE : [Type.FRIES]
 }
 
 var ingredients: Array[Ingredient.Type]
@@ -36,28 +53,32 @@ static func create_recipe(type: Type) -> Recipe:
 	var amount = randi_range(min_amount, possible_ingredients.size())
 	
 	# fill the ingredients array of the new recipe with random ingredients from the possible ingredients
+	# take random elements from the pool of possible ingredients
 	# currently an ingredient can only be taken once
 	var used_ingredients: Array[Ingredient.Type]
 	for i in range(amount):
-		# take the random ingredient
 		var ingr = possible_ingredients.pick_random()
 		possible_ingredients.erase(ingr)
 	
 	
 	var open_positions = range(amount)
-	# TODO: this doesn't work yet
-	for ingr in used_ingredients:
+	var used_ingredients_copy = used_ingredients.duplicate()
+	for ingr in used_ingredients_copy:
 		# check if this ingredient has a position constraint
-		# if yes insert him at this position, else at the first free position
+		# if yes insert it at this position and mark that this position is already taken
 		if Ingredient.ingredients[ingr].has(Ingredient.Constraints.POSITION):
 			var position = Ingredient.ingredients[ingr][Ingredient.Constraints.POSITION]
 			assert(new_recipe.ingredients[position] == null, "Recipe position is already taken")
 			new_recipe.ingredients[position] = ingr
-			open_positions.erase(position)
+			used_ingredients.erase(ingr)
+			if position > 0: 
+				open_positions.remove_at(position)
+			else:
+				open_positions.remove_at(amount - (1+position))
 	
 	for pos in open_positions:
 			assert(used_ingredients.size() > 0, "no more open positions")
-			new_recipe.ingredients[open_positions.pop_front()] = ingr
-			
+			new_recipe.ingredients[pos] = used_ingredients.pop_back()
+	
 	return new_recipe
 	
