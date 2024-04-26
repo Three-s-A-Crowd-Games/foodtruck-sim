@@ -39,18 +39,23 @@ var ingredients: Array[Ingredient.Type]
 static func create_recipe(type: Type) -> Recipe:
 	var new_recipe :=  Recipe.new()
 	var min_amount := 1
-	var possible_ingredients: Array[Ingredient.Type]
+	var possible_ingredients: Array
 	
 	# Check if this recipe type has the MINIMUM_AMOUNT constraint
 	if recipes[type].has(Constraints.MINIMUM_AMOUNT):
 		min_amount = recipes[type].get(Constraints.MINIMUM_AMOUNT)
 	
 	# gather all the ingredients that can be used for this type of recipe
+	var arr = recipes[type][Ingredient.Category]
 	for ingredient_category in recipes[type][Ingredient.Category]:
-		possible_ingredients += Ingredient.categories[ingredient_category].values()
+		var ass = Ingredient.categories[ingredient_category]
+		possible_ingredients += Ingredient.categories[ingredient_category]
 	
 	# take a random amount of ingredients
 	var amount = randi_range(min_amount, possible_ingredients.size())
+	new_recipe.ingredients.resize(amount)
+	new_recipe.ingredients.fill(-1)
+	
 	
 	# fill the ingredients array of the new recipe with random ingredients from the possible ingredients
 	# take random elements from the pool of possible ingredients
@@ -58,6 +63,7 @@ static func create_recipe(type: Type) -> Recipe:
 	var used_ingredients: Array[Ingredient.Type]
 	for i in range(amount):
 		var ingr = possible_ingredients.pick_random()
+		used_ingredients.append(ingr)
 		possible_ingredients.erase(ingr)
 	
 	
@@ -68,13 +74,13 @@ static func create_recipe(type: Type) -> Recipe:
 		# if yes insert it at this position and mark that this position is already taken
 		if Ingredient.ingredients[ingr].has(Ingredient.Constraints.POSITION):
 			var position = Ingredient.ingredients[ingr][Ingredient.Constraints.POSITION]
-			assert(new_recipe.ingredients[position] == null, "Recipe position is already taken")
+			assert(new_recipe.ingredients.size() == 0 or new_recipe.ingredients[position] == -1, "Recipe position is already taken")
 			new_recipe.ingredients[position] = ingr
 			used_ingredients.erase(ingr)
 			if position > 0: 
 				open_positions.remove_at(position)
 			else:
-				open_positions.remove_at(amount - (1+position))
+				open_positions.remove_at(amount - position)
 	
 	for pos in open_positions:
 			assert(used_ingredients.size() > 0, "no more open positions")

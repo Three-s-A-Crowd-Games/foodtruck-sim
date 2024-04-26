@@ -1,6 +1,7 @@
 extends Node3D
 
 var xr_interface: XRInterface
+var order = Order.create_order()
 
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
