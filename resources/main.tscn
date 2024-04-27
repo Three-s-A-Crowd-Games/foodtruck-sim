@@ -48,6 +48,8 @@ shadow_enabled = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.801208, -2.52053)
 
 [node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 8388609
+collision_mask = 524289
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_fjiod")
