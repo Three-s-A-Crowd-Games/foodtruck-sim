@@ -39,7 +39,6 @@ func _process(delta):
 		print("Burned")
 		status = CookedStatus.BURNED
 		cooked_status_changed.emit(status)
-		get_parent().queue_free()
 		is_cooking = false
 
 func start_cooking():
