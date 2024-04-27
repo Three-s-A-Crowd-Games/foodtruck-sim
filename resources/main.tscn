@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
+[ext_resource type="PackedScene" uid="uid://bqvabt2tjd60m" path="res://resources/appliances/Fridge.tscn" id="4_vy4xr"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="5_je68d"]
 [ext_resource type="PackedScene" uid="uid://cy5i3tvbg00fq" path="res://assets/models/basic-counter-v1.blend" id="6_i3t2i"]
-[ext_resource type="PackedScene" uid="uid://njmn8lx8jl87" path="res://assets/models/fridge-v1.blend" id="7_dq68o"]
 [ext_resource type="PackedScene" uid="uid://j0mlspbmtu5o" path="res://assets/models/counter-small.blend" id="7_y7tau"]
 [ext_resource type="PackedScene" uid="uid://wqifidp1mmv6" path="res://assets/models/stove-v2.blend" id="8_aaqpc"]
 
@@ -52,16 +52,16 @@ mesh = SubResource("BoxMesh_d002o")
 surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 
 [node name="Cube" parent="." instance=ExtResource("5_je68d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.707304, 1.34965, 2.54477)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40213, 1.34965, 2.54477)
 
 [node name="Cube2" parent="." instance=ExtResource("5_je68d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.376262, 1.33584, 2.12853)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.397103, 1.33852, 0.273103)
 
 [node name="Cube3" parent="." instance=ExtResource("5_je68d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45164, 1.35353, 1.52141)
 
-[node name="fridge-v1" parent="." instance=ExtResource("7_dq68o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.672321, 0.1, 2.36949)
+[node name="Fridge" parent="." instance=ExtResource("4_vy4xr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.591016, 0.1, 2.369)
 
 [node name="stove-v2" parent="." instance=ExtResource("8_aaqpc")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.39682, 0.0999999, 1.61967)
