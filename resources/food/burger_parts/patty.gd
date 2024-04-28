@@ -1,4 +1,4 @@
-extends XRToolsPickable
+extends Food
 
 
 

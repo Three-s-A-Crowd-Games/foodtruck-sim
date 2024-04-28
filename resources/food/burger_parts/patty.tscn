@@ -14,13 +14,13 @@ resource_local_to_scene = true
 radius = 0.02
 
 [node name="Patty" instance=ExtResource("1_ws3rg")]
+collision_mask = 131079
 script = ExtResource("2_c8brd")
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.017474, 0)
 
 [node name="Patty" parent="." index="1" instance=ExtResource("1_kle5d")]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="Circle" parent="Patty" index="0"]
 surface_material_override/0 = SubResource("StandardMaterial3D_j3j0w")

@@ -8,6 +8,6 @@ func _on_exit_detector_body_exited(body):
 	if(body and !body.has_left):
 		body.has_left = true
 		var item = item_scene.instantiate()
-		add_sibling(item)
+		add_child(item)
 		item.global_position = body.initial_position
-
+		print("AHHH")

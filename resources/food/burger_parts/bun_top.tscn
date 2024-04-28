@@ -9,6 +9,7 @@ height = 0.687124
 radius = 0.960212
 
 [node name="BunTop" instance=ExtResource("1_t230o")]
+collision_mask = 131079
 script = ExtResource("2_oaifx")
 
 [node name="CollisionShape3D" parent="." index="0"]

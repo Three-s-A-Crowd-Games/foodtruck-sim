@@ -29,7 +29,6 @@ resource_local_to_scene = true
 size = Vector3(1.19, 0.02, 1.146)
 
 [node name="FoodBucket" type="Node3D"]
-script = ExtResource("1_owpjt")
 
 [node name="Bucket" type="StaticBody3D" parent="."]
 
@@ -87,6 +86,7 @@ monitorable = false
 shape = SubResource("BoxShape3D_6bon6")
 
 [node name="Content" type="Node3D" parent="."]
+script = ExtResource("1_owpjt")
 
 [node name="Cube" parent="Content" instance=ExtResource("2_vcfy8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.259, -0.23)
@@ -124,4 +124,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.371678, 0.218826)
 [node name="Cube12" parent="Content" instance=ExtResource("2_vcfy8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.371678, 0.218826)
 
-[connection signal="body_exited" from="ExitDetector" to="." method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="ExitDetector" to="Content" method="_on_exit_detector_body_exited"]

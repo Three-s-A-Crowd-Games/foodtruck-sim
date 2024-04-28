@@ -12,10 +12,9 @@ resource_local_to_scene = true
 size = Vector3(0.25, 0.02, 0.25)
 
 [node name="BunBottomBox" type="Node3D"]
-script = ExtResource("1_buoe2")
-item_scene = ExtResource("2_kixki")
 
 [node name="BunBoxBody" type="StaticBody3D" parent="."]
+collision_layer = 65537
 collision_mask = 0
 
 [node name="bunbox" parent="BunBoxBody" instance=ExtResource("3_pcphv")]
@@ -36,6 +35,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0474641, 0)
 shape = SubResource("BoxShape3D_g2dah")
 
 [node name="Content" type="Node3D" parent="."]
+script = ExtResource("1_buoe2")
+item_scene = ExtResource("2_kixki")
 
 [node name="BunTop" parent="Content" instance=ExtResource("2_kixki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0128904, 0)
@@ -43,4 +44,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0128904, 0)
 [node name="BunTop2" parent="Content" instance=ExtResource("2_kixki")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0713406, 0)
 
-[connection signal="body_exited" from="ExitDetector" to="." method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="ExitDetector" to="Content" method="_on_exit_detector_body_exited"]
