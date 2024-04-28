@@ -25,7 +25,8 @@ size = Vector3(0.0769043, 1, 1)
 size = Vector3(0.1, 1, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6bon6"]
-size = Vector3(1.19006, 0.0186523, 1.14636)
+resource_local_to_scene = true
+size = Vector3(1.19, 0.02, 1.146)
 
 [node name="FoodBucket" type="Node3D"]
 script = ExtResource("1_owpjt")

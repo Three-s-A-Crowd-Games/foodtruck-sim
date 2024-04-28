@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=15 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
-[ext_resource type="PackedScene" uid="uid://bqvabt2tjd60m" path="res://resources/appliances/Fridge.tscn" id="4_vy4xr"]
-[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="5_je68d"]
+[ext_resource type="PackedScene" uid="uid://bqvabt2tjd60m" path="res://resources/objects/appliances/Fridge.tscn" id="4_vy4xr"]
 [ext_resource type="PackedScene" uid="uid://cy5i3tvbg00fq" path="res://assets/models/basic-counter-v1.blend" id="6_i3t2i"]
+[ext_resource type="PackedScene" uid="uid://c54y4lqme3kal" path="res://resources/objects/furniture/BunBottomBox.tscn" id="7_5gd1o"]
 [ext_resource type="PackedScene" uid="uid://j0mlspbmtu5o" path="res://assets/models/counter-small.blend" id="7_y7tau"]
 [ext_resource type="PackedScene" uid="uid://wqifidp1mmv6" path="res://assets/models/stove-v2.blend" id="8_aaqpc"]
+[ext_resource type="PackedScene" uid="uid://canauins47xs5" path="res://resources/objects/furniture/BunTopBox.tscn" id="8_j1ief"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -53,15 +54,6 @@ shape = SubResource("BoxShape3D_fjiod")
 mesh = SubResource("BoxMesh_d002o")
 surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 
-[node name="Cube" parent="." instance=ExtResource("5_je68d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.40213, 1.34965, 2.54477)
-
-[node name="Cube2" parent="." instance=ExtResource("5_je68d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.397103, 1.33852, 0.273103)
-
-[node name="Cube3" parent="." instance=ExtResource("5_je68d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.45164, 1.35353, 1.52141)
-
 [node name="Fridge" parent="." instance=ExtResource("4_vy4xr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.591016, 0.1, 2.369)
 
@@ -94,3 +86,9 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0138
 
 [node name="basic-counter-v4" parent="." instance=ExtResource("6_i3t2i")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.620876, 0.0999999, -0.497947)
+
+[node name="BunBottomBox" parent="." instance=ExtResource("7_5gd1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41977, 1.12965, 0.0602201)
+
+[node name="BunBottomBox2" parent="." instance=ExtResource("8_j1ief")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41028, 1.13, 0.41233)
