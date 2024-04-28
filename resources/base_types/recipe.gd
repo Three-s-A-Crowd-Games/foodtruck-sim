@@ -46,9 +46,7 @@ static func create_recipe(type: Type) -> Recipe:
 		min_amount = recipes[type].get(Constraints.MINIMUM_AMOUNT)
 	
 	# gather all the ingredients that can be used for this type of recipe
-	var arr = recipes[type][Ingredient.Category]
 	for ingredient_category in recipes[type][Ingredient.Category]:
-		var ass = Ingredient.categories[ingredient_category]
 		possible_ingredients += Ingredient.categories[ingredient_category]
 	
 	# take a random amount of ingredients
@@ -77,10 +75,10 @@ static func create_recipe(type: Type) -> Recipe:
 			assert(new_recipe.ingredients.size() == 0 or new_recipe.ingredients[position] == -1, "Recipe position is already taken")
 			new_recipe.ingredients[position] = ingr
 			used_ingredients.erase(ingr)
-			if position > 0: 
-				open_positions.remove_at(position)
+			if position >= 0: 
+				open_positions.erase(position)
 			else:
-				open_positions.remove_at(amount - position)
+				open_positions.erase(amount + position)
 	
 	for pos in open_positions:
 			assert(used_ingredients.size() > 0, "no more open positions")
