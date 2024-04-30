@@ -1,0 +1,47 @@
+[gd_scene load_steps=6 format=3 uid="uid://canauins47xs5"]
+
+[ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="1_buoe2"]
+[ext_resource type="PackedScene" uid="uid://bqc71xcemsg8s" path="res://resources/food/burger_parts/bun_top.tscn" id="2_kixki"]
+[ext_resource type="PackedScene" uid="uid://dosk17t0rja0m" path="res://assets/models/bunbox.blend" id="3_pcphv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lls25"]
+size = Vector3(0.244385, 0.0127869, 0.21521)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g2dah"]
+resource_local_to_scene = true
+size = Vector3(0.25, 0.02, 0.25)
+
+[node name="BunBottomBox" type="Node3D"]
+
+[node name="BunBoxBody" type="StaticBody3D" parent="."]
+collision_layer = 65537
+collision_mask = 0
+
+[node name="bunbox" parent="BunBoxBody" instance=ExtResource("3_pcphv")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+
+[node name="CollisionPolygon3D" type="CollisionShape3D" parent="BunBoxBody"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00158691, -0.000567868, 0.00494385)
+shape = SubResource("BoxShape3D_lls25")
+
+[node name="ExitDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.127198, 0)
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0474641, 0)
+shape = SubResource("BoxShape3D_g2dah")
+
+[node name="Content" type="Node3D" parent="."]
+script = ExtResource("1_buoe2")
+item_scene = ExtResource("2_kixki")
+
+[node name="BunTop" parent="Content" instance=ExtResource("2_kixki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0128904, 0)
+
+[node name="BunTop2" parent="Content" instance=ExtResource("2_kixki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0713406, 0)
+
+[connection signal="body_exited" from="ExitDetector" to="Content" method="_on_exit_detector_body_exited"]

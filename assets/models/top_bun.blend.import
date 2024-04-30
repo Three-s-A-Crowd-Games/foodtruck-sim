@@ -32,8 +32,8 @@ import_script/path=""
 _subresources={
 "materials": {
 "Bread": {
-"use_external/enabled": false,
-"use_external/path": "res://assets/materials/Bread.tres"
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/bun.tres"
 }
 }
 }

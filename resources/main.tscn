@@ -1,14 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=15 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
-[ext_resource type="PackedScene" uid="uid://b5b4gioxwjbih" path="res://assets/table_mockup.tscn" id="2_3x50d"]
-[ext_resource type="PackedScene" uid="uid://duo6gyalywo6c" path="res://assets/models/stove_v1.blend" id="4_h4nnu"]
-[ext_resource type="PackedScene" uid="uid://2g8x3ig1f60s" path="res://assets/models/order-paper.blend" id="5_lul8e"]
-[ext_resource type="PackedScene" uid="uid://c43mpw7y30r72" path="res://resources/food/burger_parts/bun_bottom.tscn" id="7_aseve"]
-[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="8_0le5a"]
-[ext_resource type="PackedScene" uid="uid://bqc71xcemsg8s" path="res://resources/food/burger_parts/bun_top.tscn" id="9_at0fr"]
-[ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="9_yvro6"]
+[ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="4_1mh3m"]
+[ext_resource type="PackedScene" uid="uid://bqvabt2tjd60m" path="res://resources/objects/appliances/Fridge.tscn" id="4_vy4xr"]
+[ext_resource type="PackedScene" uid="uid://cy5i3tvbg00fq" path="res://assets/models/basic-counter-v1.blend" id="6_i3t2i"]
+[ext_resource type="PackedScene" uid="uid://c54y4lqme3kal" path="res://resources/objects/furniture/BunBottomBox.tscn" id="7_5gd1o"]
+[ext_resource type="PackedScene" uid="uid://j0mlspbmtu5o" path="res://assets/models/counter-small.blend" id="7_y7tau"]
+[ext_resource type="PackedScene" uid="uid://canauins47xs5" path="res://resources/objects/furniture/BunTopBox.tscn" id="8_j1ief"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -38,15 +37,15 @@ script = ExtResource("1_d3g8y")
 environment = SubResource("Environment_hp05l")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0.807644, 4.96356, -5.49786)
+transform = Transform3D(0.990038, -0.0732299, -0.120257, 0.136031, 0.277093, 0.951165, -0.0363313, -0.958048, 0.284295, -6.51748, 6.68123, -2.98491)
 shadow_enabled = true
 
 [node name="XROrigin3D" parent="." instance=ExtResource("1_delsf")]
-
-[node name="Table_mockup" parent="." instance=ExtResource("2_3x50d")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.801208, -2.52053)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.836483, 0, 1.26901)
 
 [node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 8388609
+collision_mask = 524289
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_fjiod")
@@ -55,26 +54,41 @@ shape = SubResource("BoxShape3D_fjiod")
 mesh = SubResource("BoxMesh_d002o")
 surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 
-[node name="stove_v1" parent="." instance=ExtResource("4_h4nnu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94262, 0.868781, -1.67414)
+[node name="Fridge" parent="." instance=ExtResource("4_vy4xr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.591016, 0.1, 2.369)
 
-[node name="order-paper" parent="." instance=ExtResource("5_lul8e")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.62042, 0.1, -2.71536)
+[node name="Stove" parent="." instance=ExtResource("4_1mh3m")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.397, 0.1, 1.62)
 
-[node name="Cube" parent="." instance=ExtResource("8_0le5a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.663741, 1.02465, -2.80419)
+[node name="basic-counter-v1" parent="." instance=ExtResource("6_i3t2i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.3892, 0.0999999, 0.912639)
 
-[node name="Cube2" parent="." instance=ExtResource("8_0le5a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.165103, 1.04511, -2.82137)
+[node name="basic-counter-v2" parent="." instance=ExtResource("6_i3t2i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.38755, 0.1, 0.208232)
 
-[node name="Cube3" parent="." instance=ExtResource("8_0le5a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.312735, 1.04511, -2.83684)
+[node name="basic-counter-v3" parent="." instance=ExtResource("6_i3t2i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.38423, 0.0999999, -0.493291)
 
-[node name="BunBottom" parent="." instance=ExtResource("7_aseve")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.731468, 0.966807, -2.28092)
+[node name="basic-counter-v7" parent="." instance=ExtResource("6_i3t2i")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.40896, 0.0999999, 2.32332)
 
-[node name="Patty" parent="." instance=ExtResource("9_yvro6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.081933, 0.939496, -2.29412)
+[node name="counter-small" parent="." instance=ExtResource("7_y7tau")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0133879, 0.0999999, 2.31972)
 
-[node name="BunTop" parent="." instance=ExtResource("9_at0fr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.660925, 0.944959, -2.28866)
+[node name="counter-small2" parent="." instance=ExtResource("7_y7tau")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0120869, 0.1, 1.61598)
+
+[node name="counter-small3" parent="." instance=ExtResource("7_y7tau")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0130529, 0.1, 0.909046)
+
+[node name="counter-small4" parent="." instance=ExtResource("7_y7tau")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0138095, 0.0999999, 0.205514)
+
+[node name="basic-counter-v4" parent="." instance=ExtResource("6_i3t2i")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.620876, 0.0999999, -0.497947)
+
+[node name="BunBottomBox" parent="." instance=ExtResource("7_5gd1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41977, 1.12965, 0.0602201)
+
+[node name="BunBottomBox2" parent="." instance=ExtResource("8_j1ief")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41028, 1.13, 0.41233)

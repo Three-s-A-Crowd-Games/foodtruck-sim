@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cnsemmhmy7i3m"
-path="res://.godot/imported/bottom_bun.blend-3c6b84f80a37ffa2a7f5b69cd1cb2994.scn"
+uid="uid://j0mlspbmtu5o"
+path="res://.godot/imported/counter-small.blend-9cc771f7972dc52aafe3317b5e7d7d6e.scn"
 
 [deps]
 
-source_file="res://assets/models/bottom_bun.blend"
-dest_files=["res://.godot/imported/bottom_bun.blend-3c6b84f80a37ffa2a7f5b69cd1cb2994.scn"]
+source_file="res://assets/models/counter-small.blend"
+dest_files=["res://.godot/imported/counter-small.blend-9cc771f7972dc52aafe3317b5e7d7d6e.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="BunBottom"
+nodes/root_type=""
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true
@@ -29,14 +29,7 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={
-"materials": {
-"bun_gradient": {
-"use_external/enabled": true,
-"use_external/path": "res://assets/materials/bun.tres"
-}
-}
-}
+_subresources={}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
 blender/nodes/visible=0

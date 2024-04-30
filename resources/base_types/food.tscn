@@ -1,5 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bev1ber2ukq5y"]
+[gd_scene load_steps=3 format=3 uid="uid://bev1ber2ukq5y"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_46wm3"]
+[ext_resource type="Script" path="res://resources/base_types/food.gd" id="2_4u0g5"]
 
 [node name="Food" instance=ExtResource("1_46wm3")]
+script = ExtResource("2_4u0g5")

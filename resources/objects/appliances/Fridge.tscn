@@ -1,0 +1,149 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqvabt2tjd60m"]
+
+[ext_resource type="PackedScene" uid="uid://bxqns2o74anxx" path="res://assets/models/fridge-v1-bottom.blend" id="1_c1n28"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="2_53lw0"]
+[ext_resource type="PackedScene" uid="uid://cqwyq3hkty77m" path="res://assets/models/fridge-v1-lid.blend" id="3_uyly6"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="4_ftork"]
+[ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="5_pbw60"]
+[ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="6_8rkj4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gehbk"]
+size = Vector3(0.3, 0.121802, 0.0889526)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2wavr"]
+resource_local_to_scene = true
+size = Vector3(0.213088, 0.0203809, 0.693116)
+
+[node name="Fridge" type="Node3D"]
+
+[node name="fridge-v1-bottom" parent="." instance=ExtResource("1_c1n28")]
+
+[node name="freezer" parent="fridge-v1-bottom" index="0"]
+transform = Transform3D(0.615546, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.452, 0)
+
+[node name="StaticBody3D" parent="fridge-v1-bottom/freezer" index="0"]
+collision_layer = 65537
+collision_mask = 65537
+
+[node name="separator2" parent="fridge-v1-bottom" index="1"]
+transform = Transform3D(0, -0.615546, 0, 1, 0, 0, 0, 0, 1, -0.116, 0.733, 0)
+
+[node name="StaticBody3D" parent="fridge-v1-bottom/separator2" index="0"]
+collision_layer = 65537
+collision_mask = 65537
+
+[node name="separator1" parent="fridge-v1-bottom" index="2"]
+transform = Transform3D(0, -0.615546, 0, 1, 0, 0, 0, 0, 1, 0.126, 0.733, 0)
+
+[node name="StaticBody3D" parent="fridge-v1-bottom/separator1" index="0"]
+collision_layer = 65537
+collision_mask = 65537
+
+[node name="clamps" parent="fridge-v1-bottom" index="3"]
+transform = Transform3D(0.615546, 0, 0, 0, 0.999947, 0.0102935, 0, -0.0102935, 0.999947, 0.325, 0.857, 0.414)
+
+[node name="HandleGrabber" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912131, 0.41992)
+
+[node name="XRToolsInteractableHinge" type="Node3D" parent="HandleGrabber"]
+script = ExtResource("4_ftork")
+hinge_limit_min = 0.0
+hinge_limit_max = 60.0
+
+[node name="fridge-v1-lid" parent="HandleGrabber/XRToolsInteractableHinge" instance=ExtResource("3_uyly6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.075, 0, 0)
+
+[node name="cover" parent="HandleGrabber/XRToolsInteractableHinge/fridge-v1-lid" index="0"]
+transform = Transform3D(0.615546, 0, 0, 0, 1, 0, 0, 0, 1, 0.474, 0.00142395, 0)
+
+[node name="StaticBody3D" parent="HandleGrabber/XRToolsInteractableHinge/fridge-v1-lid/cover" index="0"]
+collision_layer = 65537
+collision_mask = 65537
+
+[node name="handle" parent="HandleGrabber/XRToolsInteractableHinge/fridge-v1-lid" index="1"]
+transform = Transform3D(0.584873, 0, 0, 0, 0.950169, 0, 0, 0, 0.950169, 0.075, 0, 0)
+
+[node name="StaticBody3D" parent="HandleGrabber/XRToolsInteractableHinge/fridge-v1-lid/handle" index="0"]
+collision_layer = 65537
+collision_mask = 65537
+
+[node name="HandleOrigin" type="Node3D" parent="HandleGrabber/XRToolsInteractableHinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0416747, -0.842778)
+
+[node name="XRToolsInteractableHandle" type="RigidBody3D" parent="HandleGrabber/XRToolsInteractableHinge/HandleOrigin"]
+collision_layer = 4
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("2_53lw0")
+release_mode = 1
+ranged_grab_method = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HandleGrabber/XRToolsInteractableHinge/HandleOrigin/XRToolsInteractableHandle"]
+shape = SubResource("BoxShape3D_gehbk")
+
+[node name="PattyCabinet" type="Node3D" parent="."]
+
+[node name="ExitDetector" type="Area3D" parent="PattyCabinet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.07304, 0)
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PattyCabinet/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246066, -0.15193, -0.00929922)
+shape = SubResource("BoxShape3D_2wavr")
+
+[node name="Content" type="Node3D" parent="PattyCabinet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00264704, 0, -0.000751734)
+script = ExtResource("5_pbw60")
+item_scene = ExtResource("6_8rkj4")
+
+[node name="Patty" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.599732, -0.204802)
+
+[node name="Patty2" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.599732, 0.00219113)
+
+[node name="Patty3" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.599732, 0.212427)
+
+[node name="Patty4" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.650738, -0.204802)
+
+[node name="Patty5" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.650738, 0.00219113)
+
+[node name="Patty6" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.650738, 0.212427)
+
+[node name="Patty7" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.703269, -0.204802)
+
+[node name="Patty8" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.703269, 0.00219113)
+
+[node name="Patty9" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.703269, 0.212427)
+
+[node name="Patty10" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.746176, -0.204802)
+
+[node name="Patty11" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.746176, 0.00219113)
+
+[node name="Patty12" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.746176, 0.212427)
+
+[node name="Patty13" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.813014, -0.204802)
+
+[node name="Patty14" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.813014, 0.00219113)
+
+[node name="Patty15" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.813014, 0.212427)
+
+[connection signal="body_exited" from="PattyCabinet/ExitDetector" to="PattyCabinet/Content" method="_on_exit_detector_body_exited"]
+
+[editable path="fridge-v1-bottom"]
+[editable path="HandleGrabber/XRToolsInteractableHinge/fridge-v1-lid"]

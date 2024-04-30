@@ -194,7 +194,6 @@ static func create_snap(
 	driver.state = State.SNAP
 	driver.target = p_target
 	driver.primary = p_grab
-	driver.global_transform = p_grab.by.global_transform * p_grab.transform.inverse()
 
 	# Snapped to grab-point so report arrived
 	p_grab.set_arrived()
@@ -202,6 +201,7 @@ static func create_snap(
 	# Add the driver as a neighbor of the target as RemoteTransform3D nodes
 	# cannot be descendands of the targets they drive.
 	p_target.get_parent().add_child(driver)
+	driver.global_transform = p_grab.by.global_transform * p_grab.transform.inverse()
 	driver.remote_path = driver.get_path_to(p_target)
 
 	# Return the driver

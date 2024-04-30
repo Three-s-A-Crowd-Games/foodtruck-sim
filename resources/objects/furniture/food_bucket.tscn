@@ -1,0 +1,127 @@
+[gd_scene load_steps=11 format=3 uid="uid://cv28krsptsa4a"]
+
+[ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="1_owpjt"]
+[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="2_vcfy8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tnhnm"]
+size = Vector3(1.05707, 0.001, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8aj35"]
+size = Vector3(0.0984802, 1, 1.01172)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p3uvt"]
+size = Vector3(0.101868, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_srvfb"]
+size = Vector3(0.0982783, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c6p3o"]
+size = Vector3(0.10199, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ticll"]
+size = Vector3(0.0769043, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_arloj"]
+size = Vector3(0.1, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6bon6"]
+resource_local_to_scene = true
+size = Vector3(1.19, 0.02, 1.146)
+
+[node name="FoodBucket" type="Node3D"]
+
+[node name="Bucket" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bucket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00521851, -0.4995, 0)
+shape = SubResource("BoxShape3D_tnhnm")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Bucket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.496719, 0, 0.00585938)
+shape = SubResource("BoxShape3D_8aj35")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Bucket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.496796, 0, 0)
+shape = SubResource("BoxShape3D_p3uvt")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Bucket"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -2.92196e-12, 0, 0.499933)
+shape = SubResource("BoxShape3D_srvfb")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Bucket"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.46736e-11, 0, -0.499664)
+shape = SubResource("BoxShape3D_c6p3o")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Bucket"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -2.63555e-17, -0.464144, -6.02944e-10)
+shape = SubResource("BoxShape3D_ticll")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Bucket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0, 0)
+mesh = SubResource("BoxMesh_arloj")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Bucket"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
+mesh = SubResource("BoxMesh_arloj")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Bucket"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0.5)
+mesh = SubResource("BoxMesh_arloj")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Bucket"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, -0.5)
+mesh = SubResource("BoxMesh_arloj")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Bucket"]
+transform = Transform3D(1.91069e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, 0, -0.45035, 0)
+mesh = SubResource("BoxMesh_arloj")
+
+[node name="ExitDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.603647, 0)
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitDetector"]
+shape = SubResource("BoxShape3D_6bon6")
+
+[node name="Content" type="Node3D" parent="."]
+script = ExtResource("1_owpjt")
+
+[node name="Cube" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.259, -0.23)
+
+[node name="Cube2" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.259, -0.23)
+
+[node name="Cube3" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, -0.259, 0.218826)
+
+[node name="Cube4" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, -0.259, 0.218826)
+
+[node name="Cube5" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.0544042, -0.23)
+
+[node name="Cube6" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.0544042, -0.23)
+
+[node name="Cube7" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.0544042, 0.218826)
+
+[node name="Cube8" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.0544042, 0.218826)
+
+[node name="Cube9" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.371678, -0.23)
+
+[node name="Cube10" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.371678, -0.23)
+
+[node name="Cube11" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0.371678, 0.218826)
+
+[node name="Cube12" parent="Content" instance=ExtResource("2_vcfy8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0.371678, 0.218826)
+
+[connection signal="body_exited" from="ExitDetector" to="Content" method="_on_exit_detector_body_exited"]
