@@ -9,7 +9,7 @@
 	],
 	"label": "Graph",
 	"longdesc": "",
-	"name": "@@322",
+	"name": "322",
 	"node_position": {
 		"x": 0,
 		"y": 0
@@ -36,10 +36,10 @@
 				"ao": 1,
 				"depth_scale": 0.5,
 				"emission_energy": 1,
-				"flags_transparent": true,
+				"flags_transparent": false,
 				"metallic": 0,
 				"normal": 1,
-				"roughness": 1,
+				"roughness": 1.3,
 				"size": 11,
 				"sss": 1
 			},
@@ -55,7 +55,7 @@
 			"parameters": {
 				"clamp": false,
 				"fix_ar": true,
-				"image": "D:/6.sem/wood.webp"
+				"image": "D:/Downloads/wood.jpg"
 			},
 			"seed_int": 0,
 			"type": "image"
