@@ -16,31 +16,19 @@ size = Vector3(0.213088, 0.0203809, 0.693116)
 
 [node name="Fridge" type="Node3D"]
 
-[node name="fridge-v1-bottom" parent="." instance=ExtResource("1_c1n28")]
+[node name="fridge-v1-bottom2" parent="." instance=ExtResource("1_c1n28")]
 
-[node name="freezer" parent="fridge-v1-bottom" index="0"]
-transform = Transform3D(0.615546, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.452, 0)
-
-[node name="StaticBody3D" parent="fridge-v1-bottom/freezer" index="0"]
+[node name="StaticBody3D" parent="fridge-v1-bottom2/freezer" index="0"]
 collision_layer = 65537
 collision_mask = 65537
 
-[node name="separator2" parent="fridge-v1-bottom" index="1"]
-transform = Transform3D(0, -0.615546, 0, 1, 0, 0, 0, 0, 1, -0.116, 0.733, 0)
-
-[node name="StaticBody3D" parent="fridge-v1-bottom/separator2" index="0"]
+[node name="StaticBody3D" parent="fridge-v1-bottom2/separator2" index="0"]
 collision_layer = 65537
 collision_mask = 65537
 
-[node name="separator1" parent="fridge-v1-bottom" index="2"]
-transform = Transform3D(0, -0.615546, 0, 1, 0, 0, 0, 0, 1, 0.126, 0.733, 0)
-
-[node name="StaticBody3D" parent="fridge-v1-bottom/separator1" index="0"]
+[node name="StaticBody3D" parent="fridge-v1-bottom2/separator1" index="0"]
 collision_layer = 65537
 collision_mask = 65537
-
-[node name="clamps" parent="fridge-v1-bottom" index="3"]
-transform = Transform3D(0.615546, 0, 0, 0, 0.999947, 0.0102935, 0, -0.0102935, 0.999947, 0.325, 0.857, 0.414)
 
 [node name="HandleGrabber" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912131, 0.41992)
@@ -145,5 +133,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.813014, 0.212427)
 
 [connection signal="body_exited" from="PattyCabinet/ExitDetector" to="PattyCabinet/Content" method="_on_exit_detector_body_exited"]
 
-[editable path="fridge-v1-bottom"]
+[editable path="fridge-v1-bottom2"]
 [editable path="HandleGrabber/XRToolsInteractableHinge/fridge-v1-lid"]

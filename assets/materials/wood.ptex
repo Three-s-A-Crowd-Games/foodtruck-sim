@@ -1,0 +1,109 @@
+{
+	"connections": [
+		{
+			"from": "greyscale",
+			"from_port": 0,
+			"to": "Material",
+			"to_port": 0
+		},
+		{
+			"from": "noise_anisotropic",
+			"from_port": 0,
+			"to": "gaussian_blur",
+			"to_port": 0
+		},
+		{
+			"from": "gaussian_blur",
+			"from_port": 0,
+			"to": "greyscale",
+			"to_port": 0
+		}
+	],
+	"label": "Graph",
+	"longdesc": "",
+	"name": "@@661",
+	"node_position": {
+		"x": 0,
+		"y": 0
+	},
+	"nodes": [
+		{
+			"export_last_target": "Godot/Godot 4 Standard",
+			"export_paths": {
+				"Godot/Godot 4 Standard": "C:/Users/Petya/Documents/GitHub/foodtruck-sim/assets/materials/wood2"
+			},
+			"name": "Material",
+			"node_position": {
+				"x": 267.361115,
+				"y": -23.611111
+			},
+			"parameters": {
+				"albedo_color": {
+					"a": 1,
+					"b": 0.248507,
+					"g": 0.552112,
+					"r": 0.859375,
+					"type": "Color"
+				},
+				"ao": 1,
+				"depth_scale": 0.5,
+				"emission_energy": 1,
+				"flags_transparent": true,
+				"metallic": 0,
+				"normal": 1,
+				"roughness": 1,
+				"size": 11,
+				"sss": 1
+			},
+			"seed_int": 0,
+			"type": "material"
+		},
+		{
+			"name": "noise_anisotropic",
+			"node_position": {
+				"x": -600,
+				"y": -33.139027
+			},
+			"parameters": {
+				"interpolation": 1,
+				"scale_x": 7,
+				"scale_y": 100,
+				"smoothness": 1
+			},
+			"seed_int": 0,
+			"type": "noise_anisotropic"
+		},
+		{
+			"name": "greyscale",
+			"node_position": {
+				"x": -30.666687,
+				"y": 17.611267
+			},
+			"parameters": {
+				"mode": 0
+			},
+			"seed_int": 0,
+			"type": "greyscale"
+		},
+		{
+			"name": "gaussian_blur",
+			"node_position": {
+				"x": -297.666687,
+				"y": -41.388733
+			},
+			"parameters": {
+				"param0": 9,
+				"param1": 50,
+				"param2": 0
+			},
+			"seed_int": 0,
+			"type": "gaussian_blur"
+		}
+	],
+	"parameters": {
+
+	},
+	"seed_int": 0,
+	"shortdesc": "",
+	"type": "graph"
+}
