@@ -1,18 +1,6 @@
 extends XRToolsSnapZone
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		var recipe: Recipe = Recipe.new()
-		recipe.ingredients = [Ingredient.Type.BUN_BOTTOM, Ingredient.Type.PATTY, Ingredient.Type.BUN_TOP]
-		print("correct? -> ",check_for_order(recipe))
-
-func check_for_order(recipe: Recipe) -> bool:
+func check_for_recipe(recipe: Recipe) -> bool:
 	if not is_instance_valid(recipe):
 		return false
 		
