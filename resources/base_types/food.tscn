@@ -5,3 +5,4 @@
 
 [node name="Food" instance=ExtResource("1_46wm3")]
 script = ExtResource("2_4u0g5")
+type = 0
