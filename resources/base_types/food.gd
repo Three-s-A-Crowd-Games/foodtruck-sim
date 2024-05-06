@@ -1,6 +1,8 @@
 class_name Food
 extends XRToolsPickable
 
+@export var type: Ingredient.Type
+
 var initial_position: Vector3
 var has_left := false
 
