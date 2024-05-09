@@ -16,6 +16,7 @@ radius = 0.02
 [node name="BunBottom" instance=ExtResource("1_cjmcw")]
 collision_mask = 131079
 script = ExtResource("2_d06nd")
+type = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("CylinderShape3D_ccxtb")

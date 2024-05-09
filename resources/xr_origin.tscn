@@ -21,6 +21,8 @@ tracker = &"left_hand"
 [node name="LeftHand" parent="LeftHand" instance=ExtResource("2_pgy03")]
 
 [node name="FunctionPickup" parent="LeftHand" instance=ExtResource("3_0bs62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0297685, 0.0854039)
+grab_distance = 0.1
 
 [node name="MovementDirect" parent="LeftHand" instance=ExtResource("4_4jcw1")]
 
@@ -31,7 +33,10 @@ tracker = &"right_hand"
 [node name="RightHand" parent="RightHand" instance=ExtResource("4_r7dw0")]
 
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("3_0bs62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0489198, 0.077867)
+grab_distance = 0.1
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_1yacy")]
 collision_mask = 8389624
+player_calibrate_height = false
 push_rigid_bodies = false
