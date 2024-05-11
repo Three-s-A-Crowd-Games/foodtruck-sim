@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bm3ixvs3xjcdn"]
+[gd_scene load_steps=6 format=3 uid="uid://bm3ixvs3xjcdn"]
 
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_ebo6m"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_0bs62"]
-[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="4_4jcw1"]
-[ext_resource type="PackedScene" path="res://addons/XRHandtrackingTools/tracked_hand_left.tscn" id="5_fbsw6"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_1yacy"]
-[ext_resource type="PackedScene" path="res://addons/XRHandtrackingTools/tracked_hand_right.tscn" id="6_eghs8"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="3_5fj5y"]
+[ext_resource type="PackedScene" uid="uid://6lsckuqb1cux" path="res://addons/XRHandtrackingTools/tracked_hand_left.tscn" id="5_fbsw6"]
+[ext_resource type="PackedScene" uid="uid://bjfijuv76djxl" path="res://addons/XRHandtrackingTools/tracked_hand_right.tscn" id="6_eghs8"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
 
@@ -15,28 +14,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 [node name="VRCommonShaderCache" parent="XRCamera3D" instance=ExtResource("1_ebo6m")]
 
 [node name="LeftHand" type="XRController3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1.5, -0.5)
+transform = Transform3D(0.19221, -0.669965, -0.717079, 0.977075, 0.19881, 0.0761527, 0.0915429, -0.715277, 0.692819, 0.0182325, 0.0372781, -0.118479)
 tracker = &"left_hand"
 
 [node name="FunctionPickup" parent="LeftHand" instance=ExtResource("3_0bs62")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0297685, 0.0854039)
-grab_distance = 0.1
-
-[node name="MovementDirect" parent="LeftHand" instance=ExtResource("4_4jcw1")]
+grab_distance = 0.06
 
 [node name="RightHand" type="XRController3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1.5, -0.5)
+transform = Transform3D(1, 0, 1.11759e-08, 0, 1, 0, 0, 3.72529e-09, 1, -0.0171604, -0.11899, -0.031826)
+visible = false
 tracker = &"right_hand"
 
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("3_0bs62")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0489198, 0.077867)
-grab_distance = 0.1
+grab_distance = 0.06
 
-[node name="PlayerBody" parent="." instance=ExtResource("6_1yacy")]
-collision_mask = 8389624
+[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="."]
+top_level = true
+script = ExtResource("3_5fj5y")
 player_calibrate_height = false
 push_rigid_bodies = false
 
 [node name="TrackedHandLeft" parent="." instance=ExtResource("5_fbsw6")]
 
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="TrackedHandLeft/Skeleton3D/Physical Bone Index_Distal_L" index="0"]
+transform = Transform3D(1, 7.45058e-09, 7.45058e-09, 0, 1, -2.98023e-08, 2.23517e-08, 0, 1, 0.00278994, -0.0217994, 0.021115)
+remote_path = NodePath("../../../../LeftHand")
+
 [node name="TrackedHandRight" parent="." instance=ExtResource("6_eghs8")]
+
+[node name="RemoteTransform3D2" type="RemoteTransform3D" parent="TrackedHandRight/Skeleton3D/Index_Distal_R" index="0"]
+transform = Transform3D(0.19221, -0.0915426, 0.977075, 0.669965, -0.715277, -0.19881, 0.717079, 0.692819, -0.0761531, 0.00278994, -0.0217994, 0.021115)
+remote_path = NodePath("../../../../RightHand")
+
+[connection signal="input_float_changed" from="LeftHand" to="LeftHand" method="_on_input_float_changed"]
+[connection signal="on_grib_activated" from="TrackedHandLeft" to="LeftHand/FunctionPickup" method="_on_grip_pressed"]
+[connection signal="on_grib_deactivated" from="TrackedHandLeft" to="LeftHand/FunctionPickup" method="_on_grip_release"]
+[connection signal="on_grib_activated" from="TrackedHandRight" to="RightHand/FunctionPickup" method="_on_grip_pressed"]
+[connection signal="on_grib_deactivated" from="TrackedHandRight" to="RightHand/FunctionPickup" method="_on_grip_release"]
+
+[editable path="TrackedHandLeft"]
+[editable path="TrackedHandRight"]

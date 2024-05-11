@@ -1,4 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://bjfijuv76djxl"]
+[gd_scene load_steps=7 format=3 uid="uid://bjfijuv76djxl"]
+
+[ext_resource type="Script" path="res://addons/XRHandtrackingTools/hand_pose_matcher.gd" id="1_ve4iw"]
+[ext_resource type="Script" path="res://addons/XRHandtrackingTools/tracked_hand.gd" id="1_wxas0"]
+[ext_resource type="Resource" uid="uid://g7mibc5sd13l" path="res://addons/XRHandtrackingTools/pose_records.tres" id="2_ra573"]
+[ext_resource type="Script" path="res://addons/XRHandtrackingTools/pose_label.gd" id="4_8oarg"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_lwo7f"]
 resource_name = "right_hand_Mesh"
@@ -101,65 +106,10 @@ bind/25/name = &"Palm_R"
 bind/25/bone = -1
 bind/25/pose = Transform3D(0.083606, -0.0165156, 0.996362, 0.97618, 0.20224, -0.0785601, -0.200207, 0.979197, 0.0330306, 0.00660726, 0.000335467, 0.0515114)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kc7ik"]
-radius = 0.00325173
-height = 0.0325173
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_2uq66"]
-radius = 0.00304639
-height = 0.0304639
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_48mpc"]
-radius = 0.0043287
-height = 0.043287
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bfgjw"]
-radius = 0.00282749
-height = 0.0282749
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b36d8"]
-radius = 0.00228214
-height = 0.0228214
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iavu7"]
-radius = 0.00431065
-height = 0.0431065
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_1dm5o"]
-radius = 0.0033266
-height = 0.033266
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cotpf"]
-radius = 0.00258924
-height = 0.0258924
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sxhx6"]
-radius = 0.00403306
-height = 0.0403306
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_42rqa"]
-radius = 0.00284901
-height = 0.0284901
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sa1xo"]
-radius = 0.00224277
-height = 0.0224277
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_prm0b"]
-radius = 0.00298734
-height = 0.0298734
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lq0ds"]
-radius = 0.00179782
-height = 0.0179782
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_77s6q"]
-radius = 0.0018018
-height = 0.018018
-
 [node name="TrackedHandRight" type="OpenXRHand"]
 hand = 1
 hand_skeleton = NodePath("Skeleton3D")
+script = ExtResource("1_wxas0")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
 bones/0/name = "Wrist_R"
@@ -355,193 +305,99 @@ transform = Transform3D(0.938213, 0.0779998, 0.337155, -0.345551, 0.158372, 0.92
 bone_name = "Thumb_Proximal_R"
 bone_idx = 2
 
-[node name="Bone3" type="CharacterBody3D" parent="Skeleton3D/Thumb_Proximal_R"]
-transform = Transform3D(0.938213, -0.345551, 0.0187494, 0.0779998, 0.158372, -0.984294, 0.337155, 0.924939, 0.175539, 0.00878438, -0.0426924, 0.069423)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="Skeleton3D/Thumb_Proximal_R/Bone3"]
-transform = Transform3D(0.938219, -0.33714, 0.0780026, -0.345537, -0.924944, 0.158379, 0.0187525, -0.175547, -0.984294, -0.0337993, -0.0694537, -0.0572272)
-shape = SubResource("CapsuleShape3D_kc7ik")
-
 [node name="Thumb_Distal_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(0.937245, -0.028425, 0.34751, -0.34818, -0.129157, 0.928488, 0.0184909, -0.991217, -0.130948, -0.0392808, -0.084492, -0.0600814)
 bone_name = "Thumb_Distal_R"
 bone_idx = 3
-
-[node name="Bone4" type="CharacterBody3D" parent="Skeleton3D/Thumb_Distal_R"]
-transform = Transform3D(0.937245, -0.34818, 0.0184909, -0.028425, -0.129157, -0.991217, 0.34751, 0.928488, -0.130948, 0.00850828, -0.0715829, 0.0842327)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="Skeleton3D/Thumb_Distal_R/Bone4"]
-transform = Transform3D(0.937238, -0.347528, -0.0284388, -0.348199, -0.928475, -0.129193, 0.0184936, 0.130987, -0.991212, -0.0445743, -0.0986345, -0.0580862)
-shape = SubResource("CapsuleShape3D_2uq66")
 
 [node name="Index_Proximal_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(0.195334, 0.938881, 0.283455, -0.0843272, -0.271874, 0.958631, 0.977105, -0.211156, 0.026067, 0.0112003, -0.0850221, -0.0373568)
 bone_name = "Index_Proximal_R"
 bone_idx = 6
 
-[node name="Bone6" type="CharacterBody3D" parent="Skeleton3D/Index_Proximal_R"]
-transform = Transform3D(0.195334, -0.0843272, 0.977105, 0.938881, -0.271874, -0.211156, 0.283455, 0.958631, 0.026067, 0.027144, -0.0415191, 0.0793038)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="Skeleton3D/Index_Proximal_R/Bone6"]
-transform = Transform3D(0.195334, -0.283462, 0.938879, -0.0843271, -0.958628, -0.271881, 0.977105, -0.0260653, -0.211156, 0.00506515, -0.10577, -0.0379209)
-shape = SubResource("CapsuleShape3D_48mpc")
-
 [node name="Index_Intermediate_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(0.190616, 0.77151, 0.606991, -0.0932393, -0.601304, 0.793562, 0.977227, -0.207861, -0.0426834, -0.00106996, -0.126518, -0.0384851)
 bone_name = "Index_Intermediate_R"
 bone_idx = 7
-
-[node name="Bone7" type="CharacterBody3D" parent="Skeleton3D/Index_Intermediate_R"]
-transform = Transform3D(0.190616, -0.0932393, 0.977227, 0.77151, -0.601304, -0.207861, 0.606991, 0.793562, -0.0426833, 0.0260161, -0.08325, 0.0994068)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="Skeleton3D/Index_Intermediate_R/Bone7"]
-transform = Transform3D(0.19062, -0.607003, 0.7715, -0.0932344, -0.793552, -0.601317, 0.977226, 0.0426934, -0.207861, -0.00965142, -0.137737, -0.0378815)
-shape = SubResource("CapsuleShape3D_bfgjw")
 
 [node name="Index_Distal_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(0.19221, 0.669965, 0.717079, -0.0915425, -0.715277, 0.692819, 0.977075, -0.19881, -0.0761531, -0.0182329, -0.148956, -0.037278)
 bone_name = "Index_Distal_R"
 bone_idx = 8
 
-[node name="Bone8" type="CharacterBody3D" parent="Skeleton3D/Index_Distal_R"]
-transform = Transform3D(0.19221, -0.0915426, 0.977075, 0.669965, -0.715277, -0.19881, 0.717079, 0.692819, -0.0761531, 0.0262921, -0.101741, 0.113435)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="Skeleton3D/Index_Distal_R/Bone8"]
-transform = Transform3D(0.192208, -0.717084, 0.669961, -0.0915448, -0.692814, -0.715281, 0.977075, 0.0761512, -0.19881, -0.0264153, -0.156861, -0.036409)
-shape = SubResource("CapsuleShape3D_b36d8")
-
 [node name="Middle_Proximal_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(0.0836168, 0.962976, 0.256294, -0.0161448, -0.255851, 0.966581, 0.996367, -0.0849603, -0.00584642, 0.0165289, -0.0851049, -0.00942898)
 bone_name = "Middle_Proximal_R"
 bone_idx = 11
-
-[node name="Bone10" type="CharacterBody3D" parent="Skeleton3D/Middle_Proximal_R"]
-transform = Transform3D(0.0836168, -0.0161448, 0.996367, 0.962976, -0.255851, -0.0849603, 0.256294, 0.966581, -0.00584641, 0.00663863, -0.0384923, 0.0779695)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D10" type="CollisionShape3D" parent="Skeleton3D/Middle_Proximal_R/Bone10"]
-transform = Transform3D(0.0836155, -0.256317, 0.962969, -0.0161403, -0.966575, -0.255875, 0.996367, 0.00585255, -0.0849577, 0.0110046, -0.105938, -0.00930294)
-shape = SubResource("CapsuleShape3D_iavu7")
 
 [node name="Middle_Intermediate_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(0.0867694, 0.835673, 0.542331, -0.0094759, -0.543667, 0.839248, 0.996183, -0.0779601, -0.0392549, 0.0054803, -0.126771, -0.00917693)
 bone_name = "Middle_Intermediate_R"
 bone_idx = 12
 
-[node name="Bone11" type="CharacterBody3D" parent="Skeleton3D/Middle_Intermediate_R"]
-transform = Transform3D(0.0867694, -0.0094759, 0.996183, 0.835673, -0.543667, -0.0779601, 0.542331, 0.839248, -0.0392549, 0.00746511, -0.0742162, 0.10306)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D11" type="CollisionShape3D" parent="Skeleton3D/Middle_Intermediate_R/Bone11"]
-transform = Transform3D(0.0867701, -0.542308, 0.835688, -0.00947559, -0.839263, -0.543644, 0.996191, 0.0392539, -0.0779612, -0.0035399, -0.14073, -0.00852403)
-shape = SubResource("CapsuleShape3D_1dm5o")
-
 [node name="Middle_Distal_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(0.0812013, 0.650531, 0.755126, -0.0155558, -0.756708, 0.653567, 0.996576, -0.0648171, -0.0513262, -0.0125601, -0.15469, -0.00787113)
 bone_name = "Middle_Distal_R"
 bone_idx = 13
-
-[node name="Bone12" type="CharacterBody3D" parent="Skeleton3D/Middle_Distal_R"]
-transform = Transform3D(0.0812013, -0.0155558, 0.996576, 0.650531, -0.756708, -0.0648171, 0.755126, 0.653567, -0.0513262, 0.00645776, -0.109394, 0.110181)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D12" type="CollisionShape3D" parent="Skeleton3D/Middle_Distal_R/Bone12"]
-transform = Transform3D(0.0812015, -0.755123, 0.650534, -0.0155556, -0.653569, -0.756706, 0.996576, 0.0513261, -0.0648172, -0.0223361, -0.163151, -0.00720665)
-shape = SubResource("CapsuleShape3D_cotpf")
 
 [node name="Ring_Proximal_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(-0.0340092, 0.952409, 0.30292, 0.177479, -0.292523, 0.939644, 0.983537, 0.0857186, -0.159084, 0.00986044, -0.0807137, 0.0132409)
 bone_name = "Ring_Proximal_R"
 bone_idx = 16
 
-[node name="Bone14" type="CharacterBody3D" parent="Skeleton3D/Ring_Proximal_R"]
-transform = Transform3D(-0.0340092, 0.177479, 0.983537, 0.952409, -0.292523, 0.0857186, 0.30292, 0.939644, -0.159084, 0.00163747, -0.0341368, 0.0749616)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D14" type="CollisionShape3D" parent="Skeleton3D/Ring_Proximal_R/Bone14"]
-transform = Transform3D(-0.0340091, -0.302931, 0.952405, 0.177479, -0.939641, -0.292533, 0.983537, 0.159083, 0.0857203, 0.00375174, -0.0996618, 0.0164488)
-shape = SubResource("CapsuleShape3D_sxhx6")
-
 [node name="Ring_Intermediate_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(-0.036306, 0.837961, 0.544522, 0.173022, -0.531381, 0.829275, 0.984249, 0.124322, -0.125693, -0.00235694, -0.11861, 0.0196568)
 bone_name = "Ring_Intermediate_R"
 bone_idx = 17
-
-[node name="Bone15" type="CharacterBody3D" parent="Skeleton3D/Ring_Intermediate_R"]
-transform = Transform3D(-0.036306, 0.173022, 0.984249, 0.837961, -0.531381, 0.124322, 0.544522, 0.829275, -0.125693, 0.00108934, -0.0634958, 0.102114)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D15" type="CollisionShape3D" parent="Skeleton3D/Ring_Intermediate_R/Bone15"]
-transform = Transform3D(-0.0363035, -0.544516, 0.837965, 0.173026, -0.829282, -0.531374, 0.984252, 0.125699, 0.124321, -0.0101136, -0.130423, 0.0214474)
-shape = SubResource("CapsuleShape3D_42rqa")
 
 [node name="Ring_Distal_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(-0.0304371, 0.661178, 0.749611, 0.179154, -0.734205, 0.654864, 0.98335, 0.154228, -0.0961053, -0.0178702, -0.142236, 0.0232379)
 bone_name = "Ring_Distal_R"
 bone_idx = 18
 
-[node name="Bone16" type="CharacterBody3D" parent="Skeleton3D/Ring_Distal_R"]
-transform = Transform3D(-0.0304371, 0.179154, 0.98335, 0.661178, -0.734205, 0.154228, 0.749611, 0.654864, -0.0961053, 0.00208715, -0.0961991, 0.108774)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D16" type="CollisionShape3D" parent="Skeleton3D/Ring_Distal_R/Bone16"]
-transform = Transform3D(-0.0304414, -0.749656, 0.661128, 0.179153, -0.654815, -0.734249, 0.98335, 0.0960915, 0.154237, -0.026277, -0.149579, 0.0243155)
-shape = SubResource("CapsuleShape3D_sa1xo")
-
 [node name="Little_Proximal_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(-0.237988, 0.951124, 0.196787, 0.233001, -0.140785, 0.962232, 0.942906, 0.274851, -0.188107, -0.00212697, -0.0746066, 0.0376812)
 bone_name = "Little_Proximal_R"
 bone_idx = 21
-
-[node name="Bone18" type="CharacterBody3D" parent="Skeleton3D/Little_Proximal_R"]
-transform = Transform3D(-0.237988, 0.233001, 0.942906, 0.951124, -0.140785, 0.274851, 0.196787, 0.962232, -0.188107, -0.0186526, -0.0188372, 0.0792955)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D18" type="CollisionShape3D" parent="Skeleton3D/Little_Proximal_R/Bone18"]
-transform = Transform3D(-0.237986, -0.196794, 0.951123, 0.233009, -0.962229, -0.14079, 0.942905, 0.188114, 0.274852, -0.00506646, -0.0889792, 0.040491)
-shape = SubResource("CapsuleShape3D_prm0b")
 
 [node name="Little_Intermediate_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(-0.229867, 0.865478, 0.445095, 0.254158, -0.388087, 0.885885, 0.939449, 0.316761, -0.13076, -0.00800588, -0.103352, 0.0433008)
 bone_name = "Little_Intermediate_R"
 bone_idx = 22
 
-[node name="Bone19" type="CharacterBody3D" parent="Skeleton3D/Little_Intermediate_R"]
-transform = Transform3D(-0.229867, 0.254158, 0.939449, 0.865478, -0.388087, 0.316761, 0.445095, 0.885885, -0.13076, -0.0162515, -0.0468965, 0.100783)
-collision_layer = 131072
-collision_mask = 7
-
-[node name="CollisionShape3D19" type="CollisionShape3D" parent="Skeleton3D/Little_Intermediate_R/Bone19"]
-transform = Transform3D(-0.229875, -0.445079, 0.865484, 0.254144, -0.885895, -0.388074, 0.939451, 0.130749, 0.316759, -0.0120068, -0.111315, 0.0444761)
-shape = SubResource("CapsuleShape3D_lq0ds")
-
 [node name="Little_Distal_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(-0.244295, 0.749373, 0.615435, 0.233295, -0.570604, 0.787391, 0.941219, 0.335933, -0.0354292, -0.0160076, -0.119278, 0.0456514)
 bone_name = "Little_Distal_R"
 bone_idx = 23
 
-[node name="Bone20" type="CharacterBody3D" parent="Skeleton3D/Little_Distal_R"]
-transform = Transform3D(-0.244295, 0.233295, 0.941219, 0.749373, -0.570604, 0.335933, 0.615435, 0.787391, -0.0354292, -0.0190515, -0.0714009, 0.105388)
-collision_layer = 131072
-collision_mask = 7
+[node name="HandPoseMatcher" type="Node" parent="." node_paths=PackedStringArray("skeleton")]
+script = ExtResource("1_ve4iw")
+skeleton = NodePath("../Skeleton3D")
+pose_catalogue = ExtResource("2_ra573")
+poses_to_recognize = {
+"Cup": true,
+"Fist": true,
+"Five": true,
+"Four": true,
+"Grip": true,
+"Horns": true,
+"Metal": true,
+"OK": true,
+"One": true,
+"Phone": true,
+"Pistol": true,
+"Rest": true,
+"Three": true,
+"Thumb": true,
+"Two": true
+}
 
-[node name="CollisionShape3D20" type="CollisionShape3D" parent="Skeleton3D/Little_Distal_R/Bone20"]
-transform = Transform3D(-0.244283, -0.615435, 0.749377, 0.233273, -0.787392, -0.570612, 0.941228, 0.035419, 0.33591, -0.0215521, -0.126372, 0.0459705)
-shape = SubResource("CapsuleShape3D_77s6q")
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100231, 0)
+text = "Nix"
+font_size = 11
+outline_size = 4
+script = ExtResource("4_8oarg")
+
+[connection signal="new_pose" from="HandPoseMatcher" to="." method="_on_hand_pose_matcher_new_pose"]
+[connection signal="new_pose" from="HandPoseMatcher" to="Label3D" method="_on_hand_pose_matcher_new_pose"]
