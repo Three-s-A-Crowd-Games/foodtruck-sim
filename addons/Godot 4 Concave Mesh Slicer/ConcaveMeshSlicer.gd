@@ -1,3 +1,4 @@
+@static_unload
 extends Node
 
 
@@ -5,13 +6,13 @@ class_name MeshSlicer
 
 
 
-var vert_slice = []
+static var vert_slice = []
 
-var mdt = MeshDataTool.new() 
+static var mdt = MeshDataTool.new() 
 
 
 
-func _convertToArrayMesh(mesh:Mesh):
+static func _convertToArrayMesh(mesh:Mesh):
 	var surface_tool := SurfaceTool.new()
 	var new_mesh = ArrayMesh.new()
 	for i in range(mesh.get_surface_count()):
@@ -24,7 +25,7 @@ func _convertToArrayMesh(mesh:Mesh):
 
 
 ##Slice a mesh in half using Transform3D as the local position and direction. Return an array of the sliced meshes. The cross-section material is positioned and rotated base on the Transform3D
-func slice_mesh(slice_transform:Transform3D,mesh:Mesh,cross_section_material:Material = null) -> Array:
+static func slice_mesh(slice_transform:Transform3D,mesh:Mesh,cross_section_material:Material = null) -> Array:
 	mesh = _convertToArrayMesh(mesh)
 	
 	var normal = -slice_transform.basis.z
@@ -304,7 +305,7 @@ func slice_mesh(slice_transform:Transform3D,mesh:Mesh,cross_section_material:Mat
 	return[new_mesh,new_mesh2]
 	
 
-func _set_holes(polygons,norm,slice_transform):
+static func _set_holes(polygons,norm,slice_transform):
 	if len(polygons) <= 1:
 		return polygons
 	else:
@@ -438,7 +439,7 @@ func _set_holes(polygons,norm,slice_transform):
 		return polygons
 				
 
-func _add_to_vert_slice(v1,v2):
+static func _add_to_vert_slice(v1,v2):
 	if typeof(v1) == TYPE_ARRAY:
 		v1 = round(v1[0]*10000)/10000
 	else:
@@ -450,7 +451,7 @@ func _add_to_vert_slice(v1,v2):
 		v2 = round(mdt.get_vertex(v2)*10000)/10000
 	vert_slice.append([v1,v2])
 		
-func _find_closest_edge(norm1:Vector3,norm2:Vector3,norm_to:Vector3,vert1:Vector3,vert2:Vector3,vert_to:Vector3):
+static func _find_closest_edge(norm1:Vector3,norm2:Vector3,norm_to:Vector3,vert1:Vector3,vert2:Vector3,vert_to:Vector3):
 	var mid_point = (vert1+vert_to)/2
 
 	var to_side = _check_side(mid_point,norm_to,vert_to)
@@ -483,7 +484,7 @@ func _find_closest_edge(norm1:Vector3,norm2:Vector3,norm_to:Vector3,vert1:Vector
 			return 0
 		else:
 			return 1
-func _sort_verts():
+static func _sort_verts():
 
 
 	var sorted_list = []
@@ -577,10 +578,10 @@ func _sort_verts():
 	return list_of_sorted_list
 	
 	
-func _get_triangle_normal(p1:Vector3,p2:Vector3,p3:Vector3):
+static func _get_triangle_normal(p1:Vector3,p2:Vector3,p3:Vector3):
 	return -Plane(p1,p2,p3).normal
 
-func _is_in_sorted_list(sorted_list,value):
+static func _is_in_sorted_list(sorted_list,value):
 	return sorted_list.has(value)
 
 
@@ -588,16 +589,16 @@ func _is_in_sorted_list(sorted_list,value):
 
 
 
-func _check_side(point:Vector3,normal:Vector3,plane_at:Vector3):
+static func _check_side(point:Vector3,normal:Vector3,plane_at:Vector3):
 	var relative_pos = plane_at - round(point*10000)/10000
 	var dot = round(normal.dot(relative_pos)*10000)/10000
 	return -sign(dot)
 
 
-func _get_uv(ttransform: Transform3D, pos: Vector3) -> Vector2:
+static func _get_uv(ttransform: Transform3D, pos: Vector3) -> Vector2:
 	var value = _to_transform_local2(ttransform,pos)
 	return Vector2(value.x,value.y)
-func _to_transform_local(Transform: Transform3D, global_pos: Vector3) -> Vector3:
+static func _to_transform_local(Transform: Transform3D, global_pos: Vector3) -> Vector3:
 	var xform := Transform.affine_inverse()
 	return Vector3(
 		xform.basis[0].dot(global_pos) + xform.origin.x,
@@ -605,14 +606,14 @@ func _to_transform_local(Transform: Transform3D, global_pos: Vector3) -> Vector3
 		xform.basis[2].dot(global_pos) + xform.origin.z
 	)
 		
-func _to_transform_local2(Transform: Transform3D, global_pos: Vector3) -> Vector3:
+static func _to_transform_local2(Transform: Transform3D, global_pos: Vector3) -> Vector3:
 	var xform := Transform.affine_inverse()
 	return Vector3(
 		Transform.basis[0].dot(global_pos) + xform.origin.x ,
 		Transform.basis[1].dot(global_pos) + xform.origin.y,
 		Transform.basis[2].dot(global_pos) + xform.origin.z
 	)
-func _line_plane_intersection(line_start:Vector3,line_end:Vector3,plane_at:Vector3,plane_norm:Vector3):
+static func _line_plane_intersection(line_start:Vector3,line_end:Vector3,plane_at:Vector3,plane_norm:Vector3):
 	round(line_start*10000)/10000
 	round(line_end*10000)/10000
 	var v = line_end - line_start
