@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_ebo6m"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_0bs62"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/player/player_body.gd" id="3_5fj5y"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_xn5w2"]
 [ext_resource type="PackedScene" uid="uid://6lsckuqb1cux" path="res://addons/XRHandtrackingTools/tracked_hand_left.tscn" id="5_fbsw6"]
 [ext_resource type="PackedScene" uid="uid://bjfijuv76djxl" path="res://addons/XRHandtrackingTools/tracked_hand_right.tscn" id="6_eghs8"]
 
@@ -14,24 +14,22 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 [node name="VRCommonShaderCache" parent="XRCamera3D" instance=ExtResource("1_ebo6m")]
 
 [node name="LeftHand" type="XRController3D" parent="."]
-transform = Transform3D(0.19221, -0.669965, -0.717079, 0.977075, 0.19881, 0.0761527, 0.0915429, -0.715277, 0.692819, 0.0182325, 0.0372781, -0.118479)
+transform = Transform3D(0.19221, -0.669965, -0.717079, 0.977075, 0.19881, 0.0761527, 0.0915429, -0.715277, 0.692819, 0.0182324, 0.0372781, -0.118479)
 tracker = &"left_hand"
 
 [node name="FunctionPickup" parent="LeftHand" instance=ExtResource("3_0bs62")]
 grab_distance = 0.06
 
 [node name="RightHand" type="XRController3D" parent="."]
-transform = Transform3D(1, 0, 1.11759e-08, 0, 1, 0, 0, 3.72529e-09, 1, -0.0171604, -0.11899, -0.031826)
+transform = Transform3D(1, -2.98023e-08, 3.72529e-09, 2.98023e-08, 1, -3.72529e-09, -1.11759e-08, -7.82311e-08, 1, -0.0171604, -0.11899, -0.031826)
 visible = false
 tracker = &"right_hand"
 
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("3_0bs62")]
 grab_distance = 0.06
 
-[node name="XRToolsPlayerBody" type="CharacterBody3D" parent="."]
-top_level = true
-script = ExtResource("3_5fj5y")
-player_calibrate_height = false
+[node name="PlayerBody" parent="." instance=ExtResource("4_xn5w2")]
+collision_mask = 8389624
 push_rigid_bodies = false
 
 [node name="TrackedHandLeft" parent="." instance=ExtResource("5_fbsw6")]
