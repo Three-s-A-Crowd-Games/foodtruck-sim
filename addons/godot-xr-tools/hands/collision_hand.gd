@@ -229,3 +229,12 @@ func _update_target() -> void:
 	# Use first target override if specified
 	if _target_overrides.size():
 		_target = _target_overrides[0].target
+
+
+func _on_function_pickup_has_picked_up(what):
+	if (not what is XRToolsInteractableHandle):
+		collision_mask = 1
+
+
+func _on_function_pickup_has_dropped():
+	collision_mask = 0
