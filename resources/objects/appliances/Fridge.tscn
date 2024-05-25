@@ -32,7 +32,6 @@ collision_mask = 65537
 
 [node name="HandleGrabber" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912131, 0.41992)
-visible = false
 
 [node name="XRToolsInteractableHinge" type="Node3D" parent="HandleGrabber"]
 script = ExtResource("4_ftork")
