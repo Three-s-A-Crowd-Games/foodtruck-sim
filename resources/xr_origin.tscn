@@ -1,15 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://bm3ixvs3xjcdn"]
+[gd_scene load_steps=7 format=3 uid="uid://bm3ixvs3xjcdn"]
 
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_ebo6m"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/collision_hand.gd" id="2_s4csr"]
+[ext_resource type="Script" path="res://resources/components/ObjectCollision.gd" id="2_4trl5"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_0bs62"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_xn5w2"]
 [ext_resource type="PackedScene" uid="uid://6lsckuqb1cux" path="res://addons/XRHandtrackingTools/tracked_hand_left.tscn" id="5_fbsw6"]
 [ext_resource type="PackedScene" uid="uid://bjfijuv76djxl" path="res://addons/XRHandtrackingTools/tracked_hand_right.tscn" id="6_eghs8"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_lckl2"]
-radius = 0.0482898
-height = 0.185418
 
 [node name="XROrigin3D" type="XROrigin3D"]
 
@@ -25,15 +21,11 @@ tracker = &"left_hand"
 [node name="XRToolsCollisionHand" type="AnimatableBody3D" parent="LeftHand"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("2_s4csr")
+script = ExtResource("2_4trl5")
 
 [node name="FunctionPickup" parent="LeftHand/XRToolsCollisionHand" instance=ExtResource("3_0bs62")]
 transform = Transform3D(1, 7.45058e-09, -7.45058e-09, 0, 1, 0, 7.45058e-09, 0, 1, 0, 0, 0)
 grab_distance = 0.06
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand/XRToolsCollisionHand"]
-transform = Transform3D(0.987489, 0.0925465, 0.127632, 0.155337, -0.709444, -0.687424, 0.0269293, 0.698653, -0.714949, -0.02388, -0.0430212, 0.0274059)
-shape = SubResource("CapsuleShape3D_lckl2")
 
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(1, -2.98023e-08, 3.72529e-09, 2.98023e-08, 1, -3.72529e-09, -1.11759e-08, -7.82311e-08, 1, -0.0171604, -0.11899, -0.031826)
@@ -42,15 +34,11 @@ tracker = &"right_hand"
 [node name="XRToolsCollisionHand" type="AnimatableBody3D" parent="RightHand"]
 collision_layer = 0
 collision_mask = 0
-script = ExtResource("2_s4csr")
+script = ExtResource("2_4trl5")
 
 [node name="FunctionPickup" parent="RightHand/XRToolsCollisionHand" instance=ExtResource("3_0bs62")]
 transform = Transform3D(1, 2.91433e-16, -2.22045e-16, -4.16334e-17, 1, 0, 0, -7.10543e-15, 1, 0, 0, 0)
 grab_distance = 0.06
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand/XRToolsCollisionHand"]
-transform = Transform3D(0.999996, 2.91433e-16, 0, -4.16332e-17, 0.999997, 0, -1.24345e-14, -9.9476e-14, 0.999999, -0.00017455, 0.0407499, 0.0268332)
-shape = SubResource("CapsuleShape3D_lckl2")
 
 [node name="PlayerBody" parent="." instance=ExtResource("4_xn5w2")]
 collision_mask = 8389624
