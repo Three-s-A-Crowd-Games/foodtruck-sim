@@ -34,4 +34,5 @@ tracker = &"right_hand"
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_1yacy")]
 collision_mask = 8389624
+player_calibrate_height = false
 push_rigid_bodies = false

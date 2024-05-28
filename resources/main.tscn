@@ -118,10 +118,10 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0138
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.620876, 0.0999999, -0.497947)
 
 [node name="BunBottomBox" parent="." instance=ExtResource("7_5gd1o")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.51183, 1.12965, 1.44827)
+transform = Transform3D(0.999992, 0, 0.0039618, 0, 1, 0, -0.0039618, 0, 0.999992, 1.19, 1.14801, -3.18083)
 
 [node name="BunBottomBox2" parent="." instance=ExtResource("8_j1ief")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.15972, 1.13, 1.45776)
+transform = Transform3D(0.999992, 0, 0.0039618, 0, 1, 0, -0.0039618, 0, 0.999992, 1.20088, 1.14836, -2.82876)
 
 [node name="basic-fryer-v1" parent="." instance=ExtResource("9_d3ke6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.50367, 0.0999999, 2.68534)
