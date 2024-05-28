@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=18 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://j0mlspbmtu5o" path="res://assets/models/counter-small.blend" id="7_y7tau"]
 [ext_resource type="PackedScene" uid="uid://canauins47xs5" path="res://resources/objects/furniture/BunTopBox.tscn" id="8_j1ief"]
 [ext_resource type="PackedScene" uid="uid://cuama8nf0dpn4" path="res://assets/models/basic-fryer-v1.blend" id="9_d3ke6"]
+[ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/truck_v1.blend" id="10_vl4gb"]
+[ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -42,7 +44,7 @@ transform = Transform3D(0.990038, -0.0732299, -0.120257, 0.136031, 0.277093, 0.9
 shadow_enabled = true
 
 [node name="XROrigin3D" parent="." instance=ExtResource("1_delsf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.23515, 0, 2.32364)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.23515, 0, -2.46051)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 8388609
@@ -123,3 +125,17 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.1597
 
 [node name="basic-fryer-v1" parent="." instance=ExtResource("9_d3ke6")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.50367, 0.0999999, 2.68534)
+
+[node name="truck_v1" parent="." instance=ExtResource("10_vl4gb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25114, 0.146307, -2.42661)
+
+[node name="Point" parent="truck_v1" index="4"]
+light_energy = 0.97
+
+[node name="Stove2" parent="." instance=ExtResource("4_1mh3m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.78657, 0.146526, -3.02028)
+
+[node name="Fridge2" parent="." instance=ExtResource("11_js3xx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.0905, 0.13644, -2.21278)
+
+[editable path="truck_v1"]
