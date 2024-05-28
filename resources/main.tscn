@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
-[ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
+[ext_resource type="PackedScene" path="res://resources/xr_origin.tscn" id="1_delsf"]
 [ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="4_1mh3m"]
 [ext_resource type="PackedScene" uid="uid://bqvabt2tjd60m" path="res://resources/objects/appliances/Fridge.tscn" id="4_vy4xr"]
 [ext_resource type="PackedScene" uid="uid://cy5i3tvbg00fq" path="res://assets/models/basic-counter-v1.blend" id="6_i3t2i"]

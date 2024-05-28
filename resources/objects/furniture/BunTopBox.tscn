@@ -9,7 +9,7 @@ size = Vector3(0.244385, 0.0127869, 0.21521)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2dah"]
 resource_local_to_scene = true
-size = Vector3(0.25, 0.02, 0.25)
+size = Vector3(0.25, 0.179434, 0.25)
 
 [node name="BunBottomBox" type="Node3D"]
 
@@ -31,7 +31,7 @@ collision_mask = 65536
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ExitDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0474641, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0322527, 0)
 shape = SubResource("BoxShape3D_g2dah")
 
 [node name="Content" type="Node3D" parent="."]
