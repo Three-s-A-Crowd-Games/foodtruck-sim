@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dem7r35gyw81i"]
+[gd_scene load_steps=18 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" path="res://resources/xr_origin.tscn" id="1_delsf"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://c54y4lqme3kal" path="res://resources/objects/furniture/BunBottomBox.tscn" id="7_5gd1o"]
 [ext_resource type="PackedScene" uid="uid://j0mlspbmtu5o" path="res://assets/models/counter-small.blend" id="7_y7tau"]
 [ext_resource type="PackedScene" uid="uid://canauins47xs5" path="res://resources/objects/furniture/BunTopBox.tscn" id="8_j1ief"]
+[ext_resource type="PackedScene" uid="uid://cuama8nf0dpn4" path="res://assets/models/basic-fryer-v1.blend" id="9_d3ke6"]
+[ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/truck_v1.blend" id="10_vl4gb"]
+[ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -41,7 +44,7 @@ transform = Transform3D(0.990038, -0.0732299, -0.120257, 0.136031, 0.277093, 0.9
 shadow_enabled = true
 
 [node name="XROrigin3D" parent="." instance=ExtResource("1_delsf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.836483, 0, 1.26901)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2.23515, 0, -2.46051)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 8388609
@@ -57,11 +60,20 @@ surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 [node name="Fridge" parent="." instance=ExtResource("4_vy4xr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.591016, 0.1, 2.369)
 
+[node name="Fridge" parent="Fridge" instance=ExtResource("4_vy4xr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.91008, -0.00424912, 1.01728)
+
 [node name="Stove" parent="." instance=ExtResource("4_1mh3m")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.397, 0.1, 1.62)
 
+[node name="Stove" parent="Stove" instance=ExtResource("4_1mh3m")]
+transform = Transform3D(1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0.412836, 0.0022665, -2.90216)
+
 [node name="basic-counter-v1" parent="." instance=ExtResource("6_i3t2i")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.3892, 0.0999999, 0.912639)
+
+[node name="basic-counter-v1" parent="basic-counter-v1" instance=ExtResource("6_i3t2i")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 2.48504, -0.00221116, -2.94976)
 
 [node name="basic-counter-v2" parent="." instance=ExtResource("6_i3t2i")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.38755, 0.1, 0.208232)
@@ -78,6 +90,24 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0133
 [node name="counter-small2" parent="." instance=ExtResource("7_y7tau")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0120869, 0.1, 1.61598)
 
+[node name="counter-small2" parent="counter-small2" instance=ExtResource("7_y7tau")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.134175, 0.00352112, -1.49435)
+
+[node name="counter-small2" parent="counter-small2/counter-small2" instance=ExtResource("7_y7tau")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.704053, 0.00352112, 0.0048629)
+
+[node name="counter-small2" parent="counter-small2/counter-small2/counter-small2" instance=ExtResource("7_y7tau")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 0.711875, 0.00352112, 1.95998)
+
+[node name="counter-small2" parent="counter-small2/counter-small2/counter-small2/counter-small2" instance=ExtResource("7_y7tau")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0.703107, 0.00352112, 0.000479937)
+
+[node name="counter-small2" parent="counter-small2/counter-small2/counter-small2/counter-small2/counter-small2" instance=ExtResource("7_y7tau")]
+transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0.703107, 0.00352112, 0.000479937)
+
+[node name="counter-small2" parent="counter-small2/counter-small2/counter-small2/counter-small2/counter-small2/counter-small2" instance=ExtResource("7_y7tau")]
+transform = Transform3D(-2.18557e-07, 0, -1, 0, 1, 0, 1, 0, -2.18557e-07, 0.554062, 0.00352112, -0.148565)
+
 [node name="counter-small3" parent="." instance=ExtResource("7_y7tau")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0130529, 0.1, 0.909046)
 
@@ -88,7 +118,24 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0138
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.620876, 0.0999999, -0.497947)
 
 [node name="BunBottomBox" parent="." instance=ExtResource("7_5gd1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41977, 1.12965, 0.0602201)
+transform = Transform3D(0.999992, 0, 0.0039618, 0, 1, 0, -0.0039618, 0, 0.999992, 1.19, 1.14801, -3.18083)
 
 [node name="BunBottomBox2" parent="." instance=ExtResource("8_j1ief")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41028, 1.13, 0.41233)
+transform = Transform3D(0.999992, 0, 0.0039618, 0, 1, 0, -0.0039618, 0, 0.999992, 1.20088, 1.14836, -2.82876)
+
+[node name="basic-fryer-v1" parent="." instance=ExtResource("9_d3ke6")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.50367, 0.0999999, 2.68534)
+
+[node name="truck_v1" parent="." instance=ExtResource("10_vl4gb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25114, 0.146307, -2.42661)
+
+[node name="Point" parent="truck_v1" index="4"]
+light_energy = 0.97
+
+[node name="Stove2" parent="." instance=ExtResource("4_1mh3m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.78657, 0.146526, -3.02028)
+
+[node name="Fridge2" parent="." instance=ExtResource("11_js3xx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.0905, 0.13644, -2.21278)
+
+[editable path="truck_v1"]
