@@ -6,7 +6,7 @@ var slice_positions: Array[float]
 var slices_left: int
 var slice_width: float
 @export var slice_scene: PackedScene = preload("res://resources/cube2.tscn")
-@export var slice_count := 2
+@export var slice_count := 4
 @onready var sliceable := get_parent()
 
 # Called when the node enters the scene tree for the first time.
@@ -28,7 +28,6 @@ func _ready():
 
 func _on_body_entered(body):
 	slice()
-	print("EEEEEE")
 
 func slice():
 	if slices_left <= 1: return
@@ -66,8 +65,17 @@ func _create_slice(mesh: Mesh, trans: Transform3D) -> Node:
 	
 	_adjust_collision_shape(slice, mesh)
 	
+	if slice_count % 2 == 0:
+		mesh_node.position.x += slice_width * (ceil(slice_count/2.0) - slices_left + 0.5)
+		slice.get_node_or_null("CollisionShape3D").position.x += slice_width * (ceil(slice_count/2.0) - slices_left + 0.5)
+	else:
+		mesh_node.position.x += slice_width * (ceil(slice_count/2.0) - slices_left)
+		slice.get_node_or_null("CollisionShape3D").position.x += slice_width * (ceil(slice_count/2.0) - slices_left)
+	
 	slice.transform = sliceable.transform
 	slice.transform.origin += slice.basis.x * slice_width * slices_left
+	
+	_attach_stack_zone(slice)
 	
 	var s = slice.get_node_or_null("Sliceable")
 	if s:
@@ -75,6 +83,18 @@ func _create_slice(mesh: Mesh, trans: Transform3D) -> Node:
 		s.queue_free()
 	
 	return slice
+	
+
+func _attach_stack_zone(slice: Node3D) -> void:
+	var stack_zone: BurgerStackZone = load("res://resources/components/burger_stack_zone.tscn").instantiate()
+	stack_zone.rotate_z(PI/2)
+	stack_zone.position.x -= (slice_width/2 + stack_zone.get_node("CollisionShape3D").shape.radius)
+	slice.add_child(stack_zone)
+	
+	var stack_zone2: BurgerStackZone = load("res://resources/components/burger_stack_zone.tscn").instantiate()
+	stack_zone2.rotate_z(-PI/2)
+	stack_zone2.position.x += (slice_width/2 + stack_zone2.get_node("CollisionShape3D").shape.radius)
+	slice.add_child(stack_zone2)
 
 func _find_mesh_child_node(node: Node) -> MeshInstance3D:
 	if node is MeshInstance3D: return node

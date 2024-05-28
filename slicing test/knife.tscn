@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://duv6cyyl37x4j"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_aidih"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_r3qbb"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_j7vh4"]
+
+[node name="Knife" instance=ExtResource("1_aidih")]
+picked_up_layer = 65568
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_r3qbb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("BoxMesh_j7vh4")

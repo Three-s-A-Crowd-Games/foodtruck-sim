@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://5b36bokc0k4k"]
+[gd_scene load_steps=10 format=3 uid="uid://5b36bokc0k4k"]
 
-[ext_resource type="Script" path="res://slicing test/CharacterBody3D.gd" id="2_w68ya"]
+[ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://slicing test/knife.tscn" id="2_wpesg"]
+[ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="3_ot66u"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="3_ynbpl"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
@@ -26,18 +27,6 @@ size = Vector3(20, 1, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6nylu"]
 size = Vector3(20, 1, 20)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ojua1"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ldye4"]
-size = Vector3(0.01, 3, 5)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_buiif"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_bpu4f"]
-material = SubResource("StandardMaterial3D_buiif")
-size = Vector3(0.01, 3, 5)
-
 [node name="SliceTest" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -48,6 +37,7 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 51
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -57,24 +47,11 @@ mesh = SubResource("BoxMesh_kynpv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_6nylu")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(0.547943, 0, 0.836516, 0, 1, 0, -0.836516, 0, 0.547943, 4.5741, 0, 5.58641)
-script = ExtResource("2_w68ya")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("CapsuleShape3D_ojua1")
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-
-[node name="Guillotine" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.37911, 13.7404, 1.30731)
-collision_layer = 32
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Guillotine"]
-shape = SubResource("BoxShape3D_ldye4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Guillotine"]
-mesh = SubResource("BoxMesh_bpu4f")
-
 [node name="Cube" parent="." instance=ExtResource("3_ynbpl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.92281, 1, 1.46064)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8064, 1, 1.46064)
+collision_mask = 131079
+
+[node name="XROrigin3D" parent="." instance=ExtResource("3_ot66u")]
+
+[node name="Knife" parent="." instance=ExtResource("2_wpesg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14486, 0)
