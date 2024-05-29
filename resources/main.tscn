@@ -67,7 +67,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05273, 1.00819, -0.758568)
 [node name="Point" parent="Truck/truck_v1" index="2"]
 light_energy = 0.97
 
+[node name="StaticBody3D" parent="Truck/truck_v1/0" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
+
+[node name="StaticBody3D" parent="Truck/truck_v1/right-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
+
+[node name="StaticBody3D" parent="Truck/truck_v1/front-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
+
 [node name="StaticBody3D" parent="Truck/truck_v1/bottom-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
+
+[node name="StaticBody3D" parent="Truck/truck_v1/back-wall" index="0"]
 collision_layer = 8388609
 collision_mask = 524289
 
