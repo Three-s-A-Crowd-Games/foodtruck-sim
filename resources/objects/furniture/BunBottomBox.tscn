@@ -40,16 +40,13 @@ item_scene = ExtResource("2_3uq4g")
 [node name="BunBottom" parent="Content" instance=ExtResource("2_3uq4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0345346, 0)
 ranged_grab_method = 1
-ranged_grab_speed = 20.0
 
 [node name="BunBottom2" parent="Content" instance=ExtResource("2_3uq4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0690693, 0)
 ranged_grab_method = 1
-ranged_grab_speed = 20.0
 
 [node name="BunBottom3" parent="Content" instance=ExtResource("2_3uq4g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.101867, 0)
 ranged_grab_method = 1
-ranged_grab_speed = 20.0
 
 [connection signal="body_exited" from="ExitDetector" to="Content" method="_on_exit_detector_body_exited"]

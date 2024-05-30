@@ -10,6 +10,9 @@ radius = 0.960212
 
 [node name="BunTop" instance=ExtResource("1_t230o")]
 collision_mask = 131079
+mass = 0.04
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.01, 0)
 script = ExtResource("2_oaifx")
 type = 0
 
