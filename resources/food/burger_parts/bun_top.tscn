@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqc71xcemsg8s"]
 
-[ext_resource type="PackedScene" uid="uid://ch63w0v83hyrp" path="res://assets/models/top_bun.blend" id="1_12skk"]
+[ext_resource type="PackedScene" uid="uid://ch63w0v83hyrp" path="res://assets/models/food/top_bun.blend" id="1_12skk"]
 [ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_t230o"]
 [ext_resource type="Script" path="res://resources/base_types/food.gd" id="2_oaifx"]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="1_buoe2"]
 [ext_resource type="PackedScene" uid="uid://bqc71xcemsg8s" path="res://resources/food/burger_parts/bun_top.tscn" id="2_kixki"]
-[ext_resource type="PackedScene" uid="uid://dosk17t0rja0m" path="res://assets/models/bunbox.blend" id="3_pcphv"]
+[ext_resource type="PackedScene" uid="uid://dosk17t0rja0m" path="res://assets/models/objects/appliances/bunbox.blend" id="3_pcphv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_lls25"]
 size = Vector3(0.244385, 0.0127869, 0.21521)
