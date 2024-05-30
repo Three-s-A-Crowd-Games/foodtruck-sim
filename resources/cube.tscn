@@ -16,6 +16,7 @@ radius = 0.1
 
 [node name="Cube" groups=["burger_part"] instance=ExtResource("1_kbvby")]
 script = ExtResource("2_d5i70")
+type = 0
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_f7hk1")

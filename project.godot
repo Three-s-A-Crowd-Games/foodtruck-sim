@@ -40,6 +40,11 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 3d_physics/layer_23="UI Objects"
 3d_physics/layer_24="Floor"
 
+[physics]
+
+3d/run_on_separate_thread=true
+3d/physics_engine="GodotPhysics3D"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
