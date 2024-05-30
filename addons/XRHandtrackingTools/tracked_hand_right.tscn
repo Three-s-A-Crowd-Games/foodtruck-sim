@@ -370,6 +370,14 @@ transform = Transform3D(-0.244295, 0.749373, 0.615435, 0.233295, -0.570604, 0.78
 bone_name = "Little_Distal_R"
 bone_idx = 23
 
+[node name="Index_Metacarpal" type="BoneAttachment3D" parent="Skeleton3D"]
+transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.960199, 0.964214, -0.14633, 0.221085, -0.00139746, -0.0141613, -0.0210414)
+bone_name = "Index_Metacarpal_R"
+bone_idx = 5
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Skeleton3D/Index_Metacarpal"]
+transform = Transform3D(1, 0, 2.38419e-07, 1.49012e-08, 1, 1.49012e-07, 0, -7.45058e-09, 1, 0.029109, -0.0599038, -0.0412734)
+
 [node name="HandPoseMatcher" type="Node" parent="." node_paths=PackedStringArray("skeleton")]
 script = ExtResource("1_ve4iw")
 skeleton = NodePath("../Skeleton3D")
