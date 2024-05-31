@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://5b36bokc0k4k"]
+[gd_scene load_steps=11 format=3 uid="uid://5b36bokc0k4k"]
 
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://slicing test/knife.tscn" id="2_wpesg"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="3_ot66u"]
@@ -27,6 +27,9 @@ size = Vector3(20, 1, 20)
 [sub_resource type="BoxShape3D" id="BoxShape3D_6nylu"]
 size = Vector3(20, 1, 20)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6ju8"]
+size = Vector3(2, 1, 2)
+
 [node name="SliceTest" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -37,7 +40,8 @@ transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -
 shadow_enabled = true
 
 [node name="Floor" type="StaticBody3D" parent="."]
-collision_layer = 51
+collision_layer = 8388609
+collision_mask = 65537
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -47,11 +51,20 @@ mesh = SubResource("BoxMesh_kynpv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 shape = SubResource("BoxShape3D_6nylu")
 
+[node name="Floor2" type="StaticBody3D" parent="."]
+collision_layer = 8388609
+collision_mask = 65537
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_t6ju8")
+
 [node name="Cube" parent="." instance=ExtResource("3_ynbpl")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8064, 1, 1.46064)
 collision_mask = 131079
 
 [node name="XROrigin3D" parent="." instance=ExtResource("3_ot66u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77365, -4.76837e-07, 3.29871)
 
 [node name="Knife" parent="." instance=ExtResource("2_wpesg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.14486, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96191, 1.14486, 1.63487)

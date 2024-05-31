@@ -1,31 +1,26 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbibo1k8pkiqo"]
+[gd_scene load_steps=5 format=3 uid="uid://bbibo1k8pkiqo"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_n8iva"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_jgnjn"]
 [ext_resource type="Script" path="res://resources/components/sliceable.gd" id="4_wn12v"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_f7hk1"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8lj1b"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_6b05e"]
+[sub_resource type="BoxMesh" id="BoxMesh_4lnpw"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_yme2n"]
+[node name="PickableObject" instance=ExtResource("1_jgnjn")]
 
-[node name="Cube" type="RigidBody3D" groups=["burger_part"]]
-collision_layer = 4
-collision_mask = 196615
-freeze_mode = 1
-script = ExtResource("1_n8iva")
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_8lj1b")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("BoxShape3D_f7hk1")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("BoxMesh_4lnpw")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_6b05e")
-
-[node name="Sliceable" type="Area3D" parent="."]
+[node name="Sliceable" type="Area3D" parent="." index="2"]
 collision_layer = 0
 collision_mask = 32
 monitorable = false
 script = ExtResource("4_wn12v")
+slice_count = 6
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Sliceable"]
-shape = SubResource("BoxShape3D_yme2n")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sliceable" index="0"]
+shape = SubResource("BoxShape3D_8lj1b")

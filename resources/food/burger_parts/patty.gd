@@ -1,4 +1,4 @@
-extends Food
+extends BurgerPart
 
 
 

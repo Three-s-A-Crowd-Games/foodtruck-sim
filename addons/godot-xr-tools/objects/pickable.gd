@@ -275,7 +275,7 @@ func pick_up(by: Node3D) -> void:
 			_grab_driver = XRToolsGrabDriver.create_lerp(self, grab, ranged_grab_speed)
 		else:
 			var grab := Grab.new(grabber, self, by_grab_point, false)
-			_grab_driver = XRToolsGrabDriver.create_snap(self, grab)
+			_grab_driver = XRToolsGrabDriver.create_snap(self, grab, false)
 	else:
 		var grab := Grab.new(grabber, self, by_grab_point, true)
 		_grab_driver = XRToolsGrabDriver.create_snap(self, grab)

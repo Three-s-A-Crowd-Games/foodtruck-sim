@@ -1,5 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://boqvit30nfpff"]
+[gd_scene load_steps=5 format=3 uid="uid://boqvit30nfpff"]
 
 [ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_ofrt4"]
+[ext_resource type="Script" path="res://resources/base_types/burger_part.gd" id="2_fyhlw"]
+[ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="3_3dn0k"]
+[ext_resource type="PackedScene" uid="uid://c4fkau8aaa8a6" path="res://coordinate2.tscn" id="4_8ag2e"]
 
 [node name="BurgerPart" instance=ExtResource("1_ofrt4")]
+collision_mask = 8585223
+mass = 0.2
+center_of_mass_mode = 1
+script = ExtResource("2_fyhlw")
+second_hand_grab = 1
+
+[node name="BurgerStackZone" parent="." index="1" instance=ExtResource("3_3dn0k")]
+
+[node name="Node3D" parent="." index="2" instance=ExtResource("4_8ag2e")]
+
+[connection signal="has_dropped" from="BurgerStackZone" to="." method="_on_burger_stack_zone_has_dropped"]
+[connection signal="has_picked_up" from="BurgerStackZone" to="." method="_on_burger_stack_zone_has_picked_up"]

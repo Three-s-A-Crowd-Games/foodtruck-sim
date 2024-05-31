@@ -30,6 +30,8 @@ var lerp_duration : float = 1.0
 ## Lerp time
 var lerp_time : float = 0.0
 
+var flip_y: bool = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta : float) -> void:
@@ -39,6 +41,8 @@ func _physics_process(delta : float) -> void:
 
 	# Set destination from primary grab
 	var destination := primary.by.global_transform * primary.transform.inverse()
+	if flip_y:
+		destination.basis.y *= -1
 
 	# If present, apply secondary-node contributions
 	if is_instance_valid(secondary):
@@ -182,7 +186,8 @@ static func create_lerp(
 # Create the driver to instantly snap to the primary grab-point.
 static func create_snap(
 	p_target : Node3D,
-	p_grab : Grab) -> XRToolsGrabDriver:
+	p_grab : Grab,
+	allow_y_flip: bool = true) -> XRToolsGrabDriver:
 
 	print_verbose("%s> snapping to %s" % [p_target.name, p_grab.by.name])
 
@@ -202,6 +207,17 @@ static func create_snap(
 	# cannot be descendands of the targets they drive.
 	p_target.get_parent().add_child(driver)
 	driver.global_transform = p_grab.by.global_transform * p_grab.transform.inverse()
+	if not allow_y_flip:
+		#printt("what", p_grab.what.global_transform.basis.y)
+		#printt("by", p_grab.by.global_transform.basis.y)
+		#printt("angle", rad_to_deg(p_grab.what.global_transform.basis.y.angle_to(p_grab.by.global_transform.basis.y)))
+		if abs(p_grab.what.global_transform.basis.y.angle_to(p_grab.by.global_transform.basis.y)) > PI/2:
+			driver.flip_y = true
+			driver.global_transform.basis.y *= -1
+			#printt("stackzone", p_grab.by.global_transform)
+			#printt("pgrab", p_grab.transform)
+			#printt("pgrab inv", p_grab.transform.inverse())
+			#printt("driver", driver.global_transform)
 	driver.remote_path = driver.get_path_to(p_target)
 
 	# Return the driver
