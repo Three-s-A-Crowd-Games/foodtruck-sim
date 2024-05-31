@@ -68,6 +68,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05273, 1.00819, -0.758568)
 collision_layer = 8388609
 collision_mask = 524289
 
+[node name="Cube_001" parent="Truck/truck_v1/edge-counter-col" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.922736, -0.12782)
+
 [node name="Point" parent="Truck/truck_v1" index="8"]
 light_energy = 0.97
 
