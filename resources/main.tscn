@@ -64,15 +64,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05273, 1.00819, -0.758568)
 
 [node name="truck_v1" parent="Truck" instance=ExtResource("10_vl4gb")]
 
-[node name="Point" parent="Truck/truck_v1" index="2"]
-light_energy = 0.97
-
 [node name="StaticBody3D" parent="Truck/truck_v1/bottom-wall" index="0"]
 collision_layer = 8388609
 collision_mask = 524289
 
+[node name="Point" parent="Truck/truck_v1" index="8"]
+light_energy = 0.97
+
+[node name="handle" parent="Truck/truck_v1/flipper-col" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110919, 0, -5.96046e-08)
+
 [node name="Stove" parent="Truck" instance=ExtResource("4_1mh3m")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.453287, 0, -0.605357)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.483289, 0, -0.605357)
 
 [node name="Fridge" parent="Truck" instance=ExtResource("11_js3xx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.82697, 0, 0.218338)
