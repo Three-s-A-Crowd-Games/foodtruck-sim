@@ -15,7 +15,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 [node name="VRCommonShaderCache" parent="XRCamera3D" instance=ExtResource("1_ebo6m")]
 
 [node name="LeftHand" type="XRController3D" parent="."]
-transform = Transform3D(0.185986, -0.96761, 0.1707, 0.964215, 0.14633, -0.221086, 0.188947, 0.205709, 0.9602, 0.043608, 0.0156297, -0.074961)
+transform = Transform3D(0.185985, -0.96761, 0.1707, 0.964214, 0.14633, -0.221086, 0.188946, 0.205709, 0.960199, 0.043608, 0.0156297, -0.074961)
 
 [node name="XRToolsCollisionHand" type="AnimatableBody3D" parent="LeftHand"]
 collision_layer = 0
@@ -23,11 +23,12 @@ collision_mask = 0
 script = ExtResource("2_4trl5")
 
 [node name="FunctionPickup" parent="LeftHand/XRToolsCollisionHand" instance=ExtResource("3_0bs62")]
-grab_distance = 0.06
+transform = Transform3D(1, -1.86265e-08, 1.49012e-08, -1.49012e-08, 1, 2.98023e-08, 2.98023e-08, 0, 1, -0.00211524, 0.0110048, -0.00194139)
+grab_distance = 0.1
 ranged_enable = false
 
 [node name="RightHand" type="XRController3D" parent="."]
-transform = Transform3D(0.195334, 0.938881, 0.283455, -0.0843272, -0.271874, 0.958631, 0.977105, -0.211156, 0.026067, 0.0112003, -0.0850221, -0.0373568)
+transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.960199, 0.964214, -0.14633, 0.221085, -0.0469018, -0.0716148, 0.00666672)
 
 [node name="XRToolsCollisionHand" type="AnimatableBody3D" parent="RightHand"]
 collision_layer = 0
@@ -35,7 +36,8 @@ collision_mask = 0
 script = ExtResource("2_4trl5")
 
 [node name="FunctionPickup" parent="RightHand/XRToolsCollisionHand" instance=ExtResource("3_0bs62")]
-grab_distance = 0.06
+transform = Transform3D(1, 0, 5.96046e-08, 1.19209e-07, 1, -1.75089e-07, 0, -1.11759e-07, 0.999999, 0.00196539, 0.00731654, -0.00372901)
+grab_distance = 0.1
 ranged_enable = false
 
 [node name="PlayerBody" parent="." instance=ExtResource("4_xn5w2")]
@@ -45,10 +47,100 @@ push_rigid_bodies = false
 
 [node name="TrackedHandLeft" parent="." instance=ExtResource("5_fbsw6")]
 
+[node name="Physical Bone Thumb_Proximal_L" parent="TrackedHandLeft/Skeleton3D" index="1"]
+transform = Transform3D(0.938213, -0.077999, -0.337155, 0.0187491, 0.984294, -0.175538, 0.345551, 0.15837, 0.92494, 0.0283173, 0.0543736, -0.0544159)
+
+[node name="Physical Bone Thumb_Distal_L" parent="TrackedHandLeft/Skeleton3D" index="2"]
+transform = Transform3D(0.937245, 0.0284256, -0.347509, 0.0184908, 0.991217, 0.13095, 0.348179, -0.129158, 0.928488, 0.0392807, 0.0600812, -0.0844931)
+
+[node name="Physical Bone Index_Proximal_L" parent="TrackedHandLeft/Skeleton3D" index="3"]
+transform = Transform3D(0.195334, -0.938881, -0.283456, 0.977105, 0.211156, -0.0260671, 0.0843273, -0.271874, 0.958631, -0.0112, 0.0373567, -0.0850218)
+
+[node name="Physical Bone Index_Intermediate_L" parent="TrackedHandLeft/Skeleton3D" index="4"]
+transform = Transform3D(0.190616, -0.77151, -0.606991, 0.977227, 0.207861, 0.0426831, 0.0932396, -0.601304, 0.793561, 0.00106892, 0.0384855, -0.126516)
+
+[node name="Physical Bone Index_Distal_L" parent="TrackedHandLeft/Skeleton3D" index="5"]
+transform = Transform3D(0.19221, -0.669965, -0.717079, 0.977075, 0.19881, 0.0761527, 0.0915429, -0.715277, 0.692819, 0.0182325, 0.0372781, -0.148956)
+
+[node name="Physical Bone Middle_Proximal_L" parent="TrackedHandLeft/Skeleton3D" index="6"]
+transform = Transform3D(0.0836168, -0.962976, -0.256294, 0.996367, 0.0849602, 0.00584635, 0.0161449, -0.255851, 0.966581, -0.016529, 0.00942897, -0.0851038)
+
+[node name="Physical Bone Middle_Intermediate_L" parent="TrackedHandLeft/Skeleton3D" index="7"]
+transform = Transform3D(0.0867693, -0.835671, -0.542332, 0.996183, 0.0779601, 0.0392548, 0.0094761, -0.543668, 0.839247, -0.00548063, 0.00917712, -0.126772)
+
+[node name="Physical Bone Middle_Distal_L" parent="TrackedHandLeft/Skeleton3D" index="8"]
+transform = Transform3D(0.0812012, -0.650531, -0.755126, 0.996576, 0.0648172, 0.051326, 0.015556, -0.756708, 0.653568, 0.0125601, 0.00787117, -0.15469)
+
+[node name="Physical Bone Ring_Proximal_L" parent="TrackedHandLeft/Skeleton3D" index="9"]
+transform = Transform3D(-0.0340091, -0.952409, -0.30292, 0.983537, -0.0857185, 0.159084, -0.177479, -0.292523, 0.939644, -0.00986051, -0.0132409, -0.0807125)
+
+[node name="Physical Bone Ring_Intermediate_L" parent="TrackedHandLeft/Skeleton3D" index="10"]
+transform = Transform3D(-0.0363059, -0.837961, -0.544522, 0.984249, -0.124321, 0.125693, -0.173021, -0.531381, 0.829275, 0.00235678, -0.019657, -0.11861)
+
+[node name="Physical Bone Ring_Distal_L" parent="TrackedHandLeft/Skeleton3D" index="11"]
+transform = Transform3D(-0.030437, -0.661178, -0.749611, 0.98335, -0.154228, 0.0961052, -0.179153, -0.734205, 0.654864, 0.0178706, -0.0232379, -0.142238)
+
+[node name="Physical Bone Little_Proximal_L" parent="TrackedHandLeft/Skeleton3D" index="12"]
+transform = Transform3D(-0.237988, -0.951124, -0.196788, 0.942906, -0.274852, 0.188109, -0.233002, -0.140785, 0.962232, 0.00212687, -0.0376808, -0.074607)
+
+[node name="Physical Bone Little_Intermediate_L" parent="TrackedHandLeft/Skeleton3D" index="13"]
+transform = Transform3D(-0.229867, -0.865478, -0.445095, 0.939449, -0.316761, 0.130761, -0.25416, -0.388087, 0.885885, 0.00800579, -0.0433009, -0.103354)
+
+[node name="Physical Bone Little_Distal_L" parent="TrackedHandLeft/Skeleton3D" index="14"]
+transform = Transform3D(-0.244294, -0.749373, -0.615435, 0.941219, -0.335934, 0.0354304, -0.233296, -0.570604, 0.787391, 0.0160084, -0.0456519, -0.11928)
+
+[node name="Index Metacarpal" parent="TrackedHandLeft/Skeleton3D" index="15"]
+transform = Transform3D(0.185985, -0.967611, 0.1707, 0.964214, 0.14633, -0.221085, 0.188946, 0.20571, 0.960199, 0.00139752, 0.0210413, -0.0141612)
+
 [node name="RemoteTransform3D" parent="TrackedHandLeft/Skeleton3D/Index Metacarpal" index="0"]
 remote_path = NodePath("../../../../LeftHand")
 
 [node name="TrackedHandRight" parent="." instance=ExtResource("6_eghs8")]
+
+[node name="Thumb_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="1"]
+transform = Transform3D(0.938213, 0.0779998, 0.337155, -0.345551, 0.158372, 0.924939, 0.0187493, -0.984294, 0.175539, -0.0283179, -0.0544153, -0.0543731)
+
+[node name="Thumb_Distal_R" parent="TrackedHandRight/Skeleton3D" index="2"]
+transform = Transform3D(0.937245, -0.028425, 0.34751, -0.34818, -0.129157, 0.928488, 0.0184909, -0.991217, -0.130948, -0.0392808, -0.084492, -0.0600814)
+
+[node name="Index_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="3"]
+transform = Transform3D(0.195334, 0.938881, 0.283455, -0.0843272, -0.271874, 0.958631, 0.977105, -0.211156, 0.026067, 0.0112003, -0.0850221, -0.0373568)
+
+[node name="Index_Intermediate_R" parent="TrackedHandRight/Skeleton3D" index="4"]
+transform = Transform3D(0.190616, 0.77151, 0.606991, -0.0932393, -0.601304, 0.793562, 0.977227, -0.207861, -0.0426834, -0.00106996, -0.126518, -0.0384851)
+
+[node name="Index_Distal_R" parent="TrackedHandRight/Skeleton3D" index="5"]
+transform = Transform3D(0.19221, 0.669965, 0.717079, -0.0915425, -0.715277, 0.692819, 0.977075, -0.19881, -0.0761531, -0.0182329, -0.148956, -0.037278)
+
+[node name="Middle_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="6"]
+transform = Transform3D(0.0836168, 0.962976, 0.256294, -0.0161448, -0.255851, 0.966581, 0.996367, -0.0849603, -0.00584642, 0.0165289, -0.0851049, -0.00942898)
+
+[node name="Middle_Intermediate_R" parent="TrackedHandRight/Skeleton3D" index="7"]
+transform = Transform3D(0.0867694, 0.835673, 0.542331, -0.0094759, -0.543667, 0.839248, 0.996183, -0.0779601, -0.0392549, 0.0054803, -0.126771, -0.00917693)
+
+[node name="Middle_Distal_R" parent="TrackedHandRight/Skeleton3D" index="8"]
+transform = Transform3D(0.0812013, 0.650531, 0.755126, -0.0155558, -0.756708, 0.653567, 0.996576, -0.0648171, -0.0513262, -0.0125601, -0.15469, -0.00787113)
+
+[node name="Ring_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="9"]
+transform = Transform3D(-0.0340092, 0.952409, 0.30292, 0.177479, -0.292523, 0.939644, 0.983537, 0.0857186, -0.159084, 0.00986044, -0.0807137, 0.0132409)
+
+[node name="Ring_Intermediate_R" parent="TrackedHandRight/Skeleton3D" index="10"]
+transform = Transform3D(-0.036306, 0.837961, 0.544522, 0.173022, -0.531381, 0.829275, 0.984249, 0.124322, -0.125693, -0.00235694, -0.11861, 0.0196568)
+
+[node name="Ring_Distal_R" parent="TrackedHandRight/Skeleton3D" index="11"]
+transform = Transform3D(-0.0304371, 0.661178, 0.749611, 0.179154, -0.734205, 0.654864, 0.98335, 0.154228, -0.0961053, -0.0178702, -0.142236, 0.0232379)
+
+[node name="Little_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="12"]
+transform = Transform3D(-0.237988, 0.951124, 0.196787, 0.233001, -0.140785, 0.962232, 0.942906, 0.274851, -0.188107, -0.00212697, -0.0746066, 0.0376812)
+
+[node name="Little_Intermediate_R" parent="TrackedHandRight/Skeleton3D" index="13"]
+transform = Transform3D(-0.229867, 0.865478, 0.445095, 0.254158, -0.388087, 0.885885, 0.939449, 0.316761, -0.13076, -0.00800588, -0.103352, 0.0433008)
+
+[node name="Little_Distal_R" parent="TrackedHandRight/Skeleton3D" index="14"]
+transform = Transform3D(-0.244295, 0.749373, 0.615435, 0.233295, -0.570604, 0.787391, 0.941219, 0.335933, -0.0354292, -0.0160076, -0.119278, 0.0456514)
+
+[node name="Index_Metacarpal" parent="TrackedHandRight/Skeleton3D" index="15"]
+transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.960199, 0.964214, -0.14633, 0.221085, -0.00139746, -0.0141613, -0.0210414)
 
 [node name="RemoteTransform3D" parent="TrackedHandRight/Skeleton3D/Index_Metacarpal" index="0"]
 remote_path = NodePath("../../../../RightHand")
