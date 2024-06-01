@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://xt3v0mfo0fhm" path="res://assets/models/flipper.blend" id="2_8nwab"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_shrys"]
-size = Vector3(0.250244, 0.0244904, 0.0288086)
+size = Vector3(0.177856, 0.0244904, 0.0288086)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_18cw5"]
 size = Vector3(0.116791, 0.0085144, 0.0893555)
@@ -23,7 +23,7 @@ second_hand_grab = 1
 [node name="flipper" parent="." instance=ExtResource("2_8nwab")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0726216, 0.000502991, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108815, 0.000502991, 0)
 shape = SubResource("BoxShape3D_shrys")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
