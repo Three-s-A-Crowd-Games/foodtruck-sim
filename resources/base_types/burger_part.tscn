@@ -7,7 +7,9 @@ height = 0.37288
 radius = 0.973425
 
 [node name="BurgerPart" groups=["burger_part"] instance=ExtResource("1_jk7n3")]
+continuous_cd = true
 ranged_grab_method = 0
+second_hand_grab = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
