@@ -343,9 +343,13 @@ bone_name = "Index_Distal_R"
 bone_idx = 8
 
 [node name="Poke" parent="Skeleton3D/Index_Distal_R" instance=ExtResource("2_ktu2x")]
+layer = 16777216
+mask = 16777216
 push_bodies = false
 
 [node name="PokeBody" parent="Skeleton3D/Index_Distal_R/Poke" index="0"]
+collision_layer = 16777216
+collision_mask = 16777216
 push_bodies = false
 
 [node name="CollisionShape" parent="Skeleton3D/Index_Distal_R/Poke/PokeBody" index="0"]

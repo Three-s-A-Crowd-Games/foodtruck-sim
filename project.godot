@@ -39,6 +39,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 3d_physics/layer_22="Hand Pose Areas"
 3d_physics/layer_23="UI Objects"
 3d_physics/layer_24="Floor"
+3d_physics/layer_25="ButtonInteractionLayer"
 3d_physics/layer_26="Flippable"
 
 [physics]
@@ -53,7 +54,7 @@ jolt_3d/solver/bounce_velocity_threshold=0.0
 
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/use_physical_light_units=true
-anti_aliasing/quality/screen_space_aa=1
+camera/depth_of_field/depth_of_field_bokeh_shape=0
 
 [xr]
 

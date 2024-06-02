@@ -24,6 +24,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00075534, 0.855708, 0)
 shape = SubResource("BoxShape3D_ylehd")
 
 [node name="InteractableAreaButton" parent="." instance=ExtResource("3_qcbej")]
+collision_mask = 16777216
 monitorable = false
 button = NodePath("../fryer/switch-top")
 displacement = Vector3(0, 0, 0)

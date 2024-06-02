@@ -57,9 +57,9 @@ script = ExtResource("1_buoe2")
 item_scene = ExtResource("2_kixki")
 
 [node name="BunTop" parent="Content" instance=ExtResource("2_kixki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0128904, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0184291, 0)
 
 [node name="BunTop2" parent="Content" instance=ExtResource("2_kixki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0713406, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0758533, 0)
 
 [connection signal="body_exited" from="ExitDetector" to="Content" method="_on_exit_detector_body_exited"]

@@ -32,21 +32,17 @@ func _ready():
 func _process(delta):
 	time_cooked += delta
 	if(status == CookedStatus.RAW && time_cooked >= cooking_time):
-		print("Cooked")
 		status = CookedStatus.COOKED
 		cooked_status_changed.emit(status)
 	if(status == CookedStatus.COOKED && time_cooked >= burning_time):
-		print("Burned")
 		status = CookedStatus.BURNED
 		cooked_status_changed.emit(status)
 		is_cooking = false
 
 func start_cooking():
-	print("started")
 	if(status != CookedStatus.BURNED && !is_cooking):
 		is_cooking = true
 
 func stop_cooking():
-	print("stopped")
 	if(is_cooking):
 		is_cooking = false

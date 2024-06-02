@@ -18,7 +18,7 @@ height = 0.01
 radial_segments = 32
 rings = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lk3so"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iq7mn"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.8, 0.8, 1, 0.5)
@@ -32,7 +32,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
 [node name="LeftHand" type="XRController3D" parent="."]
 transform = Transform3D(0.185985, -0.96761, 0.1707, 0.964214, 0.14633, -0.221086, 0.188946, 0.205709, 0.960199, 0.043608, 0.0156297, -0.074961)
-tracker = &"left_hand"
 
 [node name="XRToolsCollisionHandL" type="AnimatableBody3D" parent="LeftHand"]
 transform = Transform3D(1, -6.70552e-08, 4.91738e-07, -3.12924e-07, 1, 4.32134e-07, 3.42727e-07, 4.17233e-07, 1, 2.6077e-08, 7.45058e-09, 0)
@@ -48,7 +47,6 @@ ranged_enable = false
 
 [node name="RightHand" type="XRController3D" parent="."]
 transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.960199, 0.964214, -0.14633, 0.221085, -0.0469018, -0.0716148, 0.00666672)
-tracker = &"right_hand"
 
 [node name="XRToolsCollisionHandR" type="AnimatableBody3D" parent="RightHand"]
 transform = Transform3D(1, 1.49012e-08, 3.72529e-07, 4.02331e-07, 1, 2.16067e-07, 2.98023e-08, -5.21541e-08, 1, -2.79397e-09, -2.23517e-08, -1.11759e-08)
@@ -69,26 +67,17 @@ push_rigid_bodies = false
 
 [node name="TrackedHandLeft" parent="." instance=ExtResource("5_fbsw6")]
 
-[node name="vr_glove" parent="TrackedHandLeft/Skeleton3D" index="0"]
-visible = true
-
 [node name="RemoteTransform3D" parent="TrackedHandLeft/Skeleton3D/Index Metacarpal" index="0"]
 remote_path = NodePath("../../../../LeftHand")
 
 [node name="TrackedHandRight" parent="." instance=ExtResource("6_eghs8")]
-
-[node name="Poke" parent="TrackedHandRight/Skeleton3D/Index_Distal_R" index="0"]
-push_bodies = false
-
-[node name="PokeBody" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke" index="0"]
-push_bodies = false
 
 [node name="CollisionShape" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke/PokeBody" index="0"]
 shape = SubResource("SphereShape3D_nxwqx")
 
 [node name="MeshInstance" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke/PokeBody" index="1"]
 mesh = SubResource("SphereMesh_lpo0c")
-surface_material_override/0 = SubResource("StandardMaterial3D_lk3so")
+surface_material_override/0 = SubResource("StandardMaterial3D_iq7mn")
 
 [node name="RemoteTransform3D" parent="TrackedHandRight/Skeleton3D/Index_Metacarpal" index="0"]
 remote_path = NodePath("../../../../RightHand")

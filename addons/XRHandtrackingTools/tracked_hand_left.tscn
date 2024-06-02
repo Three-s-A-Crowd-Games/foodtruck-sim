@@ -297,7 +297,6 @@ bones/25/rotation = Quaternion(0.101224, -0.0124619, -0.0407884, 0.993949)
 bones/25/scale = Vector3(1, 1, 1)
 
 [node name="vr_glove" type="MeshInstance3D" parent="Skeleton3D"]
-visible = false
 gi_mode = 0
 mesh = SubResource("ArrayMesh_ux2hl")
 skin = SubResource("Skin_nfr42")
@@ -328,6 +327,8 @@ bone_name = "Index_Distal_L"
 bone_idx = 8
 
 [node name="Poke" parent="Skeleton3D/Physical Bone Index_Distal_L" instance=ExtResource("2_tww61")]
+layer = 16777216
+mask = 16777216
 push_bodies = false
 
 [node name="Physical Bone Middle_Proximal_L" type="BoneAttachment3D" parent="Skeleton3D"]

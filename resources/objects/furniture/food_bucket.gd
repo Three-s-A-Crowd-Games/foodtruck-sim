@@ -10,4 +10,3 @@ func _on_exit_detector_body_exited(body):
 		var item = item_scene.instantiate()
 		add_child(item)
 		item.global_position = body.initial_position
-		print("AHHH")
