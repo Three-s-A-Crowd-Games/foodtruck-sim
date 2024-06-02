@@ -119,23 +119,24 @@ func _ready():
 	_grab_area.body_exited.connect(_on_grab_exited)
 	add_child(_grab_area)
 
-	# Create the ranged collision shape
-	_ranged_collision = CollisionShape3D.new()
-	_ranged_collision.set_name("RangedCollisionShape")
-	_ranged_collision.shape = CylinderShape3D.new()
-	_ranged_collision.transform.basis = Basis(Vector3.RIGHT, PI/2)
-
-	# Create the ranged area
-	_ranged_area = Area3D.new()
-	_ranged_area.set_name("RangedArea")
-	_ranged_area.collision_layer = 0
-	_ranged_area.collision_mask = ranged_collision_mask
-	_ranged_area.add_child(_ranged_collision)
-	_ranged_area.area_entered.connect(_on_ranged_entered)
-	_ranged_area.body_entered.connect(_on_ranged_entered)
-	_ranged_area.area_exited.connect(_on_ranged_exited)
-	_ranged_area.body_exited.connect(_on_ranged_exited)
-	add_child(_ranged_area)
+	if ranged_enable:
+		# Create the ranged collision shape
+		_ranged_collision = CollisionShape3D.new()
+		_ranged_collision.set_name("RangedCollisionShape")
+		_ranged_collision.shape = CylinderShape3D.new()
+		_ranged_collision.transform.basis = Basis(Vector3.RIGHT, PI/2)
+	
+		# Create the ranged area
+		_ranged_area = Area3D.new()
+		_ranged_area.set_name("RangedArea")
+		_ranged_area.collision_layer = 0
+		_ranged_area.collision_mask = ranged_collision_mask
+		_ranged_area.add_child(_ranged_collision)
+		_ranged_area.area_entered.connect(_on_ranged_entered)
+		_ranged_area.body_entered.connect(_on_ranged_entered)
+		_ranged_area.area_exited.connect(_on_ranged_exited)
+		_ranged_area.body_exited.connect(_on_ranged_exited)
+		add_child(_ranged_area)
 
 	# Update the colliders
 	_update_colliders()
