@@ -151,18 +151,19 @@ func _process(delta):
 	if Engine.is_editor_hint():
 		return
 
+	# Achtung Achtung: Commented stuff out that we only need WITHOUT handtracking (yay)
 	# Skip if disabled, or the controller isn't active
-	if !enabled or !_controller.get_is_active():
+	if !enabled: #or !_controller.get_is_active():
 		return
 
 	# Handle our grip
-	var grip_value = _controller.get_float(pickup_axis_action)
-	if (grip_pressed and grip_value < (_grip_threshold - 0.1)):
-		grip_pressed = false
-		_on_grip_release()
-	elif (!grip_pressed and grip_value > (_grip_threshold + 0.1)):
-		grip_pressed = true
-		_on_grip_pressed()
+	#var grip_value = _controller.get_float(pickup_axis_action)
+	#if (grip_pressed and grip_value < (_grip_threshold - 0.1)):
+		#grip_pressed = false
+		#_on_grip_release()
+	#elif (!grip_pressed and grip_value > (_grip_threshold + 0.1)):
+		#grip_pressed = true
+		#_on_grip_pressed()
 
 	# Calculate average velocity
 	if is_instance_valid(picked_up_object) and picked_up_object.is_picked_up():
