@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bm3ixvs3xjcdn"]
+[gd_scene load_steps=7 format=3 uid="uid://bm3ixvs3xjcdn"]
 
 [ext_resource type="PackedScene" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_ebo6m"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="2_pgy03"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="4_4jcw1"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="4_r7dw0"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="6_1yacy"]
-[ext_resource type="PackedScene" uid="uid://boaocw6m73kqh" path="res://resources/test_helpers/coordinate.tscn" id="6_08sbp"]
 
 [node name="XROrigin3D" type="XROrigin3D"]
 
@@ -37,8 +36,7 @@ tracker = &"right_hand"
 [node name="FunctionPickup" parent="RightHand" instance=ExtResource("3_0bs62")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0489198, 0.077867)
 grab_distance = 0.1
-
-[node name="Node3D" parent="RightHand/FunctionPickup" instance=ExtResource("6_08sbp")]
+ranged_enable = false
 
 [node name="PlayerBody" parent="." instance=ExtResource("6_1yacy")]
 collision_mask = 8389624

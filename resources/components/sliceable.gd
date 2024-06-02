@@ -63,7 +63,7 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	slice.position.y += 0.02
 	slice.rotate_z(7*PI/20)
 	
-	var mesh_node# = _find_mesh_child_node(slice)
+	var mesh_nodee = _find_mesh_child_node(slice)
 	if not mesh_node:
 		mesh_node = MeshInstance3D.new()
 		slice.add_child(mesh_node)
@@ -74,7 +74,6 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 		coll_node = CollisionShape3D.new()
 		slice.add_child(coll_node)
 	_adjust_collision_shape(slice, mesh)
-	#coll_node.add_child(load("res://coordinate3.tscn").instantiate())
 	
 	_position_child_nodes(mesh_node, coll_node, slice.get_node("BurgerStackZone"))
 	

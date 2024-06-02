@@ -33,6 +33,7 @@ var lerp_time : float = 0.0
 
 var flip_y: bool = false
 
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta : float) -> void:
 	# Skip if no primary node
@@ -220,7 +221,6 @@ static func create_snap(
 
 
 var T: Transform3D
-var S: Transform3D
 static func create_stay(
 	p_target : Node3D,
 	p_grab : Grab) -> XRToolsGrabDriver:
@@ -235,7 +235,6 @@ static func create_stay(
 	driver.state = State.STAY
 	driver.target = p_target
 	driver.primary = p_grab
-	driver.add_child(load("res://resources/test_helpers/coordinate3.tscn").instantiate())
 
 	# Snapped to grab-point so report arrived
 	p_grab.set_arrived()
@@ -245,6 +244,8 @@ static func create_stay(
 	p_target.get_parent().add_child(driver)
 	driver.global_transform = p_target.global_transform
 	
+	# Calculate the transformation matrix which describes the transformation
+	# from the grabbers to the objects transform
 	driver.T = p_grab.by.global_transform.inverse() * p_target.global_transform
 	
 	driver.remote_path = driver.get_path_to(p_target)
