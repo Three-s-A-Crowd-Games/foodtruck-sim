@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Foodtruck-Sim"
 run/main_scene="res://resources/main.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
+config/features=PackedStringArray("4.2")
 config/icon="res://icon.svg"
 
 [autoload]
@@ -52,6 +52,8 @@ jolt_3d/solver/bounce_velocity_threshold=0.0
 [rendering]
 
 textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/use_physical_light_units=true
+anti_aliasing/quality/msaa_3d=1
 
 [xr]
 

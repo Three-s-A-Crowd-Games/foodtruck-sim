@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://bqvabt2tjd60m"]
 
-[ext_resource type="PackedScene" uid="uid://bxqns2o74anxx" path="res://assets/models/fridge-v1-bottom.blend" id="1_c1n28"]
+[ext_resource type="PackedScene" uid="uid://bxqns2o74anxx" path="res://assets/models/objects/furniture/fridge-v1-bottom.blend" id="1_c1n28"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="2_53lw0"]
-[ext_resource type="PackedScene" uid="uid://cqwyq3hkty77m" path="res://assets/models/fridge-v1-lid.blend" id="3_uyly6"]
+[ext_resource type="PackedScene" uid="uid://cqwyq3hkty77m" path="res://assets/models/objects/furniture/fridge-v1-lid.blend" id="3_uyly6"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="4_ftork"]
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="5_pbw60"]
 [ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="6_8rkj4"]

@@ -18,7 +18,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 transform = Transform3D(0.185985, -0.96761, 0.1707, 0.964214, 0.14633, -0.221086, 0.188946, 0.205709, 0.960199, 0.043608, 0.0156297, -0.074961)
 
 [node name="XRToolsCollisionHand" type="AnimatableBody3D" parent="LeftHand"]
-collision_layer = 0
+collision_layer = 131072
 collision_mask = 0
 script = ExtResource("2_4trl5")
 push_bodies = false
@@ -32,8 +32,8 @@ ranged_enable = false
 transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.960199, 0.964214, -0.14633, 0.221085, -0.0469018, -0.0716148, 0.00666672)
 
 [node name="XRToolsCollisionHand" type="AnimatableBody3D" parent="RightHand"]
-collision_layer = 0
-collision_mask = 0
+collision_layer = 131072
+collision_mask = 131072
 script = ExtResource("2_4trl5")
 push_bodies = false
 

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://cun37a3kia4ky"]
+
+[ext_resource type="Script" path="res://resources/objects/appliances/fryer.gd" id="1_ah4t3"]
+[ext_resource type="PackedScene" uid="uid://cj3rf56khwid5" path="res://assets/models/objects/furniture/fryer.blend" id="1_xthe5"]
+[ext_resource type="PackedScene" uid="uid://oa4nb5wne6a6" path="res://resources/systems/frying_area.tscn" id="2_h440w"]
+[ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="3_qcbej"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ylehd"]
+resource_local_to_scene = true
+size = Vector3(0.49794, 0.179344, 0.639404)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_852q6"]
+size = Vector3(0.0338135, 0.0389099, 0.0630493)
+
+[node name="Fryer" type="Node3D"]
+script = ExtResource("1_ah4t3")
+
+[node name="fryer" parent="." instance=ExtResource("1_xthe5")]
+
+[node name="FryingArea" parent="." instance=ExtResource("2_h440w")]
+
+[node name="CollisionShape3D" parent="FryingArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00075534, 0.855708, 0)
+shape = SubResource("BoxShape3D_ylehd")
+
+[node name="InteractableAreaButton" parent="." instance=ExtResource("3_qcbej")]
+monitorable = false
+button = NodePath("../fryer/switch-top")
+displacement = Vector3(0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146179, 1.08582, 0.183075)
+shape = SubResource("BoxShape3D_852q6")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 131072
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146179, 1.08582, 0.183075)
+shape = SubResource("BoxShape3D_852q6")
+
+[connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_interactable_area_button_button_pressed"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+
+[editable path="fryer"]
+[editable path="FryingArea"]

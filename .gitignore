@@ -2,4 +2,4 @@
 .godot/
 android/build/
 
-*/*.blend1
+*.blend1
