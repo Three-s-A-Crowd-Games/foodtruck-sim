@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=21 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
@@ -84,10 +84,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02714, 1.00925, -0.420155)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05273, 1.00819, -0.758568)
 
 [node name="truck_v1" parent="Truck" instance=ExtResource("10_vl4gb")]
-
-[node name="StaticBody3D" parent="Truck/truck_v1/0" index="0"]
-collision_layer = 8388609
-collision_mask = 524289
 
 [node name="StaticBody3D" parent="Truck/truck_v1/right-wall" index="0"]
 collision_layer = 8388609

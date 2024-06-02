@@ -6,10 +6,6 @@ func _on_function_pickup_has_picked_up(what):
 	if (not what is XRToolsInteractableHandle):
 		var orig_node :Node3D = what.get_node("CollisionShape3D")
 		shape_node = orig_node.duplicate()
-		print(orig_node.global_rotation)
-		print(orig_node.rotation)
-		print(shape_node.global_rotation)
-		print(shape_node.rotation)
 		
 		add_child(shape_node)
 		shape_node.global_position = orig_node.global_position
