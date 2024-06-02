@@ -63,7 +63,7 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	slice.position.y += 0.02
 	slice.rotate_z(7*PI/20)
 	
-	var mesh_nodee = _find_mesh_child_node(slice)
+	var mesh_node = _find_mesh_child_node(slice)
 	if not mesh_node:
 		mesh_node = MeshInstance3D.new()
 		slice.add_child(mesh_node)

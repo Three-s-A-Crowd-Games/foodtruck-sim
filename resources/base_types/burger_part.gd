@@ -83,25 +83,23 @@ func _move_zones(zones: Array[BurgerStackZone], from: BurgerPart, to: BurgerPart
 #TODO: test this with a burger part that has no stack zone i.e. bun top
 func _on_burger_stack_zone_has_picked_up(what):
 	assert(what is BurgerPart)
-	what = what as BurgerPart
+	assert(is_root)
+	assert(what.is_root)
 	assert(what.burger_part_stack.size() == what.stack_zone_stack.size(), "burger_part_stack and stack_zone_stack got unbalanced")
+	what.is_root = false
 	if what.outer_stack_zone: outer_stack_zone = what.outer_stack_zone
 	_move_zones(what.stack_zone_stack, what, self)
-
-	what.is_root = false
 	burger_part_stack += what.burger_part_stack
 	what.burger_part_stack.clear()
 	stack_zone_stack += what.stack_zone_stack
 	what.stack_zone_stack.clear()
 	what.outer_stack_zone = null
-	printt("is_root 1", is_root, name)
 
 
 func _on_burger_stack_zone_has_dropped(what):
 	assert(what is BurgerPart)
 	assert(is_root)
 	assert(what.burger_part_stack.size() == what.stack_zone_stack.size(), "burger_part_stack and stack_zone_stack got unbalanced")
-	what = what as BurgerPart
 	what.is_root = true
 	var index = burger_part_stack.find(what)
 	if index == 0: return # 0 index means this object is dropping itself. This should only happen as consequence of _reverse_stack()
@@ -112,5 +110,4 @@ func _on_burger_stack_zone_has_dropped(what):
 	stack_zone_stack.resize(index)
 	what.outer_stack_zone = outer_stack_zone
 	outer_stack_zone = stack_zone_stack.back()
-	
 	_move_zones(what.stack_zone_stack, self, what)

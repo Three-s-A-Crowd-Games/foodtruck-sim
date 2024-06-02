@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://resources/base_types/burger_part.gd" id="2_fyhlw"]
 [ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="3_3dn0k"]
 
-[node name="BurgerPart" instance=ExtResource("1_ofrt4")]
+[node name="BurgerPart" groups=["burger_part"] instance=ExtResource("1_ofrt4")]
 collision_mask = 8585223
 mass = 0.2
 center_of_mass_mode = 1

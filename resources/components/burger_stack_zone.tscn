@@ -9,6 +9,7 @@ size = Vector3(1, 0.25, 1)
 [node name="BurgerStackZone" instance=ExtResource("1_ix4ty")]
 script = ExtResource("2_enjaw")
 grab_distance = 0.1
+snap_require = "burger_part"
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_8trfi")
