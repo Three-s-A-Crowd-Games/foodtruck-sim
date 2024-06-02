@@ -39,6 +39,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 3d_physics/layer_22="Hand Pose Areas"
 3d_physics/layer_23="UI Objects"
 3d_physics/layer_24="Floor"
+3d_physics/layer_26="Flippable"
 
 [physics]
 
