@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bkl3bmlcidvdg"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_l5ln0"]
-[ext_resource type="PackedScene" uid="uid://xt3v0mfo0fhm" path="res://assets/models/flipper.blend" id="2_8nwab"]
+[ext_resource type="PackedScene" uid="uid://xt3v0mfo0fhm" path="res://assets/models/objects/appliances/flipper.blend" id="2_8nwab"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_shrys"]
 size = Vector3(0.177856, 0.0244904, 0.0288086)
@@ -17,7 +17,7 @@ can_sleep = false
 freeze_mode = 1
 continuous_cd = true
 script = ExtResource("1_l5ln0")
-picked_up_layer = 65540
+picked_up_layer = 33619968
 second_hand_grab = 1
 
 [node name="flipper" parent="." instance=ExtResource("2_8nwab")]

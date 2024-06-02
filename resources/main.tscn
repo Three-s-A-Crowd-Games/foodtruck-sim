@@ -75,7 +75,10 @@ surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750915, 0)
 
 [node name="FryingBasket" parent="Truck" instance=ExtResource("4_xgses")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.588442, 1.11357, -0.511234)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.059876, 0.969363, -0.467769)
+
+[node name="FryingBasket2" parent="Truck" instance=ExtResource("4_xgses")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.308859, 0.969363, -0.467769)
 
 [node name="BunBottomBox" parent="Truck" instance=ExtResource("7_5gd1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02714, 1.00925, -0.420155)
@@ -125,7 +128,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850798, 1.97374, 0.783707)
 shape = SubResource("BoxShape3D_j8awf")
 
 [node name="Flipper" parent="." instance=ExtResource("8_8x8av")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.83315, 0.13637)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.83315, -0.15682)
 
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]

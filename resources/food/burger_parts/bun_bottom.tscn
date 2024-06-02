@@ -14,7 +14,6 @@ resource_local_to_scene = true
 radius = 0.02
 
 [node name="BunBottom" instance=ExtResource("1_cjmcw")]
-collision_mask = 131079
 mass = 0.04
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 0.01, 0)
