@@ -1,13 +1,12 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=19 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
 [ext_resource type="Texture2D" uid="uid://yjxf2f7cm130" path="res://assets/sunflowers_puresky_4k.hdr" id="2_eyelk"]
 [ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="4_1mh3m"]
-[ext_resource type="PackedScene" uid="uid://bw18w7lqkorf5" path="res://resources/objects/appliances/frying_basket.tscn" id="4_xgses"]
 [ext_resource type="PackedScene" uid="uid://c54y4lqme3kal" path="res://resources/objects/furniture/BunBottomBox.tscn" id="7_5gd1o"]
 [ext_resource type="PackedScene" uid="uid://canauins47xs5" path="res://resources/objects/furniture/BunTopBox.tscn" id="8_j1ief"]
-[ext_resource type="PackedScene" uid="uid://cun37a3kia4ky" path="res://resources/objects/appliances/fryer.tscn" id="9_wcrah"]
+[ext_resource type="PackedScene" uid="uid://cj3rf56khwid5" path="res://assets/models/objects/furniture/fryer.blend" id="8_o44f4"]
 [ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="10_g2n5w"]
 [ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/objects/furniture/truck_v1.blend" id="10_vl4gb"]
 [ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
@@ -73,9 +72,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 [node name="Truck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750915, 0)
 
-[node name="FryingBasket" parent="Truck" instance=ExtResource("4_xgses")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.588442, 1.11357, -0.511234)
-
 [node name="BunBottomBox" parent="Truck" instance=ExtResource("7_5gd1o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02714, 1.00925, -0.420155)
 
@@ -102,8 +98,8 @@ omni_attenuation = 1.93187
 [node name="Stove" parent="Truck" instance=ExtResource("4_1mh3m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.479958, 0, -0.605357)
 
-[node name="Fryer" parent="Truck" instance=ExtResource("9_wcrah")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.183, 0.008, -0.605)
+[node name="fryer" parent="Truck" instance=ExtResource("8_o44f4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.183274, 0.00757098, -0.605001)
 
 [node name="Fridge" parent="Truck" instance=ExtResource("11_js3xx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.82697, 0, 0.206331)
