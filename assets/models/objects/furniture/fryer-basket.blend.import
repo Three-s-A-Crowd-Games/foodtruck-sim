@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b4bx53r10vham"
-path="res://.godot/imported/frier-v1.blend-07b2cdfe92e1f527cdf62a21953dd47e.scn"
+uid="uid://da6s4ivc7rwqr"
+path="res://.godot/imported/fryer-basket.blend-7140eccaa1d11df9f5d16c531225fede.scn"
 
 [deps]
 
-source_file="res://assets/models/objects/furniture/frier-v1.blend"
-dest_files=["res://.godot/imported/frier-v1.blend-07b2cdfe92e1f527cdf62a21953dd47e.scn"]
+source_file="res://assets/models/objects/furniture/fryer-basket.blend"
+dest_files=["res://.godot/imported/fryer-basket.blend-7140eccaa1d11df9f5d16c531225fede.scn"]
 
 [params]
 

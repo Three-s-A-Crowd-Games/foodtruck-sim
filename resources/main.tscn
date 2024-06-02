@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="4_1mh3m"]
 [ext_resource type="PackedScene" uid="uid://c54y4lqme3kal" path="res://resources/objects/furniture/BunBottomBox.tscn" id="7_5gd1o"]
 [ext_resource type="PackedScene" uid="uid://canauins47xs5" path="res://resources/objects/furniture/BunTopBox.tscn" id="8_j1ief"]
+[ext_resource type="PackedScene" uid="uid://cj3rf56khwid5" path="res://assets/models/objects/furniture/fryer.blend" id="8_o44f4"]
 [ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/objects/furniture/truck_v1.blend" id="10_vl4gb"]
 [ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
 
@@ -90,9 +91,12 @@ omni_attenuation = 1.93187
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.110919, 0, -5.96046e-08)
 
 [node name="Stove" parent="Truck" instance=ExtResource("4_1mh3m")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.483289, 0, -0.605357)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.479958, 0, -0.605357)
 
 [node name="Fridge" parent="Truck" instance=ExtResource("11_js3xx")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.82697, 0, 0.218338)
+
+[node name="fryer" parent="." instance=ExtResource("8_o44f4")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.183274, 0.758486, -0.605001)
 
 [editable path="Truck/truck_v1"]
