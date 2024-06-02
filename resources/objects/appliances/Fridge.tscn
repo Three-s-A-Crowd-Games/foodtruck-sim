@@ -62,6 +62,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0416747, -0.842778)
 collision_layer = 4
 collision_mask = 0
 gravity_scale = 0.0
+freeze = true
+freeze_mode = 1
 script = ExtResource("2_53lw0")
 release_mode = 1
 ranged_grab_method = 0
@@ -88,48 +90,93 @@ item_scene = ExtResource("6_8rkj4")
 
 [node name="Patty" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.599732, -0.204802)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty2" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.599732, 0.00219113)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty3" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.599732, 0.212427)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty4" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.650738, -0.204802)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty5" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.650738, 0.00219113)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty6" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.650738, 0.212427)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty7" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.703269, -0.204802)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty8" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.703269, 0.00219113)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty9" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.703269, 0.212427)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty10" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.746176, -0.204802)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty11" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.746176, 0.00219113)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty12" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.746176, 0.212427)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty13" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.813014, -0.204802)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty14" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.813014, 0.00219113)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [node name="Patty15" parent="PattyCabinet/Content" instance=ExtResource("6_8rkj4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.243694, 0.813014, 0.212427)
+continuous_cd = false
+ranged_grab_method = 1
+second_hand_grab = 0
 
 [connection signal="body_exited" from="PattyCabinet/ExitDetector" to="PattyCabinet/Content" method="_on_exit_detector_body_exited"]
 

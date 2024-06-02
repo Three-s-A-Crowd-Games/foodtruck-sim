@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=21 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="4_1mh3m"]
 [ext_resource type="PackedScene" uid="uid://bw18w7lqkorf5" path="res://resources/objects/appliances/frying_basket.tscn" id="4_xgses"]
 [ext_resource type="PackedScene" uid="uid://c54y4lqme3kal" path="res://resources/objects/furniture/BunBottomBox.tscn" id="7_5gd1o"]
+[ext_resource type="PackedScene" uid="uid://bkl3bmlcidvdg" path="res://resources/objects/accessoires/flipper.tscn" id="8_8x8av"]
 [ext_resource type="PackedScene" uid="uid://canauins47xs5" path="res://resources/objects/furniture/BunTopBox.tscn" id="8_j1ief"]
 [ext_resource type="PackedScene" uid="uid://cun37a3kia4ky" path="res://resources/objects/appliances/fryer.tscn" id="9_wcrah"]
 [ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="10_g2n5w"]
@@ -84,6 +85,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05273, 1.00819, -0.758568)
 
 [node name="truck_v1" parent="Truck" instance=ExtResource("10_vl4gb")]
 
+[node name="StaticBody3D" parent="Truck/truck_v1/right-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
+
+[node name="StaticBody3D" parent="Truck/truck_v1/front-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
+
 [node name="StaticBody3D" parent="Truck/truck_v1/bottom-wall" index="0"]
 collision_layer = 8388609
 collision_mask = 524289
@@ -114,6 +123,9 @@ enabled = true
 [node name="CollisionShape3D" parent="Truck/CookingArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850798, 1.97374, 0.783707)
 shape = SubResource("BoxShape3D_j8awf")
+
+[node name="Flipper" parent="." instance=ExtResource("8_8x8av")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.83315, 0.13637)
 
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
