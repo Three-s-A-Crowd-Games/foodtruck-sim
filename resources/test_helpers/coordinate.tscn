@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://boaocw6m73kqh"]
+[gd_scene load_steps=8 format=3 uid="uid://boaocw6m73kqh"]
+
+[ext_resource type="Script" path="res://resources/test_helpers/CorLabel3D.gd" id="1_wm8wb"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cixc3"]
 transparency = 1
@@ -25,6 +27,7 @@ material = SubResource("StandardMaterial3D_c73fj")
 size = Vector3(0.01, 0.01, 0.15)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_wm8wb")
 
 [node name="MeshInstance3DX" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
@@ -40,3 +43,10 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.1)
 mesh = SubResource("BoxMesh_m68ms")
 skeleton = NodePath("../..")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.173234)
+billboard = 1
+text = "test"
+font_size = 12
+outline_size = 2

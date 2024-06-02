@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cv28krsptsa4a"]
 
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="1_owpjt"]
-[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/cube.tscn" id="2_vcfy8"]
+[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="2_vcfy8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tnhnm"]
 size = Vector3(1.05707, 0.001, 1)
