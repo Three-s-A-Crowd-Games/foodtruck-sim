@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://6lsckuqb1cux"]
+[gd_scene load_steps=9 format=3 uid="uid://6lsckuqb1cux"]
 
 [ext_resource type="Script" path="res://addons/XRHandtrackingTools/tracked_hand.gd" id="1_r4owx"]
 [ext_resource type="Script" path="res://addons/XRHandtrackingTools/hand_pose_matcher.gd" id="1_tkxc1"]
 [ext_resource type="Resource" uid="uid://g7mibc5sd13l" path="res://addons/XRHandtrackingTools/pose_records.tres" id="2_kt0d6"]
+[ext_resource type="PackedScene" uid="uid://bjcxf427un2wp" path="res://addons/godot-xr-tools/player/poke/poke.tscn" id="2_tww61"]
 [ext_resource type="Script" path="res://addons/XRHandtrackingTools/pose_label.gd" id="3_kj2d1"]
 [ext_resource type="Script" path="res://addons/XRHandtrackingTools/pose_label2.gd" id="5_dx04g"]
 
@@ -325,6 +326,9 @@ bone_idx = 7
 transform = Transform3D(0.19221, -0.669965, -0.717079, 0.977075, 0.19881, 0.0761527, 0.0915429, -0.715277, 0.692819, 0.0182325, 0.0372781, -0.148956)
 bone_name = "Index_Distal_L"
 bone_idx = 8
+
+[node name="Poke" parent="Skeleton3D/Physical Bone Index_Distal_L" instance=ExtResource("2_tww61")]
+push_bodies = false
 
 [node name="Physical Bone Middle_Proximal_L" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(0.0836168, -0.962976, -0.256294, 0.996367, 0.0849602, 0.00584635, 0.0161449, -0.255851, 0.966581, -0.016529, 0.00942897, -0.0851038)

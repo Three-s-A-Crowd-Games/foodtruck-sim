@@ -10,7 +10,7 @@ resource_local_to_scene = true
 size = Vector3(0.49794, 0.179344, 0.639404)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_852q6"]
-size = Vector3(0.0338135, 0.0389099, 0.0630493)
+size = Vector3(0.0474377, 0.143291, 0.11591)
 
 [node name="Fryer" type="Node3D"]
 script = ExtResource("1_ah4t3")
@@ -29,22 +29,10 @@ button = NodePath("../fryer/switch-top")
 displacement = Vector3(0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146179, 1.08582, 0.183075)
-shape = SubResource("BoxShape3D_852q6")
-
-[node name="Area3D" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 131072
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.146179, 1.08582, 0.183075)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145818, 1.0378, 0.186716)
 shape = SubResource("BoxShape3D_852q6")
 
 [connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_interactable_area_button_button_pressed"]
-[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 
 [editable path="fryer"]
 [editable path="FryingArea"]

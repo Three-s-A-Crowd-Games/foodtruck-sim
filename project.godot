@@ -43,7 +43,6 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 [physics]
 
-3d/run_on_separate_thread=true
 3d/physics_engine="JoltPhysics3D"
 jolt_3d/sleep/enabled=false
 jolt_3d/solver/velocity_iterations=16
@@ -54,6 +53,7 @@ jolt_3d/solver/bounce_velocity_threshold=0.0
 
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/use_physical_light_units=true
+anti_aliasing/quality/screen_space_aa=1
 
 [xr]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bjfijuv76djxl"]
+[gd_scene load_steps=11 format=3 uid="uid://bjfijuv76djxl"]
 
 [ext_resource type="Script" path="res://addons/XRHandtrackingTools/hand_pose_matcher.gd" id="1_ve4iw"]
 [ext_resource type="Script" path="res://addons/XRHandtrackingTools/tracked_hand.gd" id="1_wxas0"]
+[ext_resource type="PackedScene" uid="uid://bjcxf427un2wp" path="res://addons/godot-xr-tools/player/poke/poke.tscn" id="2_ktu2x"]
 [ext_resource type="Resource" uid="uid://g7mibc5sd13l" path="res://addons/XRHandtrackingTools/pose_records.tres" id="2_ra573"]
 [ext_resource type="Script" path="res://addons/XRHandtrackingTools/pose_label.gd" id="4_8oarg"]
 
@@ -105,6 +106,22 @@ bind/24/pose = Transform3D(-0.244295, 0.233295, 0.941219, 0.749373, -0.570603, 0
 bind/25/name = &"Palm_R"
 bind/25/bone = -1
 bind/25/pose = Transform3D(0.083606, -0.0165156, 0.996362, 0.97618, 0.20224, -0.0785601, -0.200207, 0.979197, 0.0330306, 0.00660726, 0.000335467, 0.0515114)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_unpi4"]
+resource_local_to_scene = true
+radius = 0.005
+
+[sub_resource type="SphereMesh" id="SphereMesh_rkaf0"]
+resource_local_to_scene = true
+radius = 0.005
+height = 0.01
+radial_segments = 32
+rings = 16
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qn5ht"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.8, 0.8, 1, 0.5)
 
 [node name="TrackedHandRight" type="OpenXRHand"]
 hand = 1
@@ -325,6 +342,19 @@ transform = Transform3D(0.19221, 0.669965, 0.717079, -0.0915425, -0.715277, 0.69
 bone_name = "Index_Distal_R"
 bone_idx = 8
 
+[node name="Poke" parent="Skeleton3D/Index_Distal_R" instance=ExtResource("2_ktu2x")]
+push_bodies = false
+
+[node name="PokeBody" parent="Skeleton3D/Index_Distal_R/Poke" index="0"]
+push_bodies = false
+
+[node name="CollisionShape" parent="Skeleton3D/Index_Distal_R/Poke/PokeBody" index="0"]
+shape = SubResource("SphereShape3D_unpi4")
+
+[node name="MeshInstance" parent="Skeleton3D/Index_Distal_R/Poke/PokeBody" index="1"]
+mesh = SubResource("SphereMesh_rkaf0")
+surface_material_override/0 = SubResource("StandardMaterial3D_qn5ht")
+
 [node name="Middle_Proximal_R" type="BoneAttachment3D" parent="Skeleton3D"]
 transform = Transform3D(0.0836168, 0.962976, 0.256294, -0.0161448, -0.255851, 0.966581, 0.996367, -0.0849603, -0.00584642, 0.0165289, -0.0851049, -0.00942898)
 bone_name = "Middle_Proximal_R"
@@ -409,3 +439,5 @@ script = ExtResource("4_8oarg")
 
 [connection signal="new_pose" from="HandPoseMatcher" to="." method="_on_hand_pose_matcher_new_pose"]
 [connection signal="new_pose" from="HandPoseMatcher" to="Label3D" method="_on_hand_pose_matcher_new_pose"]
+
+[editable path="Skeleton3D/Index_Distal_R/Poke"]

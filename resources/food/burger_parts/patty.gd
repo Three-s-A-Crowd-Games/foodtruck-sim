@@ -1,15 +1,13 @@
 extends Food
 
-
-
+var cooked_mat = preload("res://assets/materials/patty_cooked.tres")
+var burned_mat = preload("res://assets/materials/patty_burned.tres")
 
 func _on_cookable_cooked_status_changed(status):
 	match status:
 		Cookable.CookedStatus.RAW:
 			pass
 		Cookable.CookedStatus.COOKED:
-			var mat = $Patty/Circle.get_surface_override_material(0)
-			mat.albedo_color = Color("4e0006")
+			$Patty/Circle.set_surface_override_material(0, cooked_mat)
 		Cookable.CookedStatus.BURNED:
-			var mat = $Patty/Circle.get_surface_override_material(0)
-			mat.albedo_color = Color("000000")
+			$Patty/Circle.set_surface_override_material(0, burned_mat)
