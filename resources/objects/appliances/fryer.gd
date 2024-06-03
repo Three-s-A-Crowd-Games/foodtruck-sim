@@ -9,8 +9,8 @@ func _on_interactable_area_button_button_pressed(button):
 	active = !active
 	frying_area.enabled = !frying_area.enabled
 	if active:
-		switch_top.rotation_degrees = Vector3(25,0,0)
+		switch_top.rotation_degrees.x = 25
 		pass
 	else:
-		switch_top.rotation_degrees = Vector3(0,0,0)
+		switch_top.rotation_degrees.x = 0
 		pass

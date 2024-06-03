@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://wqifidp1mmv6" path="res://assets/models/objects/furniture/stove-v2.blend" id="1_7ipw7"]
 [ext_resource type="Script" path="res://resources/objects/appliances/stove.gd" id="1_jta84"]
 [ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="2_kuxf2"]
-[ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="4_6qxgu"]
+[ext_resource type="Script" path="res://resources/objects/appliances/KnobTurner.gd" id="3_4xfrm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ypmn"]
 resource_local_to_scene = true
@@ -36,7 +36,7 @@ axis_lock_angular_y = true
 gravity_scale = 0.0
 freeze = true
 freeze_mode = 1
-script = ExtResource("4_6qxgu")
+script = ExtResource("3_4xfrm")
 snap_distance = 0.1
 release_mode = 1
 ranged_grab_method = 0
@@ -47,6 +47,8 @@ rotation_order = 5
 shape = SubResource("ConvexPolygonShape3D_w8m3r")
 
 [node name="stove-v2" parent="." instance=ExtResource("1_7ipw7")]
+
+[connection signal="toggle_stove" from="KnobOrigin/KnobTurner" to="." method="_on_toggle_stove"]
 
 [editable path="CookingArea"]
 [editable path="stove-v2"]
