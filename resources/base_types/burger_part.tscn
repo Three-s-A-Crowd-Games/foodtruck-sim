@@ -5,11 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="3_3dn0k"]
 
 [node name="BurgerPart" groups=["burger_part"] instance=ExtResource("1_ofrt4")]
-collision_mask = 8585223
 mass = 0.2
 center_of_mass_mode = 1
 script = ExtResource("2_fyhlw")
+stack_zone_distance = 0.05
 ranged_grab_method = 3
 second_hand_grab = 1
 
 [node name="BurgerStackZone" parent="." index="1" instance=ExtResource("3_3dn0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

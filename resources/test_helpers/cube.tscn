@@ -15,12 +15,14 @@ shape = SubResource("BoxShape3D_8lj1b")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
 mesh = SubResource("BoxMesh_4lnpw")
 
-[node name="Sliceable" type="Area3D" parent="." index="2"]
+[node name="Sliceable" type="Area3D" parent="." index="2" node_paths=PackedStringArray("_mesh_node")]
 collision_layer = 0
 collision_mask = 32
 monitorable = false
 script = ExtResource("4_wn12v")
+slice_spawn_seperation_distance = null
 slice_count = 6
+_mesh_node = NodePath("../MeshInstance3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sliceable" index="0"]
 shape = SubResource("BoxShape3D_8lj1b")

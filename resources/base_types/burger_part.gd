@@ -1,5 +1,9 @@
+@tool
 class_name BurgerPart
 extends Food
+
+# Constraint:	The distance between a burgerpart and the corresponding stack zone
+# 				needs to be the same for all burgerparts in a stack
 
 #TODO: adjust the recipe detection
 #TODO: adjust mass when stacked and shift center of mass
@@ -14,11 +18,18 @@ var outer_stack_zone: BurgerStackZone
 var burger_part_stack: Array[BurgerPart] = [self]
 var stack_zone_stack: Array[BurgerStackZone]
 
+@export var stack_zone_distance: float = 0.05 :
+	set(value):
+		stack_zone_distance = value
+		if is_inside_tree() and $BurgerStackZone:
+			$BurgerStackZone.position.y = value
+
 func _ready():
 	outer_stack_zone = get_node_or_null("BurgerStackZone")
 	if not outer_stack_zone: return
 	stack_zone_stack.append(outer_stack_zone)
 	if outer_stack_zone:
+		outer_stack_zone.enabled = true
 		outer_stack_zone.has_picked_up.connect(_on_burger_stack_zone_has_picked_up)
 		outer_stack_zone.has_dropped.connect(_on_burger_stack_zone_has_dropped)
 	
@@ -44,8 +55,6 @@ func _reverse_stack() -> void:
 		return
 		
 	var new_root: BurgerPart = burger_part_stack.back()
-	var second_last_stack_zone: BurgerStackZone = stack_zone_stack[-2]
-	var new_outer_stack_zone_pos: Vector3 = stack_zone_stack[0].position * Vector3(0,-1,0)
 	_move_zones(stack_zone_stack, self, new_root)
 	var last_2_zones: Array[BurgerStackZone] = stack_zone_stack.slice(-2)
 	var zone_distance: float = last_2_zones[1].position.y - last_2_zones[0].position.y
