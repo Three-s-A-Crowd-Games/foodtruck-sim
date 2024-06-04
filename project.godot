@@ -12,8 +12,8 @@ config_version=5
 
 config/name="Foodtruck-Sim"
 run/main_scene="res://resources/main.tscn"
-config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/features=PackedStringArray("4.2")
+config/icon="res://assets/icon.svg"
 
 [autoload]
 
@@ -40,11 +40,22 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 3d_physics/layer_22="Hand Pose Areas"
 3d_physics/layer_23="UI Objects"
 3d_physics/layer_24="Floor"
+3d_physics/layer_25="ButtonInteractionLayer"
+3d_physics/layer_26="Flippable"
+
+[physics]
+
+3d/physics_engine="JoltPhysics3D"
+jolt_3d/sleep/enabled=false
+jolt_3d/solver/velocity_iterations=16
+jolt_3d/solver/position_iterations=6
+jolt_3d/solver/bounce_velocity_threshold=0.0
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/use_physical_light_units=true
+camera/depth_of_field/depth_of_field_bokeh_shape=0
 
 [xr]
 

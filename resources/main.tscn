@@ -1,25 +1,37 @@
-[gd_scene load_steps=15 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=22 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
+[ext_resource type="Texture2D" uid="uid://yjxf2f7cm130" path="res://assets/sunflowers_puresky_4k.hdr" id="2_eyelk"]
 [ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="4_1mh3m"]
-[ext_resource type="PackedScene" uid="uid://bqvabt2tjd60m" path="res://resources/objects/appliances/Fridge.tscn" id="4_vy4xr"]
-[ext_resource type="PackedScene" uid="uid://cy5i3tvbg00fq" path="res://assets/models/basic-counter-v1.blend" id="6_i3t2i"]
+[ext_resource type="PackedScene" uid="uid://bw18w7lqkorf5" path="res://resources/objects/appliances/frying_basket.tscn" id="4_xgses"]
 [ext_resource type="PackedScene" uid="uid://c54y4lqme3kal" path="res://resources/objects/furniture/BunBottomBox.tscn" id="7_5gd1o"]
-[ext_resource type="PackedScene" uid="uid://j0mlspbmtu5o" path="res://assets/models/counter-small.blend" id="7_y7tau"]
+[ext_resource type="PackedScene" uid="uid://bkl3bmlcidvdg" path="res://resources/objects/accessoires/flipper.tscn" id="8_8x8av"]
 [ext_resource type="PackedScene" uid="uid://canauins47xs5" path="res://resources/objects/furniture/BunTopBox.tscn" id="8_j1ief"]
+[ext_resource type="PackedScene" uid="uid://cun37a3kia4ky" path="res://resources/objects/appliances/fryer.tscn" id="9_wcrah"]
+[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="10_g2n5w"]
+[ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/objects/furniture/truck.blend" id="10_vl4gb"]
+[ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
+[ext_resource type="PackedScene" uid="uid://dko2murkvbg2y" path="res://resources/food/fries.tscn" id="13_qws16"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nqjqw"]
-sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
-ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
+panorama = ExtResource("2_eyelk")
 
-[sub_resource type="Sky" id="Sky_uj1um"]
-sky_material = SubResource("ProceduralSkyMaterial_nqjqw")
+[sub_resource type="Sky" id="Sky_o2hra"]
+sky_material = SubResource("PanoramaSkyMaterial_w6e6x")
 
 [sub_resource type="Environment" id="Environment_hp05l"]
 background_mode = 2
-sky = SubResource("Sky_uj1um")
-tonemap_mode = 2
+sky = SubResource("Sky_o2hra")
+reflected_light_source = 2
+tonemap_mode = 3
+fog_density = 0.0
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_vmgr7"]
+auto_exposure_enabled = true
+frustum_focus_distance = 0.01
+frustum_focal_length = 1.0
+frustum_near = 0.001
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fjiod"]
 size = Vector3(10, 0.2, 10)
@@ -30,18 +42,24 @@ size = Vector3(10, 0.2, 10)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcrk8"]
 albedo_color = Color(1, 0.231373, 1, 1)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_j8awf"]
+resource_local_to_scene = true
+size = Vector3(0.790588, 0.0263672, 0.311005)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_d3g8y")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hp05l")
+camera_attributes = SubResource("CameraAttributesPhysical_vmgr7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.990038, -0.0732299, -0.120257, 0.136031, 0.277093, 0.951165, -0.0363313, -0.958048, 0.284295, -6.51748, 6.68123, -2.98491)
+transform = Transform3D(0.80519, 0.312031, -0.504287, 0.178342, 0.683596, 0.707736, 0.565564, -0.659798, 0.494777, -3.88802, 7.74142, 6.44357)
 shadow_enabled = true
+directional_shadow_mode = 1
 
 [node name="XROrigin3D" parent="." instance=ExtResource("1_delsf")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.836483, 0, 1.26901)
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -0.109164, 1.43315, 0.152627)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 8388609
@@ -51,44 +69,65 @@ collision_mask = 524289
 shape = SubResource("BoxShape3D_fjiod")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00545907)
 mesh = SubResource("BoxMesh_d002o")
 surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 
-[node name="Fridge" parent="." instance=ExtResource("4_vy4xr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.591016, 0.1, 2.369)
+[node name="Truck" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750915, 0)
 
-[node name="Stove" parent="." instance=ExtResource("4_1mh3m")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.397, 0.1, 1.62)
+[node name="FryingBasket" parent="Truck" instance=ExtResource("4_xgses")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.059876, 0.969363, -0.467769)
 
-[node name="basic-counter-v1" parent="." instance=ExtResource("6_i3t2i")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.3892, 0.0999999, 0.912639)
+[node name="FryingBasket2" parent="Truck" instance=ExtResource("4_xgses")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.308859, 0.969363, -0.467769)
 
-[node name="basic-counter-v2" parent="." instance=ExtResource("6_i3t2i")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.38755, 0.1, 0.208232)
+[node name="BunBottomBox" parent="Truck" instance=ExtResource("7_5gd1o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02714, 0.976285, -0.420155)
 
-[node name="basic-counter-v3" parent="." instance=ExtResource("6_i3t2i")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.38423, 0.0999999, -0.493291)
+[node name="BunTopBox" parent="Truck" instance=ExtResource("8_j1ief")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05273, 0.972559, -0.758568)
 
-[node name="basic-counter-v7" parent="." instance=ExtResource("6_i3t2i")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.40896, 0.0999999, 2.32332)
+[node name="truck_v1" parent="Truck" instance=ExtResource("10_vl4gb")]
 
-[node name="counter-small" parent="." instance=ExtResource("7_y7tau")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0133879, 0.0999999, 2.31972)
+[node name="StaticBody3D" parent="Truck/truck_v1/right-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
 
-[node name="counter-small2" parent="." instance=ExtResource("7_y7tau")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0120869, 0.1, 1.61598)
+[node name="StaticBody3D" parent="Truck/truck_v1/front-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
 
-[node name="counter-small3" parent="." instance=ExtResource("7_y7tau")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0130529, 0.1, 0.909046)
+[node name="StaticBody3D" parent="Truck/truck_v1/bottom-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
 
-[node name="counter-small4" parent="." instance=ExtResource("7_y7tau")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.0138095, 0.0999999, 0.205514)
+[node name="Point" parent="Truck/truck_v1" index="6"]
+shadow_enabled = true
+omni_range = 2.848
+omni_attenuation = 1.93187
 
-[node name="basic-counter-v4" parent="." instance=ExtResource("6_i3t2i")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -0.620876, 0.0999999, -0.497947)
+[node name="Stove" parent="Truck" instance=ExtResource("4_1mh3m")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.479958, 0, -0.605357)
 
-[node name="BunBottomBox" parent="." instance=ExtResource("7_5gd1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41977, 1.12965, 0.0602201)
+[node name="Fryer" parent="Truck" instance=ExtResource("9_wcrah")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.183, 0.008, -0.605)
 
-[node name="BunBottomBox2" parent="." instance=ExtResource("8_j1ief")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.41028, 1.13, 0.41233)
+[node name="Fridge" parent="Truck" instance=ExtResource("11_js3xx")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.82697, 0, 0.206331)
+
+[node name="CookingArea" parent="Truck" instance=ExtResource("10_g2n5w")]
+enabled = true
+
+[node name="CollisionShape3D" parent="Truck/CookingArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850798, 1.97374, 0.783707)
+shape = SubResource("BoxShape3D_j8awf")
+
+[node name="Flipper" parent="." instance=ExtResource("8_8x8av")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7577, -0.15682)
+
+[node name="Fries" parent="." instance=ExtResource("13_qws16")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07988, 1.84672, -0.024622)
+
+[editable path="Truck/truck_v1"]
+[editable path="Truck/CookingArea"]

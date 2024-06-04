@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bqc71xcemsg8s"]
 
-[ext_resource type="PackedScene" uid="uid://ch63w0v83hyrp" path="res://assets/models/top_bun.blend" id="1_12skk"]
+[ext_resource type="PackedScene" uid="uid://ch63w0v83hyrp" path="res://assets/models/food/top_bun.blend" id="1_12skk"]
 [ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_t230o"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_q5obm"]
@@ -8,9 +8,11 @@ height = 0.687124
 radius = 0.700083
 
 [node name="BunTop" instance=ExtResource("1_t230o")]
+mass = 0.04
+center_of_mass = Vector3(0, 0.01, 0)
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0273088, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0229496, 0)
 shape = SubResource("CylinderShape3D_q5obm")
 
 [node name="BunTop" parent="." index="1" instance=ExtResource("1_12skk")]

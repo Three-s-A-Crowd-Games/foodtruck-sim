@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3bsc5kmrbo4i"]
 
-[ext_resource type="PackedScene" uid="uid://w3j7uqy2hp8x" path="res://assets/models/patty.blend" id="1_kle5d"]
+[ext_resource type="PackedScene" uid="uid://w3j7uqy2hp8x" path="res://assets/models/food/patty.blend" id="1_kle5d"]
 [ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_ws3rg"]
 [ext_resource type="Script" path="res://resources/food/burger_parts/patty.gd" id="2_c8brd"]
 [ext_resource type="Script" path="res://resources/components/cookable.gd" id="4_0f6dl"]
@@ -10,6 +10,7 @@ height = 0.411154
 radius = 0.987689
 
 [node name="Patty" instance=ExtResource("1_ws3rg")]
+mass = 0.2
 script = ExtResource("2_c8brd")
 type = 2
 

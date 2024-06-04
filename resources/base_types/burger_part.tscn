@@ -11,6 +11,8 @@ script = ExtResource("2_fyhlw")
 stack_zone_distance = 0.05
 ranged_grab_method = 3
 second_hand_grab = 1
+freeze = true
+continuous_cd = true
 
 [node name="BurgerStackZone" parent="." index="1" instance=ExtResource("3_3dn0k")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)

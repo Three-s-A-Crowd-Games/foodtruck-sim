@@ -1,0 +1,61 @@
+[gd_scene load_steps=9 format=3 uid="uid://bw18w7lqkorf5"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_opsrh"]
+[ext_resource type="PackedScene" uid="uid://da6s4ivc7rwqr" path="res://assets/models/objects/furniture/fryer_basket.blend" id="2_hsonr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pd675"]
+size = Vector3(0.0568848, 0.0311584, 0.0980225)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g5k6q"]
+size = Vector3(0.170044, 0.0101929, 0.28244)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hp36e"]
+size = Vector3(0.166504, 0.137848, 0.0107422)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7wwsc"]
+size = Vector3(0.0124512, 0.13031, 0.293701)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uk6a1"]
+size = Vector3(0.0266113, 0.0120239, 0.032959)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ovwft"]
+size = Vector3(0.027, 0.0370581, 0.0101523)
+
+[node name="FryingBasket" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_opsrh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032959, 0.175443, -0.229431)
+shape = SubResource("BoxShape3D_pd675")
+
+[node name="fryer-basket" parent="." instance=ExtResource("2_hsonr")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00211705, 0.00934964, 0)
+shape = SubResource("BoxShape3D_g5k6q")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.998003, 0.0631737, 0, -0.0631737, 0.998003, 0.0090332, 0.0736603, -0.141203)
+shape = SubResource("BoxShape3D_hp36e")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.998027, -0.0627905, 0, 0.0627905, 0.998027, 0.0090332, 0.0736603, 0.144493)
+shape = SubResource("BoxShape3D_hp36e")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.997248, -0.0741433, 0, 0.0741433, 0.997248, 0, 0, 0, 1, -0.0816268, 0.0743924, -0.00012207)
+shape = SubResource("BoxShape3D_7wwsc")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.997185, 0.0749787, 0, -0.0749787, 0.997185, 0, 0, 0, 1, 0.0887149, 0.0743924, -0.00012207)
+shape = SubResource("BoxShape3D_7wwsc")
+
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.996347, -0.0853995, 0, 0.0853995, 0.996347, 0, 0.0884804, -0.160345)
+shape = SubResource("BoxShape3D_uk6a1")
+
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.864976, -0.501813, 0, 0.501813, 0.864976, 0, 0.0805157, -0.178818)
+shape = SubResource("BoxShape3D_ovwft")
