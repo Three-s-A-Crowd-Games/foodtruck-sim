@@ -24,6 +24,9 @@ var stack_zone_stack: Array[BurgerStackZone]
 		if is_inside_tree() and $BurgerStackZone:
 			$BurgerStackZone.position.y = value
 
+@onready var original_mass := mass
+
+
 func _ready():
 	outer_stack_zone = get_node_or_null("BurgerStackZone")
 	if not outer_stack_zone: return
@@ -74,6 +77,9 @@ func _reverse_stack() -> void:
 	new_root.is_root = true
 	last_2_zones[1].drop_object()
 	last_2_zones[0].pick_up_object(self)
+	mass = original_mass
+	center_of_mass = Vector3.ZERO
+	new_root.recalculate_mass()
 	
 
 func _move_zones(zones: Array[BurgerStackZone], from: BurgerPart, to: BurgerPart) -> void:
@@ -98,8 +104,12 @@ func _on_burger_stack_zone_has_picked_up(what):
 	what.is_root = false
 	if what.outer_stack_zone: outer_stack_zone = what.outer_stack_zone
 	_move_zones(what.stack_zone_stack, what, self)
+	mass += what.mass
+	what.mass = what.original_mass
 	burger_part_stack += what.burger_part_stack
 	what.burger_part_stack.clear()
+	center_of_mass = Vector3(0, burger_part_stack[-1].position.y / 2, 0)
+	what.center_of_mass = Vector3.ZERO
 	stack_zone_stack += what.stack_zone_stack
 	what.stack_zone_stack.clear()
 	what.outer_stack_zone = null
@@ -120,3 +130,19 @@ func _on_burger_stack_zone_has_dropped(what):
 	what.outer_stack_zone = outer_stack_zone
 	outer_stack_zone = stack_zone_stack.back()
 	_move_zones(what.stack_zone_stack, self, what)
+	recalculate_mass()
+	what.recalculate_mass()
+	
+
+func recalculate_mass():
+	mass = original_mass
+	for i in range(1,burger_part_stack.size()):
+		burger_part_stack[i].mass = burger_part_stack[i].original_mass
+		mass += burger_part_stack[i].mass
+		burger_part_stack[i].center_of_mass = Vector3.ZERO
+	
+	if burger_part_stack[-1] != self:
+		center_of_mass = Vector3(0, burger_part_stack[-1].position.y / 2, 0)
+	else:
+		center_of_mass = Vector3.ZERO
+	
