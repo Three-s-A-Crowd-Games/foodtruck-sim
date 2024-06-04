@@ -90,12 +90,13 @@ func slice():
 	_sliceable.add_sibling(_create_slice(meshes[1]))
 	slices_left -= 1
 	
-	if slice_count - slices_left == delete_slice_count:
+	if slice_count - slices_left == delete_slice_count and mesh_node_to_delete:
 		mesh_node_to_delete.queue_free()
 		
 	if slices_left == 1:
 		_sliceable.add_sibling(_create_slice(meshes[1]))
 		get_parent().call_deferred("queue_free")
+	#TODO: last pice is off center
 	#TODO: configure the burger stack zone scene properly
 	#TODO: When the sliceable is facing downwards the slice might spawn beneath the ground an fall through
 
@@ -147,6 +148,7 @@ func _position_child_nodes(mesh_node: MeshInstance3D, coll_node: CollisionShape3
 	mesh_node.rotate_z(PI/2)
 	coll_node.rotate_z(PI/2)
 	
+	if slices_left == 1: slices_left = 2
 	var shift: float
 	# This shift is necessary because the mesh vertices created by the slicing are not always centered
 	if slice_count % 2 == 0:
