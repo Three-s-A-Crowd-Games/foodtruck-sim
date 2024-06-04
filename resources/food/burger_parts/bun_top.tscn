@@ -8,7 +8,6 @@ height = 0.687124
 radius = 0.700083
 
 [node name="BunTop" instance=ExtResource("1_t230o")]
-collision_mask = 131079
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0273088, 0)

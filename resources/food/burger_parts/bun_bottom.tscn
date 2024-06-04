@@ -8,7 +8,6 @@ height = 0.3
 radius = 0.717808
 
 [node name="BunBottom" instance=ExtResource("1_cjmcw")]
-collision_mask = 131079
 type = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
