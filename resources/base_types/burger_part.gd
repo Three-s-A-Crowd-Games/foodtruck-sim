@@ -81,7 +81,7 @@ func _move_zones(zones: Array[BurgerStackZone], from: BurgerPart, to: BurgerPart
 	for zone: BurgerStackZone in zones:
 		prev_pos = zone.global_position
 		from.remove_child(zone)
-		to.add_child(zone, true)
+		to.add_child(zone)
 		zone.global_position = prev_pos
 		zone.has_picked_up.disconnect(from._on_burger_stack_zone_has_picked_up)
 		zone.has_picked_up.connect(to._on_burger_stack_zone_has_picked_up)

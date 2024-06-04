@@ -10,6 +10,8 @@ var slices_left: int
 var slice_width: float
 var slice_scene: PackedScene = preload("res://resources/base_types/burger_part.tscn")
 var _flip_factor: int
+var _mesh_node: MeshInstance3D
+var _inverse_mesh_transform: Transform3D
 @export var cross_section_material: Material
 @export var slice_spawn_seperation_distance := 0.2
 @export var slice_count := 3 :
@@ -18,21 +20,37 @@ var _flip_factor: int
 		if Engine.is_editor_hint():
 			update_configuration_warnings()
 
-@export var _mesh_node: MeshInstance3D:
+## Select the mesh node which should be sliced or its parent node.
+@export var _mesh_node_or_parent: Node3D:
 	set(value):
-		_mesh_node = value
+		_mesh_node_or_parent = value
 		if Engine.is_editor_hint():
 			update_configuration_warnings()
 
+@export_category("Mesh Deletion")
+## Select a second mesh node which should be deleted while slicing.
+@export var mesh_node_to_delete: MeshInstance3D
+## Select with which slice action the second mesh should be deleted.
+@export var delete_slice_count: int = 1
+
 @onready var _sliceable := get_parent()
-@onready var _inverse_mesh_transform := _mesh_node.transform.inverse()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if _mesh_node_or_parent is MeshInstance3D:
+		_mesh_node = _mesh_node_or_parent
+	else:
+		_mesh_node = _mesh_node_or_parent.find_children("*", "MeshInstance3D", false)[0]
+	
+	assert(_mesh_node != null, "No mesh node could be found for slicing")
+	_inverse_mesh_transform = _mesh_node.transform.inverse()
+	
 	if find_children("*", "CollisionShape3D", false).size() == 0:
 		add_child(get_parent().find_children("*", "CollisionShape3D", false)[0].duplicate())
 	
 	body_entered.connect(_on_body_entered)
+	child_entered_tree.connect(update_configuration_warnings)
+	child_exiting_tree.connect(update_configuration_warnings)
 	
 	slices_left = slice_count
 	
@@ -69,12 +87,16 @@ func slice():
 	_mesh_node.mesh = meshes[0]
 	_adjust_collision_shape(_sliceable, meshes[0])
 	call_deferred("_adjust_collision_shape", self, meshes[0])
-	_sliceable.add_sibling(_create_slice(meshes[1]), true)
+	_sliceable.add_sibling(_create_slice(meshes[1]))
 	slices_left -= 1
-	#TODO: Take care of the last slice it needs to get stack zones and stuff to be usable
+	
+	if slice_count - slices_left == delete_slice_count:
+		mesh_node_to_delete.queue_free()
+		
+	if slices_left == 1:
+		_sliceable.add_sibling(_create_slice(meshes[1]))
+		get_parent().call_deferred("queue_free")
 	#TODO: configure the burger stack zone scene properly
-	#TODO: programatically use the collision shape provided by the body by adding the necessare
-	#		collision layer/mask and connecting the signals.
 	#TODO: When the sliceable is facing downwards the slice might spawn beneath the ground an fall through
 
 func _get_slice_transform() -> Transform3D:
@@ -95,7 +117,7 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	slice.transform = _sliceable.transform
 	slice.transform.origin += slice.basis.x * (slice_width+slice_spawn_seperation_distance) * slices_left
 	slice.position.y += 0.02
-	slice.rotate_z(10*PI/20)
+	slice.rotate_z(7*PI/20)
 	
 	var mesh_node := _find_mesh_child_node(slice)
 	if not mesh_node:
@@ -156,6 +178,8 @@ func _adjust_collision_shape(node: Node, mesh: Mesh) -> void:
 
 func _get_configuration_warnings():
 	var out: Array[String] = []
+	if get_child_count() == 0:
+		out.push_back("If it appears, you can ignore the warining about the missing collision shape for this area. It will take the collision shape of the parent then.")
 	if not _mesh_node:
 		out.push_back("Mesh node is not configured. Please select the mesh node with the mesh that shall be sliced.")
 	if slice_count == 4:

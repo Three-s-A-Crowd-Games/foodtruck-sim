@@ -21,10 +21,9 @@ shape = SubResource("CylinderShape3D_n8f2a")
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_qneac")
 
-[node name="Sliceable" type="Area3D" parent="." index="2" node_paths=PackedStringArray("_mesh_node")]
+[node name="Sliceable" type="Area3D" parent="." index="2" node_paths=PackedStringArray("_mesh_node_or_parent")]
 collision_layer = 0
 collision_mask = 32
 monitorable = false
 script = ExtResource("2_pm720")
-slice_spawn_seperation_distance = null
-_mesh_node = NodePath("../MeshInstance3D")
+_mesh_node_or_parent = NodePath("../MeshInstance3D")
