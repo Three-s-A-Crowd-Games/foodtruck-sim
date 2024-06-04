@@ -22,6 +22,7 @@ sky_material = SubResource("PanoramaSkyMaterial_w6e6x")
 
 [sub_resource type="Environment" id="Environment_hp05l"]
 background_mode = 2
+background_intensity = 25951.8
 sky = SubResource("Sky_o2hra")
 reflected_light_source = 2
 tonemap_mode = 3
@@ -55,6 +56,7 @@ camera_attributes = SubResource("CameraAttributesPhysical_vmgr7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.80519, 0.312031, -0.504287, 0.178342, 0.683596, 0.707736, 0.565564, -0.659798, 0.494777, -3.88802, 7.74142, 6.44357)
+light_intensity_lux = 54545.5
 shadow_enabled = true
 directional_shadow_mode = 1
 
@@ -90,9 +92,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05273, 0.972559, -0.758568
 
 [node name="truck_v1" parent="Truck" instance=ExtResource("10_vl4gb")]
 
+[node name="right-wall" parent="Truck/truck_v1" index="0"]
+transform = Transform3D(1.045, 0, 0, 0, 1.045, 0, 0, 0, 1.045, 1.275, 1.05, 0)
+
 [node name="StaticBody3D" parent="Truck/truck_v1/right-wall" index="0"]
 collision_layer = 8388609
 collision_mask = 524289
+
+[node name="left-wall" parent="Truck/truck_v1" index="1"]
+transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -1.275, 1.05, 0)
 
 [node name="StaticBody3D" parent="Truck/truck_v1/front-wall" index="0"]
 collision_layer = 8388609
@@ -103,6 +111,7 @@ collision_layer = 8388609
 collision_mask = 524289
 
 [node name="Point" parent="Truck/truck_v1" index="6"]
+light_energy = 1000.0
 shadow_enabled = true
 omni_range = 2.848
 omni_attenuation = 1.93187
