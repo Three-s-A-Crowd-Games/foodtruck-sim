@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=21 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
-[ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="1_delsf"]
 [ext_resource type="Texture2D" uid="uid://yjxf2f7cm130" path="res://assets/sunflowers_puresky_4k.hdr" id="2_eyelk"]
 [ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="4_1mh3m"]
 [ext_resource type="PackedScene" uid="uid://bw18w7lqkorf5" path="res://resources/objects/appliances/frying_basket.tscn" id="4_xgses"]
@@ -57,9 +56,6 @@ camera_attributes = SubResource("CameraAttributesPhysical_vmgr7")
 transform = Transform3D(0.80519, 0.312031, -0.504287, 0.178342, 0.683596, 0.707736, 0.565564, -0.659798, 0.494777, -3.88802, 7.74142, 6.44357)
 shadow_enabled = true
 directional_shadow_mode = 1
-
-[node name="XROrigin3D" parent="." instance=ExtResource("1_delsf")]
-transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -0.109164, 1.43315, 0.152627)
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 8388609

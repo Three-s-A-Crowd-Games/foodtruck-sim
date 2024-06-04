@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://5b36bokc0k4k"]
+[gd_scene load_steps=15 format=3 uid="uid://5b36bokc0k4k"]
 
-[ext_resource type="PackedScene" uid="uid://doqn4cetycndv" path="res://resources/test_helpers/food_piece.tscn" id="2_sd2tb"]
-[ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://slicing test/knife.tscn" id="2_wpesg"]
-[ext_resource type="PackedScene" uid="uid://bm3ixvs3xjcdn" path="res://resources/xr_origin.tscn" id="3_ot66u"]
-[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="3_ynbpl"]
+[ext_resource type="Script" path="res://resources/main.gd" id="1_5moal"]
+[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="1_8xdyp"]
+[ext_resource type="PackedScene" uid="uid://doqn4cetycndv" path="res://resources/test_helpers/food_piece.tscn" id="2_ek6i4"]
+[ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="4_xjd3b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
 sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
@@ -17,6 +17,8 @@ sky_material = SubResource("ProceduralSkyMaterial_m270m")
 background_mode = 2
 sky = SubResource("Sky_ux0ev")
 tonemap_mode = 2
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ia6rj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kksl4"]
 albedo_color = Color(0.0901961, 0.137255, 1, 1)
@@ -38,10 +40,12 @@ size = Vector3(20, 8, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_t6ju8"]
 size = Vector3(2, 1, 2)
 
-[node name="SliceTest" type="Node3D"]
+[node name="TestArena" type="Node3D"]
+script = ExtResource("1_5moal")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_epmoj")
+camera_attributes = SubResource("CameraAttributesPhysical_ia6rj")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
@@ -87,16 +91,13 @@ collision_mask = 65537
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_t6ju8")
 
-[node name="Cube" parent="." instance=ExtResource("3_ynbpl")]
+[node name="Cube" parent="." instance=ExtResource("1_8xdyp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8064, 1, 2.98873)
 collision_mask = 131079
 
-[node name="FoodPiece" parent="." instance=ExtResource("2_sd2tb")]
+[node name="FoodPiece" parent="." instance=ExtResource("2_ek6i4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.958683, 2.93693)
 collision_mask = 196615
 
-[node name="XROrigin3D" parent="." instance=ExtResource("3_ot66u")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.77365, -4.76837e-07, 4.66581)
-
-[node name="Knife" parent="." instance=ExtResource("2_wpesg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96191, 1.14486, 3.16296)
+[node name="Knife" parent="." instance=ExtResource("4_xjd3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96191, 1.14486, 4.14737)

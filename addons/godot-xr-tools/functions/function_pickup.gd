@@ -89,6 +89,7 @@ var _ranged_collision : CollisionShape3D
 ## Grip threshold (from configuration)
 @onready var _grip_threshold : float = XRTools.get_grip_threshold()
 
+static var in_handtracking_mode: bool = false
 
 # Add support for is_xr_class on XRTools classes
 func is_xr_class(name : String) -> bool:
@@ -154,17 +155,21 @@ func _process(delta):
 
 	# Achtung Achtung: Commented stuff out that we only need WITHOUT handtracking (yay)
 	# Skip if disabled, or the controller isn't active
-	if !enabled: #or !_controller.get_is_active():
+	if !enabled:
 		return
-
-	# Handle our grip
-	#var grip_value = _controller.get_float(pickup_axis_action)
-	#if (grip_pressed and grip_value < (_grip_threshold - 0.1)):
-		#grip_pressed = false
-		#_on_grip_release()
-	#elif (!grip_pressed and grip_value > (_grip_threshold + 0.1)):
-		#grip_pressed = true
-		#_on_grip_pressed()
+	
+	if not in_handtracking_mode:
+		if _controller.get_is_active():
+			# Handle our grip
+			var grip_value = _controller.get_float(pickup_axis_action)
+			if (grip_pressed and grip_value < (_grip_threshold - 0.1)):
+				grip_pressed = false
+				_on_grip_release()
+			elif (!grip_pressed and grip_value > (_grip_threshold + 0.1)):
+				grip_pressed = true
+				_on_grip_pressed()
+		else:
+			return
 
 	# Calculate average velocity
 	if is_instance_valid(picked_up_object) and picked_up_object.is_picked_up():
