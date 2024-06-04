@@ -47,6 +47,7 @@ shape = SubResource("BoxShape3D_852q6")
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12235, 0.918491, -0.110441)
+emitting = false
 lifetime = 0.33
 randomness = 0.5
 visibility_aabb = AABB(-1.05412, -0.696859, -0.989821, 2.10824, 1.39372, 1.97964)
@@ -55,6 +56,7 @@ draw_pass_1 = ExtResource("5_ef5m1")
 
 [node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112997, 0.918491, -0.110441)
+emitting = false
 lifetime = 0.33
 randomness = 0.5
 visibility_aabb = AABB(-1.05412, -0.696859, -0.989821, 2.10824, 1.39372, 1.97964)
