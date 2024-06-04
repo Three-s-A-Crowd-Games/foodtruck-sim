@@ -6,7 +6,6 @@ extends Food
 # 				needs to be the same for all burgerparts in a stack
 
 #TODO: adjust the recipe detection
-#TODO: adjust mass when stacked and shift center of mass
 
 enum FlipState {UNINITIALIZED, FLIPPED, UNFLIPPED}
 

@@ -3,6 +3,7 @@ class_name Sliceable
 extends Area3D
 
 # Constraint: Sliceable objects only get shorter in their x direction from positiv to negativ
+#TODO: When the sliceable is facing downwards the slice might spawn beneath the ground an fall through
 
 var original_width: float
 var slice_positions: Array[float]
@@ -96,9 +97,6 @@ func slice():
 	if slices_left == 1:
 		_sliceable.add_sibling(_create_slice(meshes[1]))
 		get_parent().call_deferred("queue_free")
-	#TODO: last pice is off center
-	#TODO: configure the burger stack zone scene properly
-	#TODO: When the sliceable is facing downwards the slice might spawn beneath the ground an fall through
 
 func _get_slice_transform() -> Transform3D:
 	# As far as I know the mesh slicing tool cuts along the xy-surface of the given transform.
