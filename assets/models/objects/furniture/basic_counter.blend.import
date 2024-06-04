@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://wqifidp1mmv6"
-path="res://.godot/imported/stove-v2.blend-6fe9ec47876f629b080c1bde76b47539.scn"
+uid="uid://cy5i3tvbg00fq"
+path="res://.godot/imported/basic_counter.blend-c31ad3b3f6159d99fe63ef651d7c72f3.scn"
 
 [deps]
 
-source_file="res://assets/models/objects/furniture/stove-v2.blend"
-dest_files=["res://.godot/imported/stove-v2.blend-6fe9ec47876f629b080c1bde76b47539.scn"]
+source_file="res://assets/models/objects/furniture/basic_counter.blend"
+dest_files=["res://.godot/imported/basic_counter.blend-c31ad3b3f6159d99fe63ef651d7c72f3.scn"]
 
 [params]
 

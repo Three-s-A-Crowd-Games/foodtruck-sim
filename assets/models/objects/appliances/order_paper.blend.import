@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cy5i3tvbg00fq"
-path="res://.godot/imported/basic-counter-v1.blend-c8a838986b6dc3002173942fb30c55ba.scn"
+uid="uid://2g8x3ig1f60s"
+path="res://.godot/imported/order_paper.blend-43bfe300bc95ece42ad7132118561179.scn"
 
 [deps]
 
-source_file="res://assets/models/objects/furniture/basic-counter-v1.blend"
-dest_files=["res://.godot/imported/basic-counter-v1.blend-c8a838986b6dc3002173942fb30c55ba.scn"]
+source_file="res://assets/models/objects/appliances/order_paper.blend"
+dest_files=["res://.godot/imported/order_paper.blend-43bfe300bc95ece42ad7132118561179.scn"]
 
 [params]
 
@@ -29,7 +29,14 @@ animation/fps=30
 animation/trimming=false
 animation/remove_immutable_tracks=true
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"585abfc54f6ae202fedf2935": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/2d_images/fries.png"
+}
+}
+}
 gltf/naming_version=1
 gltf/embedded_image_handling=1
 blender/nodes/visible=0

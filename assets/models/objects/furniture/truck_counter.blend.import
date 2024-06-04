@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://6oe3y5c6nwr7"
-path="res://.godot/imported/counter-corner.blend-ecc5e8cf365d72101c2f921b7aec1aa9.scn"
+uid="uid://b1yv7fc162law"
+path="res://.godot/imported/truck_counter.blend-cc62e0f5f681dc78d972e51033b6f0d2.scn"
 
 [deps]
 
-source_file="res://assets/models/objects/furniture/counter-corner.blend"
-dest_files=["res://.godot/imported/counter-corner.blend-ecc5e8cf365d72101c2f921b7aec1aa9.scn"]
+source_file="res://assets/models/objects/furniture/truck_counter.blend"
+dest_files=["res://.godot/imported/truck_counter.blend-cc62e0f5f681dc78d972e51033b6f0d2.scn"]
 
 [params]
 

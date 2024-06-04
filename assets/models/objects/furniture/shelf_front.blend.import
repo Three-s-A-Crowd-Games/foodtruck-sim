@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://j0mlspbmtu5o"
-path="res://.godot/imported/counter-small.blend-687ad3e50b9f27c1dff40634cca3c06f.scn"
+uid="uid://1d7p3mx1jadr"
+path="res://.godot/imported/shelf_front.blend-40541d407c19643193b960ec033e6a03.scn"
 
 [deps]
 
-source_file="res://assets/models/objects/furniture/counter-small.blend"
-dest_files=["res://.godot/imported/counter-small.blend-687ad3e50b9f27c1dff40634cca3c06f.scn"]
+source_file="res://assets/models/objects/furniture/shelf_front.blend"
+dest_files=["res://.godot/imported/shelf_front.blend-40541d407c19643193b960ec033e6a03.scn"]
 
 [params]
 
