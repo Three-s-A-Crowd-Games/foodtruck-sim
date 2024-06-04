@@ -24,7 +24,7 @@ sky_material = SubResource("PanoramaSkyMaterial_w6e6x")
 background_mode = 2
 sky = SubResource("Sky_o2hra")
 reflected_light_source = 2
-tonemap_mode = 2
+tonemap_mode = 3
 fog_density = 0.0
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_vmgr7"]
