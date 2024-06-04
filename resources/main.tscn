@@ -90,15 +90,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05273, 0.972559, -0.758568
 
 [node name="truck_v1" parent="Truck" instance=ExtResource("10_vl4gb")]
 
-[node name="right-wall" parent="Truck/truck_v1" index="0"]
-transform = Transform3D(0.999972, 0, -0.00753975, 0, 1, 0, 0.00753975, 0, 0.999972, 1.275, 1.05, 0)
-
 [node name="StaticBody3D" parent="Truck/truck_v1/right-wall" index="0"]
 collision_layer = 8388609
 collision_mask = 524289
-
-[node name="front-wall" parent="Truck/truck_v1" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05, 0.988439)
 
 [node name="StaticBody3D" parent="Truck/truck_v1/front-wall" index="0"]
 collision_layer = 8388609
