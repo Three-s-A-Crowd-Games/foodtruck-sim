@@ -18,7 +18,7 @@ height = 0.01
 radial_segments = 32
 rings = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ux52g"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yq2os"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.8, 0.8, 1, 0.5)
@@ -137,7 +137,7 @@ shape = SubResource("SphereShape3D_nxwqx")
 
 [node name="MeshInstance" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke/PokeBody" index="1"]
 mesh = SubResource("SphereMesh_lpo0c")
-surface_material_override/0 = SubResource("StandardMaterial3D_ux52g")
+surface_material_override/0 = SubResource("StandardMaterial3D_yq2os")
 
 [node name="Middle_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="6"]
 transform = Transform3D(0.0836168, 0.962976, 0.256294, -0.0161448, -0.255851, 0.966581, 0.996367, -0.0849603, -0.00584642, 0.0165289, -0.0851049, -0.00942898)

@@ -15,4 +15,4 @@ ranged_grab_method = 3
 second_hand_grab = 1
 
 [node name="BurgerStackZone" parent="." index="1" instance=ExtResource("3_3dn0k")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)
