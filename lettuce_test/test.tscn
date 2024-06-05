@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://dvefopiatmt16"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/functions/function_pickup.gd" id="1_0ay1b"]
+[ext_resource type="PackedScene" uid="uid://bfdkvrf621lj6" path="res://lettuce_test/block_of_lettuce.tscn" id="2_j2pir"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gsxud"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r073f"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_di7a7"]
+albedo_color = Color(0.545098, 0.380392, 0.694118, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_p5t8t"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Test" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_gsxud")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_r073f")
+surface_material_override/0 = SubResource("StandardMaterial3D_di7a7")
+
+[node name="block_of_lettuce" parent="." instance=ExtResource("2_j2pir")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0254003, 0.0500001, -0.664394)
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.253474, 0)
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
+
+[node name="left" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.536342, 0, -0.14688)
+tracker = &"left_hand"
+
+[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/left"]
+script = ExtResource("1_0ay1b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/left"]
+mesh = SubResource("BoxMesh_p5t8t")
+
+[node name="right" type="XRController3D" parent="XROrigin3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.495132, 0, -0.14688)
+tracker = &"right_hand"
+
+[node name="XRToolsFunctionPickup" type="Node3D" parent="XROrigin3D/right"]
+script = ExtResource("1_0ay1b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/right"]
+mesh = SubResource("BoxMesh_p5t8t")
