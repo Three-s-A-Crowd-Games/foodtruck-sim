@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfdkvrf621lj6"]
+
+[ext_resource type="PackedScene" uid="uid://bu4xgrwgepc1l" path="res://assets/models/food/block_of_lettuce.blend" id="1_mlctk"]
+[ext_resource type="Script" path="res://lettuce_test/block_of_lettuce.gd" id="2_xrmlk"]
+[ext_resource type="PackedScene" uid="uid://dfs1nnktcexvm" path="res://lettuce_test/lettuce.tscn" id="3_urijw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hvgc3"]
+size = Vector3(0.196338, 0.163623, 0.2)
+
+[node name="block_of_lettuce" instance=ExtResource("1_mlctk")]
+script = ExtResource("2_xrmlk")
+
+[node name="Area3D" type="Area3D" parent="." index="4"]
+collision_layer = 65537
+collision_mask = 65537
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00192871, 0.0715576, 0)
+shape = SubResource("BoxShape3D_hvgc3")
+
+[node name="Lettuce" parent="." index="5" instance=ExtResource("3_urijw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00410545, 0.0656428, -0.0274678)
+visible = false
+
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
