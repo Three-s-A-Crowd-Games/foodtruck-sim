@@ -24,4 +24,3 @@ func _ready():
 	
 	printt("Main order", order.main_recipe.ingredients)
 	printt("Side order", order.side_recipe.ingredients)
-
