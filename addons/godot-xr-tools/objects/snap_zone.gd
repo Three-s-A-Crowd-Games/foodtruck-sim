@@ -7,7 +7,7 @@ extends Area3D
 signal has_picked_up(what)
 
 ## Signal emitted when the snap-zone drops something
-signal has_dropped
+signal has_dropped(what)
 
 # Signal emitted when the highlight state changes
 signal highlight_updated(pickable, enable)
@@ -28,9 +28,6 @@ enum SnapMode {
 
 ## Optional audio stream to play when a object snaps to the zone
 @export var stash_sound : AudioStream
-
-## Grab distance
-@export var grab_distance : float = 0.3: set = _set_grab_distance
 
 ## Snap mode
 @export var snap_mode : SnapMode = SnapMode.DROPPED: set = _set_snap_mode
@@ -67,8 +64,6 @@ func is_xr_class(name : String) -> bool:
 
 
 func _ready():
-	# Set collision shape radius
-	$CollisionShape3D.shape.radius = grab_distance
 
 	# Perform updates
 	_update_snap_mode()
@@ -157,9 +152,9 @@ func drop_object() -> void:
 		return
 
 	# let go of this object
+	has_dropped.emit(picked_up_object)
 	picked_up_object.let_go(self, Vector3.ZERO, Vector3.ZERO)
 	picked_up_object = null
-	has_dropped.emit()
 	highlight_updated.emit(self, enabled)
 
 
@@ -266,13 +261,6 @@ func _set_enabled(p_enabled: bool) -> void:
 		highlight_updated.emit(
 			self,
 			enabled and not is_instance_valid(picked_up_object))
-
-
-# Called when the grab distance has been modified
-func _set_grab_distance(new_value: float) -> void:
-	grab_distance = new_value
-	if is_inside_tree() and $CollisionShape3D:
-		$CollisionShape3D.shape.radius = grab_distance
 
 
 # Called when the snap mode property has been modified

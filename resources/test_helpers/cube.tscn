@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbibo1k8pkiqo"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_jgnjn"]
+[ext_resource type="Script" path="res://resources/components/sliceable.gd" id="4_wn12v"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8lj1b"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_4lnpw"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_dpmef"]
+radius = 0.1
+height = 0.2
+
+[node name="PickableObject" instance=ExtResource("1_jgnjn")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("BoxShape3D_8lj1b")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("BoxMesh_4lnpw")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.608776, 0)
+mesh = SubResource("SphereMesh_dpmef")
+
+[node name="Sliceable" type="Area3D" parent="." index="3" node_paths=PackedStringArray("_mesh_node_or_parent", "mesh_node_to_delete")]
+collision_layer = 0
+collision_mask = 32
+monitorable = false
+script = ExtResource("4_wn12v")
+slice_count = 6
+_mesh_node_or_parent = NodePath("../MeshInstance3D")
+mesh_node_to_delete = NodePath("../MeshInstance3D2")
+delete_slice_count = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sliceable" index="0"]
+shape = SubResource("BoxShape3D_8lj1b")

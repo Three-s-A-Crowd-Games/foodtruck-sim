@@ -1,36 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://c3bsc5kmrbo4i"]
+[gd_scene load_steps=6 format=3 uid="uid://c3bsc5kmrbo4i"]
 
 [ext_resource type="PackedScene" uid="uid://w3j7uqy2hp8x" path="res://assets/models/food/patty.blend" id="1_kle5d"]
 [ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_ws3rg"]
 [ext_resource type="Script" path="res://resources/food/burger_parts/patty.gd" id="2_c8brd"]
-[ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="2_d5dj6"]
 [ext_resource type="Script" path="res://resources/components/cookable.gd" id="4_0f6dl"]
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_rub53"]
-resource_local_to_scene = true
-radius = 0.02
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mgd0g"]
+height = 0.411154
+radius = 0.987689
 
 [node name="Patty" instance=ExtResource("1_ws3rg")]
-mass = 0.2
-center_of_mass_mode = 1
 script = ExtResource("2_c8brd")
 type = 2
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.017474, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.017474, 0)
+shape = SubResource("CylinderShape3D_mgd0g")
 
 [node name="Patty" parent="." index="1" instance=ExtResource("1_kle5d")]
 
-[node name="BurgerStackZone" parent="." index="2" instance=ExtResource("2_d5dj6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0590222, 0)
-
-[node name="CollisionShape3D" parent="BurgerStackZone" index="0"]
-shape = SubResource("SphereShape3D_rub53")
-
-[node name="Cookable" type="Node3D" parent="." index="3"]
+[node name="Cookable" type="Node3D" parent="." index="2"]
 script = ExtResource("4_0f6dl")
 
 [connection signal="cooked_status_changed" from="Cookable" to="." method="_on_cookable_cooked_status_changed"]
-
-[editable path="Patty"]
-[editable path="BurgerStackZone"]

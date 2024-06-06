@@ -34,10 +34,11 @@ static var categories: Dictionary = {
 }
 
 var ingredients: Array[Ingredient.Type]
-
+var type: Type
 
 static func create_recipe(type: Type) -> Recipe:
 	var new_recipe :=  Recipe.new()
+	new_recipe.type = type
 	var min_amount := 1
 	var possible_ingredients: Array
 	
