@@ -10,6 +10,8 @@ height = 0.411154
 radius = 0.987689
 
 [node name="Patty" instance=ExtResource("1_ws3rg")]
+mass = 0.2
+center_of_mass_mode = 1
 script = ExtResource("2_c8brd")
 type = 2
 
