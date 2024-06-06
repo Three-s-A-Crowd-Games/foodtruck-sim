@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cun37a3kia4ky"]
+[gd_scene load_steps=9 format=3 uid="uid://cun37a3kia4ky"]
 
 [ext_resource type="Script" path="res://resources/objects/appliances/fryer.gd" id="1_ah4t3"]
 [ext_resource type="PackedScene" uid="uid://cj3rf56khwid5" path="res://assets/models/objects/furniture/fryer.blend" id="1_xthe5"]
 [ext_resource type="PackedScene" uid="uid://oa4nb5wne6a6" path="res://resources/systems/frying_area.tscn" id="2_h440w"]
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="3_qcbej"]
+[ext_resource type="ArrayMesh" uid="uid://bcj31tgx2nnqb" path="res://assets/models/paticles/fryer_particle.obj" id="5_ef5m1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ylehd"]
 resource_local_to_scene = true
@@ -11,6 +12,17 @@ size = Vector3(0.49794, 0.179344, 0.639404)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_852q6"]
 size = Vector3(0.0474377, 0.143291, 0.11591)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qyva1"]
+particle_flag_rotate_y = true
+emission_shape = 3
+emission_box_extents = Vector3(0.05, 0.01, 0.15)
+angle_min = -295.4
+angle_max = 329.6
+direction = Vector3(0, 1, 0)
+spread = 8.133
+initial_velocity_min = 0.2
+initial_velocity_max = 2.0
 
 [node name="Fryer" type="Node3D"]
 script = ExtResource("1_ah4t3")
@@ -32,6 +44,24 @@ displacement = Vector3(0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145818, 1.0378, 0.186716)
 shape = SubResource("BoxShape3D_852q6")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12235, 0.918491, -0.110441)
+emitting = false
+lifetime = 0.33
+randomness = 0.5
+visibility_aabb = AABB(-1.05412, -0.696859, -0.989821, 2.10824, 1.39372, 1.97964)
+process_material = SubResource("ParticleProcessMaterial_qyva1")
+draw_pass_1 = ExtResource("5_ef5m1")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.112997, 0.918491, -0.110441)
+emitting = false
+lifetime = 0.33
+randomness = 0.5
+visibility_aabb = AABB(-1.05412, -0.696859, -0.989821, 2.10824, 1.39372, 1.97964)
+process_material = SubResource("ParticleProcessMaterial_qyva1")
+draw_pass_1 = ExtResource("5_ef5m1")
 
 [connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_interactable_area_button_button_pressed"]
 

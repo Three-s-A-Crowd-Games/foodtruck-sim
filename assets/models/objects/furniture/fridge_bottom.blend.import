@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://duco67gjqwbh3"
-path="res://.godot/imported/truck_v1.blend-e7fd029c5e8c3aae3ed6e0bd77f5911c.scn"
+uid="uid://uka8fkdexvy2"
+path="res://.godot/imported/fridge_bottom.blend-b53251b19895deb31c62260cb626c23f.scn"
 
 [deps]
 
-source_file="res://assets/models/objects/furniture/truck_v1.blend"
-dest_files=["res://.godot/imported/truck_v1.blend-e7fd029c5e8c3aae3ed6e0bd77f5911c.scn"]
+source_file="res://assets/models/objects/furniture/fridge_bottom.blend"
+dest_files=["res://.godot/imported/fridge_bottom.blend-b53251b19895deb31c62260cb626c23f.scn"]
 
 [params]
 

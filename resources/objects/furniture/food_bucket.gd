@@ -1,6 +1,6 @@
 extends Node3D
 
-@export var item_scene:PackedScene = preload("res://resources/cube.tscn")
+@export var item_scene:PackedScene = preload("res://resources/test_helpers/cube.tscn")
 
 
 func _on_exit_detector_body_exited(body):

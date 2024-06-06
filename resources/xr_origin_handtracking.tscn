@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://bm3ixvs3xjcdn"]
 
-[ext_resource type="PackedScene" uid="uid://5o3x65m4va7h" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="1_ebo6m"]
-[ext_resource type="Script" path="res://resources/components/ObjectCollision.gd" id="2_4trl5"]
-[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="3_0bs62"]
-[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="4_xn5w2"]
-[ext_resource type="PackedScene" uid="uid://6lsckuqb1cux" path="res://addons/XRHandtrackingTools/tracked_hand_left.tscn" id="5_fbsw6"]
-[ext_resource type="PackedScene" uid="uid://bjfijuv76djxl" path="res://addons/XRHandtrackingTools/tracked_hand_right.tscn" id="6_eghs8"]
+[ext_resource type="PackedScene" uid="uid://5o3x65m4va7h" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_3mhj4"]
+[ext_resource type="Script" path="res://resources/components/ObjectCollision.gd" id="3_gx1ql"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_bo075"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_bnpr7"]
+[ext_resource type="PackedScene" uid="uid://6lsckuqb1cux" path="res://addons/XRHandtrackingTools/tracked_hand_left.tscn" id="9_3t4l0"]
+[ext_resource type="PackedScene" uid="uid://bjfijuv76djxl" path="res://addons/XRHandtrackingTools/tracked_hand_right.tscn" id="10_66to7"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nxwqx"]
 resource_local_to_scene = true
@@ -18,7 +18,7 @@ height = 0.01
 radial_segments = 32
 rings = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wdf8v"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_atxpr"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.8, 0.8, 1, 0.5)
@@ -28,44 +28,44 @@ albedo_color = Color(0.8, 0.8, 1, 0.5)
 [node name="XRCamera3D" type="XRCamera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
-[node name="VRCommonShaderCache" parent="XRCamera3D" instance=ExtResource("1_ebo6m")]
+[node name="VRCommonShaderCache" parent="XRCamera3D" instance=ExtResource("2_3mhj4")]
 
-[node name="LeftHand" type="XRController3D" parent="."]
+[node name="LeftHand-Handtracking" type="XRController3D" parent="."]
 transform = Transform3D(0.185985, -0.96761, 0.1707, 0.964214, 0.14633, -0.221086, 0.188946, 0.205709, 0.960199, 0.043608, 0.0156297, -0.074961)
 
-[node name="XRToolsCollisionHandL" type="AnimatableBody3D" parent="LeftHand"]
+[node name="XRToolsCollisionHandL" type="AnimatableBody3D" parent="LeftHand-Handtracking"]
 transform = Transform3D(1, -6.70552e-08, 4.91738e-07, -3.12924e-07, 1, 4.32134e-07, 3.42727e-07, 4.17233e-07, 1, 2.6077e-08, 7.45058e-09, 0)
 collision_layer = 131072
 collision_mask = 0
-script = ExtResource("2_4trl5")
+script = ExtResource("3_gx1ql")
 push_bodies = false
 
-[node name="FunctionPickup" parent="LeftHand/XRToolsCollisionHandL" instance=ExtResource("3_0bs62")]
+[node name="FunctionPickup" parent="LeftHand-Handtracking/XRToolsCollisionHandL" instance=ExtResource("4_bo075")]
 transform = Transform3D(1, -1.86265e-08, 1.49012e-08, -1.49012e-08, 1, 2.98023e-08, 2.98023e-08, 0, 1, -0.00211524, 0.0110048, -0.00194139)
 grab_distance = 0.07
 ranged_enable = false
 
-[node name="RightHand" type="XRController3D" parent="."]
+[node name="RightHand-Handtracking" type="XRController3D" parent="."]
 transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.960199, 0.964214, -0.14633, 0.221085, -0.0469018, -0.0716148, 0.00666672)
 
-[node name="XRToolsCollisionHandR" type="AnimatableBody3D" parent="RightHand"]
+[node name="XRToolsCollisionHandR" type="AnimatableBody3D" parent="RightHand-Handtracking"]
 transform = Transform3D(1, 1.49012e-08, 3.72529e-07, 4.02331e-07, 1, 2.16067e-07, 2.98023e-08, -5.21541e-08, 1, -2.79397e-09, -2.23517e-08, -1.11759e-08)
 collision_layer = 131072
 collision_mask = 131072
-script = ExtResource("2_4trl5")
+script = ExtResource("3_gx1ql")
 push_bodies = false
 
-[node name="FunctionPickup" parent="RightHand/XRToolsCollisionHandR" instance=ExtResource("3_0bs62")]
+[node name="FunctionPickup" parent="RightHand-Handtracking/XRToolsCollisionHandR" instance=ExtResource("4_bo075")]
 transform = Transform3D(1, 0, 5.96046e-08, 1.19209e-07, 1, -1.75089e-07, 0, -1.11759e-07, 0.999999, 0.00196539, 0.00731654, -0.00372901)
 grab_distance = 0.07
 ranged_enable = false
 
-[node name="PlayerBody" parent="." instance=ExtResource("4_xn5w2")]
+[node name="PlayerBody" parent="." instance=ExtResource("8_bnpr7")]
 collision_mask = 8389624
 player_calibrate_height = false
 push_rigid_bodies = false
 
-[node name="TrackedHandLeft" parent="." instance=ExtResource("5_fbsw6")]
+[node name="TrackedHandLeft" parent="." instance=ExtResource("9_3t4l0")]
 
 [node name="Physical Bone Thumb_Proximal_L" parent="TrackedHandLeft/Skeleton3D" index="1"]
 transform = Transform3D(0.938213, -0.077999, -0.337155, 0.0187491, 0.984294, -0.175538, 0.345551, 0.15837, 0.92494, 0.0283173, 0.0543736, -0.0544159)
@@ -113,9 +113,9 @@ transform = Transform3D(-0.244294, -0.749373, -0.615435, 0.941219, -0.335934, 0.
 transform = Transform3D(0.185985, -0.967611, 0.1707, 0.964214, 0.14633, -0.221085, 0.188946, 0.20571, 0.960199, 0.00139752, 0.0210413, -0.0141612)
 
 [node name="RemoteTransform3D" parent="TrackedHandLeft/Skeleton3D/Index Metacarpal" index="0"]
-remote_path = NodePath("../../../../LeftHand")
+remote_path = NodePath("../../../../LeftHand-Handtracking")
 
-[node name="TrackedHandRight" parent="." instance=ExtResource("6_eghs8")]
+[node name="TrackedHandRight" parent="." instance=ExtResource("10_66to7")]
 
 [node name="Thumb_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="1"]
 transform = Transform3D(0.938213, 0.0779998, 0.337155, -0.345551, 0.158372, 0.924939, 0.0187493, -0.984294, 0.175539, -0.0283179, -0.0544153, -0.0543731)
@@ -137,7 +137,7 @@ shape = SubResource("SphereShape3D_nxwqx")
 
 [node name="MeshInstance" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke/PokeBody" index="1"]
 mesh = SubResource("SphereMesh_lpo0c")
-surface_material_override/0 = SubResource("StandardMaterial3D_wdf8v")
+surface_material_override/0 = SubResource("StandardMaterial3D_atxpr")
 
 [node name="Middle_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="6"]
 transform = Transform3D(0.0836168, 0.962976, 0.256294, -0.0161448, -0.255851, 0.966581, 0.996367, -0.0849603, -0.00584642, 0.0165289, -0.0851049, -0.00942898)
@@ -170,16 +170,16 @@ transform = Transform3D(-0.244295, 0.749373, 0.615435, 0.233295, -0.570604, 0.78
 transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.960199, 0.964214, -0.14633, 0.221085, -0.00139746, -0.0141613, -0.0210414)
 
 [node name="RemoteTransform3D" parent="TrackedHandRight/Skeleton3D/Index_Metacarpal" index="0"]
-remote_path = NodePath("../../../../RightHand")
+remote_path = NodePath("../../../../RightHand-Handtracking")
 
-[connection signal="has_dropped" from="LeftHand/XRToolsCollisionHandL/FunctionPickup" to="LeftHand/XRToolsCollisionHandL" method="_on_function_pickup_has_dropped"]
-[connection signal="has_picked_up" from="LeftHand/XRToolsCollisionHandL/FunctionPickup" to="LeftHand/XRToolsCollisionHandL" method="_on_function_pickup_has_picked_up"]
-[connection signal="has_dropped" from="RightHand/XRToolsCollisionHandR/FunctionPickup" to="RightHand/XRToolsCollisionHandR" method="_on_function_pickup_has_dropped"]
-[connection signal="has_picked_up" from="RightHand/XRToolsCollisionHandR/FunctionPickup" to="RightHand/XRToolsCollisionHandR" method="_on_function_pickup_has_picked_up"]
-[connection signal="on_grib_activated" from="TrackedHandLeft" to="LeftHand/XRToolsCollisionHandL/FunctionPickup" method="_on_grip_pressed"]
-[connection signal="on_grib_deactivated" from="TrackedHandLeft" to="LeftHand/XRToolsCollisionHandL/FunctionPickup" method="_on_grip_release"]
-[connection signal="on_grib_activated" from="TrackedHandRight" to="RightHand/XRToolsCollisionHandR/FunctionPickup" method="_on_grip_pressed"]
-[connection signal="on_grib_deactivated" from="TrackedHandRight" to="RightHand/XRToolsCollisionHandR/FunctionPickup" method="_on_grip_release"]
+[connection signal="has_dropped" from="LeftHand-Handtracking/XRToolsCollisionHandL/FunctionPickup" to="LeftHand-Handtracking/XRToolsCollisionHandL" method="_on_function_pickup_has_dropped"]
+[connection signal="has_picked_up" from="LeftHand-Handtracking/XRToolsCollisionHandL/FunctionPickup" to="LeftHand-Handtracking/XRToolsCollisionHandL" method="_on_function_pickup_has_picked_up"]
+[connection signal="has_dropped" from="RightHand-Handtracking/XRToolsCollisionHandR/FunctionPickup" to="RightHand-Handtracking/XRToolsCollisionHandR" method="_on_function_pickup_has_dropped"]
+[connection signal="has_picked_up" from="RightHand-Handtracking/XRToolsCollisionHandR/FunctionPickup" to="RightHand-Handtracking/XRToolsCollisionHandR" method="_on_function_pickup_has_picked_up"]
+[connection signal="on_grib_activated" from="TrackedHandLeft" to="LeftHand-Handtracking/XRToolsCollisionHandL/FunctionPickup" method="_on_grip_pressed"]
+[connection signal="on_grib_deactivated" from="TrackedHandLeft" to="LeftHand-Handtracking/XRToolsCollisionHandL/FunctionPickup" method="_on_grip_release"]
+[connection signal="on_grib_activated" from="TrackedHandRight" to="RightHand-Handtracking/XRToolsCollisionHandR/FunctionPickup" method="_on_grip_pressed"]
+[connection signal="on_grib_deactivated" from="TrackedHandRight" to="RightHand-Handtracking/XRToolsCollisionHandR/FunctionPickup" method="_on_grip_release"]
 
 [editable path="TrackedHandLeft"]
 [editable path="TrackedHandRight"]

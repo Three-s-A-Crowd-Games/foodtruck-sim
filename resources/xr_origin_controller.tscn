@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://bqoego5ev1yvg"]
+
+[ext_resource type="PackedScene" uid="uid://5o3x65m4va7h" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_3mhj4"]
+[ext_resource type="Script" path="res://resources/components/ObjectCollision.gd" id="3_gx1ql"]
+[ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_bo075"]
+[ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="5_scoxd"]
+[ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="6_m1h8f"]
+[ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="7_aw7p5"]
+[ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_bnpr7"]
+
+[node name="XROrigin3D" type="XROrigin3D"]
+
+[node name="XRCamera3D" type="XRCamera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
+
+[node name="VRCommonShaderCache" parent="XRCamera3D" instance=ExtResource("2_3mhj4")]
+
+[node name="LeftHand-Controller" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.999999, 0, 0, 0, 1, -0.316243, 1.46095, -0.5087)
+tracker = &"left_hand"
+
+[node name="XRToolsCollisionHandL" type="AnimatableBody3D" parent="LeftHand-Controller"]
+collision_layer = 131072
+collision_mask = 0
+script = ExtResource("3_gx1ql")
+push_bodies = false
+
+[node name="FunctionPickup" parent="LeftHand-Controller/XRToolsCollisionHandL" instance=ExtResource("4_bo075")]
+transform = Transform3D(1, -1.86265e-08, 1.49012e-08, -1.49012e-08, 1, 2.98024e-08, 2.98022e-08, -1.13687e-13, 1, 0, -0.0410114, 0.0504476)
+grab_distance = 0.07
+ranged_enable = false
+
+[node name="LeftHand" parent="LeftHand-Controller" instance=ExtResource("5_scoxd")]
+
+[node name="MovementDirect" parent="LeftHand-Controller" instance=ExtResource("6_m1h8f")]
+
+[node name="RightHand-Controller" type="XRController3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.316941, 1.46095, -0.538896)
+tracker = &"right_hand"
+
+[node name="XRToolsCollisionHandR" type="AnimatableBody3D" parent="RightHand-Controller"]
+collision_layer = 131072
+collision_mask = 131072
+script = ExtResource("3_gx1ql")
+push_bodies = false
+
+[node name="FunctionPickup" parent="RightHand-Controller/XRToolsCollisionHandR" instance=ExtResource("4_bo075")]
+transform = Transform3D(1, 0, 5.96046e-08, 1.19209e-07, 1, -1.75089e-07, 0, -1.11759e-07, 0.999999, 0, -0.0410114, 0.0504476)
+grab_distance = 0.07
+ranged_enable = false
+
+[node name="RightHand" parent="RightHand-Controller" instance=ExtResource("7_aw7p5")]
+
+[node name="PlayerBody" parent="." instance=ExtResource("8_bnpr7")]
+collision_mask = 8389624
+player_calibrate_height = false
+push_rigid_bodies = false
+
+[connection signal="has_dropped" from="LeftHand-Controller/XRToolsCollisionHandL/FunctionPickup" to="LeftHand-Controller/XRToolsCollisionHandL" method="_on_function_pickup_has_dropped"]
+[connection signal="has_picked_up" from="LeftHand-Controller/XRToolsCollisionHandL/FunctionPickup" to="LeftHand-Controller/XRToolsCollisionHandL" method="_on_function_pickup_has_picked_up"]
+[connection signal="has_dropped" from="RightHand-Controller/XRToolsCollisionHandR/FunctionPickup" to="RightHand-Controller/XRToolsCollisionHandR" method="_on_function_pickup_has_dropped"]
+[connection signal="has_picked_up" from="RightHand-Controller/XRToolsCollisionHandR/FunctionPickup" to="RightHand-Controller/XRToolsCollisionHandR" method="_on_function_pickup_has_picked_up"]

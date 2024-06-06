@@ -1,4 +1,4 @@
-extends Food
+extends BurgerPart
 
 var cooked_mat = preload("res://assets/materials/patty_cooked.tres")
 var burned_mat = preload("res://assets/materials/patty_burned.tres")

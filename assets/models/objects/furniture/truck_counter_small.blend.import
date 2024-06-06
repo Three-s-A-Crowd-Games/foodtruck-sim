@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://btglsihtak382"
-path="res://.godot/imported/potato.blend-e0ab6cd4116b6dae918540b4c28a1dfe.scn"
+uid="uid://6oe3y5c6nwr7"
+path="res://.godot/imported/truck_counter_small.blend-45d79cae35aff23e43648c578c9b3b83.scn"
 
 [deps]
 
-source_file="res://potato.blend"
-dest_files=["res://.godot/imported/potato.blend-e0ab6cd4116b6dae918540b4c28a1dfe.scn"]
+source_file="res://assets/models/objects/furniture/truck_counter_small.blend"
+dest_files=["res://.godot/imported/truck_counter_small.blend-45d79cae35aff23e43648c578c9b3b83.scn"]
 
 [params]
 

@@ -16,5 +16,12 @@ func _ready():
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
 		
+	if xr_interface.is_hand_tracking_supported():
+		XRToolsFunctionPickup.in_handtracking_mode = true
+		add_child(load("res://resources/xr_origin_handtracking.tscn").instantiate())
+	else:
+		add_child(load("res://resources/xr_origin_controller.tscn").instantiate())
+	
 	printt("Main order", order.main_recipe.ingredients)
 	printt("Side order", order.side_recipe.ingredients)
+

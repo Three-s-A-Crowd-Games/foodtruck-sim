@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://da6s4ivc7rwqr"
-path="res://.godot/imported/fryer-basket.blend-7140eccaa1d11df9f5d16c531225fede.scn"
+path="res://.godot/imported/fryer_basket.blend-246f9d3379b020b4d167a743d37db0b0.scn"
 
 [deps]
 
-source_file="res://assets/models/objects/furniture/fryer-basket.blend"
-dest_files=["res://.godot/imported/fryer-basket.blend-7140eccaa1d11df9f5d16c531225fede.scn"]
+source_file="res://assets/models/objects/furniture/fryer_basket.blend"
+dest_files=["res://.godot/imported/fryer_basket.blend-246f9d3379b020b4d167a743d37db0b0.scn"]
 
 [params]
 
