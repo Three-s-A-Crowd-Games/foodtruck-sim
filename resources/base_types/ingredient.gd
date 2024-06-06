@@ -40,5 +40,3 @@ static var categories: Dictionary = {
 	Category.BURGER_PART : [Type.BUN_TOP, Type.BUN_BOTTOM, Type.PATTY],
 	Category.FRIES : [Type.FRIES]
 }
-
-
