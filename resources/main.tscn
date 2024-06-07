@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=23 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://yjxf2f7cm130" path="res://assets/sunflowers_puresky_4k.hdr" id="2_eyelk"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/objects/furniture/truck.blend" id="10_vl4gb"]
 [ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
 [ext_resource type="PackedScene" uid="uid://dko2murkvbg2y" path="res://resources/food/fries.tscn" id="13_qws16"]
+[ext_resource type="PackedScene" uid="uid://6hnv1incbf6j" path="res://assets/models/objects/appliances/potato_cutter.blend" id="13_wmm2n"]
+[ext_resource type="PackedScene" uid="uid://6tdm7fwgrxyx" path="res://assets/models/food/potato.blend" id="14_vxrwy"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_eyelk")
@@ -133,6 +135,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7577, -0.15682)
 
 [node name="Fries" parent="." instance=ExtResource("13_qws16")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07988, 1.84672, -0.024622)
+
+[node name="potato_cutter" parent="." instance=ExtResource("13_wmm2n")]
+transform = Transform3D(0.0743696, 0, -0.997231, 0, 1, 0, 0.997231, 0, 0.0743696, -1.03709, 1.72365, 0.315869)
+
+[node name="potato" parent="." instance=ExtResource("14_vxrwy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02492, 1.81672, 0.628832)
 
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
