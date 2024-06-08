@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqu2cm5yrrt54"]
+
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_0m67e"]
+[ext_resource type="PackedScene" uid="uid://witvb00gyysp" path="res://assets/models/objects/appliances/fries_box.blend" id="2_qsmh0"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/snap_zone.gd" id="3_03j47"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lee37"]
+size = Vector3(0.1, 0.145, 0.051)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1w8vh"]
+radius = 0.05
+
+[node name="Friesbox" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0645053, 0)
+collision_layer = 4
+collision_mask = 8388615
+script = ExtResource("1_0m67e")
+
+[node name="fries_box" parent="." instance=ExtResource("2_qsmh0")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0135901, 0.000462648)
+shape = SubResource("BoxShape3D_lee37")
+
+[node name="FriesSnap" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0506154, -0.000932258)
+collision_layer = 4
+collision_mask = 65540
+script = ExtResource("3_03j47")
+snap_require = "fries"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FriesSnap"]
+shape = SubResource("SphereShape3D_1w8vh")

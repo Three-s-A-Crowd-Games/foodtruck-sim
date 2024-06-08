@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b43qe84nsktof"]
+
+[ext_resource type="PackedScene" uid="uid://cu2a4gxivr735" path="res://assets/models/objects/appliances/potato_cutter_bottom.blend" id="1_f1lyt"]
+[ext_resource type="PackedScene" uid="uid://bit6r6nx8wb78" path="res://assets/models/objects/appliances/potato_cutter_top.blend" id="2_p1ha5"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="potato_cutter_bottom" parent="." instance=ExtResource("1_f1lyt")]
+
+[node name="potato_cutter_top" parent="." instance=ExtResource("2_p1ha5")]
