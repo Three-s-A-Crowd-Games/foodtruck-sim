@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=26 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://daq62tyjf4nnf" path="res://resources/objects/accessoires/tray.tscn" id="15_2qref"]
 [ext_resource type="PackedScene" uid="uid://dqu2cm5yrrt54" path="res://resources/objects/accessoires/friesbox.tscn" id="16_t2krs"]
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
+[ext_resource type="PackedScene" uid="uid://d088mil7a0mga" path="res://resources/objects/appliances/SauceContainer.tscn" id="17_117gm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -144,13 +145,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07988, 1.84672, -0.024622)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02492, 1.81672, 0.628832)
 
 [node name="Tray" parent="." instance=ExtResource("15_2qref")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.373376, 1.72365, 0.754619)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.373376, 1.75823, 0.754619)
 
 [node name="Friesbox" parent="." instance=ExtResource("16_t2krs")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0194108, 1.80396, 0.800906)
 
 [node name="Node3D" parent="." instance=ExtResource("16_uegm4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.07273, 1.72365, 0.256549)
+
+[node name="SauceContainer" parent="." instance=ExtResource("17_117gm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.26879, 1.72365, 0.751436)
 
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]

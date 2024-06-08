@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d088mil7a0mga"]
+
+[ext_resource type="PackedScene" uid="uid://cdtmfbjo7usea" path="res://assets/models/objects/appliances/sauce_container.blend" id="1_dsvtd"]
+[ext_resource type="PackedScene" uid="uid://eoa5f4noca6l" path="res://assets/models/objects/appliances/sauce_pump.blend" id="2_5lxv6"]
+
+[node name="SauceContainer" type="Node3D"]
+
+[node name="sauce_container" parent="." instance=ExtResource("1_dsvtd")]
+
+[node name="sauce_pump" parent="." instance=ExtResource("2_5lxv6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.388612, 0)
