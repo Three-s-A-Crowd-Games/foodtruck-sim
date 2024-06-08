@@ -12,6 +12,9 @@ enum Type{
 	BUN_TOP,
 	BUN_BOTTOM,
 	PATTY,
+	TOMATO,
+	LETTUCE,
+	CHEESE,
 	FRIES
 }
 
@@ -31,12 +34,21 @@ static var ingredients: Dictionary = {
 	Type.PATTY : {
 		Category : [Category.BURGER_PART]
 		},
+	Type.LETTUCE : {
+		Category : [Category.BURGER_PART]
+		},
+	Type.CHEESE : {
+		Category : [Category.BURGER_PART]
+		},
+	Type.TOMATO : {
+		Category : [Category.BURGER_PART]
+		},
 	Type.FRIES : {
 		Category : [Category.FRIES]
 		}
 }
 
 static var categories: Dictionary = {
-	Category.BURGER_PART : [Type.BUN_TOP, Type.BUN_BOTTOM, Type.PATTY],
+	Category.BURGER_PART : [Type.BUN_TOP, Type.BUN_BOTTOM, Type.PATTY, Type.TOMATO, Type.LETTUCE, Type.CHEESE],
 	Category.FRIES : [Type.FRIES]
 }

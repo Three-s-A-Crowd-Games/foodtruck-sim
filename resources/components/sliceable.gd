@@ -163,7 +163,7 @@ func _position_child_nodes(mesh_node: MeshInstance3D, coll_node: CollisionShape3
 	mesh_node.position += shift
 	coll_node.position += shift
 	# This isn't possible yet because stack zones need to be on the same hight for every part in order for the stacking to work properly
-	#stack_zone.position.y = slice_width/2 + stack_zone.get_node("CollisionShape3D").shape.height/2 + 0.01
+	stack_zone.position.y = slice_width/2 + stack_zone.get_node("CollisionShape3D").shape.height/4 #+ 0.01
 	
 
 func _find_mesh_child_node(node: Node) -> MeshInstance3D:

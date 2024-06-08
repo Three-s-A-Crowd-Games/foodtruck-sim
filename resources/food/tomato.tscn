@@ -6,15 +6,18 @@
 [ext_resource type="Material" path="res://assets/materials/tomato_material.tres" id="4_l7dhx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aj645"]
-radius = 0.0801779
+radius = 0.0335189
 
 [node name="Tomato" instance=ExtResource("1_rmspk")]
+collision_mask = 8519687
+mass = 0.2
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 0.06, 0)
 angular_damp = 21.078
+type = 3
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0800807, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0286269, 0)
 shape = SubResource("SphereShape3D_aj645")
 
 [node name="tomato2" parent="." index="1" instance=ExtResource("2_1kums")]
@@ -25,6 +28,7 @@ collision_mask = 32
 monitorable = false
 script = ExtResource("3_tek84")
 cross_section_material = ExtResource("4_l7dhx")
+slice_spawn_seperation_distance = 0.01
 slice_count = 6
 _mesh_node_or_parent = NodePath("../tomato2/tomato")
 mesh_node_to_delete = NodePath("../tomato2/tomato_stem")

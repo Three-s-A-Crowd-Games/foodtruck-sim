@@ -5,7 +5,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_ccxtb"]
 height = 0.0202801
-radius = 0.107737
+radius = 0.0672179
 
 [node name="BunBottom" instance=ExtResource("1_cjmcw")]
 mass = 0.04
@@ -13,7 +13,11 @@ center_of_mass = Vector3(0, 0.01, 0)
 type = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00151472, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.013089, 0)
 shape = SubResource("CylinderShape3D_ccxtb")
 
 [node name="BunBottom" parent="." index="1" instance=ExtResource("1_h8gn1")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 0.65, 0, 0, 0)
+
+[node name="BurgerStackZone" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0283991, 0)

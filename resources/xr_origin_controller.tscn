@@ -52,7 +52,7 @@ ranged_enable = false
 [node name="RightHand" parent="RightHand-Controller" instance=ExtResource("7_aw7p5")]
 
 [node name="PlayerBody" parent="." instance=ExtResource("8_bnpr7")]
-collision_mask = 8389624
+collision_mask = 8389576
 player_calibrate_height = false
 push_rigid_bodies = false
 

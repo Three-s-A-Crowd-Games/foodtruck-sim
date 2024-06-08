@@ -7,7 +7,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mgd0g"]
 height = 0.411154
-radius = 0.987689
+radius = 0.644101
 
 [node name="Patty" instance=ExtResource("1_ws3rg")]
 script = ExtResource("2_c8brd")
@@ -18,8 +18,12 @@ transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.017474, 0)
 shape = SubResource("CylinderShape3D_mgd0g")
 
 [node name="Patty" parent="." index="1" instance=ExtResource("1_kle5d")]
+transform = Transform3D(0.65, 0, 0, 0, 0.8, 0, 0, 0, 0.65, 0, 0, 0)
 
 [node name="Cookable" type="Node3D" parent="." index="2"]
 script = ExtResource("4_0f6dl")
+
+[node name="BurgerStackZone" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0354971, 0)
 
 [connection signal="cooked_status_changed" from="Cookable" to="." method="_on_cookable_cooked_status_changed"]

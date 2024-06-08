@@ -5,12 +5,17 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_g7o3e"]
 height = 0.0481685
-radius = 0.114679
+radius = 0.0696678
 
 [node name="Lettuce" instance=ExtResource("1_qeamm")]
+type = 4
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0140322, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0249966, 0)
 shape = SubResource("CylinderShape3D_g7o3e")
 
 [node name="lettuce" parent="." index="1" instance=ExtResource("1_7jrbm")]
+transform = Transform3D(0.65, 0, 0, 0, 1, 0, 0, 0, 0.65, 0, 0, 0)
+
+[node name="BurgerStackZone" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0542498, 0)

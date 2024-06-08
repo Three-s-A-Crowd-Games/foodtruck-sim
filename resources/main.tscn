@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=31 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
+[ext_resource type="Material" uid="uid://3ma4e1fdhaqk" path="res://assets/materials/asphalt.tres" id="3_bhrbt"]
 [ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="4_1mh3m"]
 [ext_resource type="PackedScene" uid="uid://bw18w7lqkorf5" path="res://resources/objects/appliances/frying_basket.tscn" id="4_xgses"]
 [ext_resource type="PackedScene" uid="uid://c54y4lqme3kal" path="res://resources/objects/furniture/BunBottomBox.tscn" id="7_5gd1o"]
@@ -12,13 +13,16 @@
 [ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/objects/furniture/truck.blend" id="10_vl4gb"]
 [ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
 [ext_resource type="PackedScene" uid="uid://dko2murkvbg2y" path="res://resources/food/fries.tscn" id="13_qws16"]
-[ext_resource type="PackedScene" uid="uid://6tdm7fwgrxyx" path="res://assets/models/food/potato.blend" id="14_vxrwy"]
 [ext_resource type="PackedScene" uid="uid://daq62tyjf4nnf" path="res://resources/objects/accessoires/tray.tscn" id="15_2qref"]
 [ext_resource type="PackedScene" uid="uid://dqu2cm5yrrt54" path="res://resources/objects/accessoires/friesbox.tscn" id="16_t2krs"]
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
 [ext_resource type="PackedScene" uid="uid://d088mil7a0mga" path="res://resources/objects/appliances/SauceContainer.tscn" id="17_117gm"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="18_wcr04"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="19_24xoq"]
+[ext_resource type="PackedScene" uid="uid://iut5v7hlcdcc" path="res://assets/models/objects/appliances/cutting_board.blend" id="19_gugb2"]
+[ext_resource type="PackedScene" uid="uid://dopbl6b12qe71" path="res://assets/models/customer.blend" id="21_gj6ch"]
+[ext_resource type="PackedScene" uid="uid://dfs1nnktcexvm" path="res://resources/food/lettuce.tscn" id="22_bg4cx"]
+[ext_resource type="PackedScene" uid="uid://ccb16puthv3px" path="res://resources/food/chese.tscn" id="23_bt30s"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -46,10 +50,9 @@ frustum_near = 0.001
 size = Vector3(10, 0.2, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d002o"]
-size = Vector3(10, 0.2, 10)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcrk8"]
-albedo_color = Color(1, 0.231373, 1, 1)
+lightmap_size_hint = Vector2i(3004, 1508)
+material = ExtResource("3_bhrbt")
+size = Vector3(300, 0.2, 300)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j8awf"]
 resource_local_to_scene = true
@@ -78,7 +81,6 @@ shape = SubResource("BoxShape3D_fjiod")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00545907)
 mesh = SubResource("BoxMesh_d002o")
-surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 
 [node name="Truck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750915, 0)
@@ -141,28 +143,37 @@ shape = SubResource("BoxShape3D_j8awf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7577, -0.15682)
 
 [node name="Fries" parent="." instance=ExtResource("13_qws16")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07988, 1.84672, -0.024622)
-
-[node name="potato" parent="." instance=ExtResource("14_vxrwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02492, 1.81672, 0.628832)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575689, 1.84672, -0.567022)
 
 [node name="Tray" parent="." instance=ExtResource("15_2qref")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.373376, 1.75823, 0.754619)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.186297, 1.75823, 0.754619)
 
 [node name="Friesbox" parent="." instance=ExtResource("16_t2krs")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0194108, 1.80396, 0.800906)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0699124, 2.55898, -0.836618)
 
-[node name="Node3D" parent="." instance=ExtResource("16_uegm4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.07273, 1.72365, 0.256549)
+[node name="PotatoCutter" parent="." instance=ExtResource("16_uegm4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.07273, 1.72365, 0.445275)
 
 [node name="SauceContainer" parent="." instance=ExtResource("17_117gm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.26879, 1.72365, 0.751436)
 
 [node name="Knife" parent="." instance=ExtResource("18_wcr04")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.764642, 1.7495, -0.261837)
+transform = Transform3D(0.958158, 0, 0.28624, 0, 1, 0, -0.28624, 0, 0.958158, -0.997484, 1.95521, 0.0373658)
 
 [node name="Tomato" parent="." instance=ExtResource("19_24xoq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748806, 1.7495, -0.460409)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.00943, 1.77879, 0.155474)
+
+[node name="cutting_board" parent="." instance=ExtResource("19_gugb2")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.02446, 1.72365, 0.104378)
+
+[node name="customer" parent="." instance=ExtResource("21_gj6ch")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.4975, 1.43252, 2.0259)
+
+[node name="Lettuce" parent="." instance=ExtResource("22_bg4cx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12455, 2.51591, 0.228575)
+
+[node name="Chese" parent="." instance=ExtResource("23_bt30s")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06483, 2.51591, -0.0241178)
 
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
