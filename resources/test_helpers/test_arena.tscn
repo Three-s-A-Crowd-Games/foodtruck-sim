@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://5b36bokc0k4k"]
+[gd_scene load_steps=17 format=3 uid="uid://5b36bokc0k4k"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_5moal"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="1_8xdyp"]
 [ext_resource type="PackedScene" uid="uid://doqn4cetycndv" path="res://resources/test_helpers/food_piece.tscn" id="2_ek6i4"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="4_xjd3b"]
+[ext_resource type="PackedScene" uid="uid://c0brq67lg35qy" path="res://resources/objects/furniture/lettuce_block.tscn" id="6_co4rh"]
+[ext_resource type="PackedScene" uid="uid://clf7iny7d8p84" path="res://resources/objects/furniture/cheese_block.tscn" id="6_n7edg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
 sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
@@ -101,3 +103,9 @@ collision_mask = 196615
 
 [node name="Knife" parent="." instance=ExtResource("4_xjd3b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96191, 1.14486, 4.14737)
+
+[node name="LettuceBlock" parent="." instance=ExtResource("6_co4rh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.97858, 0, -1.64011)
+
+[node name="CheeseBlock" parent="." instance=ExtResource("6_n7edg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.84055, 2.38419e-07, 0.50226)
