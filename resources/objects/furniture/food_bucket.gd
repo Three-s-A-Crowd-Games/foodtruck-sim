@@ -5,8 +5,8 @@ extends Node3D
 
 func _on_exit_detector_body_exited(body):
 	body = body as Food
-	if(body and !body.has_left):
-		body.has_left = true
+	if(body and !body.has_left_spawner):
+		body.has_left_spawner = true
 		var item = item_scene.instantiate()
 		add_child(item)
-		item.global_position = body.initial_position
+		item.global_position = body.position_before_pickup
