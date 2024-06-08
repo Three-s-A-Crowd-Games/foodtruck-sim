@@ -116,7 +116,7 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	var slice: BurgerPart = slice_scene.instantiate()
 	slice.transform = _sliceable.transform
 	slice.transform.origin += slice.basis.x * (slice_width+slice_spawn_seperation_distance) * slices_left
-	slice.position.y = original_height/2 + 0.02
+	slice.position.y = original_height/2 + 0.02 + _sliceable.position.y
 	slice.rotate_z(7*PI/20)
 	
 	var mesh_node := _find_mesh_child_node(slice)
@@ -179,6 +179,9 @@ func _find_mesh_child_node(node: Node) -> MeshInstance3D:
 func _adjust_collision_shape(node: Node, mesh: Mesh) -> void:
 	var coll_node = node if node is CollisionShape3D else node.get_node_or_null("CollisionShape3D")
 	if coll_node:
+		# WARNING: This might be very performance heavy.
+		# In the case we need to cut it down we can just use the bounding box (AABB) of the mesh
+		# and use simple boxshapes, which will be very much less accurate.
 		coll_node.shape = mesh.create_convex_shape()
 		if coll_node.position != Vector3.ZERO: 
 			coll_node.position = Vector3.ZERO
