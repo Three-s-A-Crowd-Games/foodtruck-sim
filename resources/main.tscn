@@ -32,9 +32,6 @@ background_intensity = 9285.13
 sky = SubResource("Sky_o2hra")
 reflected_light_source = 2
 tonemap_mode = 3
-glow_enabled = true
-glow_intensity = 0.35
-fog_enabled = true
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_vmgr7"]
 auto_exposure_enabled = true
