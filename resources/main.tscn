@@ -146,7 +146,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7577, -0.15682)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575689, 1.84672, -0.567022)
 
 [node name="Tray" parent="." instance=ExtResource("15_2qref")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.186297, 1.75823, 0.754619)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.666647, 1.75823, 0.754619)
 
 [node name="Friesbox" parent="." instance=ExtResource("16_t2krs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0699124, 2.55898, -0.836618)
