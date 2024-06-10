@@ -59,8 +59,8 @@ func _ready():
 	
 	body_entered.connect(_on_body_entered)
 	if Engine.is_editor_hint():
-		child_entered_tree.connect(update_configuration_warnings)
-		child_exiting_tree.connect(update_configuration_warnings)
+		child_entered_tree.connect(_updated_children)
+		child_exiting_tree.connect(_updated_children)
 	
 	slices_left = slice_count
 	
@@ -187,6 +187,8 @@ func _adjust_collision_shape(node: Node, mesh: Mesh) -> void:
 			coll_node.position = Vector3.ZERO
 	
 
+func _updated_children(node: Node) -> void:
+	update_configuration_warnings()
 
 func _get_configuration_warnings():
 	var out: Array[String] = []
