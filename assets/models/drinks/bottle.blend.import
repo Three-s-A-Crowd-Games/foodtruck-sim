@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://du5bmobeslpn0"
-path="res://.godot/imported/cheese.blend-77d06f17c2473c024e2b6a00815a44ed.scn"
+uid="uid://bc25p02qcab5r"
+path="res://.godot/imported/bottle.blend-e542233a2149730ffc2b65ea43d0bb25.scn"
 
 [deps]
 
-source_file="res://assets/models/food/cheese.blend"
-dest_files=["res://.godot/imported/cheese.blend-77d06f17c2473c024e2b6a00815a44ed.scn"]
+source_file="res://assets/models/drinks/bottle.blend"
+dest_files=["res://.godot/imported/bottle.blend-e542233a2149730ffc2b65ea43d0bb25.scn"]
 
 [params]
 
@@ -32,7 +32,7 @@ animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
-fbx/importer=1
+fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
 gltf/naming_version=1

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://6hnv1incbf6j"
-path="res://.godot/imported/potato_cutter.blend-eead69ec7a8e648dec884ab5d8c4fe8f.scn"
+uid="uid://d2lwurjsh0841"
+path="res://.godot/imported/sauce.blend-f90f580fa0ed7fb1748e69d6819543b9.scn"
 
 [deps]
 
-source_file="res://assets/models/objects/appliances/potato_cutter.blend"
-dest_files=["res://.godot/imported/potato_cutter.blend-eead69ec7a8e648dec884ab5d8c4fe8f.scn"]
+source_file="res://assets/models/food/sauce.blend"
+dest_files=["res://.godot/imported/sauce.blend-f90f580fa0ed7fb1748e69d6819543b9.scn"]
 
 [params]
 
