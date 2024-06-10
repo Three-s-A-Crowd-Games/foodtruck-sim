@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqu2cm5yrrt54"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_jak6r"]
+[ext_resource type="PackedScene" uid="uid://witvb00gyysp" path="res://assets/models/objects/appliances/fries_box.blend" id="2_qsmh0"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="3_2n23b"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e175t"]
+size = Vector3(0.116114, 0.144883, 0.0662958)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xmiuk"]
+resource_local_to_scene = true
+radius = 0.0642004
+
+[node name="PickableObject" instance=ExtResource("1_jak6r")]
+collision_mask = 8388615
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000632934, 0.0728068, -0.000578305)
+shape = SubResource("BoxShape3D_e175t")
+
+[node name="fries_box" parent="." index="1" instance=ExtResource("2_qsmh0")]
+
+[node name="SnapZone" parent="." index="2" instance=ExtResource("3_2n23b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0677976, 0)
+
+[node name="CollisionShape3D" parent="SnapZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0586616, 0)
+shape = SubResource("SphereShape3D_xmiuk")
+
+[editable path="SnapZone"]

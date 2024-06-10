@@ -5,8 +5,6 @@ extends Food
 # Constraint:	The distance between a burgerpart and the corresponding stack zone
 # 				needs to be the same for all burgerparts in a stack
 
-#TODO: adjust the recipe detection
-
 enum FlipState {UNINITIALIZED, FLIPPED, UNFLIPPED}
 
 var flipped_state: FlipState = FlipState.UNINITIALIZED :
@@ -30,7 +28,7 @@ func _ready():
 	outer_stack_zone = get_node_or_null("BurgerStackZone")
 	if not outer_stack_zone: return
 	stack_zone_stack.append(outer_stack_zone)
-	if outer_stack_zone:
+	if not Engine.is_editor_hint():
 		outer_stack_zone.enabled = true
 		outer_stack_zone.has_picked_up.connect(_on_burger_stack_zone_has_picked_up)
 		outer_stack_zone.has_dropped.connect(_on_burger_stack_zone_has_dropped)

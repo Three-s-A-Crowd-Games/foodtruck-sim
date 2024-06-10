@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://witvb00gyysp"
-path="res://.godot/imported/fries_box.blend-2b727c18b27a556fde9ba477c6dd9b0f.scn"
+uid="uid://eoa5f4noca6l"
+path="res://.godot/imported/sauce_pump.blend-46f56e9dfc1e1fe0f10813917029bb67.scn"
 
 [deps]
 
-source_file="res://assets/models/objects/appliances/fries_box.blend"
-dest_files=["res://.godot/imported/fries_box.blend-2b727c18b27a556fde9ba477c6dd9b0f.scn"]
+source_file="res://assets/models/objects/appliances/sauce_pump.blend"
+dest_files=["res://.godot/imported/sauce_pump.blend-46f56e9dfc1e1fe0f10813917029bb67.scn"]
 
 [params]
 
@@ -31,15 +31,8 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={
-"materials": {
-"Material.001": {
-"use_external/enabled": true,
-"use_external/path": "res://assets/materials/fries_box.tres"
-}
-}
-}
-fbx/importer=1
+_subresources={}
+fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
 gltf/naming_version=1

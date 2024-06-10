@@ -24,6 +24,7 @@ open_pose = ExtResource("5_1gyk3")
 closed_pose = ExtResource("8_fhgcs")
 
 [node name="Knife" instance=ExtResource("1_aidih")]
+collision_mask = 8585223
 mass = 0.3
 picked_up_layer = 65568
 

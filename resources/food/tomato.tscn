@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://by6wtlw1qh67"]
+
+[ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_rmspk"]
+[ext_resource type="PackedScene" uid="uid://cjiawby6bragj" path="res://assets/models/food/tomato.blend" id="2_1kums"]
+[ext_resource type="Script" path="res://resources/components/sliceable.gd" id="3_tek84"]
+[ext_resource type="Material" path="res://assets/materials/tomato_material.tres" id="4_l7dhx"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_aj645"]
+radius = 0.0801779
+
+[node name="Tomato" instance=ExtResource("1_rmspk")]
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.06, 0)
+angular_damp = 21.078
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0800807, 0)
+shape = SubResource("SphereShape3D_aj645")
+
+[node name="tomato2" parent="." index="1" instance=ExtResource("2_1kums")]
+
+[node name="Sliceable" type="Area3D" parent="." index="2" node_paths=PackedStringArray("_mesh_node_or_parent", "mesh_node_to_delete")]
+collision_layer = 0
+collision_mask = 32
+monitorable = false
+script = ExtResource("3_tek84")
+cross_section_material = ExtResource("4_l7dhx")
+slice_count = 6
+_mesh_node_or_parent = NodePath("../tomato2/tomato")
+mesh_node_to_delete = NodePath("../tomato2/tomato_stem")
+delete_slice_count = 3
+
+[editable path="tomato2"]
