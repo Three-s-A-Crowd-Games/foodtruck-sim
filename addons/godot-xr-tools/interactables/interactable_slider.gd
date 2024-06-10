@@ -17,6 +17,8 @@ extends XRToolsInteractableHandleDriven
 
 ## Signal for slider moved
 signal slider_moved(position)
+signal slider_limit_max_reached()
+signal slider_limit_min_reached()
 
 
 ## Slider minimum limit
@@ -88,7 +90,13 @@ func move_slider(position: float) -> void:
 	slider_position = position
 
 	# Emit the moved signal
-	emit_signal("slider_moved", position)
+	slider_moved.emit(position)
+	
+	if position == slider_limit_max:
+		slider_limit_max_reached.emit()
+	
+	if position == slider_limit_min:
+		slider_limit_min_reached.emit()
 
 
 # Handle release of slider
