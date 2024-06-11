@@ -15,6 +15,9 @@ var outer_stack_zone: BurgerStackZone
 var burger_part_stack: Array[BurgerPart] = [self]
 var stack_zone_stack: Array[BurgerStackZone]
 
+# Wether or not this thing got sauced.
+var sauced :bool = false
+
 @export var stack_zone_distance: float = 0.05 :
 	set(value):
 		stack_zone_distance = value
