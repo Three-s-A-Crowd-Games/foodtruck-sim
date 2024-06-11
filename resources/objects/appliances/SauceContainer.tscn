@@ -1,11 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://d088mil7a0mga"]
+[gd_scene load_steps=4 format=3 uid="uid://d088mil7a0mga"]
 
 [ext_resource type="PackedScene" uid="uid://cdtmfbjo7usea" path="res://assets/models/objects/appliances/sauce_container.blend" id="1_dsvtd"]
 [ext_resource type="PackedScene" uid="uid://eoa5f4noca6l" path="res://assets/models/objects/appliances/sauce_pump.blend" id="2_5lxv6"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hcxhu"]
+margin = 0.0
+height = 0.11
+radius = 0.02
 
 [node name="SauceContainer" type="Node3D"]
 
 [node name="sauce_container" parent="." instance=ExtResource("1_dsvtd")]
 
-[node name="sauce_pump" parent="." instance=ExtResource("2_5lxv6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.388612, 0)
+[node name="SpringArm3D" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.417, 0)
+collision_mask = 32768
+shape = SubResource("CylinderShape3D_hcxhu")
+spring_length = 0.11
+margin = 0.0
+
+[node name="sauce_pump" parent="SpringArm3D" instance=ExtResource("2_5lxv6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 9.88111e-10, -0.00129902)
+
+[node name="PumpOrigin" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.387213, 0)
