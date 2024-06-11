@@ -12,12 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/objects/furniture/truck.blend" id="10_vl4gb"]
 [ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
 [ext_resource type="PackedScene" uid="uid://dko2murkvbg2y" path="res://resources/food/fries.tscn" id="13_qws16"]
-[ext_resource type="PackedScene" uid="uid://6tdm7fwgrxyx" path="res://assets/models/food/potato.blend" id="14_vxrwy"]
 [ext_resource type="PackedScene" uid="uid://daq62tyjf4nnf" path="res://resources/objects/accessoires/tray.tscn" id="15_2qref"]
 [ext_resource type="PackedScene" uid="uid://dqu2cm5yrrt54" path="res://resources/objects/accessoires/friesbox.tscn" id="16_t2krs"]
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
 [ext_resource type="PackedScene" uid="uid://d088mil7a0mga" path="res://resources/objects/appliances/SauceContainer.tscn" id="17_117gm"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="18_wcr04"]
+[ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="19_5w3yg"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="19_24xoq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
@@ -140,9 +140,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7577, -0.15682)
 [node name="Fries" parent="." instance=ExtResource("13_qws16")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07988, 1.84672, -0.024622)
 
-[node name="potato" parent="." instance=ExtResource("14_vxrwy")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02492, 1.81672, 0.628832)
-
 [node name="Tray" parent="." instance=ExtResource("15_2qref")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.373376, 1.75823, 0.754619)
 
@@ -160,6 +157,9 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7646
 
 [node name="Tomato" parent="." instance=ExtResource("19_24xoq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748806, 1.7495, -0.460409)
+
+[node name="Potato" parent="." instance=ExtResource("19_5w3yg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00405, 1.72365, 0.611761)
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161468, 0.765339, 0.16495)
