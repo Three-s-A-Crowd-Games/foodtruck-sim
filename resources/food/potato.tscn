@@ -1,0 +1,25 @@
+[gd_scene load_steps=6 format=3 uid="uid://jswmwgs1nelb"]
+
+[ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_ptydu"]
+[ext_resource type="PackedScene" uid="uid://6tdm7fwgrxyx" path="res://assets/models/food/potato.blend" id="2_jqjvx"]
+[ext_resource type="Script" path="res://resources/components/machine_sliceable.gd" id="2_m6lfd"]
+[ext_resource type="PackedScene" uid="uid://dko2murkvbg2y" path="res://resources/food/fries.tscn" id="4_b0ehm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7e2e7"]
+radius = 0.0625
+height = 0.2
+
+[node name="Potato" instance=ExtResource("1_ptydu")]
+mass = 0.25
+continuous_cd = true
+type = 4
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00195313, 0.101348, 0.00152588)
+shape = SubResource("CapsuleShape3D_7e2e7")
+
+[node name="potato" parent="." index="1" instance=ExtResource("2_jqjvx")]
+
+[node name="MachineSlicable" type="Node" parent="." index="2"]
+script = ExtResource("2_m6lfd")
+product = ExtResource("4_b0ehm")

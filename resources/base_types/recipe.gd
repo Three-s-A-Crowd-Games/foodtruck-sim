@@ -4,33 +4,45 @@ extends RefCounted
 
 enum Category{
 	MAIN,
-	SIDE
+	SIDE,
+	DRINK
 }
 
 enum Type{
 	BURGER,
-	FRIES
+	FRIES,
+	DRINKS
 }
 
 enum Constraints{
-	MINIMUM_AMOUNT
+	MINIMUM_AMOUNT,
+	MAXIMUM_AMOUNT,
+	MUST_HAVE
 }
 
 static var recipes: Dictionary = {
 	Type.BURGER : {
 		Category : Category.MAIN, 
 		Ingredient.Category : [Ingredient.Category.BURGER_PART], 
-		Constraints.MINIMUM_AMOUNT : 3
+		Constraints.MINIMUM_AMOUNT : 3,
+		Constraints.MUST_HAVE : [Ingredient.Type.BUN_BOTTOM, Ingredient.Type.PATTY, Ingredient.Type.BUN_TOP]
 		},
 	Type.FRIES : {
 		Category : Category.SIDE, 
-		Ingredient.Category : [Ingredient.Category.FRIES]
-		}
+		Ingredient.Category : [Ingredient.Category.FRIES],
+		Constraints.MAXIMUM_AMOUNT : 1,
+		},
+	Type.DRINKS : {
+		Category : Category.DRINK,
+		Ingredient.Category: [Ingredient.Category.DRINKS],
+		Constraints.MAXIMUM_AMOUNT : 1,
+	}
 }
 
 static var categories: Dictionary = {
 	Category.MAIN : [Type.BURGER],
-	Category.SIDE : [Type.FRIES]
+	Category.SIDE : [Type.FRIES],
+	Category.DRINK : [Type.DRINKS]
 }
 
 var ingredients: Array[Ingredient.Type]
@@ -39,31 +51,48 @@ var type: Type
 static func create_recipe(type: Type) -> Recipe:
 	var new_recipe :=  Recipe.new()
 	new_recipe.type = type
-	var min_amount := 1
+	var min_amount := 0
+	var max_amount := INF
 	var possible_ingredients: Array
-	
-	# Check if this recipe type has the MINIMUM_AMOUNT constraint
-	if recipes[type].has(Constraints.MINIMUM_AMOUNT):
-		min_amount = recipes[type].get(Constraints.MINIMUM_AMOUNT)
 	
 	# gather all the ingredients that can be used for this type of recipe
 	for ingredient_category in recipes[type][Ingredient.Category]:
 		possible_ingredients += Ingredient.categories[ingredient_category]
 	
+	# Check if this recipe type has the MINIMUM_AMOUNT constraint
+	if recipes[type].has(Constraints.MINIMUM_AMOUNT):
+		min_amount = recipes[type].get(Constraints.MINIMUM_AMOUNT)
+	# Check if this recipe type has the MAXIMUM_AMOUNT constraint
+	if recipes[type].has(Constraints.MAXIMUM_AMOUNT):
+		max_amount = recipes[type].get(Constraints.MAXIMUM_AMOUNT)
+	else:
+		max_amount = possible_ingredients.size() * 1.5
+	
 	# take a random amount of ingredients
-	var amount = randi_range(min_amount, possible_ingredients.size())
+	var amount = randi_range(min_amount, max_amount)
 	new_recipe.ingredients.resize(amount)
 	new_recipe.ingredients.fill(-1)
 	
 	
 	# fill the ingredients array of the new recipe with random ingredients from the possible ingredients
 	# take random elements from the pool of possible ingredients
-	# currently an ingredient can only be taken once
 	var used_ingredients: Array[Ingredient.Type]
+	if(recipes[type].has(Constraints.MUST_HAVE)):
+		for must_have in recipes[type][Constraints.MUST_HAVE]:
+			var ingr
+			if must_have is Array:
+				ingr = must_have.pick_random()
+			else:
+				ingr = must_have
+			used_ingredients.append(ingr)
+			if(Ingredient.ingredients[ingr].has(Ingredient.Constraints.MAX_USE) and used_ingredients.count(ingr) >= Ingredient.ingredients[ingr][Ingredient.Constraints.MAX_USE]):
+				possible_ingredients.erase(ingr)
+	
 	for i in range(amount):
 		var ingr = possible_ingredients.pick_random()
 		used_ingredients.append(ingr)
-		possible_ingredients.erase(ingr)
+		if(Ingredient.ingredients[ingr].has(Ingredient.Constraints.MAX_USE) and used_ingredients.count(ingr) >= Ingredient.ingredients[ingr][Ingredient.Constraints.MAX_USE]):
+			possible_ingredients.erase(ingr)
 	
 	
 	var open_positions = range(amount)
