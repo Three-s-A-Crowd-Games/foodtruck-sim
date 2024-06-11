@@ -22,7 +22,7 @@ height = 0.01
 radial_segments = 32
 rings = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xi1xk"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qotpc"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.8, 0.8, 1, 0.5)
@@ -94,7 +94,6 @@ player_calibrate_height = false
 push_rigid_bodies = false
 
 [node name="TrackedHandLeft" parent="." instance=ExtResource("9_3t4l0")]
-visible = false
 
 [node name="Physical Bone Thumb_Proximal_L" parent="TrackedHandLeft/Skeleton3D" index="1"]
 transform = Transform3D(0.938213, -0.077999, -0.337155, 0.0187491, 0.984294, -0.175538, 0.345551, 0.15837, 0.92494, 0.0283173, 0.0543736, -0.0544159)
@@ -178,7 +177,7 @@ shape = SubResource("SphereShape3D_nxwqx")
 
 [node name="MeshInstance" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke/PokeBody" index="1"]
 mesh = SubResource("SphereMesh_lpo0c")
-surface_material_override/0 = SubResource("StandardMaterial3D_xi1xk")
+surface_material_override/0 = SubResource("StandardMaterial3D_qotpc")
 
 [node name="Middle_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="6"]
 transform = Transform3D(0.0836168, 0.962976, 0.256294, -0.0161448, -0.255851, 0.966581, 0.996367, -0.0849603, -0.00584642, 0.0165289, -0.0851049, -0.00942898)

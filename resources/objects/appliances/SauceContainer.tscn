@@ -1,14 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://d088mil7a0mga"]
+[gd_scene load_steps=7 format=3 uid="uid://d088mil7a0mga"]
 
 [ext_resource type="PackedScene" uid="uid://cdtmfbjo7usea" path="res://assets/models/objects/appliances/sauce_container.blend" id="1_dsvtd"]
+[ext_resource type="Script" path="res://resources/objects/appliances/sauce_container.gd" id="1_frgr5"]
 [ext_resource type="PackedScene" uid="uid://eoa5f4noca6l" path="res://assets/models/objects/appliances/sauce_pump.blend" id="2_5lxv6"]
+[ext_resource type="ArrayMesh" uid="uid://bcj31tgx2nnqb" path="res://assets/models/paticles/fryer_particle.obj" id="3_okmqu"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hcxhu"]
 margin = 0.0
 height = 0.11
 radius = 0.02
 
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ntsli"]
+direction = Vector3(1, 0, 1)
+spread = 180.0
+initial_velocity_max = 0.2
+
 [node name="SauceContainer" type="Node3D"]
+script = ExtResource("1_frgr5")
 
 [node name="sauce_container" parent="." instance=ExtResource("1_dsvtd")]
 
@@ -21,3 +29,13 @@ margin = 0.0
 
 [node name="sauce_pump" parent="SpringArm3D" instance=ExtResource("2_5lxv6")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 9.88111e-10, -0.00129902)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267117, 0.306817, 0)
+emitting = false
+amount = 30
+lifetime = 0.37
+one_shot = true
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_ntsli")
+draw_pass_1 = ExtResource("3_okmqu")
