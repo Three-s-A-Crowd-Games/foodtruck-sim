@@ -104,9 +104,6 @@ collision_mask = 524289
 [node name="left-wall" parent="Truck/truck_v1" index="1"]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -1.275, 1.05, 0)
 
-[node name="top-wall" parent="Truck/truck_v1" index="2"]
-visible = false
-
 [node name="StaticBody3D" parent="Truck/truck_v1/front-wall" index="0"]
 collision_layer = 8388609
 collision_mask = 524289

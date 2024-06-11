@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bjfijuv76djxl" path="res://addons/XRHandtrackingTools/tracked_hand_right.tscn" id="10_66to7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_en8rf"]
-size = Vector3(0.0148315, 0.192062, 0.0462646)
+size = Vector3(0.0148315, 0.158203, 0.0462646)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nxwqx"]
 resource_local_to_scene = true
@@ -57,6 +57,10 @@ collision_mask = 0
 sync_to_physics = false
 script = ExtResource("4_j05hm")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand-Handtracking/SaucePusherL"]
+transform = Transform3D(2.89767e-15, 4.37114e-08, 1, 1, -4.37114e-08, 3.90439e-23, 4.37114e-08, 1, -4.37114e-08, -0.00175923, 0.0640186, -0.0110473)
+shape = SubResource("BoxShape3D_en8rf")
+
 [node name="RightHand-Handtracking" type="XRController3D" parent="."]
 transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.960199, 0.964214, -0.14633, 0.221085, -0.0469018, -0.0716148, 0.00666672)
 
@@ -90,6 +94,7 @@ player_calibrate_height = false
 push_rigid_bodies = false
 
 [node name="TrackedHandLeft" parent="." instance=ExtResource("9_3t4l0")]
+visible = false
 
 [node name="Physical Bone Thumb_Proximal_L" parent="TrackedHandLeft/Skeleton3D" index="1"]
 transform = Transform3D(0.938213, -0.077999, -0.337155, 0.0187491, 0.984294, -0.175538, 0.345551, 0.15837, 0.92494, 0.0283173, 0.0543736, -0.0544159)

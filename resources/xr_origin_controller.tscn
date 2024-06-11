@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bqoego5ev1yvg"]
+[gd_scene load_steps=17 format=3 uid="uid://bqoego5ev1yvg"]
 
 [ext_resource type="PackedScene" uid="uid://5o3x65m4va7h" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_3mhj4"]
 [ext_resource type="Script" path="res://resources/components/ObjectCollision.gd" id="3_gx1ql"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bjcxf427un2wp" path="res://addons/godot-xr-tools/player/poke/poke.tscn" id="4_qa8pf"]
 [ext_resource type="PackedScene" uid="uid://b4kad2kuba1yn" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/left_hand_low.tscn" id="5_scoxd"]
 [ext_resource type="PackedScene" uid="uid://bl2nuu3qhlb5k" path="res://addons/godot-xr-tools/functions/movement_direct.tscn" id="6_m1h8f"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/collision_hand.gd" id="7_7kgps"]
 [ext_resource type="PackedScene" uid="uid://l2n30mpbkdyw" path="res://addons/godot-xr-tools/hands/scenes/lowpoly/right_hand_low.tscn" id="7_aw7p5"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_bnpr7"]
 
@@ -39,6 +40,9 @@ nodes/OpenHand/position = Vector2(-600, 100)
 nodes/Trigger/node = SubResource("AnimationNodeBlend2_stfk7")
 nodes/Trigger/position = Vector2(-360, 20)
 node_connections = [&"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1", &"output", 0, &"Grip"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_en8rf"]
+size = Vector3(0.0148315, 0.158203, 0.0462646)
 
 [node name="XROrigin3D" type="XROrigin3D"]
 
@@ -117,6 +121,17 @@ parameters/output/current_delta = 0.0
 
 [node name="MovementDirect" parent="LeftHand-Controller" instance=ExtResource("6_m1h8f")]
 
+[node name="SaucePusherL" type="AnimatableBody3D" parent="LeftHand-Controller"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.999999, -0.0261853, -0.0455496, 0.0786895)
+collision_layer = 32768
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("7_7kgps")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand-Controller/SaucePusherL"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.0262656, -0.0521284, 0.0954362)
+shape = SubResource("BoxShape3D_en8rf")
+
 [node name="RightHand-Controller" type="XRController3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.316941, 1.46095, -0.538896)
 tracker = &"right_hand"
@@ -139,6 +154,17 @@ mask = 16777216
 push_bodies = false
 
 [node name="RightHand" parent="RightHand-Controller" instance=ExtResource("7_aw7p5")]
+
+[node name="SaucePusherR" type="AnimatableBody3D" parent="RightHand-Controller"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 0.999999, 0.0324043, -0.0455496, 0.0805666)
+collision_layer = 32768
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("7_7kgps")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand-Controller/SaucePusherR"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0.0270787, -0.0534862, 0.0950198)
+shape = SubResource("BoxShape3D_en8rf")
 
 [node name="PlayerBody" parent="." instance=ExtResource("8_bnpr7")]
 collision_mask = 8389576
