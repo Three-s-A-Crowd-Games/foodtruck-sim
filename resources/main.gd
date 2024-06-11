@@ -22,7 +22,7 @@ func _ready():
 		xr_orig = load("res://resources/xr_origin_handtracking.tscn").instantiate()
 	else:
 		xr_orig = load("res://resources/xr_origin_controller.tscn").instantiate()
-	xr_orig.transform = Transform3D(Vector3(1.31134e-07, 0, 1), Vector3(0, 1, 0), Vector3(-1, 0, 1.31134e-07), Vector3(-0.109164, 1.43315, 0.152627))
+	xr_orig.transform = $SpawnPoint.transform
 	add_child(xr_orig)
 	
 	printt("Main order", order.main_recipe.ingredients)

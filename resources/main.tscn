@@ -161,5 +161,8 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7646
 [node name="Tomato" parent="." instance=ExtResource("19_24xoq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748806, 1.7495, -0.460409)
 
+[node name="SpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161468, 0.765339, 0.16495)
+
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
