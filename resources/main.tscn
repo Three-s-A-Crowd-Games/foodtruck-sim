@@ -164,11 +164,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00405, 1.72365, 0.611761)
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161468, 0.765339, 0.16495)
 
-[node name="tomato_inside" parent="." instance=ExtResource("23_lummp")]
-transform = Transform3D(0.87195, -0.489596, 0, 0.489596, 0.87195, 0, 0, 0, 1, -1.90864, 0.19717, 4.24689)
-
-[node name="tomato_inside2" parent="." instance=ExtResource("23_lummp")]
-transform = Transform3D(0.879025, -0.476775, 0, 0.476775, 0.879025, 0, 0, 0, 1, -1.88694, 0.196417, 4.17515)
-
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
