@@ -12,7 +12,13 @@ enum Type{
 	BUN_TOP,
 	BUN_BOTTOM,
 	PATTY,
-	FRIES
+	FRIES,
+	TOMATO,
+	POTATO,
+	LETTUCE,
+	CHEESE,
+	ONION,
+	CUCUMBER
 }
 
 enum Constraints{

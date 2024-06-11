@@ -8,6 +8,7 @@ height = 0.0588474
 radius = 0.111951
 
 [node name="Chese" instance=ExtResource("1_qu6yj")]
+type = 7
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0702808, 0.0260179)
