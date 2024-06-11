@@ -25,5 +25,6 @@ func _ready():
 	xr_orig.transform = $SpawnPoint.transform
 	add_child(xr_orig)
 	
-	printt("Main order", order.main_recipe.ingredients)
-	printt("Side order", order.side_recipe.ingredients)
+	printt("Main order", Ingredient.parse_ingridient_list(order.main_recipe.ingredients))
+	printt("Side order", Ingredient.parse_ingridient_list(order.side_recipe.ingredients))
+	printt("Drinks order", Ingredient.parse_ingridient_list(order.drink_recipe.ingredients))
