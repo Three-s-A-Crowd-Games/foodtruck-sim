@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://clf7iny7d8p84"]
+
+[ext_resource type="PackedScene" uid="uid://wa0qw7gtqgym" path="res://resources/base_types/spawn_block.tscn" id="1_snvp5"]
+[ext_resource type="PackedScene" uid="uid://rbul2ghpswop" path="res://assets/models/food/block_of_cheese.blend" id="2_2qyn3"]
+
+[node name="CheeseBlock" instance=ExtResource("1_snvp5")]
+
+[node name="block_of_cheese" parent="." index="2" instance=ExtResource("2_2qyn3")]

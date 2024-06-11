@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfs1nnktcexvm"]
+
+[ext_resource type="PackedScene" uid="uid://0ritu0jlnbff" path="res://assets/models/food/lettuce.blend" id="1_7jrbm"]
+[ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_qeamm"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_g7o3e"]
+height = 0.0481685
+radius = 0.114679
+
+[node name="Lettuce" instance=ExtResource("1_qeamm")]
+type = 6
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0140322, 0)
+shape = SubResource("CylinderShape3D_g7o3e")
+
+[node name="lettuce" parent="." index="1" instance=ExtResource("1_7jrbm")]

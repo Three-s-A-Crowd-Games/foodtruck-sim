@@ -7,10 +7,10 @@ var fryables_inside: Array[Fryable] = []
 		enabled = value
 		if value:
 			for fryable:Fryable in fryables_inside:
-				fryable.start_cooking()
+				fryable.start_frying()
 		else:
 			for fryable:Fryable in fryables_inside:
-				fryable.stop_cooking()
+				fryable.stop_frying()
 			
 
 # Does not always start cooking - hence an extra signal to check with the appliance
@@ -20,11 +20,11 @@ func _on_body_entered(body):
 		fryables_inside.append(fryable)
 		#cooking_area_entered.emit(body)
 		if enabled:
-			fryable.start_cooking();
+			fryable.start_frying();
 
 # Always stops cooking
 func _on_body_exited(body):
 	if(body.is_in_group("fryable")):
 		var fryable = body.get_node("Fryable")
 		fryables_inside.erase(fryable)
-		fryable.stop_cooking();
+		fryable.stop_frying();

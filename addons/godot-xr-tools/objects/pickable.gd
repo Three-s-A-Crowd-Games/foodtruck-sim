@@ -39,6 +39,7 @@ enum RangedMethod {
 	NONE,				## Ranged grab is not supported
 	SNAP,				## Object snaps to holder
 	LERP,				## Object lerps to holder
+	STAY,				## Object stays in place
 }
 
 enum ReleaseMode {
@@ -91,6 +92,12 @@ var can_ranged_grab: bool = true
 
 ## Frozen state to restore to when dropped
 var restore_freeze : bool = false
+
+var position_before_pickup := Vector3.ZERO
+
+var has_left_spawner := false :
+	set(value):
+		has_left_spawner = value
 
 # Count of 'is_closest' grabbers
 var _closest_count: int = 0
@@ -220,6 +227,8 @@ func pick_up(by: Node3D) -> void:
 	if not enabled:
 		return
 
+	position_before_pickup = global_position
+
 	# Find the grabber information
 	var grabber := Grabber.new(by)
 
@@ -231,7 +240,7 @@ func pick_up(by: Node3D) -> void:
 			return
 
 		# Ignore if either pickup isn't by a hand
-		if not _grab_driver.primary.pickup or not grabber.pickup:
+		if (not _grab_driver.primary.pickup or not grabber.pickup) and not self is BurgerPart:
 			return
 
 		# Construct the second grab
@@ -273,9 +282,13 @@ func pick_up(by: Node3D) -> void:
 		if ranged_grab_method == RangedMethod.LERP:
 			var grab := Grab.new(grabber, self, by_grab_point, false)
 			_grab_driver = XRToolsGrabDriver.create_lerp(self, grab, ranged_grab_speed)
-		else:
+		elif ranged_grab_method == RangedMethod.SNAP or by is XRToolsSnapZone:
 			var grab := Grab.new(grabber, self, by_grab_point, false)
-			_grab_driver = XRToolsGrabDriver.create_snap(self, grab)
+			_grab_driver = XRToolsGrabDriver.create_snap(self, grab, false)
+		elif ranged_grab_method == RangedMethod.STAY or by is XRToolsFunctionPickup:
+			var grab := Grab.new(grabber, self, by_grab_point, false)
+			_grab_driver = XRToolsGrabDriver.create_stay(self, grab)
+			
 	else:
 		var grab := Grab.new(grabber, self, by_grab_point, true)
 		_grab_driver = XRToolsGrabDriver.create_snap(self, grab)

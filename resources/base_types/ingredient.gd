@@ -12,7 +12,13 @@ enum Type{
 	BUN_TOP,
 	BUN_BOTTOM,
 	PATTY,
-	FRIES
+	FRIES,
+	TOMATO,
+	POTATO,
+	LETTUCE,
+	CHEESE,
+	ONION,
+	CUCUMBER
 }
 
 enum Constraints{
@@ -40,5 +46,3 @@ static var categories: Dictionary = {
 	Category.BURGER_PART : [Type.BUN_TOP, Type.BUN_BOTTOM, Type.PATTY],
 	Category.FRIES : [Type.FRIES]
 }
-
-

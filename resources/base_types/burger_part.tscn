@@ -1,18 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://boqvit30nfpff"]
+[gd_scene load_steps=4 format=3 uid="uid://boqvit30nfpff"]
 
-[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_jk7n3"]
+[ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_ofrt4"]
+[ext_resource type="Script" path="res://resources/base_types/burger_part.gd" id="2_fyhlw"]
+[ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="3_3dn0k"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_w8rpq"]
-height = 0.037
-radius = 0.097
-
-[node name="BurgerPart" groups=["burger_part"] instance=ExtResource("1_jk7n3")]
-collision_layer = 33554436
-collision_mask = 33685511
+[node name="BurgerPart" groups=["burger_part"] instance=ExtResource("1_ofrt4")]
+mass = 0.2
+center_of_mass_mode = 1
 freeze = true
 continuous_cd = true
-ranged_grab_method = 0
+script = ExtResource("2_fyhlw")
+stack_zone_distance = 0.05
+ranged_grab_method = 3
 second_hand_grab = 1
 
-[node name="CollisionShape3D" parent="." index="0"]
-shape = SubResource("CylinderShape3D_w8rpq")
+[node name="BurgerStackZone" parent="." index="1" instance=ExtResource("3_3dn0k")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06, 0)

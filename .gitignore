@@ -3,3 +3,7 @@
 android/build/
 
 *.blend1
+*.DS_Store
+
+addons/Asset_Drawer/
+override.cfg

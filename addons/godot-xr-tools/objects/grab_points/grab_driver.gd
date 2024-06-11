@@ -6,6 +6,7 @@ extends RemoteTransform3D
 enum State {
 	LERP,
 	SNAP,
+	STAY
 }
 
 
@@ -30,6 +31,8 @@ var lerp_duration : float = 1.0
 ## Lerp time
 var lerp_time : float = 0.0
 
+var flip_y: bool = false
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta : float) -> void:
@@ -39,6 +42,8 @@ func _physics_process(delta : float) -> void:
 
 	# Set destination from primary grab
 	var destination := primary.by.global_transform * primary.transform.inverse()
+	if flip_y:
+		destination.basis.y *= -1
 
 	# If present, apply secondary-node contributions
 	if is_instance_valid(secondary):
@@ -91,6 +96,8 @@ func _physics_process(delta : float) -> void:
 				state = State.SNAP
 				if primary: primary.set_arrived()
 				if secondary: secondary.set_arrived()
+		State.STAY:
+			destination = primary.by.global_transform * T
 
 	# Apply the destination transform
 	global_transform = destination
@@ -182,7 +189,8 @@ static func create_lerp(
 # Create the driver to instantly snap to the primary grab-point.
 static func create_snap(
 	p_target : Node3D,
-	p_grab : Grab) -> XRToolsGrabDriver:
+	p_grab : Grab,
+	allow_y_flip: bool = true) -> XRToolsGrabDriver:
 
 	print_verbose("%s> snapping to %s" % [p_target.name, p_grab.by.name])
 
@@ -202,11 +210,48 @@ static func create_snap(
 	# cannot be descendands of the targets they drive.
 	p_target.get_parent().add_child(driver)
 	driver.global_transform = p_grab.by.global_transform * p_grab.transform.inverse()
+	if not allow_y_flip:
+		if abs(p_grab.what.global_transform.basis.y.angle_to(p_grab.by.global_transform.basis.y)) > PI/2:
+			driver.flip_y = true
+			driver.global_transform.basis.y *= -1
 	driver.remote_path = driver.get_path_to(p_target)
 
 	# Return the driver
 	return driver
 
+
+var T: Transform3D
+static func create_stay(
+	p_target : Node3D,
+	p_grab : Grab) -> XRToolsGrabDriver:
+
+	print_verbose("%s> staying relativ to %s" % [p_target.name, p_grab.by.name])
+
+	# Construct the driver snapped to the held position
+	var driver := XRToolsGrabDriver.new()
+	driver.name = p_target.name + "_driver"
+	driver.top_level = true
+	driver.process_physics_priority = -80
+	driver.state = State.STAY
+	driver.target = p_target
+	driver.primary = p_grab
+
+	# Snapped to grab-point so report arrived
+	p_grab.set_arrived()
+
+	# Add the driver as a neighbor of the target as RemoteTransform3D nodes
+	# cannot be descendands of the targets they drive.
+	p_target.get_parent().add_child(driver)
+	driver.global_transform = p_target.global_transform
+	
+	# Calculate the transformation matrix which describes the transformation
+	# from the grabbers to the objects transform
+	driver.T = p_grab.by.global_transform.inverse() * p_target.global_transform
+	
+	driver.remote_path = driver.get_path_to(p_target)
+
+	# Return the driver
+	return driver
 
 # Calculate the lerp voting from a to b
 static func _vote(a : float, b : float) -> float:
