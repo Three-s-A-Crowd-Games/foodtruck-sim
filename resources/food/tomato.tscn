@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_rmspk"]
 [ext_resource type="PackedScene" uid="uid://cjiawby6bragj" path="res://assets/models/food/tomato.blend" id="2_1kums"]
 [ext_resource type="Script" path="res://resources/components/sliceable.gd" id="3_tek84"]
-[ext_resource type="Material" path="res://assets/materials/tomato_material.tres" id="4_l7dhx"]
+[ext_resource type="Material" uid="uid://byrwsstbibpm3" path="res://assets/materials/tomato_material.tres" id="4_l7dhx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aj645"]
 radius = 0.0801779
