@@ -65,5 +65,3 @@ hit_back_faces = false
 
 [connection signal="area_entered" from="SauceArea" to="." method="_on_sauce_area_area_entered"]
 [connection signal="area_exited" from="SauceArea" to="." method="_on_sauce_area_area_exited"]
-
-[editable path="SaucePump/sauce_pump"]

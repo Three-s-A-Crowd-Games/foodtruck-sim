@@ -1,10 +1,12 @@
 extends Node3D
 
-@export var le_sauce :PackedScene
+#@export var le_sauce_type
+@export var custom_bottom :PackedScene
 
 @onready var particle_spawner :GPUParticles3D = $GPUParticles3D
 @onready var sauce_pump :SpringArm3D = $SaucePump
 @onready var outlet :Marker3D = $SauceOutlet
+@onready var le_sauce := preload("res://assets/models/food/sauce.blend")
 var floor_sauce_timer :Timer
 
 var just_hit :bool = false
@@ -16,7 +18,14 @@ func _ready() -> void:
 	floor_sauce_timer = Timer.new()
 	add_child(floor_sauce_timer)
 	floor_sauce_timer.one_shot = true
+	floor_sauce_timer.wait_time = 4
 	floor_sauce_timer.connect("timeout", reset_floor_sauce)
+	
+	if custom_bottom != null:
+		$sauce_container.queue_free()
+		add_child(custom_bottom.instantiate())
+	
+	# TODO Adjust Material of Sauce
 
 func _process(delta: float) -> void:
 	if(!just_hit and sauce_pump.get_hit_length() <= 0.01):
@@ -62,12 +71,14 @@ func sauce():
 				floor_sauce.global_position = coll_point
 			floor_finder.queue_free()
 		
-		if floor_sauce != null and floor_sauce_timer.is_stopped():
-			# Floor-Sauce!
-			floor_sauce.visible = true
-			floor_sauce_timer.wait_time = 4
-			floor_sauce_timer.start()
-			print(floor_sauce_timer.is_stopped())
+		if floor_sauce != null:
+			if floor_sauce_timer.is_stopped():
+				# Floor-Sauce!
+				floor_sauce.visible = true
+				floor_sauce_timer.start()
+			else:
+				# Preserve Floor-Sauce
+				floor_sauce_timer.start()
 
 func reset_floor_sauce() -> void:
 	floor_sauce.visible = false
