@@ -1,6 +1,6 @@
 extends Node3D
 
-#@export var le_sauce_type
+@export_enum("KETCHUP") var le_sauce_type_primitive :String = "KETCHUP"
 @export var custom_bottom :PackedScene
 
 @onready var particle_spawner :GPUParticles3D = $GPUParticles3D
@@ -10,8 +10,9 @@ extends Node3D
 var floor_sauce_timer :Timer
 
 var just_hit :bool = false
-var stack_zones_in_area :Array = []
+var potential_parts :Array = []
 
+var le_sauce_type :Ingredient.Type
 var floor_sauce :Node3D = null
 
 func _ready() -> void:
@@ -25,6 +26,7 @@ func _ready() -> void:
 		$sauce_container.queue_free()
 		add_child(custom_bottom.instantiate())
 	
+	le_sauce_type = Ingredient.Type.get(le_sauce_type_primitive)
 	# TODO Adjust Material of Sauce
 
 func _process(delta: float) -> void:
@@ -36,28 +38,32 @@ func _process(delta: float) -> void:
 		just_hit = false
 
 func sauce():
-	if !stack_zones_in_area.is_empty():
-		#Find Stackzone closest to outlet
-		var closest_stack :BurgerStackZone = null
+	if !potential_parts.is_empty():
+		print("Should Sauce")
+		#Find Part closest to outlet
+		var closest_part :BurgerPart = null
 		var cur_closest :float
-		for stack_zone :BurgerStackZone in stack_zones_in_area:
-			if closest_stack == null:
-				closest_stack = stack_zone
-				cur_closest = stack_zone.global_position.distance_to(outlet.global_position)
+		for burger_part :BurgerPart in potential_parts:
+			if closest_part == null:
+				closest_part = burger_part
+				cur_closest = burger_part.global_position.distance_to(outlet.global_position)
 				continue
-			var pot_pos := stack_zone.global_position.distance_to(outlet.global_position)
+			var pot_pos := burger_part.global_position.distance_to(outlet.global_position)
 			if pot_pos < cur_closest:
-				closest_stack = stack_zone
+				closest_part = burger_part
 				cur_closest = pot_pos
 		
 		# We now have our closest stack-zone. Time to give its parent some sauce
-		var le_part :BurgerPart = closest_stack.get_parent()
+		var le_part :BurgerPart = closest_part
 		var le_sauce_instance = le_sauce.instantiate()
-		le_sauce_instance.position = closest_stack.position
 		le_part.add_child(le_sauce_instance)
-		le_part.sauced = true
+		if closest_part.flipped_state != BurgerPart.FlipState.FLIPPED:
+			le_sauce_instance.position.y = closest_part.stack_zone_distance
+		else:
+			le_sauce_instance.rotation_degrees.x = 180
+		le_part.sauced = le_sauce_type
 		
-		stack_zones_in_area.erase(closest_stack)
+		potential_parts.erase(closest_part)
 	else:
 		if floor_sauce == null:
 			# Setup Floor-Sauce
@@ -83,14 +89,14 @@ func sauce():
 func reset_floor_sauce() -> void:
 	floor_sauce.visible = false
 
-func _on_sauce_area_area_entered(body: Node3D) -> void:
-	if body is BurgerStackZone:
+func _on_sauce_area_area_entered(area: Node3D) -> void:
+	if area is BurgerStackZone:
 		# All EMPTY stack zones
 		# That also haven't been sauced yet
-		if !body.has_snapped_object() and !body.get_parent().sauced:
-			stack_zones_in_area.append(body)
+		if !area.has_snapped_object() and area.get_parent().burger_part_stack.back().sauced == -1:
+			potential_parts.append(area.get_parent().burger_part_stack.back())
 
 
-func _on_sauce_area_area_exited(body: Node3D) -> void:
-	if body in stack_zones_in_area:
-		stack_zones_in_area.erase(body)
+func _on_sauce_area_area_exited(area: Node3D) -> void:
+	if area in potential_parts:
+		potential_parts.erase(area)

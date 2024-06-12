@@ -16,7 +16,7 @@ var burger_part_stack: Array[BurgerPart] = [self]
 var stack_zone_stack: Array[BurgerStackZone]
 
 # Wether or not this thing got sauced.
-var sauced :bool = false
+var sauced :Ingredient.Type = -1
 
 @export var stack_zone_distance: float = 0.05 :
 	set(value):
@@ -40,17 +40,17 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if flipped_state == FlipState.UNINITIALIZED and global_transform.basis.y.angle_to(Vector3.UP) > PI/2:
-		flipped_state = FlipState.UNFLIPPED
+		flipped_state = FlipState.FLIPPED
 		return
 	if flipped_state == FlipState.UNINITIALIZED and global_transform.basis.y.angle_to(Vector3.UP) < PI/2:
-		flipped_state = FlipState.FLIPPED
+		flipped_state = FlipState.UNFLIPPED
 		return
-	if flipped_state == FlipState.FLIPPED and global_transform.basis.y.angle_to(Vector3.UP) > 11*PI/20:
+	if flipped_state == FlipState.UNFLIPPED and global_transform.basis.y.angle_to(Vector3.UP) > 11*PI/20:
+		if is_root: _reverse_stack()
+		flipped_state = FlipState.FLIPPED
+	elif flipped_state == FlipState.FLIPPED and global_transform.basis.y.angle_to(Vector3.UP) < 9*PI/20:
 		if is_root: _reverse_stack()
 		flipped_state = FlipState.UNFLIPPED
-	elif flipped_state == FlipState.UNFLIPPED and global_transform.basis.y.angle_to(Vector3.UP) < 9*PI/20:
-		if is_root: _reverse_stack()
-		flipped_state = FlipState.FLIPPED
 
 func _reverse_stack() -> void:
 	if stack_zone_stack.size() == 1:

@@ -6,7 +6,8 @@ extends RefCounted
 enum Category{
 	BURGER_PART,
 	FRIES,
-	DRINKS
+	DRINKS,
+	SAUCES
 }
 
 enum Type{
@@ -20,7 +21,8 @@ enum Type{
 	CHEESE,
 	ONION,
 	CUCUMBER,
-	WATER
+	WATER,
+	KETCHUP
 }
 
 enum Constraints{
@@ -62,13 +64,17 @@ static var ingredients: Dictionary = {
 		},
 	Type.WATER: {
 		Category : [Category.DRINKS]
-	}
+	},
+	Type.KETCHUP: {
+		Category : [Category.SAUCES]
+	},
 }
 
 static var categories: Dictionary = {
 	Category.BURGER_PART : [Type.BUN_TOP, Type.BUN_BOTTOM, Type.PATTY, Type.ONION, Type.CHEESE, Type.CUCUMBER, Type.TOMATO, Type.LETTUCE],
 	Category.FRIES : [Type.FRIES],
-	Category.DRINKS : [Type.WATER]
+	Category.DRINKS : [Type.WATER],
+	Category.SAUCES : [Type.KETCHUP]
 }
 
 static func parse_ingridient_list(le_array :Array) -> String: #Alda was is Godoooo für ne Language.
