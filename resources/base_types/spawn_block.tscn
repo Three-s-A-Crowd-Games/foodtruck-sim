@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://wa0qw7gtqgym"]
 
 [ext_resource type="Script" path="res://resources/base_types/spawn_block.gd" id="1_xurgl"]
-[ext_resource type="PackedScene" uid="uid://ccb16puthv3px" path="res://resources/food/chese.tscn" id="2_7wsl1"]
+[ext_resource type="PackedScene" uid="uid://ccb16puthv3px" path="res://resources/food/burger_parts/chese.tscn" id="2_7wsl1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7h1hd"]
 size = Vector3(0.25, 0.200256, 0.25)
