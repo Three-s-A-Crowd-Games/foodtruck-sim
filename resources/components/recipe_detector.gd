@@ -1,15 +1,23 @@
 extends XRToolsSnapZone
 
 func check_for_recipe(recipe: Recipe) -> bool:
-	if not is_instance_valid(recipe) or not is_instance_valid(picked_up_object): return false
-	if not picked_up_object is Food: return false
+	if not is_instance_valid(recipe):
+		return false
+
+	return _recursive_check(recipe.ingredients, 0, picked_up_object)
+
+func _recursive_check(ingredients: Array[Ingredient.Type], index: int, object: Food) -> bool:
+	if not is_instance_valid(object):
+		return false
+	var stack_zone: XRToolsSnapZone = object.find_children("*", "XRToolsSnapZone", false, false)[0]
 	
-	if recipe.type == Recipe.Type.BURGER:
-		if not picked_up_object is BurgerPart: return false
-		for i in picked_up_object.burger_part_stack.size():
-			if picked_up_object.burger_part_stack[i].type != recipe.ingredients[i]:
-				return false
-		return true
-	
-	return picked_up_object.type == recipe.ingredients[0]
-	
+	if not stack_zone or not stack_zone.picked_up_object:
+		if index == ingredients.size() - 1:
+			return ingredients[index] == object.type
+		else:
+			return false
+	index += 1
+	if object.type != ingredients[index-1]:
+		return false
+	else:
+		return _recursive_check(ingredients, index, stack_zone.picked_up_object)
