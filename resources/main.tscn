@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=31 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bkl3bmlcidvdg" path="res://resources/objects/accessoires/flipper.tscn" id="8_8x8av"]
 [ext_resource type="PackedScene" uid="uid://canauins47xs5" path="res://resources/objects/furniture/BunTopBox.tscn" id="8_j1ief"]
 [ext_resource type="PackedScene" uid="uid://cun37a3kia4ky" path="res://resources/objects/appliances/fryer.tscn" id="9_wcrah"]
-[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="10_g2n5w"]
+[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/special_areas/cooking_area.tscn" id="10_g2n5w"]
 [ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/objects/furniture/truck.blend" id="10_vl4gb"]
 [ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
 [ext_resource type="PackedScene" uid="uid://dko2murkvbg2y" path="res://resources/food/fries.tscn" id="13_qws16"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="19_5w3yg"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="19_24xoq"]
 [ext_resource type="PackedScene" uid="uid://um05xwvrkanf" path="res://resources/objects/order_paper.tscn" id="20_5wivp"]
+[ext_resource type="PackedScene" uid="uid://cyquot0luo414" path="res://resources/special_areas/pinning_area.tscn" id="21_x5e2k"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -52,6 +53,10 @@ albedo_color = Color(1, 0.231373, 1, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_j8awf"]
 resource_local_to_scene = true
 size = Vector3(0.790588, 0.0263672, 0.311005)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8pe7s"]
+resource_local_to_scene = true
+size = Vector3(0.0236969, 0.0294495, 0.639404)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_d3g8y")
@@ -168,8 +173,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161468, 0.765339, 0.16495)
 [node name="OrderPaper" parent="." instance=ExtResource("20_5wivp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.767465, 1.73097, 0.712739)
 
-[node name="OrderPaper2" parent="." instance=ExtResource("20_5wivp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669624, 1.84327, 1.23013)
+[node name="PinningArea" parent="." instance=ExtResource("21_x5e2k")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.330124, 2.50434, -0.747025)
+
+[node name="CollisionShape3D" parent="PinningArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00236511, 0)
+shape = SubResource("BoxShape3D_8pe7s")
 
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
+[editable path="PinningArea"]

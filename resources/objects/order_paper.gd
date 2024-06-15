@@ -1,3 +1,4 @@
+class_name OrderPaper
 extends XRToolsPickable
 
 @onready var main_layout = $OrderViewport/PaperLayout/MainLayout
@@ -7,6 +8,7 @@ extends XRToolsPickable
 
 const NORMAL_VIEWPORT_SIZE := 650
 var order :Order
+var in_pinning_zone :bool = false
 
 func set_order(le_order :Order):
 	# First lets set the order number
@@ -64,3 +66,22 @@ func set_order(le_order :Order):
 		$order_paper/Paper_001.position.z = (paper_size_before * paper_scale - paper_size_before) / 2
 		$CollisionShape3D.scale.z = paper_scale
 		$CollisionShape3D.position.z = (paper_size_before * paper_scale - paper_size_before) / 2
+
+
+# Handle Pinning
+func pick_up(by: Node3D) -> void:
+	freeze = false
+	super.pick_up(by)
+
+func let_go(by: Node3D, p_linear_velocity: Vector3, p_angular_velocity: Vector3) -> void:
+	super.let_go(by, p_linear_velocity, p_angular_velocity)
+	if in_pinning_zone:
+		freeze = true
+
+func _on_pin_area_entered(area: Area3D) -> void:
+	if area.is_in_group("pinning_zone"):
+		in_pinning_zone = true
+
+func _on_pin_area_exited(area: Area3D) -> void:
+	if area.is_in_group("pinning_zone"):
+		in_pinning_zone = false

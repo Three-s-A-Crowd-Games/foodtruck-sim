@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://um05xwvrkanf"]
+[gd_scene load_steps=23 format=4 uid="uid://um05xwvrkanf"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_w8jc1"]
 [ext_resource type="Script" path="res://resources/objects/order_paper.gd" id="2_2ocj2"]
@@ -131,6 +131,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_u6e08")
 
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_w0ruq"]
+height = 0.0458015
+radius = 0.0121829
+
 [node name="OrderPaper" instance=ExtResource("1_w8jc1")]
 collision_mask = 131079
 script = ExtResource("2_2ocj2")
@@ -233,11 +237,21 @@ texture = SubResource("ViewportTexture_1r3am")
 
 [node name="Paper_001" parent="order_paper" index="0"]
 mesh = SubResource("ArrayMesh_ajt8e")
-skeleton = NodePath("")
 
 [node name="Pin" parent="order_paper" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.007, -0.159767)
 mesh = SubResource("ArrayMesh_4c78d")
-skeleton = NodePath("")
+
+[node name="Pin-Area" type="Area3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00832698, -0.159647)
+collision_layer = 0
+collision_mask = 67108864
+monitorable = false
+
+[node name="PinShape" type="CollisionShape3D" parent="Pin-Area" index="0"]
+shape = SubResource("CylinderShape3D_w0ruq")
+
+[connection signal="area_entered" from="Pin-Area" to="." method="_on_pin_area_entered"]
+[connection signal="area_exited" from="Pin-Area" to="." method="_on_pin_area_exited"]
 
 [editable path="order_paper"]
