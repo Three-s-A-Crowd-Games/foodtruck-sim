@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=28 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://dqu2cm5yrrt54" path="res://resources/objects/accessoires/friesbox.tscn" id="16_t2krs"]
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
 [ext_resource type="PackedScene" uid="uid://d088mil7a0mga" path="res://resources/objects/appliances/SauceContainer.tscn" id="17_117gm"]
-[ext_resource type="PackedScene" uid="uid://d2lwurjsh0841" path="res://assets/models/food/sauce.blend" id="18_rso56"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="18_wcr04"]
 [ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="19_5w3yg"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="19_24xoq"]
@@ -152,7 +151,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.072
 
 [node name="SauceContainer" parent="." instance=ExtResource("17_117gm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.26879, 1.72365, 0.751436)
-le_sauce = ExtResource("18_rso56")
 
 [node name="Knife" parent="." instance=ExtResource("18_wcr04")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.764642, 1.7495, -0.261837)

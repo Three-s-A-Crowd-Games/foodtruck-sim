@@ -28,6 +28,5 @@ collision_layer = 0
 collision_mask = 32
 monitorable = false
 script = ExtResource("2_pm720")
-slice_spawn_seperation_distance = 0.02
 slice_count = 30
 _mesh_node_or_parent = NodePath("../MeshInstance3D")
