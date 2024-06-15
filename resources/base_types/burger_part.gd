@@ -11,7 +11,14 @@ var stack_zone_distance: float
 var height: float
 var burger_part_seperation_distance = 0.02 # TODO: find the smallest possible value
 var is_reversing := false
+<<<<<<< Updated upstream
 var sauced :Ingredient.Type = -1
+=======
+var original_center_of_mass := Vector3.ZERO
+var is_stack_root: bool:
+	get():
+		return not get_picked_up_by() is BurgerStackZone
+>>>>>>> Stashed changes
 
 @onready var stack_zone: BurgerStackZone = $BurgerStackZone
 @onready var original_mass := mass
@@ -28,9 +35,12 @@ func _ready():
 		stack_zone_distance = height + mesh_node.position.y
 	else:
 		stack_zone_distance = height + mesh_node.get_parent().position.y
+	
+	original_center_of_mass.y = stack_zone_distance - height/2
 	stack_zone_distance += burger_part_seperation_distance
 	stack_zone.position.y = stack_zone_distance
 	
+	center_of_mass = original_center_of_mass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -41,8 +51,9 @@ func _process(_delta):
 		flipped_state = FlipState.UNFLIPPED
 		return
 	
-	if adjust_flip() and (not _grab_driver or _grab_driver.primary.by is XRToolsFunctionPickup):
+	if is_stack_root and adjust_flip():
 		_reverse_stack(_grab_driver.primary.pickup if _grab_driver else null)
+		get_stack_root()._recalculate_mass()
 	
 
 ## checks if the burger part is flipped.
@@ -58,20 +69,20 @@ func adjust_flip() -> bool:
 func _reverse_stack(hand_pickup: XRToolsFunctionPickup):
 	flipped_state *= -1
 	is_reversing = true
-	var picked: BurgerPart = null
-	if _grab_driver and _grab_driver.primary.by is not XRToolsFunctionPickup:
-		picked = _grab_driver.primary.by.get_parent()
+	var part_below: BurgerPart = null
+	if not is_stack_root:
+		part_below = get_picked_up_by().get_parent()
 	
 	if stack_zone.has_snapped_object():
-		assert(stack_zone.picked_up_object is BurgerPart, "BurgerStackZone picked up a non Burgerpart and now tries to flip the stack.")
+		assert(stack_zone.picked_up_object is BurgerPart, "BurgerStackZone picked up a non Burgerpart and now tries to flip the stack. Not good :(")
 		stack_zone.picked_up_object._reverse_stack(hand_pickup)
 	elif hand_pickup:
 		hand_pickup._pick_up_object(self)
 	
-	stack_zone.transform = get_current_stack_zone_trans(picked)
+	stack_zone.transform = get_current_stack_zone_trans(part_below)
 	
-	if picked:
-		stack_zone.pick_up_object(picked)
+	if part_below:
+		stack_zone.pick_up_object(part_below)
 	else:
 		stack_zone.drop_object()
 	
@@ -81,12 +92,19 @@ func _reverse_stack(hand_pickup: XRToolsFunctionPickup):
 
 func _on_burger_stack_zone_has_picked_up(what: BurgerPart):
 	prints(what.name, "picked up by", name)
-	if not is_reversing: stack_zone.transform = get_current_stack_zone_trans(what)
+	if not is_reversing:
+		stack_zone.transform = get_current_stack_zone_trans(what)
+		var root = get_stack_root()
+		root.mass += what.mass
+		root.center_of_mass.y += what.center_of_mass.y + burger_part_seperation_distance/2
 	
 
 func _on_burger_stack_zone_has_dropped(what: BurgerPart):
 	prints(what.name, "dropped by", name)
-	if not is_reversing: stack_zone.transform = get_current_stack_zone_trans(null)
+	if not is_reversing:
+		stack_zone.transform = get_current_stack_zone_trans(null)
+		get_stack_root()._recalculate_mass(what)
+		what._recalculate_mass()
 	
 
 func get_current_stack_zone_trans(picked_up_object: BurgerPart) -> Transform3D:
@@ -105,16 +123,25 @@ func get_current_stack_zone_trans(picked_up_object: BurgerPart) -> Transform3D:
 	return Transform3D(new_orientation, Vector3(0,new_height,0))
 	
 
-# TODO: hook this up with and adjust it to the new system. But first check if it is even neccessary.
-#func recalculate_mass():
-	#mass = original_mass
-	#for i in range(1,burger_part_stack.size()):
-		#burger_part_stack[i].mass = burger_part_stack[i].original_mass
-		#mass += burger_part_stack[i].mass
-		#burger_part_stack[i].center_of_mass = Vector3.ZERO
-	#
-	#if burger_part_stack[-1] != self:
-		#center_of_mass = Vector3(0, burger_part_stack[-1].position.y / 2, 0)
-	#else:
-		#center_of_mass = Vector3.ZERO
-	#
+func get_stack_root() -> BurgerPart:
+	if is_stack_root:
+		return self
+	else:
+		return get_picked_up_by().get_parent().get_stack_root()
+	
+
+# WARNING: This is not 100% phisycally correct,
+# since the center of mass is allways in the middle no matter how heavy a part is.
+# But I guess it should be good enaugh
+func _recalculate_mass(until: BurgerPart = null) -> void:
+	var new_mass := 0.0
+	var new_center_of_mass := Vector3.ZERO
+	var part := self
+	
+	while part != until:
+		new_mass += part.original_mass
+		new_center_of_mass.y += part.original_center_of_mass.y + burger_part_seperation_distance/2
+		part = part.stack_zone.picked_up_object
+	
+	mass = new_mass
+	center_of_mass = new_center_of_mass
