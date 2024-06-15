@@ -32,6 +32,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 3d_physics/layer_4="Wall Walking"
 3d_physics/layer_5="Grappling Target"
 3d_physics/layer_6="Slicing"
+3d_physics/layer_16="SaucePusher"
 3d_physics/layer_17="Held Objects"
 3d_physics/layer_18="Player Hands"
 3d_physics/layer_19="Grab Handles"
@@ -42,6 +43,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 3d_physics/layer_24="Floor"
 3d_physics/layer_25="ButtonInteractionLayer"
 3d_physics/layer_26="Flippable"
+3d_physics/layer_27="FloorSauce"
 
 [physics]
 

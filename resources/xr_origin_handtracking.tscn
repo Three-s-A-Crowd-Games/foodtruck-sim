@@ -1,11 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm3ixvs3xjcdn"]
+[gd_scene load_steps=12 format=3 uid="uid://bm3ixvs3xjcdn"]
 
 [ext_resource type="PackedScene" uid="uid://5o3x65m4va7h" path="res://addons/godot-xr-tools/misc/vr_common_shader_cache.tscn" id="2_3mhj4"]
 [ext_resource type="Script" path="res://resources/components/ObjectCollision.gd" id="3_gx1ql"]
 [ext_resource type="PackedScene" uid="uid://b4ysuy43poobf" path="res://addons/godot-xr-tools/functions/function_pickup.tscn" id="4_bo075"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/hands/collision_hand.gd" id="4_j05hm"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_bnpr7"]
 [ext_resource type="PackedScene" uid="uid://6lsckuqb1cux" path="res://addons/XRHandtrackingTools/tracked_hand_left.tscn" id="9_3t4l0"]
 [ext_resource type="PackedScene" uid="uid://bjfijuv76djxl" path="res://addons/XRHandtrackingTools/tracked_hand_right.tscn" id="10_66to7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_en8rf"]
+size = Vector3(0.0148315, 0.158203, 0.0462646)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_nxwqx"]
 resource_local_to_scene = true
@@ -18,7 +22,7 @@ height = 0.01
 radial_segments = 32
 rings = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iuvqp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qotpc"]
 transparency = 1
 shading_mode = 0
 albedo_color = Color(0.8, 0.8, 1, 0.5)
@@ -36,7 +40,8 @@ transform = Transform3D(0.185985, -0.96761, 0.1707, 0.964214, 0.14633, -0.221086
 [node name="XRToolsCollisionHandL" type="AnimatableBody3D" parent="LeftHand-Handtracking"]
 transform = Transform3D(1, -6.70552e-08, 4.91738e-07, -3.12924e-07, 1, 4.32134e-07, 3.42727e-07, 4.17233e-07, 1, 2.6077e-08, 7.45058e-09, 0)
 collision_layer = 131072
-collision_mask = 0
+collision_mask = 131072
+sync_to_physics = false
 script = ExtResource("3_gx1ql")
 push_bodies = false
 
@@ -45,6 +50,17 @@ transform = Transform3D(1, -1.86265e-08, 1.49012e-08, -1.49012e-08, 1, 2.98023e-
 grab_distance = 0.07
 ranged_enable = false
 
+[node name="SaucePusherL" type="AnimatableBody3D" parent="LeftHand-Handtracking"]
+transform = Transform3D(0.185985, 0.206634, -0.960578, -0.967612, 0.208364, -0.142525, 0.170699, 0.955974, 0.238694, -0.00601177, 0.0294572, 0.0100432)
+collision_layer = 32768
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("4_j05hm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftHand-Handtracking/SaucePusherL"]
+transform = Transform3D(2.89767e-15, 4.37114e-08, 1, 1, -4.37114e-08, 3.90439e-23, 4.37114e-08, 1, -4.37114e-08, -0.00175923, 0.0640186, -0.0110473)
+shape = SubResource("BoxShape3D_en8rf")
+
 [node name="RightHand-Handtracking" type="XRController3D" parent="."]
 transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.960199, 0.964214, -0.14633, 0.221085, -0.0469018, -0.0716148, 0.00666672)
 
@@ -52,6 +68,7 @@ transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.96019
 transform = Transform3D(1, 1.49012e-08, 3.72529e-07, 4.02331e-07, 1, 2.16067e-07, 2.98023e-08, -5.21541e-08, 1, -2.79397e-09, -2.23517e-08, -1.11759e-08)
 collision_layer = 131072
 collision_mask = 131072
+sync_to_physics = false
 script = ExtResource("3_gx1ql")
 push_bodies = false
 
@@ -59,6 +76,17 @@ push_bodies = false
 transform = Transform3D(1, 0, 5.96046e-08, 1.19209e-07, 1, -1.75089e-07, 0, -1.11759e-07, 0.999999, 0.00196539, 0.00731654, -0.00372901)
 grab_distance = 0.07
 ranged_enable = false
+
+[node name="SaucePusherR" type="AnimatableBody3D" parent="RightHand-Handtracking"]
+transform = Transform3D(0.185985, -0.188946, 0.964213, 0.96761, 0.20571, -0.14633, -0.1707, 0.960199, 0.221085, -0.000666957, 0.0439501, 0.00184357)
+collision_layer = 32768
+collision_mask = 0
+sync_to_physics = false
+script = ExtResource("4_j05hm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightHand-Handtracking/SaucePusherR"]
+transform = Transform3D(2.89767e-15, 4.37114e-08, 1, 1, -4.37114e-08, 3.90439e-23, 4.37114e-08, 1, -4.37114e-08, -0.00175923, 0.0640186, -0.0110473)
+shape = SubResource("BoxShape3D_en8rf")
 
 [node name="PlayerBody" parent="." instance=ExtResource("8_bnpr7")]
 collision_mask = 8389576
@@ -81,6 +109,9 @@ transform = Transform3D(0.190616, -0.77151, -0.606991, 0.977227, 0.207861, 0.042
 
 [node name="Physical Bone Index_Distal_L" parent="TrackedHandLeft/Skeleton3D" index="5"]
 transform = Transform3D(0.19221, -0.669965, -0.717079, 0.977075, 0.19881, 0.0761527, 0.0915429, -0.715277, 0.692819, 0.0182325, 0.0372781, -0.148956)
+
+[node name="Poke" parent="TrackedHandLeft/Skeleton3D/Physical Bone Index_Distal_L" index="0"]
+layer = 16809984
 
 [node name="Physical Bone Middle_Proximal_L" parent="TrackedHandLeft/Skeleton3D" index="6"]
 transform = Transform3D(0.0836168, -0.962976, -0.256294, 0.996367, 0.0849602, 0.00584635, 0.0161449, -0.255851, 0.966581, -0.016529, 0.00942897, -0.0851038)
@@ -135,12 +166,18 @@ transform = Transform3D(0.190616, 0.77151, 0.606991, -0.0932393, -0.601304, 0.79
 [node name="Index_Distal_R" parent="TrackedHandRight/Skeleton3D" index="5"]
 transform = Transform3D(0.19221, 0.669965, 0.717079, -0.0915425, -0.715277, 0.692819, 0.977075, -0.19881, -0.0761531, -0.0182329, -0.148956, -0.037278)
 
+[node name="Poke" parent="TrackedHandRight/Skeleton3D/Index_Distal_R" index="0"]
+layer = 16809984
+
+[node name="PokeBody" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke" index="0"]
+collision_layer = 16809984
+
 [node name="CollisionShape" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke/PokeBody" index="0"]
 shape = SubResource("SphereShape3D_nxwqx")
 
 [node name="MeshInstance" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke/PokeBody" index="1"]
 mesh = SubResource("SphereMesh_lpo0c")
-surface_material_override/0 = SubResource("StandardMaterial3D_iuvqp")
+surface_material_override/0 = SubResource("StandardMaterial3D_qotpc")
 
 [node name="Middle_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="6"]
 transform = Transform3D(0.0836168, 0.962976, 0.256294, -0.0161448, -0.255851, 0.966581, 0.996367, -0.0849603, -0.00584642, 0.0165289, -0.0851049, -0.00942898)
