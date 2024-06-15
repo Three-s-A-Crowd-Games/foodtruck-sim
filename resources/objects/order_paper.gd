@@ -1,13 +1,66 @@
 extends XRToolsPickable
 
-@onready var main_layout = $OrderViewport/OrderContainer/PaperLayout/MainLayout
-@onready var order_number = $OrderViewport/OrderContainer/PaperLayout/CenterContainer/OrderNumber
+@onready var main_layout = $OrderViewport/PaperLayout/MainLayout
+@onready var order_number = $OrderViewport/PaperLayout/CenterTitle/OrderNumber
+@onready var side_tex = $OrderViewport/PaperLayout/CenterExtras/ExtrasContainer/SideTex
+@onready var drink_tex = $OrderViewport/PaperLayout/CenterExtras/ExtrasContainer/DrinkTex
+
+const NORMAL_VIEWPORT_SIZE := 650
+var order :Order
 
 func set_order(le_order :Order):
 	# First lets set the order number
+	order = le_order
 	var order_num :String
 	if(str(le_order.number).length() < 2):
 		order_num = "#0"+str(le_order.number)
 	else:
 		order_num = "#"+str(le_order.number)
 	order_number.text = order_num
+	
+	#Main
+	if(!le_order.main_recipe.ingredients.is_empty()):
+		var ingr_list_rev = le_order.main_recipe.ingredients
+		ingr_list_rev.reverse()
+		for ingr in ingr_list_rev:
+			var path_to_tex = Ingredient.ingredients[ingr].get(Ingredient.Order_Paper_Tex)
+			var new_rect = TextureRect.new()
+			
+			new_rect.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+			new_rect.texture = load(path_to_tex)
+			
+			main_layout.add_child(new_rect)
+	
+	#Side
+	if(!le_order.side_recipe.ingredients.is_empty()):
+		var path_to_tex = Ingredient.ingredients[le_order.side_recipe.ingredients[0]].get(Ingredient.Order_Paper_Tex)
+		side_tex.texture = load(path_to_tex)
+	
+	#Drink
+	if(!le_order.drink_recipe.ingredients.is_empty()):
+		var path_to_tex = Ingredient.ingredients[le_order.drink_recipe.ingredients[0]].get(Ingredient.Order_Paper_Tex)
+		drink_tex.texture = load(path_to_tex)
+	
+	#Activate Dividers
+	var extras_div = $OrderViewport/PaperLayout/ExtrasDivider
+	if(!le_order.side_recipe.ingredients.is_empty() and !le_order.drink_recipe.ingredients.is_empty()):
+		$OrderViewport/PaperLayout/CenterExtras/ExtrasContainer/Divider.visible = true
+		extras_div.texture = load("res://assets/2d_images/order_paper/hor_line_seg.png")
+	elif(!le_order.side_recipe.ingredients.is_empty() or !le_order.drink_recipe.ingredients.is_empty()):
+		extras_div.texture = load("res://assets/2d_images/order_paper/hor_line.png")
+		
+	
+	#Sizing
+	if($OrderViewport/PaperLayout.get_combined_minimum_size().y > NORMAL_VIEWPORT_SIZE):
+		var new_size = $OrderViewport/PaperLayout.get_combined_minimum_size().y
+		$Sprite3D.offset.y = new_size * -1
+		$OrderViewport.size.y = new_size
+		
+		var viewport_orig_size = NORMAL_VIEWPORT_SIZE * $Sprite3D.pixel_size
+		var viewport_size = new_size * $Sprite3D.pixel_size
+		var paper_size_before = $order_paper/Paper_001.get_aabb().size.z
+		var paper_scale = viewport_size / viewport_orig_size
+		$order_paper/Paper_001.scale.z = paper_scale
+		$order_paper/Paper_001.position.z = (paper_size_before * paper_scale - paper_size_before) / 2
+		$CollisionShape3D.scale.z = paper_scale
+		$CollisionShape3D.position.z = (paper_size_before * paper_scale - paper_size_before) / 2

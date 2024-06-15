@@ -28,40 +28,52 @@ enum Constraints{
 	MAX_USE
 }
 
+static var Order_Paper_Tex :String
+
 static var ingredients: Dictionary = {
 	Type.BUN_TOP : {
 		Category : [Category.BURGER_PART],
 		Constraints.POSITION : -1,
-		Constraints.MAX_USE : 1
+		Constraints.MAX_USE : 1,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/top_bun.png"
 		},
 	Type.BUN_BOTTOM : {
 		Category : [Category.BURGER_PART],
 		Constraints.POSITION : 0,
-		Constraints.MAX_USE : 1
+		Constraints.MAX_USE : 1,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/bottom_bun.png"
 		},
 	Type.PATTY : {
-		Category : [Category.BURGER_PART]
+		Category : [Category.BURGER_PART],
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/patty.png"
 		},
 	Type.CHEESE : {
-		Category : [Category.BURGER_PART]
+		Category : [Category.BURGER_PART],
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/cheese.png"
 		},
 	Type.LETTUCE : {
-		Category : [Category.BURGER_PART]
+		Category : [Category.BURGER_PART],
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/lettuce.png"
 		},
 	Type.ONION : {
-		Category : [Category.BURGER_PART]
+		Category : [Category.BURGER_PART],
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/onion.png"
 		},
 	Type.CUCUMBER : {
-		Category : [Category.BURGER_PART]
+		Category : [Category.BURGER_PART],
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/cucumber.png"
 		},
 	Type.TOMATO : {
-		Category : [Category.BURGER_PART]
+		Category : [Category.BURGER_PART],
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/tomato.png"
 		},
 	Type.FRIES : {
-		Category : [Category.FRIES]
+		Category : [Category.FRIES],
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/fries.png"
 		},
 	Type.WATER: {
-		Category : [Category.DRINKS]
+		Category : [Category.DRINKS],
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/water.png"
 	}
 }
 
@@ -71,7 +83,7 @@ static var categories: Dictionary = {
 	Category.DRINKS : [Type.WATER]
 }
 
-static func parse_ingridient_list(le_array :Array) -> String: #Alda was is Godoooo für ne Language.
+static func parse_ingredient_list(le_array :Array) -> String: #Alda was is Godoooo für ne Language.
 	# Oder halt GDScript is mir doch Schnuppe (~ Henry)
 	var le_string :String = ""
 	for ingr in le_array:

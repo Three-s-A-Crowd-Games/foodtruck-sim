@@ -1,7 +1,6 @@
 extends Node3D
 
 var xr_interface: XRInterface
-var order = Order.create_order()
 
 func _ready():
 	xr_interface = XRServer.find_interface("OpenXR")
@@ -25,6 +24,10 @@ func _ready():
 	xr_orig.transform = $SpawnPoint.transform
 	add_child(xr_orig)
 	
-	printt("Main order", Ingredient.parse_ingridient_list(order.main_recipe.ingredients))
-	printt("Side order", Ingredient.parse_ingridient_list(order.side_recipe.ingredients))
-	printt("Drinks order", Ingredient.parse_ingridient_list(order.drink_recipe.ingredients))
+	var order = OrderController.get_new_order()
+	
+	var order_paper = $OrderPaper
+	order_paper.set_order(order)
+	printt("Main order", Ingredient.parse_ingredient_list(order.main_recipe.ingredients))
+	printt("Side order", Ingredient.parse_ingredient_list(order.side_recipe.ingredients))
+	printt("Drinks order", Ingredient.parse_ingredient_list(order.drink_recipe.ingredients))

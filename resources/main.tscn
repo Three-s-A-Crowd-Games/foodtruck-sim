@@ -168,5 +168,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161468, 0.765339, 0.16495)
 [node name="OrderPaper" parent="." instance=ExtResource("20_5wivp")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.767465, 1.73097, 0.712739)
 
+[node name="OrderPaper2" parent="." instance=ExtResource("20_5wivp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.669624, 1.84327, 1.23013)
+
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
