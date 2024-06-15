@@ -89,7 +89,11 @@ func slice():
 	_mesh_node.mesh = meshes[0]
 	_adjust_collision_shape(_sliceable, meshes[0])
 	call_deferred("_adjust_collision_shape", self, meshes[0])
-	_sliceable.add_sibling(_create_slice(meshes[1]))
+	var slice := _create_slice(meshes[1])
+	_sliceable.add_sibling(slice)
+	slice.height = slice_width
+	slice.stack_zone_distance = slice_width + slice.burger_part_seperation_distance
+	slice.stack_zone.position.y = slice.stack_zone_distance
 	slices_left -= 1
 	
 	if slice_count - slices_left == delete_slice_count and mesh_node_to_delete:
@@ -100,7 +104,7 @@ func slice():
 		get_parent().call_deferred("queue_free")
 
 func _get_slice_transform() -> Transform3D:
-	# As far as I know the mesh slicing tool cuts along the xy-surface of the given transform.
+	# As far as I know the mesh slicing tool cuts along the xy-plane of the given transform.
 	# The transform has to be in the local space of the mesh node.
 	var trans := Transform3D.IDENTITY.rotated(Vector3.UP, PI/2)
 	trans.basis = _mesh_node.transform.basis * trans.basis
@@ -133,7 +137,7 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	_adjust_collision_shape(coll_node, mesh)
 	coll_node.transform.basis = _inverse_mesh_basis
 	
-	_position_child_nodes(mesh_node, coll_node, slice.get_node("BurgerStackZone"))
+	_position_child_nodes(mesh_node, coll_node)
 	
 	var s := slice.get_node_or_null("Sliceable")
 	if s:
@@ -144,7 +148,7 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	return slice
 	
 
-func _position_child_nodes(mesh_node: MeshInstance3D, coll_node: CollisionShape3D, stack_zone: BurgerStackZone) -> void:
+func _position_child_nodes(mesh_node: MeshInstance3D, coll_node: CollisionShape3D) -> void:
 	mesh_node.rotate_z(PI/2)
 	coll_node.rotate_z(PI/2)
 	
@@ -153,17 +157,15 @@ func _position_child_nodes(mesh_node: MeshInstance3D, coll_node: CollisionShape3
 	# This shift is necessary because the mesh vertices created by the slicing are not always centered.
 	# They are relative to the original node's origin.
 	if slice_count % 2 == 0:
-		shift.y = slice_width * (ceil(slice_count/2.0) - slices_left + 0.5) * _flip_factor
+		shift.y = slice_width * (ceil(slice_count/2.0) - slices_left + 1) * _flip_factor
 	else:
-		shift.y = slice_width * (ceil(slice_count/2.0) - slices_left) * _flip_factor
+		shift.y = slice_width * (ceil(slice_count/2.0) - slices_left + 0.5) * _flip_factor
 	# WARNING: Assuming the mesh of the original sliceable object was on top of the xz-plane,
 	# but not the mesh node itself
 	shift.x = original_height/2 if _is_mesh_ontop_xz else 0
 	
 	mesh_node.position += shift
 	coll_node.position += shift
-	# This isn't possible yet because stack zones need to be on the same hight for every part in order for the stacking to work properly
-	#stack_zone.position.y = slice_width/2 + stack_zone.get_node("CollisionShape3D").shape.height/2 + 0.01
 	
 
 func _find_mesh_child_node(node: Node) -> MeshInstance3D:

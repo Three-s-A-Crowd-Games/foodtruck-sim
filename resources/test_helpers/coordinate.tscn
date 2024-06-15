@@ -48,5 +48,5 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.173234)
 billboard = 1
 text = "test"
-font_size = 12
-outline_size = 2
+font_size = 6
+outline_size = 1
