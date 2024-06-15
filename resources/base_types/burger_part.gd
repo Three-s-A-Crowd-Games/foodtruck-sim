@@ -19,8 +19,8 @@ func _ready():
 	stack_zone.has_picked_up.connect(_on_burger_stack_zone_has_picked_up)
 	stack_zone.has_dropped.connect(_on_burger_stack_zone_has_dropped)
 	
-	var mesh_nodes = find_children("*", "MeshInstance3D")
-	#assert(mesh_nodes.size() == 1, "This Burger Part has either 0 or more than one mesh nodes, which can't be handled so far.")
+	var mesh_nodes = find_children("*", "MeshInstance3D", true, false)
+	assert(mesh_nodes.size() == 1, "This Burger Part has either 0 or more than one mesh nodes, which can't be handled so far.")
 	var mesh_node: MeshInstance3D = mesh_nodes[0]
 	height = mesh_node.mesh.get_aabb().size.y
 	if mesh_node.get_parent() == self:
