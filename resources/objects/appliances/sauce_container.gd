@@ -56,7 +56,7 @@ func sauce():
 		# We now have our closest stack-zone. Time to give its parent some sauce
 		var le_part :BurgerPart = closest_stack.get_parent()
 		var le_sauce_instance = le_sauce.instantiate()
-		le_sauce_instance.position = closest_stack.position
+		le_sauce_instance.position.y = le_part.height
 		le_part.add_child(le_sauce_instance)
 		if le_part.flipped_state == BurgerPart.FlipState.FLIPPED:
 			le_sauce_instance.rotation_degrees.x = 180
