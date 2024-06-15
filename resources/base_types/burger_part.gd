@@ -11,14 +11,11 @@ var stack_zone_distance: float
 var height: float
 var burger_part_seperation_distance = 0.02 # TODO: find the smallest possible value
 var is_reversing := false
-<<<<<<< Updated upstream
 var sauced :Ingredient.Type = -1
-=======
 var original_center_of_mass := Vector3.ZERO
 var is_stack_root: bool:
 	get():
 		return not get_picked_up_by() is BurgerStackZone
->>>>>>> Stashed changes
 
 @onready var stack_zone: BurgerStackZone = $BurgerStackZone
 @onready var original_mass := mass
