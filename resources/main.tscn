@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=29 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="18_wcr04"]
 [ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="19_5w3yg"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="19_24xoq"]
+[ext_resource type="PackedScene" uid="uid://um05xwvrkanf" path="res://resources/objects/order_paper.tscn" id="20_5wivp"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -163,6 +164,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00405, 1.72365, 0.611761)
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161468, 0.765339, 0.16495)
+
+[node name="OrderPaper" parent="." instance=ExtResource("20_5wivp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.767465, 1.73097, 0.712739)
 
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
