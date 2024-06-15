@@ -8,6 +8,7 @@ var picked_up_state :bool = false
 signal toggle_stove(status :bool)
 
 func _process(delta):
+	super._process(delta)
 	if(picked_up_state):
 		if(!stove_on):
 			if(rotation_degrees.z - picked_up_degrees.z > 0):
