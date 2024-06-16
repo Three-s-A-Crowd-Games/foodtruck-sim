@@ -20,7 +20,7 @@ func _ready() -> void:
 	add_child(floor_sauce_timer)
 	floor_sauce_timer.one_shot = true
 	floor_sauce_timer.wait_time = 4
-	floor_sauce_timer.connect("timeout", reset_floor_sauce)
+	floor_sauce_timer.timeout.connect(reset_floor_sauce)
 	
 	if custom_bottom != null:
 		$sauce_container.queue_free()
