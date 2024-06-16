@@ -25,7 +25,7 @@ script = ExtResource("1_frgr5")
 [node name="sauce_container" parent="." instance=ExtResource("1_dsvtd")]
 
 [node name="SaucePump" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.417, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.407, 0)
 collision_mask = 32768
 shape = SubResource("CylinderShape3D_hcxhu")
 spring_length = 0.11
