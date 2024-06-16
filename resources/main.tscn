@@ -144,13 +144,13 @@ shape = SubResource("BoxShape3D_j8awf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7577, -0.15682)
 
 [node name="Fries" parent="." instance=ExtResource("13_qws16")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.07988, 1.84672, -0.024622)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.07988, 1.76237, -0.024622)
 
 [node name="Tray" parent="." instance=ExtResource("15_2qref")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.373376, 1.75823, 0.754619)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.577731, 1.38537, 0.73644)
 
 [node name="Friesbox" parent="." instance=ExtResource("16_t2krs")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.0194108, 1.80396, 0.800906)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.676501, 1.10348, 0.583129)
 
 [node name="Node3D" parent="." instance=ExtResource("16_uegm4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.07273, 1.72365, 0.256549)

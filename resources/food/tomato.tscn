@@ -30,6 +30,7 @@ script = ExtResource("3_tek84")
 cross_section_material = ExtResource("4_l7dhx")
 slice_count = 6
 _mesh_node_or_parent = NodePath("../tomato2/tomato")
+remain_shape = "BoxShape3D"
 mesh_node_to_delete = NodePath("../tomato2/tomato_stem")
 delete_slice_count = 3
 

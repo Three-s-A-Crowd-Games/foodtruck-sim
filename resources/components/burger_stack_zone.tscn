@@ -5,11 +5,12 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gs2hq"]
 height = 0.04
-radius = 0.1
+radius = 0.06
 
 [node name="BurgerStackZone" instance=ExtResource("1_ix4ty")]
 script = ExtResource("2_enjaw")
 snap_require = "burger_part"
 
 [node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
 shape = SubResource("CylinderShape3D_gs2hq")

@@ -43,7 +43,7 @@ func _physics_process(delta : float) -> void:
 	# Set destination from primary grab
 	var destination := primary.by.global_transform * primary.transform.inverse()
 	if flip_y:
-		destination.basis.y *= -1
+		destination.rotated(Vector3.RIGHT, PI)
 
 	# If present, apply secondary-node contributions
 	if is_instance_valid(secondary):
@@ -213,7 +213,7 @@ static func create_snap(
 	if not allow_y_flip:
 		if abs(p_grab.what.global_transform.basis.y.angle_to(p_grab.by.global_transform.basis.y)) > PI/2:
 			driver.flip_y = true
-			driver.global_transform.basis.y *= -1
+			driver.global_transform.rotated(Vector3.RIGHT, PI)
 	driver.remote_path = driver.get_path_to(p_target)
 
 	# Return the driver
