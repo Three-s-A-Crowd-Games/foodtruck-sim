@@ -79,7 +79,7 @@ static var ingredients: Dictionary = {
 		Order_Paper_Tex: "res://assets/2d_images/order_paper/water.png"
 	},
 	Type.KETCHUP: {
-		Category : Category.SAUCES
+		Category : Category.SAUCES,
 		Order_Paper_Tex: "res://assets/2d_images/order_paper/ketchup.png"
 	},
 }
