@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://um05xwvrkanf"]
+[gd_scene load_steps=25 format=4 uid="uid://um05xwvrkanf"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_w8jc1"]
 [ext_resource type="Script" path="res://resources/objects/order_paper.gd" id="2_2ocj2"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ccnl1qecnode7" path="res://assets/2d_images/order_paper/empty.png" id="6_6eprl"]
 [ext_resource type="Texture2D" uid="uid://daqop2oe4e3by" path="res://assets/2d_images/order_paper/fries.png" id="6_aavxt"]
 [ext_resource type="Texture2D" uid="uid://xleef2r4k2gw" path="res://assets/2d_images/order_paper/water.png" id="7_be41q"]
+[ext_resource type="Texture2D" uid="uid://1xn1yfon2ed7" path="res://assets/2d_images/order_paper/hor_line_seg.png" id="8_flura"]
 [ext_resource type="Texture2D" uid="uid://5qte4djdq84m" path="res://assets/2d_images/order_paper/ver_line_con.png" id="10_54xfx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ysdl4"]
@@ -193,13 +194,16 @@ texture = ExtResource("5_hiip3")
 stretch_mode = 3
 
 [node name="ExtrasDivider" type="TextureRect" parent="OrderViewport/PaperLayout" index="3"]
+visible = false
 layout_mode = 2
+texture = ExtResource("8_flura")
 stretch_mode = 3
 
 [node name="CenterExtras" type="CenterContainer" parent="OrderViewport/PaperLayout" index="4"]
 layout_mode = 2
 
 [node name="ExtrasContainer" type="HBoxContainer" parent="OrderViewport/PaperLayout/CenterExtras" index="0"]
+visible = false
 layout_mode = 2
 
 [node name="SideTex" type="TextureRect" parent="OrderViewport/PaperLayout/CenterExtras/ExtrasContainer" index="0"]
@@ -214,7 +218,6 @@ texture = ExtResource("6_aavxt")
 stretch_mode = 3
 
 [node name="Divider" type="TextureRect" parent="OrderViewport/PaperLayout/CenterExtras/ExtrasContainer" index="2"]
-visible = false
 layout_mode = 2
 texture = ExtResource("10_54xfx")
 stretch_mode = 3

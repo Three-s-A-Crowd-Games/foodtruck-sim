@@ -44,12 +44,9 @@ func set_order(le_order :Order):
 		drink_tex.texture = load(path_to_tex)
 	
 	#Activate Dividers
-	var extras_div = $OrderViewport/PaperLayout/ExtrasDivider
-	if(!le_order.side_recipe.ingredients.is_empty() and !le_order.drink_recipe.ingredients.is_empty()):
-		$OrderViewport/PaperLayout/CenterExtras/ExtrasContainer/Divider.visible = true
-		extras_div.texture = load("res://assets/2d_images/order_paper/hor_line_seg.png")
-	elif(!le_order.side_recipe.ingredients.is_empty() or !le_order.drink_recipe.ingredients.is_empty()):
-		extras_div.texture = load("res://assets/2d_images/order_paper/hor_line.png")
+	if(!le_order.side_recipe.ingredients.is_empty() or !le_order.drink_recipe.ingredients.is_empty()):
+		$OrderViewport/PaperLayout/CenterExtras/ExtrasContainer.visible = true
+		$OrderViewport/PaperLayout/ExtrasDivider.visible = true
 		
 	
 	#Sizing
