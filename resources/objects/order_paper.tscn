@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=4 uid="uid://um05xwvrkanf"]
+[gd_scene load_steps=24 format=4 uid="uid://um05xwvrkanf"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_w8jc1"]
 [ext_resource type="Script" path="res://resources/objects/order_paper.gd" id="2_2ocj2"]
 [ext_resource type="PackedScene" uid="uid://2g8x3ig1f60s" path="res://assets/models/objects/appliances/order_paper.blend" id="2_vsmju"]
 [ext_resource type="Texture2D" uid="uid://foq8jda2ks2h" path="res://assets/2d_images/order_paper/hor_line.png" id="3_iy8as"]
 [ext_resource type="Texture2D" uid="uid://elpp0e3oghtm" path="res://assets/2d_images/order_paper/top_bun.png" id="3_jmbbx"]
+[ext_resource type="FontFile" uid="uid://c5xnb0e4ayhje" path="res://assets/font/AgencyFB-Bold.ttf" id="3_k5mp3"]
 [ext_resource type="Texture2D" uid="uid://cg6cdi2wtmu2n" path="res://assets/2d_images/order_paper/patty.png" id="4_xdn1k"]
 [ext_resource type="Texture2D" uid="uid://dt3ehibhxupn3" path="res://assets/2d_images/order_paper/bottom_bun.png" id="5_hiip3"]
 [ext_resource type="Texture2D" uid="uid://ccnl1qecnode7" path="res://assets/2d_images/order_paper/empty.png" id="6_6eprl"]
@@ -16,6 +17,7 @@
 size = Vector3(0.201714, 0.030304, 0.380251)
 
 [sub_resource type="LabelSettings" id="LabelSettings_vneiv"]
+font = ExtResource("3_k5mp3")
 font_size = 64
 font_color = Color(0, 0, 0, 1)
 
@@ -136,7 +138,10 @@ height = 0.0458015
 radius = 0.0121829
 
 [node name="OrderPaper" instance=ExtResource("1_w8jc1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.160211)
 collision_mask = 131079
+mass = 0.01
+angular_damp = 11.538
 script = ExtResource("2_2ocj2")
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -231,6 +236,7 @@ centered = false
 offset = Vector2(-180, -650)
 pixel_size = 0.0005
 axis = 1
+texture_filter = 1
 texture = SubResource("ViewportTexture_1r3am")
 
 [node name="order_paper" parent="." index="3" instance=ExtResource("2_vsmju")]
@@ -250,6 +256,10 @@ monitorable = false
 
 [node name="PinShape" type="CollisionShape3D" parent="Pin-Area" index="0"]
 shape = SubResource("CylinderShape3D_w0ruq")
+
+[node name="PinJoint3D" type="PinJoint3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.15993)
+params/damping = 0.01
 
 [connection signal="area_entered" from="Pin-Area" to="." method="_on_pin_area_entered"]
 [connection signal="area_exited" from="Pin-Area" to="." method="_on_pin_area_exited"]
