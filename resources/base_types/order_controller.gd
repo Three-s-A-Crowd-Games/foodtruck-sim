@@ -1,4 +1,4 @@
-extends RefCounted
+extends Node
 
 const MAX_ORDER_NUM = 3
 
