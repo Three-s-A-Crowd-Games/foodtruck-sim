@@ -30,3 +30,4 @@ monitorable = false
 script = ExtResource("2_pm720")
 slice_count = 30
 _mesh_node_or_parent = NodePath("../MeshInstance3D")
+remain_shape = "BoxShape3D"

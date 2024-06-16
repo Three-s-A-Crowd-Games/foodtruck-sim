@@ -4,9 +4,9 @@ extends Food
 # New Constraint:	The mechanic for flipping a Burgerpart assumes that the model/mesh
 #					is placed directly on top of the xz-plane.
 
-enum FlipState {UNINITIALIZED=0, FLIPPED=-1, UNFLIPPED=1}
+enum FlipState {FLIPPED=-1, UNFLIPPED=1}
 
-var flipped_state: FlipState = FlipState.UNINITIALIZED
+var flipped_state: FlipState = FlipState.UNFLIPPED
 var stack_zone_distance: float
 var height: float
 var burger_part_seperation_distance = 0.02 # TODO: find the smallest possible value
@@ -21,6 +21,8 @@ var is_stack_root: bool:
 @onready var original_mass := mass
 
 func _ready():
+# INFO: The properties set in this method won't be correct for slices.
+# Therefore they will be overwritten afterwards by the sliceable component.
 	stack_zone.has_picked_up.connect(_on_burger_stack_zone_has_picked_up)
 	stack_zone.has_dropped.connect(_on_burger_stack_zone_has_dropped)
 	
@@ -38,16 +40,9 @@ func _ready():
 	stack_zone.position.y = stack_zone_distance
 	
 	center_of_mass = original_center_of_mass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-	if flipped_state == FlipState.UNINITIALIZED and global_transform.basis.y.angle_to(Vector3.UP) > PI/2:
-		flipped_state = FlipState.FLIPPED
-		return
-	if flipped_state == FlipState.UNINITIALIZED and global_transform.basis.y.angle_to(Vector3.UP) < PI/2:
-		flipped_state = FlipState.UNFLIPPED
-		return
 	
+
+func _process(_delta):
 	if is_stack_root and adjust_flip():
 		_reverse_stack(_grab_driver.primary.pickup if _grab_driver else null)
 		get_stack_root()._recalculate_mass()
