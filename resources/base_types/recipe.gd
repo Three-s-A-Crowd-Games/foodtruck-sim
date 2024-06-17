@@ -52,7 +52,7 @@ static func create_recipe(type: Type) -> Recipe:
 	var new_recipe :=  Recipe.new()
 	new_recipe.type = type
 	var min_amount := 0
-	var max_amount := INF
+	var max_amount := 12
 	var possible_ingredients: Array
 	
 	# gather all the ingredients that can be used for this type of recipe
@@ -65,8 +65,6 @@ static func create_recipe(type: Type) -> Recipe:
 	# Check if this recipe type has the MAXIMUM_AMOUNT constraint
 	if recipes[type].has(Constraints.MAXIMUM_AMOUNT):
 		max_amount = recipes[type].get(Constraints.MAXIMUM_AMOUNT)
-	else:
-		max_amount = 4
 	
 	# take a random amount of ingredients
 	var amount = randi_range(min_amount, max_amount)
