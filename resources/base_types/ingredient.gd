@@ -22,7 +22,9 @@ enum Type{
 	ONION,
 	CUCUMBER,
 	WATER,
-	KETCHUP
+	KETCHUP,
+	BBQ,
+	MUSTARD,
 }
 
 enum Constraints{
@@ -69,6 +71,12 @@ static var ingredients: Dictionary = {
 	Type.KETCHUP: {
 		Category : Category.SAUCES
 	},
+	Type.BBQ: {
+		Category : Category.SAUCES
+	},
+	Type.MUSTARD: {
+		Category : Category.SAUCES
+	},
 }
 
 static var categories: Dictionary = {
@@ -82,7 +90,7 @@ static var categories: Dictionary = {
 		Type : [Type.WATER]
 	},
 	Category.SAUCES : {
-		Type : [Type.KETCHUP],
+		Type : [Type.KETCHUP,Type.BBQ,Type.MUSTARD],
 		Constraints.NO_DOUBLE_STACK : true
 	}
 }

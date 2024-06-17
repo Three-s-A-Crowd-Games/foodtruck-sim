@@ -1,12 +1,15 @@
 extends Node3D
 
-@export_enum("KETCHUP") var le_sauce_type_primitive :String = "KETCHUP"
-@export var custom_bottom :PackedScene
+@export_enum("KETCHUP","BBQ","MUSTARD") var le_sauce_type_primitive :String = "KETCHUP"
 
 @onready var particle_spawner :GPUParticles3D = $GPUParticles3D
 @onready var sauce_pump :SpringArm3D = $SaucePump
 @onready var outlet :Marker3D = $SauceOutlet
 @onready var le_sauce := preload("res://assets/models/food/sauce.blend")
+
+@onready var sauce_mat :Material = load("res://assets/materials/ketchup.tres")
+@onready var bottom_mat :Material = load("res://assets/materials/ketchup_container.tres")
+
 var floor_sauce_timer :Timer
 
 var just_hit :bool = false
@@ -22,12 +25,25 @@ func _ready() -> void:
 	floor_sauce_timer.wait_time = 4
 	floor_sauce_timer.connect("timeout", reset_floor_sauce)
 	
-	if custom_bottom != null:
-		$sauce_container.queue_free()
-		add_child(custom_bottom.instantiate())
-	
 	le_sauce_type = Ingredient.Type.get(le_sauce_type_primitive)
-	# TODO Adjust Material of Sauce
+	print(le_sauce_type)
+	
+	# Figure out materials
+	match le_sauce_type:
+		Ingredient.Type.KETCHUP:
+			# Is basically default - nothing to do
+			pass
+		Ingredient.Type.BBQ:
+			sauce_mat = load("res://assets/materials/bbq_sauce.tres")
+			bottom_mat = load("res://assets/materials/bbq_container.tres")
+		Ingredient.Type.MUSTARD:
+			print("Must")
+			sauce_mat = load("res://assets/materials/mustard.tres")
+			bottom_mat = load("res://assets/materials/mustard_container.tres")
+		_:
+			pass
+	$sauce_container/container.set_surface_override_material(0,bottom_mat)
+	$GPUParticles3D.draw_pass_1.material = sauce_mat
 
 func _process(delta: float) -> void:
 	if(!just_hit and sauce_pump.get_hit_length() <= 0.01):
@@ -39,7 +55,6 @@ func _process(delta: float) -> void:
 
 func sauce():
 	if !stack_zones_in_area.is_empty():
-		print("Should Sauce")
 		#Find Part closest to outlet
 		var closest_stack :BurgerStackZone = null
 		var cur_closest :float
@@ -57,6 +72,7 @@ func sauce():
 		var le_part :BurgerPart = closest_stack.get_parent()
 		var le_sauce_instance = le_sauce.instantiate()
 		le_sauce_instance.position.y = le_part.height
+		le_sauce_instance.get_node("sauce").set_surface_override_material(0,sauce_mat)
 		le_part.add_child(le_sauce_instance)
 		if le_part.flipped_state == BurgerPart.FlipState.FLIPPED:
 			le_sauce_instance.rotation_degrees.x = 180
@@ -70,6 +86,7 @@ func sauce():
 			if floor_finder.is_colliding() and floor_sauce == null:
 				var coll_point = floor_finder.get_collision_point()
 				floor_sauce = le_sauce.instantiate()
+				floor_sauce.get_node("sauce").set_surface_override_material(0,sauce_mat)
 				floor_sauce.scale *= 0.5
 				add_child(floor_sauce)
 				floor_sauce.visible = false

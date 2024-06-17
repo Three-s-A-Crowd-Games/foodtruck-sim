@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://btotln645nbjq"]
+
+[resource]
+resource_name = "ketchup"
+cull_mode = 2
+albedo_color = Color(0.752796, 0.0158677, 0, 1)
+metallic = 0.571429
+roughness = 0.423077

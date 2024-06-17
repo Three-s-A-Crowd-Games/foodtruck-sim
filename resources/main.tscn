@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=28 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="10_g2n5w"]
 [ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/objects/furniture/truck.blend" id="10_vl4gb"]
 [ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
-[ext_resource type="PackedScene" uid="uid://dko2murkvbg2y" path="res://resources/food/fries.tscn" id="13_qws16"]
 [ext_resource type="PackedScene" uid="uid://daq62tyjf4nnf" path="res://resources/objects/accessoires/tray.tscn" id="15_2qref"]
 [ext_resource type="PackedScene" uid="uid://dqu2cm5yrrt54" path="res://resources/objects/accessoires/friesbox.tscn" id="16_t2krs"]
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
@@ -141,9 +140,6 @@ shape = SubResource("BoxShape3D_j8awf")
 [node name="Flipper" parent="." instance=ExtResource("8_8x8av")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7577, -0.15682)
 
-[node name="Fries" parent="." instance=ExtResource("13_qws16")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.07988, 1.76237, -0.024622)
-
 [node name="Tray" parent="." instance=ExtResource("15_2qref")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.577731, 1.38537, 0.73644)
 
@@ -154,7 +150,15 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.676
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.07273, 1.72365, 0.256549)
 
 [node name="SauceContainer" parent="." instance=ExtResource("17_117gm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.26879, 1.72365, 0.751436)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.450145, 1.72365, 0.751436)
+
+[node name="SauceContainer2" parent="." instance=ExtResource("17_117gm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.741647, 1.72365, 0.751436)
+le_sauce_type_primitive = "BBQ"
+
+[node name="SauceContainer3" parent="." instance=ExtResource("17_117gm")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.0342, 1.72365, 0.751436)
+le_sauce_type_primitive = "MUSTARD"
 
 [node name="Knife" parent="." instance=ExtResource("18_wcr04")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.764642, 1.7495, -0.261837)
