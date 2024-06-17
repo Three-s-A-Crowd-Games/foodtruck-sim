@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://daq62tyjf4nnf"]
+[gd_scene load_steps=10 format=3 uid="uid://daq62tyjf4nnf"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_xu6s3"]
 [ext_resource type="PackedScene" uid="uid://c72eirorwjtwe" path="res://assets/models/objects/appliances/tray.blend" id="2_gmvqh"]
+[ext_resource type="Script" path="res://resources/objects/accessoires/tray.gd" id="2_l2i2c"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="3_so64g"]
+[ext_resource type="Script" path="res://resources/components/recipe_detector.gd" id="5_c8kme"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uqtse"]
 size = Vector3(0.399673, 0.0281982, 0.351685)
@@ -21,6 +23,7 @@ radius = 0.04
 
 [node name="Tray" instance=ExtResource("1_xu6s3")]
 collision_mask = 8388615
+script = ExtResource("2_l2i2c")
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_uqtse")
@@ -28,7 +31,10 @@ shape = SubResource("BoxShape3D_uqtse")
 [node name="tray2" parent="." index="1" instance=ExtResource("2_gmvqh")]
 
 [node name="MainZone" parent="." index="2" instance=ExtResource("3_so64g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000601623, 0.0813667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00265676, 0.0813667)
+script = ExtResource("5_c8kme")
+first_element_ignore_group = "main_container"
+snap_require = "main_container"
 
 [node name="CollisionShape3D" parent="MainZone" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0113606)
@@ -36,12 +42,18 @@ shape = SubResource("SphereShape3D_hvw5g")
 
 [node name="SideZone" parent="." index="3" instance=ExtResource("3_so64g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0655148, 0.00175793, -0.0994227)
+script = ExtResource("5_c8kme")
+first_element_ignore_group = "side_container"
+snap_require = "side_container"
 
 [node name="CollisionShape3D" parent="SideZone" index="0"]
 shape = SubResource("SphereShape3D_xhhi8")
 
 [node name="DrinkZone" parent="." index="4" instance=ExtResource("3_so64g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119498, 0.00200606, -0.0994227)
+script = ExtResource("5_c8kme")
+first_element_ignore_group = ""
+snap_require = "drink"
 
 [node name="CollisionShape3D" parent="DrinkZone" index="0"]
 shape = SubResource("SphereShape3D_4pgys")

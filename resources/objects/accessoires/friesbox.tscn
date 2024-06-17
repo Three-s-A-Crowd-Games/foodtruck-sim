@@ -11,7 +11,7 @@ size = Vector3(0.116114, 0.144883, 0.0662958)
 resource_local_to_scene = true
 radius = 0.0642004
 
-[node name="PickableObject" instance=ExtResource("1_jak6r")]
+[node name="PickableObject" groups=["side_container"] instance=ExtResource("1_jak6r")]
 collision_mask = 8388615
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -22,6 +22,7 @@ shape = SubResource("BoxShape3D_e175t")
 
 [node name="SnapZone" parent="." index="2" instance=ExtResource("3_2n23b")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0677976, 0)
+snap_require = "fries"
 
 [node name="CollisionShape3D" parent="SnapZone" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0586616, 0)

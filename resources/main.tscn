@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=35 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://dy8lnrkp88fju" path="res://resources/objects/next_order_button.tscn" id="21_pidlo"]
 [ext_resource type="PackedScene" uid="uid://cyquot0luo414" path="res://resources/special_areas/pinning_area.tscn" id="21_x5e2k"]
 [ext_resource type="PackedScene" uid="uid://oefjh0xalhqn" path="res://assets/models/objects/furniture/pin-board.blend" id="22_17cek"]
+[ext_resource type="PackedScene" uid="uid://c3qt746s7dnh3" path="res://resources/objects/cash_register.tscn" id="23_5npd4"]
+[ext_resource type="PackedScene" uid="uid://b1gbpv13fh1ap" path="res://resources/objects/accessoires/plate.tscn" id="24_pblrq"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -58,6 +60,9 @@ size = Vector3(0.790588, 0.0263672, 0.311005)
 [sub_resource type="BoxShape3D" id="BoxShape3D_8pe7s"]
 resource_local_to_scene = true
 size = Vector3(0.0236969, 0.0294495, 0.639404)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mm4js"]
+size = Vector3(0.44519, 0.0537109, 1.21478)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_d3g8y")
@@ -157,7 +162,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.676
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.07273, 1.72365, 0.256549)
 
 [node name="SauceContainer" parent="." instance=ExtResource("17_117gm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.384863, 1.72365, 0.751436)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.414668, 1.72365, 0.751436)
 
 [node name="Knife" parent="." instance=ExtResource("18_wcr04")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.764642, 1.7495, -0.261837)
@@ -166,7 +171,7 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.7646
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748806, 1.7495, -0.460409)
 
 [node name="Potato" parent="." instance=ExtResource("19_5w3yg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00405, 1.72365, 0.611761)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00405, 1.72365, -0.0118444)
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161468, 0.765339, 0.16495)
@@ -191,8 +196,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.613744, 2.29615, -0.95)
 [node name="pin-board2" parent="." instance=ExtResource("22_17cek")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.24875, 2.30832, -0.00618118)
 
+[node name="CashRegister" parent="." instance=ExtResource("23_5npd4")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -1.01426, 1.72365, 0.683726)
+
+[node name="CollisionShape3D" parent="CashRegister/OrderDetectionArea" index="0"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -0.708997, 0.0416946, 0.00309908)
+shape = SubResource("BoxShape3D_mm4js")
+
+[node name="Plate" parent="." instance=ExtResource("24_pblrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46355, 1.09007, 0.675298)
+
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
 [editable path="PinningArea"]
 [editable path="NextOrderButton"]
 [editable path="NextOrderButton/order_button"]
+[editable path="CashRegister"]
+[editable path="CashRegister/cash_register"]
