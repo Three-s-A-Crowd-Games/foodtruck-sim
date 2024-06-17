@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckp7cmiuw7m3x"]
+
+[ext_resource type="PackedScene" uid="uid://bwyexseyq51sy" path="res://addons/godot-xr-tools/interactables/interactable_hinge.tscn" id="1_63rb2"]
+[ext_resource type="PackedScene" uid="uid://b3jv45h2xhgrr" path="res://assets/models/objects/furniture/drinks_fridge.blend" id="2_dqt6y"]
+[ext_resource type="PackedScene" uid="uid://blkhfuec27pv7" path="res://assets/models/objects/furniture/drinks_fridge_door.blend" id="3_iv44q"]
+[ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="3_wxa4e"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_s572p"]
+size = Vector3(0.235479, 0.035, 0.0355164)
+
+[node name="DrinkFridge" type="Node3D"]
+
+[node name="HingeOrigin" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.242842, 0.419361, -0.15306)
+
+[node name="InteractableHinge" parent="HingeOrigin" instance=ExtResource("1_63rb2")]
+hinge_limit_min = -110.0
+hinge_limit_max = 0.0
+
+[node name="drinks_fridge_door" parent="HingeOrigin/InteractableHinge" instance=ExtResource("3_iv44q")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.419361, 0.242842, -0.0473367)
+
+[node name="HandleOrigin" type="Node3D" parent="HingeOrigin/InteractableHinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0433922, 0.470629, -0.123444)
+
+[node name="InteractableHandle" parent="HingeOrigin/InteractableHinge/HandleOrigin" instance=ExtResource("3_wxa4e")]
+freeze = true
+freeze_mode = 1
+release_mode = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HingeOrigin/InteractableHinge/HandleOrigin/InteractableHandle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000805676, 0, 0.00848696)
+shape = SubResource("BoxShape3D_s572p")
+
+[node name="drinks_fridge" parent="." instance=ExtResource("2_dqt6y")]

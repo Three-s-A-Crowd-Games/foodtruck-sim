@@ -28,14 +28,13 @@ hinge_limit_max = 60.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0416747, -0.842778)
 
 [node name="XRToolsInteractableHandle" type="RigidBody3D" parent="HandleGrabber/XRToolsInteractableHinge/HandleOrigin"]
-collision_layer = 4
+collision_layer = 262144
 collision_mask = 0
 gravity_scale = 0.0
 freeze = true
 freeze_mode = 1
 script = ExtResource("4_nr872")
 release_mode = 1
-ranged_grab_method = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HandleGrabber/XRToolsInteractableHinge/HandleOrigin/XRToolsInteractableHandle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113084, 0.00747997, 0.0384398)
