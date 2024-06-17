@@ -6,7 +6,7 @@
 [ext_resource type="Material" uid="uid://byrwsstbibpm3" path="res://assets/materials/tomato_material.tres" id="4_l7dhx"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aj645"]
-radius = 0.0801779
+radius = 0.04663
 
 [node name="Tomato" instance=ExtResource("1_rmspk")]
 collision_mask = 8519687
@@ -17,7 +17,7 @@ angular_damp = 21.078
 type = 4
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0800807, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039093, 0)
 shape = SubResource("SphereShape3D_aj645")
 
 [node name="tomato2" parent="." index="1" instance=ExtResource("2_1kums")]

@@ -23,11 +23,11 @@ second_hand_grab = 1
 [node name="flipper" parent="." instance=ExtResource("2_8nwab")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108815, 0.000502991, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108815, 0.0214281, 0)
 shape = SubResource("BoxShape3D_shrys")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128828, -0.0172534, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.128828, 0.00367169, 0)
 shape = SubResource("BoxShape3D_18cw5")
 
 [editable path="flipper"]
