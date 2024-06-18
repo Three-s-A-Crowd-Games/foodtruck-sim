@@ -11,8 +11,6 @@ height = 0.13169
 
 [node name="Potato" instance=ExtResource("1_ptydu")]
 mass = 0.25
-freeze = true
-continuous_cd = true
 type = 4
 
 [node name="CollisionShape3D" parent="." index="0"]

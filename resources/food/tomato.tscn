@@ -13,8 +13,6 @@ collision_mask = 8519687
 mass = 0.2
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 0.06, 0)
-freeze = true
-continuous_cd = true
 angular_damp = 21.078
 type = 4
 
