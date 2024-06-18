@@ -1,12 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckp7cmiuw7m3x"]
+[gd_scene load_steps=16 format=3 uid="uid://ckp7cmiuw7m3x"]
 
 [ext_resource type="PackedScene" uid="uid://bwyexseyq51sy" path="res://addons/godot-xr-tools/interactables/interactable_hinge.tscn" id="1_63rb2"]
 [ext_resource type="PackedScene" uid="uid://b3jv45h2xhgrr" path="res://assets/models/objects/furniture/drinks_fridge.blend" id="2_dqt6y"]
 [ext_resource type="PackedScene" uid="uid://blkhfuec27pv7" path="res://assets/models/objects/furniture/drinks_fridge_door.blend" id="3_iv44q"]
 [ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="3_wxa4e"]
+[ext_resource type="PackedScene" uid="uid://dhpsknrxgdb1c" path="res://resources/food/drinks/coke.tscn" id="5_xyday"]
+[ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="6_865hk"]
+[ext_resource type="PackedScene" uid="uid://gil181vb8ypg" path="res://resources/food/drinks/water.tscn" id="7_wljpm"]
+[ext_resource type="PackedScene" uid="uid://c8sducdwn3l0j" path="res://resources/food/drinks/fanta.tscn" id="8_xkj7v"]
+[ext_resource type="PackedScene" uid="uid://bg56y26uvvtcw" path="res://resources/food/drinks/orange_juice.tscn" id="9_xwdlq"]
+[ext_resource type="PackedScene" uid="uid://qqspv2qscbqp" path="res://resources/food/drinks/green_juice.tscn" id="10_ticfo"]
+[ext_resource type="PackedScene" uid="uid://bjpvlp2ajyr7n" path="res://resources/food/drinks/pink_juice.tscn" id="11_jpd3v"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s572p"]
 size = Vector3(0.235479, 0.035, 0.0355164)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pcv62"]
+resource_local_to_scene = true
+size = Vector3(0.2, 0.268, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6tjxv"]
+size = Vector3(0.2, 0.141813, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l1x57"]
+size = Vector3(0.2, 0.141813, 0.25)
 
 [node name="DrinkFridge" type="Node3D"]
 
@@ -33,3 +50,231 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000805676, 0, 0.00848696)
 shape = SubResource("BoxShape3D_s572p")
 
 [node name="drinks_fridge" parent="." instance=ExtResource("2_dqt6y")]
+
+[node name="Content" type="Node3D" parent="."]
+
+[node name="WaterArea" type="Node3D" parent="Content"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.117534, 0.39982, 0)
+script = ExtResource("6_865hk")
+item_scene = ExtResource("7_wljpm")
+
+[node name="ExitDetector" type="Area3D" parent="Content/WaterArea"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Content/WaterArea/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.137841, 0)
+shape = SubResource("BoxShape3D_pcv62")
+
+[node name="Water" parent="Content/WaterArea" instance=ExtResource("7_wljpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0594295, 0.000236839, -0.0903605)
+
+[node name="Water2" parent="Content/WaterArea" instance=ExtResource("7_wljpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0418721, 0.000236839, -0.0903605)
+
+[node name="Water3" parent="Content/WaterArea" instance=ExtResource("7_wljpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0594295, 0.000236839, -0.0104511)
+
+[node name="Water4" parent="Content/WaterArea" instance=ExtResource("7_wljpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0418721, 0.000236839, -0.0104511)
+
+[node name="Water5" parent="Content/WaterArea" instance=ExtResource("7_wljpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0594295, 0.000236839, 0.0730929)
+
+[node name="Water6" parent="Content/WaterArea" instance=ExtResource("7_wljpm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0418721, 0.000236839, 0.0730929)
+
+[node name="CokeArea" type="Node3D" parent="Content"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118633, 0.106185, 0)
+script = ExtResource("6_865hk")
+item_scene = ExtResource("5_xyday")
+
+[node name="ExitDetector" type="Area3D" parent="Content/CokeArea"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Content/CokeArea/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.133544, 0)
+shape = SubResource("BoxShape3D_pcv62")
+
+[node name="Coke" parent="Content/CokeArea" instance=ExtResource("5_xyday")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0484891, 0.000236839, -0.0903605)
+
+[node name="Coke2" parent="Content/CokeArea" instance=ExtResource("5_xyday")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0528125, 0.000236839, -0.0903605)
+
+[node name="Coke3" parent="Content/CokeArea" instance=ExtResource("5_xyday")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0484891, 0.000236839, -0.01)
+
+[node name="Coke4" parent="Content/CokeArea" instance=ExtResource("5_xyday")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0528125, 0.000236839, -0.01)
+
+[node name="Coke5" parent="Content/CokeArea" instance=ExtResource("5_xyday")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0484891, 0.000236839, 0.073)
+
+[node name="Coke6" parent="Content/CokeArea" instance=ExtResource("5_xyday")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0528125, 0.000236839, 0.073)
+
+[node name="FantaArea" type="Node3D" parent="Content"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.118418, 0.10408, 0)
+script = ExtResource("6_865hk")
+item_scene = ExtResource("8_xkj7v")
+
+[node name="ExitDetector" type="Area3D" parent="Content/FantaArea"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Content/FantaArea/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.133833, 0)
+shape = SubResource("BoxShape3D_pcv62")
+
+[node name="Fanta" parent="Content/FantaArea" instance=ExtResource("8_xkj7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0594295, 0.000236839, -0.0903605)
+
+[node name="Fanta2" parent="Content/FantaArea" instance=ExtResource("8_xkj7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0418721, 0.000236839, -0.0903605)
+
+[node name="Fanta3" parent="Content/FantaArea" instance=ExtResource("8_xkj7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0594295, 0.000236839, -0.01)
+
+[node name="Fanta4" parent="Content/FantaArea" instance=ExtResource("8_xkj7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0418721, 0.000236839, -0.01)
+
+[node name="Fanta5" parent="Content/FantaArea" instance=ExtResource("8_xkj7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0594295, 0.000236839, 0.073)
+
+[node name="Fanta6" parent="Content/FantaArea" instance=ExtResource("8_xkj7v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0418721, 0.000236839, 0.073)
+
+[node name="OrangeArea" type="Node3D" parent="Content"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118054, 0.680659, 0)
+script = ExtResource("6_865hk")
+item_scene = ExtResource("9_xwdlq")
+
+[node name="ExitDetector" type="Area3D" parent="Content/OrangeArea"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Content/OrangeArea/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0759409, 0)
+shape = SubResource("BoxShape3D_6tjxv")
+
+[node name="OrangeJuice" parent="Content/OrangeArea" instance=ExtResource("9_xwdlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0573769, 0.000236809, -0.0903605)
+
+[node name="OrangeJuice2" parent="Content/OrangeArea" instance=ExtResource("9_xwdlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00364564, 0.000236809, -0.0903605)
+
+[node name="OrangeJuice3" parent="Content/OrangeArea" instance=ExtResource("9_xwdlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0662006, 0.000236809, -0.0903605)
+
+[node name="OrangeJuice4" parent="Content/OrangeArea" instance=ExtResource("9_xwdlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0573769, 0.000236809, -0.0252145)
+
+[node name="OrangeJuice5" parent="Content/OrangeArea" instance=ExtResource("9_xwdlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00364564, 0.000236809, -0.0252145)
+
+[node name="OrangeJuice6" parent="Content/OrangeArea" instance=ExtResource("9_xwdlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0662006, 0.000236809, -0.0252145)
+
+[node name="OrangeJuice7" parent="Content/OrangeArea" instance=ExtResource("9_xwdlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0573769, 0.000236809, 0.0499494)
+
+[node name="OrangeJuice8" parent="Content/OrangeArea" instance=ExtResource("9_xwdlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00364564, 0.000236809, 0.0499494)
+
+[node name="OrangeJuice9" parent="Content/OrangeArea" instance=ExtResource("9_xwdlq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0662006, 0.000236809, 0.0499494)
+
+[node name="GreenArea" type="Node3D" parent="Content"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.116356, 0.684487, 0)
+script = ExtResource("6_865hk")
+item_scene = ExtResource("10_ticfo")
+
+[node name="ExitDetector" type="Area3D" parent="Content/GreenArea"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Content/GreenArea/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0723452, 0)
+shape = SubResource("BoxShape3D_l1x57")
+
+[node name="GreenJuice" parent="Content/GreenArea" instance=ExtResource("10_ticfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0614802, 0.000236809, -0.0903605)
+
+[node name="GreenJuice2" parent="Content/GreenArea" instance=ExtResource("10_ticfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000457719, 0.000236809, -0.0903605)
+
+[node name="GreenJuice3" parent="Content/GreenArea" instance=ExtResource("10_ticfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0620972, 0.000236809, -0.0903605)
+
+[node name="GreenJuice4" parent="Content/GreenArea" instance=ExtResource("10_ticfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0614802, 0.000236809, -0.025)
+
+[node name="GreenJuice5" parent="Content/GreenArea" instance=ExtResource("10_ticfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000457719, 0.000236809, -0.025)
+
+[node name="GreenJuice6" parent="Content/GreenArea" instance=ExtResource("10_ticfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0620972, 0.000236809, -0.025)
+
+[node name="GreenJuice7" parent="Content/GreenArea" instance=ExtResource("10_ticfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0614802, 0.000236809, 0.05)
+
+[node name="GreenJuice8" parent="Content/GreenArea" instance=ExtResource("10_ticfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000457719, 0.000236809, 0.05)
+
+[node name="GreenJuice9" parent="Content/GreenArea" instance=ExtResource("10_ticfo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0620972, 0.000236809, 0.05)
+
+[node name="PinkArea" type="Node3D" parent="Content"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.106717, 0.39982, 0)
+script = ExtResource("6_865hk")
+item_scene = ExtResource("11_jpd3v")
+
+[node name="ExitDetector" type="Area3D" parent="Content/PinkArea"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Content/PinkArea/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.136632, 0)
+shape = SubResource("BoxShape3D_pcv62")
+
+[node name="PinkJuice" parent="Content/PinkArea" instance=ExtResource("11_jpd3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0573769, 0.000236809, -0.0903605)
+
+[node name="PinkJuice2" parent="Content/PinkArea" instance=ExtResource("11_jpd3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004, 0, -0.09)
+
+[node name="PinkJuice3" parent="Content/PinkArea" instance=ExtResource("11_jpd3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066, 0, -0.09)
+
+[node name="PinkJuice4" parent="Content/PinkArea" instance=ExtResource("11_jpd3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0573769, 0.000236809, -0.025)
+
+[node name="PinkJuice5" parent="Content/PinkArea" instance=ExtResource("11_jpd3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004, 0, -0.025)
+
+[node name="PinkJuice6" parent="Content/PinkArea" instance=ExtResource("11_jpd3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066, 0, -0.025)
+
+[node name="PinkJuice7" parent="Content/PinkArea" instance=ExtResource("11_jpd3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0573769, 0.000236809, 0.05)
+
+[node name="PinkJuice8" parent="Content/PinkArea" instance=ExtResource("11_jpd3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004, 0, 0.05)
+
+[node name="PinkJuice9" parent="Content/PinkArea" instance=ExtResource("11_jpd3v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066, 0, 0.05)
+
+[connection signal="body_exited" from="Content/WaterArea/ExitDetector" to="Content/WaterArea" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="Content/CokeArea/ExitDetector" to="Content/FantaArea" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="Content/FantaArea/ExitDetector" to="Content/FantaArea" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="Content/OrangeArea/ExitDetector" to="Content/OrangeArea" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="Content/GreenArea/ExitDetector" to="Content/GreenArea" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="Content/PinkArea/ExitDetector" to="Content/PinkArea" method="_on_exit_detector_body_exited"]

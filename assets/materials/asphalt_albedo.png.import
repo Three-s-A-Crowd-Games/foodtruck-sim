@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gqyeck8n0ivc"
-path.s3tc="res://.godot/imported/green_juice_albedo.png-72c92f0f86b776f3b9a85d6eabc1fdfb.s3tc.ctex"
-path.etc2="res://.godot/imported/green_juice_albedo.png-72c92f0f86b776f3b9a85d6eabc1fdfb.etc2.ctex"
+uid="uid://bwfkl1uuco5xj"
+path.s3tc="res://.godot/imported/asphalt_albedo.png-38ef1370b5b9e8021b441acf2058d64a.s3tc.ctex"
+path.etc2="res://.godot/imported/asphalt_albedo.png-38ef1370b5b9e8021b441acf2058d64a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/materials/green_juice_albedo.png"
-dest_files=["res://.godot/imported/green_juice_albedo.png-72c92f0f86b776f3b9a85d6eabc1fdfb.s3tc.ctex", "res://.godot/imported/green_juice_albedo.png-72c92f0f86b776f3b9a85d6eabc1fdfb.etc2.ctex"]
+source_file="res://assets/materials/asphalt_albedo.png"
+dest_files=["res://.godot/imported/asphalt_albedo.png-38ef1370b5b9e8021b441acf2058d64a.s3tc.ctex", "res://.godot/imported/asphalt_albedo.png-38ef1370b5b9e8021b441acf2058d64a.etc2.ctex"]
 
 [params]
 

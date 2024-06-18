@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
+[ext_resource type="Material" uid="uid://3ma4e1fdhaqk" path="res://assets/materials/asphalt.tres" id="3_4gcjg"]
 [ext_resource type="PackedScene" uid="uid://ckp7cmiuw7m3x" path="res://resources/objects/appliances/drink_fridge.tscn" id="3_uf20c"]
 [ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="4_1mh3m"]
 [ext_resource type="PackedScene" uid="uid://bw18w7lqkorf5" path="res://resources/objects/appliances/frying_basket.tscn" id="4_xgses"]
@@ -43,10 +44,8 @@ frustum_near = 0.001
 size = Vector3(10, 0.2, 10)
 
 [sub_resource type="BoxMesh" id="BoxMesh_d002o"]
-size = Vector3(10, 0.2, 10)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcrk8"]
-albedo_color = Color(1, 0.231373, 1, 1)
+material = ExtResource("3_4gcjg")
+size = Vector3(100, 0.2, 100)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_j8awf"]
 resource_local_to_scene = true
@@ -75,7 +74,6 @@ shape = SubResource("BoxShape3D_fjiod")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00545907)
 mesh = SubResource("BoxMesh_d002o")
-surface_material_override/0 = SubResource("StandardMaterial3D_qcrk8")
 
 [node name="DrinkFridge" parent="Floor" instance=ExtResource("3_uf20c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114324, 0.750915, 0.797968)
