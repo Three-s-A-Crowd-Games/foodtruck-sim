@@ -204,6 +204,7 @@ stretch_mode = 3
 layout_mode = 2
 
 [node name="ExtrasContainer" type="HBoxContainer" parent="OrderViewport/PaperLayout/CenterExtras" index="0"]
+visible = false
 layout_mode = 2
 
 [node name="SideTex" type="TextureRect" parent="OrderViewport/PaperLayout/CenterExtras/ExtrasContainer" index="0"]
@@ -218,7 +219,6 @@ texture = ExtResource("6_aavxt")
 stretch_mode = 3
 
 [node name="Divider" type="TextureRect" parent="OrderViewport/PaperLayout/CenterExtras/ExtrasContainer" index="2"]
-visible = false
 layout_mode = 2
 texture = ExtResource("10_54xfx")
 stretch_mode = 3

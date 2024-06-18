@@ -47,8 +47,6 @@ func _recursive_check(ingredients: Array[Ingredient.Type], index: int, rawObject
 	if object.type != ingredients[index-1]:
 		return false
 	else:
-		if is_first_ignore:
-			index -= 1
 		#Check if Cooked/Fried
 		if object.is_in_group("cookable") and object.get_node("Cookable").status != Cookable.CookedStatus.COOKED:
 			return false
@@ -59,5 +57,4 @@ func _recursive_check(ingredients: Array[Ingredient.Type], index: int, rawObject
 			#It is sauced. Should it be?
 			if ingredients[index] == object.sauced:
 				index += 1
-		
 		return _recursive_check(ingredients, index, stack_zone.picked_up_object)
