@@ -26,7 +26,7 @@ shape = SubResource("BoxShape3D_6ypmn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.278176, 0.943593, -0.395432)
 
 [node name="KnobTurner" type="RigidBody3D" parent="KnobOrigin"]
-collision_layer = 4
+collision_layer = 262144
 collision_mask = 0
 gravity_scale = 0.0
 freeze = true

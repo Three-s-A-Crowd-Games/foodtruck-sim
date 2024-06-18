@@ -22,7 +22,14 @@ enum Type{
 	ONION,
 	CUCUMBER,
 	WATER,
-	KETCHUP
+	COKE,
+	FANTA,
+	ORANGE_JUICE,
+	GREEN_JUICE,
+	PINK_JUICE,
+	KETCHUP,
+	BBQ,
+	MUSTARD,
 }
 
 enum Constraints{
@@ -78,9 +85,30 @@ static var ingredients: Dictionary = {
 		Category : Category.DRINKS,
 		Order_Paper_Tex: "res://assets/2d_images/order_paper/water.png"
 	},
+	Type.COKE: {
+		Category : Category.DRINKS
+	},
+	Type.FANTA: {
+		Category : Category.DRINKS
+	},
+	Type.ORANGE_JUICE: {
+		Category : Category.DRINKS
+	},
+	Type.GREEN_JUICE: {
+		Category : Category.DRINKS
+	},
+	Type.PINK_JUICE: {
+		Category : Category.DRINKS
+	},
 	Type.KETCHUP: {
 		Category : Category.SAUCES,
 		Order_Paper_Tex: "res://assets/2d_images/order_paper/ketchup.png"
+	},
+	Type.BBQ: {
+		Category : Category.SAUCES
+	},
+	Type.MUSTARD: {
+		Category : Category.SAUCES
 	},
 }
 
@@ -92,10 +120,10 @@ static var categories: Dictionary = {
 		Type : [Type.FRIES]
 	},
 	Category.DRINKS : {
-		Type : [Type.WATER]
+		Type : [Type.WATER, Type.COKE, Type.FANTA, Type.ORANGE_JUICE, Type.GREEN_JUICE, Type.PINK_JUICE]
 	},
 	Category.SAUCES : {
-		Type : [Type.KETCHUP],
+		Type : [Type.KETCHUP, Type.BBQ, Type.MUSTARD],
 		Constraints.NO_DOUBLE_STACK : true
 	}
 }

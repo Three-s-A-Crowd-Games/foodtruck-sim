@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gqyeck8n0ivc"
-path.s3tc="res://.godot/imported/green_juice_albedo.png-72c92f0f86b776f3b9a85d6eabc1fdfb.s3tc.ctex"
-path.etc2="res://.godot/imported/green_juice_albedo.png-72c92f0f86b776f3b9a85d6eabc1fdfb.etc2.ctex"
+uid="uid://dyy5ok7hloif6"
+path.s3tc="res://.godot/imported/asphalt_orm.png-678fe6626c9a61e7e4c67190593d5d2a.s3tc.ctex"
+path.etc2="res://.godot/imported/asphalt_orm.png-678fe6626c9a61e7e4c67190593d5d2a.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/materials/green_juice_albedo.png"
-dest_files=["res://.godot/imported/green_juice_albedo.png-72c92f0f86b776f3b9a85d6eabc1fdfb.s3tc.ctex", "res://.godot/imported/green_juice_albedo.png-72c92f0f86b776f3b9a85d6eabc1fdfb.etc2.ctex"]
+source_file="res://assets/materials/asphalt_orm.png"
+dest_files=["res://.godot/imported/asphalt_orm.png-678fe6626c9a61e7e4c67190593d5d2a.s3tc.ctex", "res://.godot/imported/asphalt_orm.png-678fe6626c9a61e7e4c67190593d5d2a.etc2.ctex"]
 
 [params]
 
@@ -25,8 +25,8 @@ compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=0
-roughness/src_normal=""
+roughness/mode=8
+roughness/src_normal="res://assets/materials/asphalt_normal.png"
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

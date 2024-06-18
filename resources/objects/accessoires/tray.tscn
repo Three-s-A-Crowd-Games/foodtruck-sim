@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://resources/components/recipe_detector.gd" id="5_c8kme"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uqtse"]
-size = Vector3(0.399673, 0.0281982, 0.351685)
+size = Vector3(0.399673, 0.0226135, 0.351685)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_hvw5g"]
 resource_local_to_scene = true
@@ -26,6 +26,7 @@ collision_mask = 8388615
 script = ExtResource("2_l2i2c")
 
 [node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0103589, 0)
 shape = SubResource("BoxShape3D_uqtse")
 
 [node name="tray2" parent="." index="1" instance=ExtResource("2_gmvqh")]
