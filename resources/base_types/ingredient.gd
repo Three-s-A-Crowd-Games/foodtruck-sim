@@ -86,29 +86,36 @@ static var ingredients: Dictionary = {
 		Order_Paper_Tex: "res://assets/2d_images/order_paper/water.png"
 	},
 	Type.COKE: {
-		Category : Category.DRINKS
+		Category : Category.DRINKS,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/coke.png"
 	},
 	Type.FANTA: {
-		Category : Category.DRINKS
+		Category : Category.DRINKS,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/fanta.png"
 	},
 	Type.ORANGE_JUICE: {
-		Category : Category.DRINKS
+		Category : Category.DRINKS,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/orange_juice.png"
 	},
 	Type.GREEN_JUICE: {
-		Category : Category.DRINKS
+		Category : Category.DRINKS,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/green_juice.png"
 	},
 	Type.PINK_JUICE: {
-		Category : Category.DRINKS
+		Category : Category.DRINKS,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/pink_juice.png"
 	},
 	Type.KETCHUP: {
 		Category : Category.SAUCES,
 		Order_Paper_Tex: "res://assets/2d_images/order_paper/ketchup.png"
 	},
 	Type.BBQ: {
-		Category : Category.SAUCES
+		Category : Category.SAUCES,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/bbq_sauce.png"
 	},
 	Type.MUSTARD: {
-		Category : Category.SAUCES
+		Category : Category.SAUCES,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/mustard.png"
 	},
 }
 

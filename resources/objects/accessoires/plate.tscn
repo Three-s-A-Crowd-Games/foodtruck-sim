@@ -14,6 +14,7 @@ radius = 0.0481934
 
 [node name="Plate" groups=["main_container"] instance=ExtResource("1_bqmy8")]
 mass = 0.25
+freeze = true
 continuous_cd = true
 
 [node name="CollisionShape3D" parent="." index="0"]

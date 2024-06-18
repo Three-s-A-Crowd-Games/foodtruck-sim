@@ -13,6 +13,9 @@ radius = 0.0642004
 
 [node name="PickableObject" groups=["side_container"] instance=ExtResource("1_jak6r")]
 collision_mask = 8388615
+mass = 0.05
+freeze = true
+continuous_cd = true
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000632934, 0.0728068, -0.000578305)
