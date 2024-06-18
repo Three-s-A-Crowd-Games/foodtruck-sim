@@ -43,7 +43,7 @@ func _ready():
 	
 
 func _process(_delta):
-	if is_stack_root and adjust_flip():
+	if is_stack_root and adjust_flip() and (not is_picked_up() or get_picked_up_by() is XRToolsFunctionPickup):
 		_reverse_stack(_grab_driver.primary.pickup if _grab_driver else null)
 		get_stack_root()._recalculate_mass()
 	
