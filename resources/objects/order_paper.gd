@@ -77,8 +77,10 @@ func let_go(by: Node3D, p_linear_velocity: Vector3, p_angular_velocity: Vector3)
 
 func _on_pin_area_entered(area: Area3D) -> void:
 	if area.is_in_group("pinning_zone"):
+		$order_paper/Pin.set_surface_override_material(1,load("res://assets/materials/pin_green.tres"))
 		in_pinning_zone = true
 
 func _on_pin_area_exited(area: Area3D) -> void:
 	if area.is_in_group("pinning_zone"):
+		$order_paper/Pin.set_surface_override_material(1,load("res://assets/materials/pin_red.tres"))
 		in_pinning_zone = false

@@ -38,7 +38,7 @@ hinge_limit_max = 0.0
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.419361, 0.242842, -0.0473367)
 
 [node name="HandleOrigin" type="Node3D" parent="HingeOrigin/InteractableHinge"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0433922, 0.470629, -0.123444)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.422453, 0.327906, -0.123444)
 
 [node name="InteractableHandle" parent="HingeOrigin/InteractableHinge/HandleOrigin" instance=ExtResource("3_wxa4e")]
 freeze = true
@@ -46,7 +46,7 @@ freeze_mode = 1
 release_mode = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HingeOrigin/InteractableHinge/HandleOrigin/InteractableHandle"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000805676, 0, 0.00848696)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.000805676, 0, 0.00848696)
 shape = SubResource("BoxShape3D_s572p")
 
 [node name="drinks_fridge" parent="." instance=ExtResource("2_dqt6y")]
@@ -273,7 +273,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004, 0, 0.05)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066, 0, 0.05)
 
 [connection signal="body_exited" from="Content/WaterArea/ExitDetector" to="Content/WaterArea" method="_on_exit_detector_body_exited"]
-[connection signal="body_exited" from="Content/CokeArea/ExitDetector" to="Content/FantaArea" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="Content/CokeArea/ExitDetector" to="Content/CokeArea" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="Content/FantaArea/ExitDetector" to="Content/FantaArea" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="Content/OrangeArea/ExitDetector" to="Content/OrangeArea" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="Content/GreenArea/ExitDetector" to="Content/GreenArea" method="_on_exit_detector_body_exited"]

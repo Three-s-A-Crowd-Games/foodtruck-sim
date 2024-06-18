@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://t3bu35m8u0kq" path="res://assets/models/objects/furniture/order_button.blend" id="2_sfyja"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hu8ll"]
-height = 0.04
+height = 0.0797617
 radius = 0.0595509
 
 [node name="NextOrderButton" instance=ExtResource("1_8pwo6")]
@@ -15,7 +15,7 @@ script = ExtResource("2_81wx0")
 button = NodePath("order_button/Cylinder_003")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040565, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0214447, 0)
 shape = SubResource("CylinderShape3D_hu8ll")
 
 [node name="order_button" parent="." index="1" instance=ExtResource("2_sfyja")]

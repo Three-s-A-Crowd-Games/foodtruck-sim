@@ -144,6 +144,7 @@ collision_mask = 131079
 mass = 0.01
 angular_damp = 11.538
 script = ExtResource("2_2ocj2")
+second_hand_grab = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
 shape = SubResource("BoxShape3D_ysdl4")
@@ -203,7 +204,6 @@ stretch_mode = 3
 layout_mode = 2
 
 [node name="ExtrasContainer" type="HBoxContainer" parent="OrderViewport/PaperLayout/CenterExtras" index="0"]
-visible = false
 layout_mode = 2
 
 [node name="SideTex" type="TextureRect" parent="OrderViewport/PaperLayout/CenterExtras/ExtrasContainer" index="0"]
@@ -218,6 +218,7 @@ texture = ExtResource("6_aavxt")
 stretch_mode = 3
 
 [node name="Divider" type="TextureRect" parent="OrderViewport/PaperLayout/CenterExtras/ExtrasContainer" index="2"]
+visible = false
 layout_mode = 2
 texture = ExtResource("10_54xfx")
 stretch_mode = 3
