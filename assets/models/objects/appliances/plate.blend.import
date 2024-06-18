@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/plate.blend-da20319ef2a85b7aee1a81780c794211.
 
 [params]
 
-nodes/root_type="XRToolsPickable"
+nodes/root_type="Node3D"
 nodes/root_name="Plate"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0

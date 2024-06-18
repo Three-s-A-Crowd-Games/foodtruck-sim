@@ -226,7 +226,8 @@ func pick_up(by: Node3D) -> void:
 	# Skip if not enabled
 	if not enabled:
 		return
-
+	
+	freeze = false
 	position_before_pickup = global_position
 
 	# Find the grabber information

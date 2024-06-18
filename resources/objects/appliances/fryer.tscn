@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/objects/appliances/fryer.gd" id="1_ah4t3"]
 [ext_resource type="PackedScene" uid="uid://cj3rf56khwid5" path="res://assets/models/objects/furniture/fryer.blend" id="1_xthe5"]
-[ext_resource type="PackedScene" uid="uid://oa4nb5wne6a6" path="res://resources/systems/frying_area.tscn" id="2_h440w"]
+[ext_resource type="PackedScene" uid="uid://oa4nb5wne6a6" path="res://resources/special_areas/frying_area.tscn" id="2_h440w"]
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="3_qcbej"]
 [ext_resource type="ArrayMesh" uid="uid://bcj31tgx2nnqb" path="res://assets/models/paticles/fryer_particle.obj" id="5_ef5m1"]
 

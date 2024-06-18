@@ -39,6 +39,8 @@ func _physics_process(delta : float) -> void:
 	# Skip if no primary node
 	if not is_instance_valid(primary):
 		return
+	if not is_instance_valid(primary.by):
+		return
 
 	# Set destination from primary grab
 	var destination := primary.by.global_transform * primary.transform.inverse()

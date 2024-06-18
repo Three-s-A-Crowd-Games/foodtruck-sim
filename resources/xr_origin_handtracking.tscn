@@ -22,10 +22,10 @@ height = 0.01
 radial_segments = 32
 rings = 16
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qotpc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ti2ug"]
 transparency = 1
 shading_mode = 0
-albedo_color = Color(0.8, 0.8, 1, 0.5)
+albedo_color = Color(0.8, 0.8, 1, 0)
 
 [node name="XROrigin3D" type="XROrigin3D"]
 
@@ -111,6 +111,7 @@ transform = Transform3D(0.190616, -0.77151, -0.606991, 0.977227, 0.207861, 0.042
 transform = Transform3D(0.19221, -0.669965, -0.717079, 0.977075, 0.19881, 0.0761527, 0.0915429, -0.715277, 0.692819, 0.0182325, 0.0372781, -0.148956)
 
 [node name="Poke" parent="TrackedHandLeft/Skeleton3D/Physical Bone Index_Distal_L" index="0"]
+color = Color(0.8, 0.8, 1, 0)
 layer = 16809984
 
 [node name="Physical Bone Middle_Proximal_L" parent="TrackedHandLeft/Skeleton3D" index="6"]
@@ -149,6 +150,12 @@ remote_path = NodePath("../../../../LeftHand-Handtracking")
 [node name="HandPoseMatcher" parent="TrackedHandLeft" index="1" node_paths=PackedStringArray("skeleton")]
 skeleton = NodePath("../Skeleton3D")
 
+[node name="Label3D" parent="TrackedHandLeft" index="2"]
+visible = false
+
+[node name="Label3D2" parent="TrackedHandLeft" index="3"]
+visible = false
+
 [node name="TrackedHandRight" parent="." instance=ExtResource("10_66to7")]
 
 [node name="Thumb_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="1"]
@@ -167,6 +174,7 @@ transform = Transform3D(0.190616, 0.77151, 0.606991, -0.0932393, -0.601304, 0.79
 transform = Transform3D(0.19221, 0.669965, 0.717079, -0.0915425, -0.715277, 0.692819, 0.977075, -0.19881, -0.0761531, -0.0182329, -0.148956, -0.037278)
 
 [node name="Poke" parent="TrackedHandRight/Skeleton3D/Index_Distal_R" index="0"]
+color = Color(0.8, 0.8, 1, 0)
 layer = 16809984
 
 [node name="PokeBody" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke" index="0"]
@@ -177,7 +185,7 @@ shape = SubResource("SphereShape3D_nxwqx")
 
 [node name="MeshInstance" parent="TrackedHandRight/Skeleton3D/Index_Distal_R/Poke/PokeBody" index="1"]
 mesh = SubResource("SphereMesh_lpo0c")
-surface_material_override/0 = SubResource("StandardMaterial3D_qotpc")
+surface_material_override/0 = SubResource("StandardMaterial3D_ti2ug")
 
 [node name="Middle_Proximal_R" parent="TrackedHandRight/Skeleton3D" index="6"]
 transform = Transform3D(0.0836168, 0.962976, 0.256294, -0.0161448, -0.255851, 0.966581, 0.996367, -0.0849603, -0.00584642, 0.0165289, -0.0851049, -0.00942898)
@@ -213,7 +221,11 @@ transform = Transform3D(0.185985, 0.967611, -0.1707, -0.188946, 0.20571, 0.96019
 remote_path = NodePath("../../../../RightHand-Handtracking")
 
 [node name="HandPoseMatcher" parent="TrackedHandRight" index="1" node_paths=PackedStringArray("skeleton")]
+hand = 1
 skeleton = NodePath("../Skeleton3D")
+
+[node name="Label3D" parent="TrackedHandRight" index="2"]
+visible = false
 
 [connection signal="has_dropped" from="LeftHand-Handtracking/XRToolsCollisionHandL/FunctionPickup" to="LeftHand-Handtracking/XRToolsCollisionHandL" method="_on_function_pickup_has_dropped"]
 [connection signal="has_picked_up" from="LeftHand-Handtracking/XRToolsCollisionHandL/FunctionPickup" to="LeftHand-Handtracking/XRToolsCollisionHandL" method="_on_function_pickup_has_picked_up"]

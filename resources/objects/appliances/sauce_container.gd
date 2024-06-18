@@ -23,7 +23,7 @@ func _ready() -> void:
 	add_child(floor_sauce_timer)
 	floor_sauce_timer.one_shot = true
 	floor_sauce_timer.wait_time = 4
-	floor_sauce_timer.connect("timeout", reset_floor_sauce)
+	floor_sauce_timer.timeout.connect(reset_floor_sauce)
 	
 	le_sauce_type = Ingredient.Type.get(le_sauce_type_primitive)
 	print(le_sauce_type)

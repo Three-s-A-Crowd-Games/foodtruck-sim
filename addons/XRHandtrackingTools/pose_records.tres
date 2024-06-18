@@ -994,6 +994,7 @@ bone_poses = {
 }
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2")
 poses = {
 0: {

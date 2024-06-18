@@ -67,7 +67,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267145, 0.305404, 0)
 [node name="FloorFinder" type="RayCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267145, 0.305404, 0)
 target_position = Vector3(0, -3, 0)
-collision_mask = 75497472
+collision_mask = 8388608
 hit_back_faces = false
 
 [connection signal="area_entered" from="SauceArea" to="." method="_on_sauce_area_area_entered"]

@@ -33,9 +33,9 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "materials": {
-"585abfc54f6ae202fedf2935": {
+"Material.009": {
 "use_external/enabled": true,
-"use_external/path": "res://assets/2d_images/fries.png"
+"use_external/path": "res://assets/materials/pin_red.tres"
 }
 }
 }

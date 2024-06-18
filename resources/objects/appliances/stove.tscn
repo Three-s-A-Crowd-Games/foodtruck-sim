@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wqifidp1mmv6" path="res://assets/models/objects/furniture/stove.blend" id="1_7ipw7"]
 [ext_resource type="Script" path="res://resources/objects/appliances/stove.gd" id="1_jta84"]
-[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="2_kuxf2"]
+[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/special_areas/cooking_area.tscn" id="2_kuxf2"]
 [ext_resource type="Script" path="res://resources/objects/appliances/KnobTurner.gd" id="3_4xfrm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ypmn"]

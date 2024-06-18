@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=45 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -10,16 +10,25 @@
 [ext_resource type="PackedScene" uid="uid://bkl3bmlcidvdg" path="res://resources/objects/accessoires/flipper.tscn" id="8_8x8av"]
 [ext_resource type="PackedScene" uid="uid://canauins47xs5" path="res://resources/objects/furniture/BunTopBox.tscn" id="8_j1ief"]
 [ext_resource type="PackedScene" uid="uid://cun37a3kia4ky" path="res://resources/objects/appliances/fryer.tscn" id="9_wcrah"]
-[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="10_g2n5w"]
+[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/special_areas/cooking_area.tscn" id="10_g2n5w"]
 [ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/objects/furniture/truck.blend" id="10_vl4gb"]
 [ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
+[ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="14_83ec4"]
 [ext_resource type="PackedScene" uid="uid://daq62tyjf4nnf" path="res://resources/objects/accessoires/tray.tscn" id="15_2qref"]
+[ext_resource type="PackedScene" uid="uid://witvb00gyysp" path="res://assets/models/objects/appliances/fries_box.blend" id="16_c4lkf"]
 [ext_resource type="PackedScene" uid="uid://dqu2cm5yrrt54" path="res://resources/objects/accessoires/friesbox.tscn" id="16_t2krs"]
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
-[ext_resource type="PackedScene" uid="uid://d088mil7a0mga" path="res://resources/objects/appliances/SauceContainer.tscn" id="17_117gm"]
+[ext_resource type="PackedScene" uid="uid://d088mil7a0mga" path="res://resources/objects/appliances/sauce_container.tscn" id="17_117gm"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="18_wcr04"]
 [ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="19_5w3yg"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="19_24xoq"]
+[ext_resource type="PackedScene" uid="uid://dy8lnrkp88fju" path="res://resources/objects/next_order_button.tscn" id="21_pidlo"]
+[ext_resource type="PackedScene" uid="uid://cyquot0luo414" path="res://resources/special_areas/pinning_area.tscn" id="21_x5e2k"]
+[ext_resource type="PackedScene" uid="uid://oefjh0xalhqn" path="res://assets/models/objects/furniture/pin-board.blend" id="22_17cek"]
+[ext_resource type="PackedScene" uid="uid://c3qt746s7dnh3" path="res://resources/objects/cash_register.tscn" id="23_5npd4"]
+[ext_resource type="PackedScene" uid="uid://b1gbpv13fh1ap" path="res://resources/objects/accessoires/plate.tscn" id="24_pblrq"]
+[ext_resource type="PackedScene" uid="uid://clf7iny7d8p84" path="res://resources/objects/furniture/cheese_block.tscn" id="28_vu0rv"]
+[ext_resource type="PackedScene" uid="uid://c0brq67lg35qy" path="res://resources/objects/furniture/lettuce_block.tscn" id="29_ce0ft"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -50,6 +59,32 @@ size = Vector3(100, 0.2, 100)
 [sub_resource type="BoxShape3D" id="BoxShape3D_j8awf"]
 resource_local_to_scene = true
 size = Vector3(0.790588, 0.0263672, 0.311005)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7dyyl"]
+size = Vector3(0.425, 0.075, 0.375)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a4akg"]
+size = Vector3(0.2, 0.166309, 0.294)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ydnwk"]
+size = Vector3(0.19, 0.075, 0.175)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_hcekt"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_48ymk"]
+size = Vector3(0.1, 0.15, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8pe7s"]
+resource_local_to_scene = true
+size = Vector3(0.0175209, 0.231544, 0.835083)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6gvic"]
+resource_local_to_scene = true
+size = Vector3(0.0147419, 0.231293, 0.830749)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mm4js"]
+size = Vector3(0.44519, 0.0537109, 1.21478)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_d3g8y")
@@ -88,10 +123,10 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0598
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.308859, 0.969363, -0.467769)
 
 [node name="BunBottomBox" parent="Truck" instance=ExtResource("7_5gd1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.02714, 0.976285, -0.420155)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11812, 0.976285, -0.506978)
 
 [node name="BunTopBox" parent="Truck" instance=ExtResource("8_j1ief")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05273, 0.972559, -0.758568)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.957566, 0.972559, -0.663451)
 
 [node name="truck_v1" parent="Truck" instance=ExtResource("10_vl4gb")]
 
@@ -136,16 +171,73 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850798, 1.97374, 0.783707)
 shape = SubResource("BoxShape3D_j8awf")
 
 [node name="Flipper" parent="." instance=ExtResource("8_8x8av")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7577, -0.15682)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7577, -0.299544)
 
-[node name="Tray" parent="." instance=ExtResource("15_2qref")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.577731, 1.38537, 0.73644)
+[node name="TraySpawner" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.577731, 1.37232, 0.73644)
+script = ExtResource("14_83ec4")
+item_scene = ExtResource("15_2qref")
 
-[node name="Friesbox" parent="." instance=ExtResource("16_t2krs")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.676501, 1.10348, 0.583129)
+[node name="ExitDetector" type="Area3D" parent="TraySpawner"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
 
-[node name="Node3D" parent="." instance=ExtResource("16_uegm4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.07273, 1.72365, 0.256549)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TraySpawner/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0350893, 0)
+shape = SubResource("BoxShape3D_7dyyl")
+
+[node name="Tray" parent="TraySpawner" instance=ExtResource("15_2qref")]
+
+[node name="Tray2" parent="TraySpawner" instance=ExtResource("15_2qref")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0289918, 0)
+
+[node name="FriesboxSpawner" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.676501, 1.09561, 0.690906)
+script = ExtResource("14_83ec4")
+item_scene = ExtResource("16_c4lkf")
+
+[node name="ExitDetector" type="Area3D" parent="FriesboxSpawner"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FriesboxSpawner/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0754709, -0.00374752)
+shape = SubResource("BoxShape3D_a4akg")
+
+[node name="Friesbox" parent="FriesboxSpawner" instance=ExtResource("16_t2krs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0985701)
+
+[node name="Friesbox2" parent="FriesboxSpawner" instance=ExtResource("16_t2krs")]
+
+[node name="Friesbox3" parent="FriesboxSpawner" instance=ExtResource("16_t2krs")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, -0.103301)
+
+[node name="PlateSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.46355, 1.09007, 0.675298)
+script = ExtResource("14_83ec4")
+item_scene = ExtResource("24_pblrq")
+
+[node name="ExitDetector" type="Area3D" parent="PlateSpawner"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PlateSpawner/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0370239, 0)
+shape = SubResource("BoxShape3D_ydnwk")
+
+[node name="Plate" parent="PlateSpawner" instance=ExtResource("24_pblrq")]
+
+[node name="Plate2" parent="PlateSpawner" instance=ExtResource("24_pblrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01475, 0)
+
+[node name="Plate3" parent="PlateSpawner" instance=ExtResource("24_pblrq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0295531, 0)
+
+[node name="PotatoCutter" parent="." instance=ExtResource("16_uegm4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.07273, 1.72365, -0.0745517)
 
 [node name="SauceContainer" parent="." instance=ExtResource("17_117gm")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.450145, 1.72365, 0.751436)
@@ -161,14 +253,94 @@ le_sauce_type_primitive = "MUSTARD"
 [node name="Knife" parent="." instance=ExtResource("18_wcr04")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.764642, 1.7495, -0.261837)
 
-[node name="Tomato" parent="." instance=ExtResource("19_24xoq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.748806, 1.7495, -0.460409)
+[node name="TomatoSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.760213, 2.52801, -0.867288)
+script = ExtResource("14_83ec4")
+item_scene = ExtResource("19_24xoq")
 
-[node name="Potato" parent="." instance=ExtResource("19_5w3yg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.00405, 1.72365, 0.611761)
+[node name="Tomato" parent="TomatoSpawner" instance=ExtResource("19_24xoq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0695983, 0, 0.0438389)
+
+[node name="ExitDetector" type="Area3D" parent="TomatoSpawner"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TomatoSpawner/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039813, 0)
+shape = SubResource("BoxShape3D_hcekt")
+
+[node name="PotatoSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1399, 2.52517, 0.161466)
+script = ExtResource("14_83ec4")
+item_scene = ExtResource("19_5w3yg")
+
+[node name="Potato" parent="PotatoSpawner" instance=ExtResource("19_5w3yg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0211883, 0, 0)
+
+[node name="ExitDetector" type="Area3D" parent="PotatoSpawner"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="PotatoSpawner/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0678086, 0)
+shape = SubResource("BoxShape3D_48ymk")
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161468, 0.765339, 0.16495)
 
+[node name="PinningArea" parent="." instance=ExtResource("21_x5e2k")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.628921, 2.23697, -0.939232)
+
+[node name="CollisionShape3D" parent="PinningArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0160006, 0.0597191, 0.0169069)
+shape = SubResource("BoxShape3D_8pe7s")
+
+[node name="PinningArea2" parent="." instance=ExtResource("21_x5e2k")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.628921, 2.23697, -0.943795)
+
+[node name="CollisionShape3D" parent="PinningArea2" index="0"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.936204, 0.070755, -0.592275)
+shape = SubResource("BoxShape3D_6gvic")
+
+[node name="NextOrderButton" parent="." instance=ExtResource("21_pidlo")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.213596, 2.28869, 0.95)
+
+[node name="Order_Paper_Spawner" parent="NextOrderButton" index="2"]
+transform = Transform3D(-1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, 0, 0.115238, -0.561851)
+rotation_order = 0
+
+[node name="pin-board" parent="." instance=ExtResource("22_17cek")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.613744, 2.29615, -0.95)
+
+[node name="pin-board2" parent="." instance=ExtResource("22_17cek")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.24875, 2.30832, -0.00618118)
+
+[node name="CashRegister" parent="." instance=ExtResource("23_5npd4")]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -1.01426, 1.72365, 0.683726)
+
+[node name="CollisionShape3D" parent="CashRegister/OrderDetectionArea" index="0"]
+transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -0.708997, 0.0416946, 0.00309908)
+shape = SubResource("BoxShape3D_mm4js")
+
+[node name="CheeseBlock" parent="." instance=ExtResource("28_vu0rv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13841, 2.51592, 0.339753)
+
+[node name="LettuceBlock" parent="." instance=ExtResource("29_ce0ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13152, 2.51592, 0.497684)
+
+[connection signal="body_exited" from="TraySpawner/ExitDetector" to="TraySpawner" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="FriesboxSpawner/ExitDetector" to="FriesboxSpawner" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="PlateSpawner/ExitDetector" to="PlateSpawner" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="TomatoSpawner/ExitDetector" to="TomatoSpawner" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="PotatoSpawner/ExitDetector" to="PotatoSpawner" method="_on_exit_detector_body_exited"]
+
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
+[editable path="PinningArea"]
+[editable path="PinningArea2"]
+[editable path="NextOrderButton"]
+[editable path="NextOrderButton/order_button"]
+[editable path="CashRegister"]
+[editable path="CashRegister/cash_register"]

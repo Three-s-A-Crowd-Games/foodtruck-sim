@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://oa4nb5wne6a6"]
+[gd_scene load_steps=3 format=3 uid="uid://cwwf7sktcami7"]
 
-[ext_resource type="Script" path="res://resources/systems/frying_area.gd" id="1_v6wvc"]
+[ext_resource type="Script" path="res://resources/special_areas/cooking_area.gd" id="1_0wog4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jjf45"]
 resource_local_to_scene = true
 size = Vector3(0.625122, 0.0263672, 0.639404)
 
-[node name="FryingArea" type="Area3D"]
+[node name="CookingArea" type="Area3D"]
 collision_layer = 4
 collision_mask = 4
 monitorable = false
-script = ExtResource("1_v6wvc")
+script = ExtResource("1_0wog4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_jjf45")

@@ -7,7 +7,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_4l1u6"]
 size = Vector3(0.05, 0.108, 0.05)
 
-[node name="GreenJuice" instance=ExtResource("1_1rdhe")]
+[node name="GreenJuice" groups=["drink"] instance=ExtResource("1_1rdhe")]
 mass = 0.5
 freeze = true
 continuous_cd = true
