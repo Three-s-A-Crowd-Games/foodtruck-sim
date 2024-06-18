@@ -29,13 +29,15 @@ func _ready():
 	var mesh_nodes = find_children("*", "MeshInstance3D", true, false)
 	assert(mesh_nodes.size() == 1, "This Burger Part has either 0 or more than one mesh nodes, which can't be handled so far.")
 	var mesh_node: MeshInstance3D = mesh_nodes[0]
-	height = mesh_node.mesh.get_aabb().size.y
+	var aabb = mesh_node.mesh.get_aabb()
+	height = aabb.size.y
 	if mesh_node.get_parent() == self:
 		stack_zone_distance = height + mesh_node.position.y
 	else:
 		stack_zone_distance = height + mesh_node.get_parent().position.y
 	
 	original_center_of_mass.y = stack_zone_distance - height/2
+	stack_zone_distance += aabb.position.y
 	stack_zone_distance += burger_part_seperation_distance
 	stack_zone.position.y = stack_zone_distance
 	
