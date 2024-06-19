@@ -76,10 +76,12 @@ func start_cooking():
 			if is_instance_valid(fade_tweener) and fade_tweener.is_running():
 				fade_tweener.stop()
 				fade_tweener.kill()
+				fade_tweener = null
 			if audio_player_1.stream_paused:
 				audio_player_1.stream_paused = false
 			elif not audio_player_1.playing:
-				audio_player_1.play()
+				var start_point = randf_range(0, audio_player_1.stream.get_length())
+				audio_player_1.play(start_point)
 
 func stop_cooking():
 	if(is_cooking):
