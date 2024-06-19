@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=46 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" path="res://resources/objects/accessoires/plate.tscn" id="24_pblrq"]
 [ext_resource type="PackedScene" uid="uid://clf7iny7d8p84" path="res://resources/objects/furniture/cheese_block.tscn" id="28_vu0rv"]
 [ext_resource type="PackedScene" uid="uid://c0brq67lg35qy" path="res://resources/objects/furniture/lettuce_block.tscn" id="29_ce0ft"]
+[ext_resource type="PackedScene" uid="uid://ri8whwljtqxn" path="res://resources/objects/furniture/tv_screen.tscn" id="30_3c70x"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -328,6 +329,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13841, 2.51592, 0.339753)
 
 [node name="LettuceBlock" parent="." instance=ExtResource("29_ce0ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13152, 2.51592, 0.497684)
+
+[node name="TV-Screen" parent="." instance=ExtResource("30_3c70x")]
+transform = Transform3D(0.939665, -0.0895358, 0.330171, -1.11759e-08, 0.965142, 0.261727, -0.342096, -0.245935, 0.90691, 0.776048, 2.4923, 0.736524)
 
 [connection signal="body_exited" from="TraySpawner/ExitDetector" to="TraySpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="FriesboxSpawner/ExitDetector" to="FriesboxSpawner" method="_on_exit_detector_body_exited"]
