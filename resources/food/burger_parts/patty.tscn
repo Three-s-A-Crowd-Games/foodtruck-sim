@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c3bsc5kmrbo4i"]
+[gd_scene load_steps=7 format=3 uid="uid://c3bsc5kmrbo4i"]
 
 [ext_resource type="PackedScene" uid="uid://w3j7uqy2hp8x" path="res://assets/models/food/patty.blend" id="1_kle5d"]
 [ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_ws3rg"]
 [ext_resource type="Script" path="res://resources/food/burger_parts/patty.gd" id="2_c8brd"]
 [ext_resource type="Script" path="res://resources/components/cookable.gd" id="4_0f6dl"]
+[ext_resource type="AudioStream" uid="uid://cat36ory7225l" path="res://audio/cooking/cooking_audio_stream_interactive.tres" id="5_q8bst"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_mgd0g"]
 height = 0.0216041
@@ -21,5 +22,6 @@ shape = SubResource("CylinderShape3D_mgd0g")
 
 [node name="Cookable" type="Node3D" parent="." index="2"]
 script = ExtResource("4_0f6dl")
+cook_sounds_stream = ExtResource("5_q8bst")
 
 [connection signal="cooked_status_changed" from="Cookable" to="." method="_on_cookable_cooked_status_changed"]
