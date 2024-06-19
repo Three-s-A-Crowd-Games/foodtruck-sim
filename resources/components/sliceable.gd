@@ -37,11 +37,17 @@ var _is_mesh_ontop_xz := false
 ## The type of shape that will be used for the remaining foods collision shape after was cut.
 @export_enum("CylinderShape3D", "BoxShape3D") var remain_shape: String = "CylinderShape3D"
 
-@export_category("Mesh Deletion")
+@export_group("Mesh Deletion")
 ## Select a second mesh node which should be deleted while slicing.
 @export var mesh_node_to_delete: MeshInstance3D
 ## Select with which slice action the second mesh should be deleted.
 @export var delete_slice_count: int = 1
+
+@export_group("Sound")
+@export_enum("Normal", "Crunchy") var slice_sound_type := "Normal"
+var hard_soft_sound_threshold: float = 3
+@onready var hard_player: SoundQueue3D = $SoundQueue3DHard
+@onready var soft_player: SoundQueue3D = $SoundQueue3DSoft
 
 @onready var _sliceable := get_parent()
 
@@ -84,9 +90,34 @@ func _ready():
 	collision_mask = pow(2,5) # Mask layer 6
 	monitorable = false
 	 
+	#Take care about audio setup
+	for player: AudioStreamPlayer3D in $SoundQueue3DHard.get_children():
+		match slice_sound_type:
+			"Normal":
+				player.stream = load("res://audio/slicing/normal/slice_normal_hard_audio_stream_randomizer.tres")
+			"Crunchy":
+				player.stream = load("res://audio/slicing/crunchy/slice_crunchy_hard_audio_stream_randomizer.tres")
+						
+	for player: AudioStreamPlayer3D in $SoundQueue3DSoft.get_children():
+		match slice_sound_type:
+			"Normal":
+				player.stream = load("res://audio/slicing/normal/slice_normal_soft_audio_stream_randomizer.tres")
+			"Crunchy":
+				player.stream = load("res://audio/slicing/crunchy/slice_crunchy_soft_audio_stream_randomizer.tres")
+				
 
-func _on_body_entered(_body):
+func _on_body_entered(body):
 	slice()
+	if body is RigidBody3D:
+		if body is XRToolsPickable and body.is_picked_up():
+			soft_player.play()
+			return
+		if body.linear_velocity.length() > hard_soft_sound_threshold:
+			hard_player.play()
+		else:
+			soft_player.play()
+	else:
+		soft_player.play()
 
 func slice():
 	if slices_left <= 1: return
@@ -108,6 +139,11 @@ func slice():
 		slice = _create_slice(meshes[1])
 		_sliceable.add_sibling(slice)
 		_make_slice_ready(slice)
+		get_parent_node_3d().visible = false
+		if hard_player.count_playing > 0:
+			await hard_player.finished
+		if soft_player.count_playing > 0:
+			await soft_player.finished
 		get_parent().call_deferred("queue_free")
 	
 
@@ -224,7 +260,10 @@ func _updated_children(node: Node) -> void:
 
 func _get_configuration_warnings():
 	var out: Array[String] = []
-	if get_child_count() == 0:
+	var has_coll_shape: bool = false
+	for child in get_children():
+		has_coll_shape = child is CollisionShape3D
+	if not has_coll_shape:
 		out.push_back("If it appears, you can ignore the warining about the missing collision shape for this area. It will take the collision shape of the parent then.")
 	if not _mesh_node_or_parent:
 		out.push_back("Mesh node is not configured. Please select the mesh node with the mesh that shall be sliced.")
