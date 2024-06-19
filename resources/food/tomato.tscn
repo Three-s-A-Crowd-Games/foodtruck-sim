@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_rmspk"]
 [ext_resource type="PackedScene" uid="uid://cjiawby6bragj" path="res://assets/models/food/tomato.blend" id="2_1kums"]
-[ext_resource type="Script" path="res://resources/components/sliceable.gd" id="3_tek84"]
 [ext_resource type="Material" uid="uid://57fbu36ov8i1" path="res://assets/materials/tomato_inside_material.tres" id="4_km1be"]
+[ext_resource type="PackedScene" uid="uid://bn7400sgof75r" path="res://resources/components/sliceable.tscn" id="5_q14ek"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aj645"]
 radius = 0.0917422
@@ -106,23 +106,18 @@ shape = SubResource("SphereShape3D_aj645")
 [node name="tomato_stem" parent="tomato2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00592546, 0.1447, 0.0136126)
 mesh = SubResource("ArrayMesh_causa")
-skeleton = NodePath("")
 
 [node name="tomato" parent="tomato2" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000311699, 0.00944573, -0.000716065)
 mesh = SubResource("ArrayMesh_7xr3r")
-skeleton = NodePath("")
 
-[node name="Sliceable" type="Area3D" parent="." index="2" node_paths=PackedStringArray("_mesh_node_or_parent", "mesh_node_to_delete")]
-collision_layer = 0
-collision_mask = 32
-monitorable = false
-script = ExtResource("3_tek84")
+[node name="Sliceable" parent="." index="2" node_paths=PackedStringArray("_mesh_node_or_parent", "mesh_node_to_delete") instance=ExtResource("5_q14ek")]
 cross_section_material = ExtResource("4_km1be")
 slice_count = 6
 _mesh_node_or_parent = NodePath("../tomato2/tomato")
 remain_shape = "BoxShape3D"
 mesh_node_to_delete = NodePath("../tomato2/tomato_stem")
 delete_slice_count = 3
+slice_sound_type = null
 
 [editable path="tomato2"]

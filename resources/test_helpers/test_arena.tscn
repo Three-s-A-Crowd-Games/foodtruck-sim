@@ -1,10 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://5b36bokc0k4k"]
+[gd_scene load_steps=17 format=3 uid="uid://5b36bokc0k4k"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_5moal"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="1_8xdyp"]
 [ext_resource type="PackedScene" uid="uid://doqn4cetycndv" path="res://resources/test_helpers/food_piece.tscn" id="2_ek6i4"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="4_xjd3b"]
-[ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="7_yj730"]
+[ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="5_6vayu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
 sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
@@ -40,6 +40,8 @@ size = Vector3(20, 8, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t6ju8"]
 size = Vector3(2, 1, 2)
+
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_nyg33"]
 
 [node name="TestArena" type="Node3D"]
 script = ExtResource("1_5moal")
@@ -101,24 +103,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.958683, 2.93693)
 collision_mask = 196615
 
 [node name="Knife" parent="." instance=ExtResource("4_xjd3b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96191, 1.14486, 4.14737)
-
-[node name="Patty" parent="." instance=ExtResource("7_yj730")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.862077, 1, 0.696036)
-
-[node name="Patty2" parent="." instance=ExtResource("7_yj730")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.862, 1, 0.467165)
-
-[node name="Patty3" parent="." instance=ExtResource("7_yj730")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875889, 1, 0.230981)
-
-[node name="Patty4" parent="." instance=ExtResource("7_yj730")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875889, 1, 0.000699043)
-rotation_edit_mode = 2
-
-[node name="Patty5" parent="." instance=ExtResource("7_yj730")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.875889, 1, -0.238364)
-rotation_edit_mode = 2
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575992, 1.14486, -0.609377)
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59908, 0, 0.0708036)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = SubResource("AudioStreamMP3_nyg33")
+autoplay = true
+
+[node name="Tomato" parent="." instance=ExtResource("5_6vayu")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.710147, 1.21086, 0.139593)
