@@ -1,0 +1,38 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=17 format=3 uid="uid://c2fbpkos6iqwb"]
+
+[ext_resource type="AudioStream" uid="uid://bf0dm20163rga" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-1.mp3" id="1_rgqn0"]
+[ext_resource type="AudioStream" uid="uid://b02sl6y04g11e" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-2.mp3" id="2_1fiam"]
+[ext_resource type="AudioStream" uid="uid://ds6hnhy8nuj7g" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-11.mp3" id="3_o0cp1"]
+[ext_resource type="AudioStream" uid="uid://bh74cgltthfmy" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-12.mp3" id="4_o63sh"]
+[ext_resource type="AudioStream" uid="uid://c7f00vpc7adul" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-13.mp3" id="5_tct24"]
+[ext_resource type="AudioStream" uid="uid://dib3osq7imofr" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-14.mp3" id="6_4yoa8"]
+[ext_resource type="AudioStream" uid="uid://ljw4hsfs1ni6" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-15.mp3" id="7_8l80m"]
+[ext_resource type="AudioStream" uid="uid://wy1lmp1k8klg" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-16.mp3" id="8_7el08"]
+[ext_resource type="AudioStream" uid="uid://bq2f37mdadpll" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-3.mp3" id="9_rq817"]
+[ext_resource type="AudioStream" uid="uid://drmxaky4bq8or" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-4.mp3" id="10_s13ed"]
+[ext_resource type="AudioStream" uid="uid://c4inctolws17s" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-5.mp3" id="11_t6sil"]
+[ext_resource type="AudioStream" uid="uid://iouh8jn21683" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-6.mp3" id="12_4ka1g"]
+[ext_resource type="AudioStream" uid="uid://ca8pw8hfcu88d" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-7.mp3" id="13_s0k7l"]
+[ext_resource type="AudioStream" uid="uid://cpag5l1fix2kf" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-8.mp3" id="14_w3xhu"]
+[ext_resource type="AudioStream" uid="uid://ctpl2xt132o74" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-9.mp3" id="15_01hfj"]
+[ext_resource type="AudioStream" uid="uid://d27gif5hwn2rv" path="res://audio/slicing/crunchy/hard/slice_crunchy_hard-10.mp3" id="16_eyabq"]
+
+[resource]
+playback_mode = 1
+streams_count = 16
+stream_0/stream = ExtResource("1_rgqn0")
+stream_1/stream = ExtResource("2_1fiam")
+stream_2/stream = ExtResource("9_rq817")
+stream_3/stream = ExtResource("10_s13ed")
+stream_4/stream = ExtResource("11_t6sil")
+stream_5/stream = ExtResource("12_4ka1g")
+stream_6/stream = ExtResource("13_s0k7l")
+stream_7/stream = ExtResource("14_w3xhu")
+stream_8/stream = ExtResource("15_01hfj")
+stream_9/stream = ExtResource("16_eyabq")
+stream_10/stream = ExtResource("3_o0cp1")
+stream_11/stream = ExtResource("4_o63sh")
+stream_12/stream = ExtResource("5_tct24")
+stream_13/stream = ExtResource("6_4yoa8")
+stream_14/stream = ExtResource("7_8l80m")
+stream_15/stream = ExtResource("8_7el08")
