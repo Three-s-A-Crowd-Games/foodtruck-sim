@@ -13,8 +13,10 @@ script = ExtResource("1_563pv")
 player_count = 5
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SoundQueue3DHard"]
+bus = &"SFX"
 
 [node name="SoundQueue3DSoft" parent="." instance=ExtResource("2_lf2l4")]
 player_count = 5
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="SoundQueue3DSoft"]
+bus = &"SFX"

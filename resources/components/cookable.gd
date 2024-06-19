@@ -38,10 +38,12 @@ func _ready():
 	if cook_sounds_stream:
 		audio_player_1 = AudioStreamPlayer3D.new()
 		audio_player_1.stream = cook_sounds_stream
+		audio_player_1.bus = &"SFX"
 		add_child(audio_player_1)
 	if finish_sound:
 		audio_player_2 = AudioStreamPlayer3D.new()
 		audio_player_2.stream = finish_sound
+		audio_player_2.bus = &"SFX"
 		add_child(audio_player_2)
 		
 
