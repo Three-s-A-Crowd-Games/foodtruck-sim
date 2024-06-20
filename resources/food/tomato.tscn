@@ -118,6 +118,5 @@ _mesh_node_or_parent = NodePath("../tomato2/tomato")
 remain_shape = "BoxShape3D"
 mesh_node_to_delete = NodePath("../tomato2/tomato_stem")
 delete_slice_count = 3
-slice_sound_type = null
 
 [editable path="tomato2"]

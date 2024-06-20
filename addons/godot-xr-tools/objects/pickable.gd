@@ -33,6 +33,7 @@ signal action_pressed(pickable)
 # Signal emitted when the highlight state changes
 signal highlight_updated(pickable, enable)
 
+signal has_left_spawn
 
 ## Method used to grab object at range
 enum RangedMethod {
@@ -97,6 +98,7 @@ var position_before_pickup := Vector3.ZERO
 
 var has_left_spawner := false :
 	set(value):
+		if value: has_left_spawn.emit()
 		has_left_spawner = value
 
 # Count of 'is_closest' grabbers

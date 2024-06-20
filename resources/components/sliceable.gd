@@ -76,6 +76,8 @@ func _ready():
 		my_coll_node.transform.origin -= transform.origin
 		add_child(my_coll_node)
 	
+	get_parent().has_left_spawn.connect(_on_has_left_spawn)
+	
 	body_entered.connect(_on_body_entered)
 	if Engine.is_editor_hint():
 		child_entered_tree.connect(_updated_children)
@@ -150,7 +152,7 @@ func slice_rest(meshes):
 		mesh_node_to_delete.queue_free()
 		
 	if slices_left == 1:
-		slice = _create_slice(meshes[1])
+		slice = _create_slice(meshes[0])
 		_sliceable.add_sibling(slice)
 		_make_slice_ready(slice)
 		get_parent_node_3d().visible = false
@@ -285,6 +287,9 @@ func _get_configuration_warnings():
 		out.push_back("Please don't use 4 slices. For some unkown reason the tool doesn't work properly then.")
 	
 	return out
+
+func _on_has_left_spawn():
+	monitoring = true
 
 # Thread must be disposed (or "joined"), for portability.
 func _exit_tree():
