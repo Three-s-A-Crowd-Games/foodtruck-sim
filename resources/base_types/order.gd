@@ -1,8 +1,8 @@
 class_name Order
 extends RefCounted
 
-const MIN_ORDER_TIME := 120
-const MAX_ORDER_TIME := 240
+const MIN_ORDER_TIME := 20
+const MAX_ORDER_TIME := 30
 
 var number :int
 

@@ -10,8 +10,15 @@ const CUSTOMER_WAITING_DISTANCE = 0.6
 var customers_inline :Array
 var customers_waiting_for_food :Array
 var path_follows :Array
+var waiting_follows :Array
 var waiting_pos_usage :Dictionary = {}
 var order_dict :Dictionary = {}
+
+var waiting_pos_stop_values = {
+	"Pos1": 0.2815,
+	"Pos2": 0.3364,
+	"Pos3": 0.3123
+}
 
 var spawn_timer :Timer
 
@@ -24,6 +31,8 @@ func _ready() -> void:
 	spawn_timer.start()
 	
 	OrderController.created_order.connect(_got_order)
+	OrderController.failed_order.connect(_failed_order)
+	OrderController.finished_order.connect(_finished_order)
 	for child in $WaitingPoss.get_children():
 		waiting_pos_usage.get_or_add(child)
 
@@ -39,7 +48,23 @@ func advance_path_follows():
 			if(i != 0 and path_follows[i-1].progress - cur_follow.progress <= CUSTOMER_WAITING_DISTANCE):
 				continue
 			if(cur_follow.progress_ratio + 0.001 > 1):
+				OrderController.someone_waiting = true
 				cur_follow.progress_ratio = 1
+			else:
+				cur_follow.progress_ratio += 0.001
+	for i in range(waiting_follows.size()):
+		if(!is_instance_valid(waiting_follows[i])): continue
+		var cur_follow :PathFollow3D = waiting_follows[i]
+		var customer :Customer = cur_follow.get_child(0)
+		if(!is_instance_valid(customer)): continue
+		if(cur_follow.progress_ratio < customer.waiting_pos_stop_value):
+			if(cur_follow.progress_ratio + 0.001 > customer.waiting_pos_stop_value):
+				cur_follow.progress_ratio = customer.waiting_pos_stop_value + 0.0001
+			else:
+				cur_follow.progress_ratio += 0.001
+		elif(cur_follow.progress_ratio < 1 and customer.can_leave):
+			if(cur_follow.progress_ratio + 0.001 > 1):
+				cur_follow.queue_free()
 			else:
 				cur_follow.progress_ratio += 0.001
 
@@ -56,29 +81,37 @@ func spawn_customer_if_possible():
 
 func get_wait_pos():
 	for pot_pos in waiting_pos_usage:
+		printt("Pre",pot_pos)
 		if(waiting_pos_usage.get(pot_pos) == null):
+			print("In",pot_pos)
 			return pot_pos
 
-
 func _got_order(le_order :Order):
-	var wait_pos = get_wait_pos()
+	var wait_pos :Path3D = get_wait_pos()
 	var customer :Customer = customers_inline[0]
 	customers_inline.erase(customer)
 	waiting_pos_usage[wait_pos] = customer
 	order_dict[le_order] = customer
 	
-	# Move customer to wait
 	var cust_par = customer.get_parent()
+	customer.wait_pos = wait_pos
 	cust_par.remove_child(customer)
 	path_follows.erase(cust_par)
 	cust_par.queue_free()
-	$WaitingPoss.add_child(customer)
 	
-	customer.set_waiting(wait_pos)
-
+	var path_follow := PathFollow3D.new()
+	wait_pos.add_child(path_follow)
+	path_follow.add_child(customer)
+	waiting_follows.append(path_follow)
+	customer.waiting_pos_stop_value = waiting_pos_stop_values[wait_pos.get_name()]
 
 func _failed_order(le_order :Order):
-	order_dict[le_order].angry()
+	var customer = order_dict[le_order]
+	waiting_pos_usage[customer.wait_pos] = null
+	print(waiting_pos_usage[customer.wait_pos])
+	customer.angry()
 
 func _finished_order(le_order :Order):
-	order_dict[le_order].happy()
+	var customer = order_dict[le_order]
+	waiting_pos_usage[customer.wait_pos] = null
+	customer.angry()

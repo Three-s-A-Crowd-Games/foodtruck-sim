@@ -1,16 +1,15 @@
 class_name Customer
 extends Node3D
 
-var wait_pos :Marker3D
+var wait_pos :Path3D
+var can_leave := false
+var waiting_pos_stop_value = 0.0
 
 func randomize_appearance():
 	pass
 
-func set_waiting(wait_pos :Marker3D):
-	self.wait_pos = wait_pos 
-
 func angry():
-	pass
+	can_leave = true
 
 func happy():
-	pass
+	can_leave = true

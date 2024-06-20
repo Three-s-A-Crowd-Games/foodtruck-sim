@@ -1,13 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpdsnivi17hj6"]
+[gd_scene load_steps=6 format=3 uid="uid://dpdsnivi17hj6"]
 
 [ext_resource type="Script" path="res://resources/customer_manager.gd" id="1_hd3vo"]
 
 [sub_resource type="Curve3D" id="Curve3D_jxtve"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0163665, 0, -0.0054841, 0.256338, -6.05583e-05, -0.101004, -0.256338, 6.05583e-05, 0.101004, -1.52229, 0, 0.515257, 0.438325, -6.05583e-05, -0.00246167, -0.438325, 6.05583e-05, 0.00246167, -2.42303, 0, 0.641923, 0.197417, -6.05583e-05, 0.0894587, -0.197417, 6.05583e-05, -0.0894587, -3.60526, 0, 0.458961, 0.155586, -6.05583e-05, 0.250246, -0.155586, 6.05583e-05, -0.250246, -3.89884, 0, 0.135257, 0, 0, 0, 0, 0, 0, -3.97118, 0, -0.82178),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -0.0163665, 0, -0.593276, 0.256338, -6.05583e-05, -0.101004, -0.256338, 6.05583e-05, 0.101004, -1.52229, 0, 0.515257, 0.438325, -6.05583e-05, -0.00246167, -0.438325, 6.05583e-05, 0.00246167, -2.42303, 0, 0.641923, 0.197417, -6.05583e-05, 0.0894587, -0.197417, 6.05583e-05, -0.0894587, -3.42955, 0, 0.458961, 0.155586, -6.05583e-05, 0.250246, -0.155586, 6.05583e-05, -0.250246, -3.76706, 0, 0.135257, 0, 0, 0, 0, 0, 0, -3.8394, 0, -0.82178),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
 }
 point_count = 6
+
+[sub_resource type="Curve3D" id="Curve3D_sbs6h"]
+_data = {
+"points": PackedVector3Array(0.069249, -5.04851e-05, 0.150997, -0.069249, 5.04851e-05, -0.150997, 0.814014, 0, -0.180154, -0.00667429, 5.04851e-05, 0.20476, 0.00667429, -5.04851e-05, -0.20476, 0, 0, 0, 0.130569, -7.15852e-05, 0.0520251, -0.130569, 7.15852e-05, -0.0520251, -0.11537, 0, -0.213653, 0.218606, -0.00016588, 0.193499, -0.218606, 0.00016588, -0.193499, -1.08276, 0, -0.317595, 0, 0, 0, 0, 0, 0, -1.51701, 0, -1.14333),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_vaf1e"]
+_data = {
+"points": PackedVector3Array(0.132981, 0, 0.322953, -0.132981, 0, -0.322953, 0.811333, 5.04851e-05, -0.718331, 0.0298526, -5.04851e-05, 0.236362, -0.0298526, 5.04851e-05, -0.236362, -0.322017, 0, 0, 0.15889, -0.000116289, 0.128896, -0.15889, 0.000116289, -0.128896, -0.320109, 0, -0.27925, 0.218606, -0.00016588, 0.193499, -0.218606, 0.00016588, -0.193499, -1.08276, 0, -0.317595, 0, 0, 0, 0, 0, 0, -1.51701, 0, -2.13477),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
+
+[sub_resource type="Curve3D" id="Curve3D_0u36i"]
+_data = {
+"points": PackedVector3Array(0.379945, 0, 0.207703, -0.379945, 0, -0.207703, 0.813773, 5.04851e-05, -1.25665, 0.0343817, -7.15852e-05, 0.383209, -0.0343817, 7.15852e-05, -0.383209, 0, 0, 0, 0.15889, -0.000116289, 0.128896, -0.15889, 0.000116289, -0.128896, -0.11537, 0, -0.213653, 0.218606, -0.00016588, 0.193499, -0.218606, 0.00016588, -0.193499, -1.08276, 0, -0.317595, 0, 0, 0, 0, 0, 0, -1.51701, 0, -2.49103),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0)
+}
+point_count = 5
 
 [node name="CustomerManager" type="Node3D"]
 script = ExtResource("1_hd3vo")
@@ -18,8 +39,14 @@ curve = SubResource("Curve3D_jxtve")
 
 [node name="WaitingPoss" type="Node3D" parent="."]
 
-[node name="Marker3D" type="Marker3D" parent="WaitingPoss"]
+[node name="Pos1" type="Path3D" parent="WaitingPoss"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.934, 0, 1.874)
+curve = SubResource("Curve3D_sbs6h")
 
-[node name="Marker3D2" type="Marker3D" parent="WaitingPoss"]
+[node name="Pos2" type="Path3D" parent="WaitingPoss"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.934, 0, 2.415)
+curve = SubResource("Curve3D_vaf1e")
 
-[node name="Marker3D3" type="Marker3D" parent="WaitingPoss"]
+[node name="Pos3" type="Path3D" parent="WaitingPoss"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.934, 0, 2.952)
+curve = SubResource("Curve3D_0u36i")

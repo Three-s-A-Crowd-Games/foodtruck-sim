@@ -5,17 +5,17 @@ const MAX_ORDER_NUM = 3
 var cur_number :int = 0
 var cur_orders :Array = []
 
-# This is temporary! Not needed after Customer is a thing!
-var orders_done :Array = []
+var someone_waiting = false
 
 signal created_order(le_order :Order)
 signal finished_order(le_order :Order)
 signal failed_order(le_order :Order)
 
 func create_new_order() -> Order:
-	if cur_orders.size() >= MAX_ORDER_NUM:
+	if cur_orders.size() >= MAX_ORDER_NUM or !someone_waiting:
 		return null
 	cur_number+=1
+	someone_waiting = false
 	var new_order = Order.create_order(cur_number)
 	cur_orders.append(new_order)
 	created_order.emit(new_order)
@@ -24,7 +24,6 @@ func create_new_order() -> Order:
 
 func finish_order(le_order :Order):
 	le_order.completed()
-	orders_done.append(le_order)
 	finished_order.emit(le_order)
 	cur_orders.erase(le_order)
 
