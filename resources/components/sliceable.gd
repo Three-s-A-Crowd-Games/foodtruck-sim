@@ -5,6 +5,9 @@ extends Area3D
 # Constraint: Sliceable objects only get shorter in their x direction from positiv to negativ
 #TODO: When the sliceable is facing downwards the slice might spawn beneath the ground an fall through
 
+var slice_thread :Thread
+var mutex := Mutex.new()
+
 var original_width: float
 var original_height: float
 var original_depth: float
@@ -51,8 +54,12 @@ var hard_soft_sound_threshold: float = 3
 
 @onready var _sliceable := get_parent()
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	slice_thread = Thread.new()
+	mutex = Mutex.new()
+	
 	if _mesh_node_or_parent is MeshInstance3D:
 		_mesh_node = _mesh_node_or_parent
 	else:
@@ -107,7 +114,7 @@ func _ready():
 				
 
 func _on_body_entered(body):
-	slice()
+	slice_thread.start(slice,Thread.PRIORITY_HIGH)
 	if body is RigidBody3D:
 		if body is XRToolsPickable and body.is_picked_up():
 			soft_player.play()
@@ -119,11 +126,18 @@ func _on_body_entered(body):
 	else:
 		soft_player.play()
 
+
 func slice():
+	mutex.lock()
 	if slices_left <= 1: return
+	mutex.unlock()
 	
 	var trans := _get_slice_transform()
-	var meshes := MeshSlicer.slice_mesh(trans, _mesh_node.mesh, cross_section_material)
+	var meshes = MeshSlicer.slice_mesh(trans, _mesh_node.mesh, cross_section_material)
+	call_deferred("slice_rest",meshes)
+	slice_thread.call_deferred("wait_to_finish")
+
+func slice_rest(meshes):
 	slices_left -= 1
 	_mesh_node.mesh = meshes[0]
 	_adjust_collision_shape(_sliceable, meshes[0])
@@ -271,3 +285,7 @@ func _get_configuration_warnings():
 		out.push_back("Please don't use 4 slices. For some unkown reason the tool doesn't work properly then.")
 	
 	return out
+
+# Thread must be disposed (or "joined"), for portability.
+func _exit_tree():
+	slice_thread.wait_to_finish()
