@@ -37,7 +37,6 @@ func _ready() -> void:
 			sauce_mat = load("res://assets/materials/bbq_sauce.tres")
 			bottom_mat = load("res://assets/materials/bbq_container.tres")
 		Ingredient.Type.MUSTARD:
-			print("Must")
 			sauce_mat = load("res://assets/materials/mustard.tres")
 			bottom_mat = load("res://assets/materials/mustard_container.tres")
 		_:
