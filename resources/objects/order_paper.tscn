@@ -3,16 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_w8jc1"]
 [ext_resource type="Script" path="res://resources/objects/order_paper.gd" id="2_2ocj2"]
 [ext_resource type="PackedScene" uid="uid://2g8x3ig1f60s" path="res://assets/models/objects/appliances/order_paper.blend" id="2_vsmju"]
-[ext_resource type="Texture2D" uid="uid://foq8jda2ks2h" path="res://assets/2d_images/order_paper/hor_line.png" id="3_iy8as"]
-[ext_resource type="Texture2D" uid="uid://elpp0e3oghtm" path="res://assets/2d_images/order_paper/top_bun.png" id="3_jmbbx"]
+[ext_resource type="Texture2D" uid="uid://foq8jda2ks2h" path="res://assets/2d_images/order_paper_old/hor_line.png" id="3_iy8as"]
+[ext_resource type="Texture2D" uid="uid://elpp0e3oghtm" path="res://assets/2d_images/order_paper_old/top_bun.png" id="3_jmbbx"]
 [ext_resource type="FontFile" uid="uid://c5xnb0e4ayhje" path="res://assets/font/AgencyFB-Bold.ttf" id="3_k5mp3"]
-[ext_resource type="Texture2D" uid="uid://cg6cdi2wtmu2n" path="res://assets/2d_images/order_paper/patty.png" id="4_xdn1k"]
-[ext_resource type="Texture2D" uid="uid://dt3ehibhxupn3" path="res://assets/2d_images/order_paper/bottom_bun.png" id="5_hiip3"]
-[ext_resource type="Texture2D" uid="uid://ccnl1qecnode7" path="res://assets/2d_images/order_paper/empty.png" id="6_6eprl"]
-[ext_resource type="Texture2D" uid="uid://daqop2oe4e3by" path="res://assets/2d_images/order_paper/fries.png" id="6_aavxt"]
-[ext_resource type="Texture2D" uid="uid://xleef2r4k2gw" path="res://assets/2d_images/order_paper/water.png" id="7_be41q"]
-[ext_resource type="Texture2D" uid="uid://1xn1yfon2ed7" path="res://assets/2d_images/order_paper/hor_line_seg.png" id="8_flura"]
-[ext_resource type="Texture2D" uid="uid://5qte4djdq84m" path="res://assets/2d_images/order_paper/ver_line_con.png" id="10_54xfx"]
+[ext_resource type="Texture2D" uid="uid://cg6cdi2wtmu2n" path="res://assets/2d_images/order_paper_old/patty.png" id="4_xdn1k"]
+[ext_resource type="Texture2D" uid="uid://dt3ehibhxupn3" path="res://assets/2d_images/order_paper_old/bottom_bun.png" id="5_hiip3"]
+[ext_resource type="Texture2D" uid="uid://ccnl1qecnode7" path="res://assets/2d_images/order_paper_old/empty.png" id="6_6eprl"]
+[ext_resource type="Texture2D" uid="uid://cduofta2rct2x" path="res://assets/2d_images/order_paper/fries.png" id="6_aavxt"]
+[ext_resource type="Texture2D" uid="uid://1xn1yfon2ed7" path="res://assets/2d_images/order_paper_old/hor_line_seg.png" id="8_flura"]
+[ext_resource type="Texture2D" uid="uid://5qte4djdq84m" path="res://assets/2d_images/order_paper_old/ver_line_con.png" id="10_54xfx"]
+[ext_resource type="Texture2D" uid="uid://1h1mk3w162y1" path="res://assets/2d_images/order_paper/green_juice.png" id="12_gaxr4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ysdl4"]
 size = Vector3(0.201714, 0.030304, 0.380251)
@@ -175,6 +175,7 @@ stretch_mode = 3
 [node name="MainLayout" type="VBoxContainer" parent="OrderViewport/PaperLayout" index="2"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
+theme_override_constants/separation = 0
 
 [node name="TextureRect" type="TextureRect" parent="OrderViewport/PaperLayout/MainLayout" index="0"]
 visible = false
@@ -231,7 +232,7 @@ stretch_mode = 3
 [node name="DrinkTexTest" type="TextureRect" parent="OrderViewport/PaperLayout/CenterExtras/ExtrasContainer" index="4"]
 visible = false
 layout_mode = 2
-texture = ExtResource("7_be41q")
+texture = ExtResource("12_gaxr4")
 stretch_mode = 3
 
 [node name="Sprite3D" type="Sprite3D" parent="." index="2"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://foq8jda2ks2h"
-path="res://.godot/imported/hor_line.png-8ddd25909614612ee602fe6ebbf002fa.ctex"
+uid="uid://qveschk0mx1a"
+path="res://.godot/imported/coke.png-89ca165770001bef26c6450b286affb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d_images/order_paper/hor_line.png"
-dest_files=["res://.godot/imported/hor_line.png-8ddd25909614612ee602fe6ebbf002fa.ctex"]
+source_file="res://assets/2d_images/order_paper_old/coke.png"
+dest_files=["res://.godot/imported/coke.png-89ca165770001bef26c6450b286affb4.ctex"]
 
 [params]
 
