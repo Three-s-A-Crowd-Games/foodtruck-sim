@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://vb88b4k65xny"]
+[gd_scene load_steps=11 format=3 uid="uid://vb88b4k65xny"]
 
 [ext_resource type="Script" path="res://resources/objects/appliances/fridge.gd" id="1_f8mbw"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="2_1foms"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="5_onvuc"]
 [ext_resource type="PackedScene" uid="uid://uka8fkdexvy2" path="res://assets/models/objects/furniture/fridge_bottom.blend" id="6_2ooe4"]
 [ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="6_r3kjv"]
+[ext_resource type="AudioStream" uid="uid://ccwq7dliyf14f" path="res://audio/ambience/fridge.mp3" id="8_0aexw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gehbk"]
 size = Vector3(0.295508, 0.0639313, 0.0889526)
@@ -117,10 +118,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, 0.197262)
 
 [node name="fridge-v2-bottom" parent="." instance=ExtResource("6_2ooe4")]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="InteractionSFX" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912068, -0.260591)
 pitch_scale = 0.8
 bus = &"SFX"
+
+[node name="Ambience" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_0aexw")
+volume_db = -15.0
+pitch_scale = 0.8
+autoplay = true
+bus = &"Ambience"
 
 [connection signal="hinge_moved" from="HandleGrabber/XRToolsInteractableHinge" to="." method="_on_xr_tools_interactable_hinge_hinge_moved"]
 [connection signal="body_exited" from="PattyCabinet/ExitDetector" to="PattyCabinet/Content" method="_on_exit_detector_body_exited"]

@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var is_open := false
-@onready var audio_player := $AudioStreamPlayer3D
+@onready var audio_player := $InteractionSFX
 @export var sound_open: AudioStream = preload("res://audio/object_interaction/fridge/fridge-open.mp3")
 @export var sound_close: AudioStream = preload("res://audio/object_interaction/fridge/fridge-close.mp3")
 
