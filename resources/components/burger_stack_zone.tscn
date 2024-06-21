@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4ldylr6ugs4s"]
+[gd_scene load_steps=5 format=3 uid="uid://c4ldylr6ugs4s"]
 
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_ix4ty"]
 [ext_resource type="Script" path="res://resources/components/burger_stack_zone.gd" id="2_enjaw"]
+[ext_resource type="AudioStream" uid="uid://cw0b2iwt6v05s" path="res://audio/object_interaction/stacking/stacking4.mp3" id="3_ftye4"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gs2hq"]
 height = 0.04
@@ -9,8 +10,12 @@ radius = 0.06
 
 [node name="BurgerStackZone" instance=ExtResource("1_ix4ty")]
 script = ExtResource("2_enjaw")
+stash_sound = ExtResource("3_ftye4")
 snap_require = "burger_part"
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 0)
 shape = SubResource("CylinderShape3D_gs2hq")
+
+[node name="AudioStreamPlayer3D" parent="." index="1"]
+bus = &"SFX"
