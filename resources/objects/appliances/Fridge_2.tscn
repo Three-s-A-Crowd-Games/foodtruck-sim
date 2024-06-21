@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://vb88b4k65xny"]
+[gd_scene load_steps=10 format=3 uid="uid://vb88b4k65xny"]
 
+[ext_resource type="Script" path="res://resources/objects/appliances/fridge.gd" id="1_f8mbw"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="2_1foms"]
 [ext_resource type="PackedScene" uid="uid://3osplhacfbif" path="res://assets/models/objects/furniture/fridge_lid.blend" id="3_p7rys"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="4_nr872"]
@@ -15,6 +16,7 @@ resource_local_to_scene = true
 size = Vector3(0.213088, 0.0203809, 0.693116)
 
 [node name="Fridge" type="Node3D"]
+script = ExtResource("1_f8mbw")
 
 [node name="HandleGrabber" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912131, 0.41992)
@@ -115,4 +117,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, 0.197262)
 
 [node name="fridge-v2-bottom" parent="." instance=ExtResource("6_2ooe4")]
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912068, -0.260591)
+pitch_scale = 0.8
+bus = &"SFX"
+
+[connection signal="hinge_moved" from="HandleGrabber/XRToolsInteractableHinge" to="." method="_on_xr_tools_interactable_hinge_hinge_moved"]
 [connection signal="body_exited" from="PattyCabinet/ExitDetector" to="PattyCabinet/Content" method="_on_exit_detector_body_exited"]
