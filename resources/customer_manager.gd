@@ -64,6 +64,7 @@ func advance_path_follows():
 				cur_follow.progress_ratio += 0.001
 		elif(cur_follow.progress_ratio < 1 and customer.can_leave):
 			if(cur_follow.progress_ratio + 0.001 > 1):
+				if customer.tray != null: customer.tray.nuke()
 				cur_follow.queue_free()
 			else:
 				cur_follow.progress_ratio += 0.001
@@ -114,4 +115,4 @@ func _failed_order(le_order :Order):
 func _finished_order(le_order :Order):
 	var customer = order_dict[le_order]
 	waiting_pos_usage[customer.wait_pos] = null
-	customer.angry()
+	customer.happy(le_order.tray)

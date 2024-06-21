@@ -9,4 +9,5 @@ script = ExtResource("1_p13s8")
 [node name="customer" parent="." instance=ExtResource("1_7apah")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.44577, 0)
 
-[node name="Marker3D" type="Marker3D" parent="."]
+[node name="TrayCarrier" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49763, -0.473551)
