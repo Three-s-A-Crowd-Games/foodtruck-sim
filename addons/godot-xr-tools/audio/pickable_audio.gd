@@ -12,7 +12,10 @@ extends AudioStreamPlayer3D
 
 
 ## XRToolsPickableAudioType to associate with this pickable
-@export var pickable_audio_type  : XRToolsPickableAudioType
+@export var pickable_audio_type  : XRToolsPickableAudioType:
+	set(value):
+		pickable_audio_type = value
+		update_configuration_warnings()
 
 ## delta throttle is 1/10 of delta
 @onready var delta_throttle : float = 0.1
@@ -27,6 +30,7 @@ func is_xr_class(name : String) -> bool:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if Engine.is_editor_hint(): return
 	# Listen for when this object enters a body
 	_pickable.body_entered.connect(_on_body_entered)
 	# Listen for when this object is picked up or dropped
@@ -35,6 +39,7 @@ func _ready() -> void:
 
 
 func _physics_process(_delta):
+	if Engine.is_editor_hint(): return
 	if !_pickable.sleeping:
 		if _pickable.linear_velocity.length() > 5:
 			volume_db = 0
@@ -44,6 +49,8 @@ func _physics_process(_delta):
 
 # Called when this object is picked up
 func _on_picked_up(_pickable) -> void:
+	if not pickable_audio_type or not pickable_audio_type.grab_sound:
+		return
 	volume_db = 0
 	if playing:
 		stop()
@@ -59,11 +66,13 @@ func _on_dropped(_pickable) -> void:
 
 
 func _on_body_entered(_body):
+	if not pickable_audio_type:
+		return
 	if playing:
 			stop()
-	if _pickable.is_picked_up():
+	if _pickable.is_picked_up() and pickable_audio_type.hit_sound:
 		stream = pickable_audio_type.hit_sound
-	else:
+	elif pickable_audio_type.drop_sound:
 		stream = pickable_audio_type.drop_sound
 	play()
 
