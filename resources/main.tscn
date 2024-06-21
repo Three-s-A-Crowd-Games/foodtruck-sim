@@ -18,15 +18,15 @@
 [ext_resource type="PackedScene" uid="uid://witvb00gyysp" path="res://assets/models/objects/appliances/fries_box.blend" id="16_c4lkf"]
 [ext_resource type="PackedScene" uid="uid://dqu2cm5yrrt54" path="res://resources/objects/accessoires/friesbox.tscn" id="16_t2krs"]
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
-[ext_resource type="PackedScene" uid="uid://d088mil7a0mga" path="res://resources/objects/appliances/sauce_container.tscn" id="17_117gm"]
+[ext_resource type="PackedScene" path="res://resources/objects/appliances/sauce_container.tscn" id="17_117gm"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="18_wcr04"]
 [ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="19_5w3yg"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="19_24xoq"]
-[ext_resource type="PackedScene" uid="uid://dy8lnrkp88fju" path="res://resources/objects/next_order_button.tscn" id="21_pidlo"]
+[ext_resource type="PackedScene" path="res://resources/objects/next_order_button.tscn" id="21_pidlo"]
 [ext_resource type="PackedScene" uid="uid://cyquot0luo414" path="res://resources/special_areas/pinning_area.tscn" id="21_x5e2k"]
 [ext_resource type="PackedScene" uid="uid://oefjh0xalhqn" path="res://assets/models/objects/furniture/pin-board.blend" id="22_17cek"]
-[ext_resource type="PackedScene" uid="uid://c3qt746s7dnh3" path="res://resources/objects/cash_register.tscn" id="23_5npd4"]
-[ext_resource type="PackedScene" uid="uid://b1gbpv13fh1ap" path="res://resources/objects/accessoires/plate.tscn" id="24_pblrq"]
+[ext_resource type="PackedScene" path="res://resources/objects/cash_register.tscn" id="23_5npd4"]
+[ext_resource type="PackedScene" path="res://resources/objects/accessoires/plate.tscn" id="24_pblrq"]
 [ext_resource type="PackedScene" uid="uid://clf7iny7d8p84" path="res://resources/objects/furniture/cheese_block.tscn" id="28_vu0rv"]
 [ext_resource type="PackedScene" uid="uid://c0brq67lg35qy" path="res://resources/objects/furniture/lettuce_block.tscn" id="29_ce0ft"]
 [ext_resource type="PackedScene" uid="uid://ri8whwljtqxn" path="res://resources/objects/furniture/tv_screen.tscn" id="30_3c70x"]
@@ -141,11 +141,19 @@ collision_mask = 524289
 [node name="left-wall" parent="Truck/truck_v1" index="1"]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -1.275, 1.05, 0)
 
+[node name="StaticBody3D" parent="Truck/truck_v1/left-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
+
 [node name="StaticBody3D" parent="Truck/truck_v1/front-wall" index="0"]
 collision_layer = 8388609
 collision_mask = 524289
 
 [node name="StaticBody3D" parent="Truck/truck_v1/bottom-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
+
+[node name="StaticBody3D" parent="Truck/truck_v1/back-wall" index="0"]
 collision_layer = 8388609
 collision_mask = 524289
 

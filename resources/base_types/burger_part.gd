@@ -9,7 +9,7 @@ enum FlipState {FLIPPED=-1, UNFLIPPED=1}
 var flipped_state: FlipState = FlipState.UNFLIPPED
 var stack_zone_distance: float
 var height: float
-var burger_part_seperation_distance = 0.005 # TODO: find the smallest possible value
+var burger_part_seperation_distance = 0.01
 var is_reversing := false
 var sauced :Ingredient.Type = -1
 var original_center_of_mass := Vector3.ZERO
