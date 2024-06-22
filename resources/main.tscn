@@ -99,7 +99,7 @@ camera_attributes = SubResource("CameraAttributesPhysical_vmgr7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.80519, 0.312031, -0.504287, 0.178342, 0.683596, 0.707736, 0.565564, -0.659798, 0.494777, -3.88802, 7.74142, 6.44357)
-light_intensity_lux = 54545.5
+light_intensity_lux = 18487.8
 shadow_enabled = true
 directional_shadow_mode = 1
 
@@ -177,41 +177,41 @@ collision_layer = 8388609
 collision_mask = 524289
 
 [node name="Point" parent="Truck/truck_v1" index="6"]
-light_energy = 2000.0
+light_energy = 1000.0
 shadow_enabled = true
 omni_range = 2.848
 omni_attenuation = 1.93187
 
 [node name="Point2" parent="Truck/truck_v1/Collection" index="6"]
-light_energy = 100.0
+light_energy = 75.0
 omni_range = 0.67
 
 [node name="Point_001" parent="Truck/truck_v1/Collection" index="7"]
-light_energy = 100.0
+light_energy = 75.0
 omni_range = 0.67
 
 [node name="Point_002" parent="Truck/truck_v1/Collection" index="8"]
-light_energy = 100.0
+light_energy = 75.0
 omni_range = 0.67
 
 [node name="Point_003" parent="Truck/truck_v1/Collection" index="9"]
-light_energy = 100.0
+light_energy = 75.0
 omni_range = 0.67
 
 [node name="Point_004" parent="Truck/truck_v1/Collection" index="10"]
-light_energy = 100.0
+light_energy = 75.0
 omni_range = 0.67
 
 [node name="Point_005" parent="Truck/truck_v1/Collection" index="11"]
-light_energy = 100.0
+light_energy = 75.0
 omni_range = 0.67
 
 [node name="Point_006" parent="Truck/truck_v1/Collection" index="12"]
-light_energy = 100.0
+light_energy = 75.0
 omni_range = 0.67
 
 [node name="Point_007" parent="Truck/truck_v1/Collection" index="13"]
-light_energy = 100.0
+light_energy = 75.0
 omni_range = 0.67
 
 [node name="Stove" parent="Truck" instance=ExtResource("4_1mh3m")]
