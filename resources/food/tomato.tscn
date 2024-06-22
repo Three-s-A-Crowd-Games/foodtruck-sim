@@ -94,7 +94,7 @@ collision_mask = 8519687
 mass = 0.2
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 0.06, 0)
-angular_damp = 21.078
+angular_damp = 21.0
 type = 4
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -115,7 +115,6 @@ mesh = SubResource("ArrayMesh_7xr3r")
 cross_section_material = ExtResource("4_km1be")
 slice_count = 6
 _mesh_node_or_parent = NodePath("../tomato2/tomato")
-remain_shape = "BoxShape3D"
 mesh_node_to_delete = NodePath("../tomato2/tomato_stem")
 delete_slice_count = 3
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=53 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -33,6 +33,8 @@
 [ext_resource type="PackedScene" uid="uid://ri8whwljtqxn" path="res://resources/objects/furniture/tv_screen.tscn" id="30_3c70x"]
 [ext_resource type="PackedScene" uid="uid://dpdsnivi17hj6" path="res://resources/customer_system/customer_manager.tscn" id="31_qvdth"]
 [ext_resource type="PackedScene" uid="uid://iut5v7hlcdcc" path="res://assets/models/objects/appliances/cutting_board.blend" id="33_ox6ib"]
+[ext_resource type="PackedScene" uid="uid://dec5p1w8uxafs" path="res://resources/food/onion.tscn" id="34_7crlg"]
+[ext_resource type="PackedScene" uid="uid://dvrvbjk0evblt" path="res://resources/food/cucumber.tscn" id="34_gppqg"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -89,6 +91,12 @@ size = Vector3(0.0147419, 0.231293, 0.830749)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mm4js"]
 size = Vector3(0.44519, 0.0537109, 1.21478)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ayldn"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c8ojw"]
+size = Vector3(0.16, 0.11, 0.07)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_d3g8y")
@@ -311,7 +319,7 @@ transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819
 le_sauce_type_primitive = "MUSTARD"
 
 [node name="Knife" parent="." instance=ExtResource("18_wcr04")]
-transform = Transform3D(0.928505, 0, 0.371319, 0, 1, 0, -0.371319, 0, 0.928505, -1.00024, 1.7495, -0.143541)
+transform = Transform3D(0.928505, 0, 0.371319, 0, 1, 0, -0.371319, 0, 0.928505, -1.00024, 1.76358, -0.143541)
 
 [node name="TomatoSpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.760213, 2.52801, -0.867288)
@@ -397,11 +405,45 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114324, 0.750915, 0.797968
 [node name="cutting_board" parent="." instance=ExtResource("33_ox6ib")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.02526, 1.72365, 0.163604)
 
+[node name="OnionSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12368, 2.51591, -0.0336269)
+script = ExtResource("14_83ec4")
+item_scene = ExtResource("34_7crlg")
+
+[node name="Onion" parent="OnionSpawner" instance=ExtResource("34_7crlg")]
+
+[node name="ExitDetector" type="Area3D" parent="OnionSpawner"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OnionSpawner/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0358591, 0)
+shape = SubResource("BoxShape3D_ayldn")
+
+[node name="CucumberSpawner" type="Node3D" parent="."]
+transform = Transform3D(0.0171732, 0, 0.999853, 0, 1, 0, -0.999853, 0, 0.0171732, -1.08623, 2.55112, 0.388385)
+script = ExtResource("14_83ec4")
+item_scene = ExtResource("34_gppqg")
+
+[node name="Cucumber" parent="CucumberSpawner" instance=ExtResource("34_gppqg")]
+
+[node name="ExitDetector" type="Area3D" parent="CucumberSpawner"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CucumberSpawner/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0299165, 0)
+shape = SubResource("BoxShape3D_c8ojw")
+
 [connection signal="body_exited" from="TraySpawner/ExitDetector" to="TraySpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="FriesboxSpawner/ExitDetector" to="FriesboxSpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="PlateSpawner/ExitDetector" to="PlateSpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="TomatoSpawner/ExitDetector" to="TomatoSpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="PotatoSpawner/ExitDetector" to="PotatoSpawner" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="OnionSpawner/ExitDetector" to="OnionSpawner" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="CucumberSpawner/ExitDetector" to="CucumberSpawner" method="_on_exit_detector_body_exited"]
 
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
