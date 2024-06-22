@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0e07jtb6csss"]
+
+[ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_vy2us"]
+[ext_resource type="Script" path="res://resources/food/burger_parts/bacon.gd" id="2_33s8p"]
+[ext_resource type="Script" path="res://resources/components/cookable.gd" id="2_oxljt"]
+[ext_resource type="PackedScene" uid="uid://c85j7r5doto0k" path="res://assets/models/food/bacon.blend" id="3_xyda1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_owlsw"]
+size = Vector3(0.0399561, 0.00951172, 0.155)
+
+[node name="Bacon" instance=ExtResource("1_vy2us")]
+script = ExtResource("2_33s8p")
+type = 20
+
+[node name="bacon" parent="." index="0" instance=ExtResource("3_xyda1")]
+
+[node name="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000207521, 0.0037793, 0)
+shape = SubResource("BoxShape3D_owlsw")
+
+[node name="Cookable" type="Node" parent="." index="3"]
+script = ExtResource("2_oxljt")
+
+[connection signal="cooked_status_changed" from="Cookable" to="." method="_on_cookable_cooked_status_changed"]
+
+[editable path="bacon"]

@@ -10,7 +10,6 @@ size = Vector3(0.0998878, 0.109802, 0.0681418)
 
 [node name="Fries" groups=["fries"] instance=ExtResource("1_layyi")]
 mass = 0.2
-continuous_cd = true
 script = ExtResource("2_4xiem")
 type = 3
 
