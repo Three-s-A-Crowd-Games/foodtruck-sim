@@ -278,3 +278,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.066, 0, 0.05)
 [connection signal="body_exited" from="Content/OrangeArea/ExitDetector" to="Content/OrangeArea" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="Content/GreenArea/ExitDetector" to="Content/GreenArea" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="Content/PinkArea/ExitDetector" to="Content/PinkArea" method="_on_exit_detector_body_exited"]
+
+[editable path="drinks_fridge"]
