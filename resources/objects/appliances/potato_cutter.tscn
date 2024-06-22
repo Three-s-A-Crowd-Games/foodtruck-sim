@@ -15,7 +15,7 @@ size = Vector3(0.13, 0.16, 0.14)
 [node name="PotatoCutter" type="Node3D"]
 script = ExtResource("1_u3en0")
 
-[node name="potato_cutter_bottom" type="Node3D" parent="." instance=ExtResource("1_f1lyt")]
+[node name="potato_cutter_bottom" parent="." instance=ExtResource("1_f1lyt")]
 
 [node name="SliderOrigin" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.300236, 0.0892264)
@@ -37,7 +37,7 @@ ranged_grab_method = 0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00116211, 0, 0)
 shape = SubResource("BoxShape3D_yp4h6")
 
-[node name="potato_cutter_top" type="Node3D" parent="SliderOrigin/InteractableSlider" instance=ExtResource("2_p1ha5")]
+[node name="potato_cutter_top" parent="SliderOrigin/InteractableSlider" instance=ExtResource("2_p1ha5")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.300236, 1.31237e-08, -0.0892264)
 
 [node name="Area3D" type="Area3D" parent="."]
