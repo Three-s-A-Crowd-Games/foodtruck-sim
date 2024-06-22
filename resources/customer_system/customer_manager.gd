@@ -38,36 +38,37 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	advance_path_follows()
+	advance_path_follows(delta)
 
-func advance_path_follows():
+func advance_path_follows(delta: float):
+	delta /= 8
 	for i in range(path_follows.size()):
 		var cur_follow :PathFollow3D = path_follows[i]
 		if(cur_follow.progress_ratio < 1):
 			#Check if customer infront
 			if(i != 0 and path_follows[i-1].progress - cur_follow.progress <= CUSTOMER_WAITING_DISTANCE):
 				continue
-			if(cur_follow.progress_ratio + 0.001 > 1):
+			if(cur_follow.progress_ratio + delta > 1):
 				OrderController.someone_waiting = true
 				cur_follow.progress_ratio = 1
 			else:
-				cur_follow.progress_ratio += 0.001
+				cur_follow.progress_ratio += delta
 	for i in range(waiting_follows.size()):
 		if(!is_instance_valid(waiting_follows[i])): continue
 		var cur_follow :PathFollow3D = waiting_follows[i]
 		var customer :Customer = cur_follow.get_child(0)
 		if(!is_instance_valid(customer)): continue
 		if(cur_follow.progress_ratio < customer.waiting_pos_stop_value):
-			if(cur_follow.progress_ratio + 0.001 > customer.waiting_pos_stop_value):
+			if(cur_follow.progress_ratio + delta > customer.waiting_pos_stop_value):
 				cur_follow.progress_ratio = customer.waiting_pos_stop_value + 0.0001
 			else:
-				cur_follow.progress_ratio += 0.001
+				cur_follow.progress_ratio += delta
 		elif(cur_follow.progress_ratio < 1 and customer.can_leave):
-			if(cur_follow.progress_ratio + 0.001 > 1):
+			if(cur_follow.progress_ratio + delta > 1):
 				if customer.tray != null: customer.tray.nuke()
 				cur_follow.queue_free()
 			else:
-				cur_follow.progress_ratio += 0.001
+				cur_follow.progress_ratio += delta
 
 func spawn_customer_if_possible():
 	if customers_inline.size() < MAX_CUSTOMER_WAITING:
