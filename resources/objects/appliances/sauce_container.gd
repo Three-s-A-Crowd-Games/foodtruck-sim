@@ -26,7 +26,6 @@ func _ready() -> void:
 	floor_sauce_timer.timeout.connect(reset_floor_sauce)
 	
 	le_sauce_type = Ingredient.Type.get(le_sauce_type_primitive)
-	print(le_sauce_type)
 	
 	# Figure out materials
 	match le_sauce_type:

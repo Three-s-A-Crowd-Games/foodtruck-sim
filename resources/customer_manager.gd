@@ -82,9 +82,7 @@ func spawn_customer_if_possible():
 
 func get_wait_pos():
 	for pot_pos in waiting_pos_usage:
-		printt("Pre",pot_pos)
 		if(waiting_pos_usage.get(pot_pos) == null):
-			print("In",pot_pos)
 			return pot_pos
 
 func _got_order(le_order :Order):
@@ -109,7 +107,6 @@ func _got_order(le_order :Order):
 func _failed_order(le_order :Order):
 	var customer = order_dict[le_order]
 	waiting_pos_usage[customer.wait_pos] = null
-	print(waiting_pos_usage[customer.wait_pos])
 	customer.angry()
 
 func _finished_order(le_order :Order):
