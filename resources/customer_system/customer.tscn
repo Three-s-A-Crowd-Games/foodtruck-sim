@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjktikbqp1p4y"]
+
+[ext_resource type="PackedScene" uid="uid://dopbl6b12qe71" path="res://assets/models/customer.blend" id="1_7apah"]
+[ext_resource type="Script" path="res://resources/customer_system/customer.gd" id="1_p13s8"]
+
+[node name="Customer" type="Node3D"]
+script = ExtResource("1_p13s8")
+
+[node name="customer" parent="." instance=ExtResource("1_7apah")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1.44577, 0)
+
+[node name="TrayCarrier" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49763, -0.473551)
+
+[editable path="customer"]
