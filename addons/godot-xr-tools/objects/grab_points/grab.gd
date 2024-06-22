@@ -138,9 +138,10 @@ func release() -> void:
 		what.remove_collision_exception_with(collision_hand)
 		collision_hand.remove_collision_exception_with(what)
 
-	# Report the release
-	print_verbose("%s> released by %s", [what.name, by.name])
-	what.released.emit(what, by)
+	if is_instance_valid(what) and is_instance_valid(by):
+		# Report the release
+		print_verbose("%s> released by %s", [what.name, by.name])
+		what.released.emit(what, by)
 
 
 # Set hand-pose overrides

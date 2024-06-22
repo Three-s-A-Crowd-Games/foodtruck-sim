@@ -622,4 +622,3 @@ static func _line_plane_intersection(line_start:Vector3,line_end:Vector3,plane_a
 	if k >= 0 and k <= 1:
 		return round((line_start + k * v)*10000)/10000
 	return null
-

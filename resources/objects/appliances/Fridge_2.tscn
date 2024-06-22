@@ -12,7 +12,7 @@ size = Vector3(0.295508, 0.0639313, 0.0889526)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2wavr"]
 resource_local_to_scene = true
-size = Vector3(0.213088, 0.0203809, 0.693116)
+size = Vector3(0.213088, 0.363706, 0.591004)
 
 [node name="Fridge" type="Node3D"]
 
@@ -28,14 +28,13 @@ hinge_limit_max = 60.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0416747, -0.842778)
 
 [node name="XRToolsInteractableHandle" type="RigidBody3D" parent="HandleGrabber/XRToolsInteractableHinge/HandleOrigin"]
-collision_layer = 4
+collision_layer = 262144
 collision_mask = 0
 gravity_scale = 0.0
 freeze = true
 freeze_mode = 1
 script = ExtResource("4_nr872")
 release_mode = 1
-ranged_grab_method = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HandleGrabber/XRToolsInteractableHinge/HandleOrigin/XRToolsInteractableHandle"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0113084, 0.00747997, 0.0384398)
@@ -53,7 +52,7 @@ collision_mask = 65536
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PattyCabinet/ExitDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.246066, -0.15193, -0.00929922)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229162, -0.387957, 0.00934714)
 shape = SubResource("BoxShape3D_2wavr")
 
 [node name="Content" type="Node3D" parent="PattyCabinet"]
@@ -64,7 +63,7 @@ item_scene = ExtResource("6_r3kjv")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.575501, -0.204802)
 
 [node name="Patty2" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.575501, 0.00219113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.575501, -0.079995)
 
 [node name="Patty3" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.575501, 0.197262)
@@ -73,7 +72,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.575501, 0.197262)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.613571, -0.204802)
 
 [node name="Patty5" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.613571, 0.00219113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.613571, -0.079995)
 
 [node name="Patty6" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.613571, 0.197262)
@@ -82,7 +81,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.613571, 0.197262)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.651643, -0.204802)
 
 [node name="Patty8" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.651643, 0.00219113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.651643, -0.079995)
 
 [node name="Patty9" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.651643, 0.197262)
@@ -91,7 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.651643, 0.197262)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.689214, -0.204802)
 
 [node name="Patty11" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.689214, 0.00219113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.689214, -0.079995)
 
 [node name="Patty12" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.689214, 0.197262)
@@ -100,7 +99,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.689214, 0.197262)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.726509, -0.204802)
 
 [node name="Patty14" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.726509, 0.00219113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.726509, -0.079995)
 
 [node name="Patty15" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.726509, 0.197262)
@@ -109,10 +108,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.726509, 0.197262)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, -0.204802)
 
 [node name="Patty17" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, 0.00219113)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, -0.079995)
 
 [node name="Patty18" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, 0.197262)
+
+[node name="Patty19" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.575501, 0.0565019)
+
+[node name="Patty20" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.613571, 0.0565019)
+
+[node name="Patty21" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.651643, 0.0565019)
+
+[node name="Patty22" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.689214, 0.0565019)
+
+[node name="Patty23" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.726509, 0.0565019)
+
+[node name="Patty24" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, 0.0565019)
 
 [node name="fridge-v2-bottom" parent="." instance=ExtResource("6_2ooe4")]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wqifidp1mmv6" path="res://assets/models/objects/furniture/stove.blend" id="1_7ipw7"]
 [ext_resource type="Script" path="res://resources/objects/appliances/stove.gd" id="1_jta84"]
-[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="2_kuxf2"]
+[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/special_areas/cooking_area.tscn" id="2_kuxf2"]
 [ext_resource type="Script" path="res://resources/objects/appliances/KnobTurner.gd" id="3_4xfrm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ypmn"]
@@ -26,7 +26,7 @@ shape = SubResource("BoxShape3D_6ypmn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.278176, 0.943593, -0.395432)
 
 [node name="KnobTurner" type="RigidBody3D" parent="KnobOrigin"]
-collision_layer = 4
+collision_layer = 262144
 collision_mask = 0
 gravity_scale = 0.0
 freeze = true

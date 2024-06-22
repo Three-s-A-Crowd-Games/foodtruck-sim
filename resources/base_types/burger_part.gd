@@ -9,7 +9,7 @@ enum FlipState {FLIPPED=-1, UNFLIPPED=1}
 var flipped_state: FlipState = FlipState.UNFLIPPED
 var stack_zone_distance: float
 var height: float
-var burger_part_seperation_distance = 0.02 # TODO: find the smallest possible value
+var burger_part_seperation_distance = 0.01
 var is_reversing := false
 var sauced :Ingredient.Type = -1
 var original_center_of_mass := Vector3.ZERO
@@ -29,13 +29,15 @@ func _ready():
 	var mesh_nodes = find_children("*", "MeshInstance3D", true, false)
 	assert(mesh_nodes.size() == 1, "This Burger Part has either 0 or more than one mesh nodes, which can't be handled so far.")
 	var mesh_node: MeshInstance3D = mesh_nodes[0]
-	height = mesh_node.mesh.get_aabb().size.y
+	var aabb = mesh_node.mesh.get_aabb()
+	height = aabb.size.y
 	if mesh_node.get_parent() == self:
 		stack_zone_distance = height + mesh_node.position.y
 	else:
 		stack_zone_distance = height + mesh_node.get_parent().position.y
 	
 	original_center_of_mass.y = stack_zone_distance - height/2
+	stack_zone_distance += aabb.position.y
 	stack_zone_distance += burger_part_seperation_distance
 	stack_zone.position.y = stack_zone_distance
 	
@@ -43,7 +45,7 @@ func _ready():
 	
 
 func _process(_delta):
-	if is_stack_root and adjust_flip():
+	if is_stack_root and adjust_flip() and (not is_picked_up() or get_picked_up_by() is XRToolsFunctionPickup):
 		_reverse_stack(_grab_driver.primary.pickup if _grab_driver else null)
 		get_stack_root()._recalculate_mass()
 	

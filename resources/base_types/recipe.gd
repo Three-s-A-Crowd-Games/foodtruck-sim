@@ -52,7 +52,7 @@ static func create_recipe(type: Type) -> Recipe:
 	var new_recipe :=  Recipe.new()
 	new_recipe.type = type
 	var min_amount := 0
-	var max_amount := INF
+	var max_amount := 12
 	var possible_ingredients: Array
 	
 	# gather all the ingredients that can be used for this type of recipe
@@ -65,8 +65,6 @@ static func create_recipe(type: Type) -> Recipe:
 	# Check if this recipe type has the MAXIMUM_AMOUNT constraint
 	if recipes[type].has(Constraints.MAXIMUM_AMOUNT):
 		max_amount = recipes[type].get(Constraints.MAXIMUM_AMOUNT)
-	else:
-		max_amount = possible_ingredients.size() * 1.5
 	
 	# take a random amount of ingredients
 	var amount = randi_range(min_amount, max_amount)
@@ -146,8 +144,8 @@ static func create_recipe(type: Type) -> Recipe:
 				if(!infront_okay or !behind_okay):
 					all_placed = false
 					for inner_check_pos in open_positions_dub:
-						infront_okay = inner_check_pos == 0 or ingr_cat != Ingredient.ingredients[placed_ingredients[inner_check_pos-1]][Ingredient.Category]
-						behind_okay = inner_check_pos == compl_amount - 1 or ingr_cat != Ingredient.ingredients[placed_ingredients[inner_check_pos+1]][Ingredient.Category]
+						infront_okay = inner_check_pos == 0 or placed_ingredients[inner_check_pos-1] == -1 or ingr_cat != Ingredient.ingredients[placed_ingredients[inner_check_pos-1]][Ingredient.Category]
+						behind_okay = inner_check_pos == compl_amount - 1 or placed_ingredients[inner_check_pos+1] == -1 or ingr_cat != Ingredient.ingredients[placed_ingredients[inner_check_pos+1]][Ingredient.Category]
 						if infront_okay and behind_okay:
 							# Found good Pos
 							all_placed = true

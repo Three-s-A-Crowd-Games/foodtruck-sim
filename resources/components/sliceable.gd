@@ -5,6 +5,9 @@ extends Area3D
 # Constraint: Sliceable objects only get shorter in their x direction from positiv to negativ
 #TODO: When the sliceable is facing downwards the slice might spawn beneath the ground an fall through
 
+var slice_thread :Thread
+var mutex := Mutex.new()
+
 var original_width: float
 var original_height: float
 var original_depth: float
@@ -37,16 +40,26 @@ var _is_mesh_ontop_xz := false
 ## The type of shape that will be used for the remaining foods collision shape after was cut.
 @export_enum("CylinderShape3D", "BoxShape3D") var remain_shape: String = "CylinderShape3D"
 
-@export_category("Mesh Deletion")
+@export_group("Mesh Deletion")
 ## Select a second mesh node which should be deleted while slicing.
 @export var mesh_node_to_delete: MeshInstance3D
 ## Select with which slice action the second mesh should be deleted.
 @export var delete_slice_count: int = 1
 
+@export_group("Sound")
+@export_enum("Normal", "Crunchy") var slice_sound_type := "Normal"
+var hard_soft_sound_threshold: float = 3
+@onready var hard_player: SoundQueue3D = $SoundQueue3DHard
+@onready var soft_player: SoundQueue3D = $SoundQueue3DSoft
+
 @onready var _sliceable := get_parent()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	slice_thread = Thread.new()
+	mutex = Mutex.new()
+	
 	if _mesh_node_or_parent is MeshInstance3D:
 		_mesh_node = _mesh_node_or_parent
 	else:
@@ -62,6 +75,8 @@ func _ready():
 		if my_coll_node.position.y != _mesh_node.position.y: _is_mesh_ontop_xz = true
 		my_coll_node.transform.origin -= transform.origin
 		add_child(my_coll_node)
+	
+	get_parent().has_left_spawn.connect(_on_has_left_spawn)
 	
 	body_entered.connect(_on_body_entered)
 	if Engine.is_editor_hint():
@@ -84,15 +99,47 @@ func _ready():
 	collision_mask = pow(2,5) # Mask layer 6
 	monitorable = false
 	 
+	#Take care about audio setup
+	for player: AudioStreamPlayer3D in $SoundQueue3DHard.get_children():
+		match slice_sound_type:
+			"Normal":
+				player.stream = load("res://audio/slicing/normal/slice_normal_hard_audio_stream_randomizer.tres")
+			"Crunchy":
+				player.stream = load("res://audio/slicing/crunchy/slice_crunchy_hard_audio_stream_randomizer.tres")
+						
+	for player: AudioStreamPlayer3D in $SoundQueue3DSoft.get_children():
+		match slice_sound_type:
+			"Normal":
+				player.stream = load("res://audio/slicing/normal/slice_normal_soft_audio_stream_randomizer.tres")
+			"Crunchy":
+				player.stream = load("res://audio/slicing/crunchy/slice_crunchy_soft_audio_stream_randomizer.tres")
+				
 
-func _on_body_entered(_body):
-	slice()
+func _on_body_entered(body):
+	slice_thread.start(slice,Thread.PRIORITY_HIGH)
+	if body is RigidBody3D:
+		if body is XRToolsPickable and body.is_picked_up():
+			soft_player.play()
+			return
+		if body.linear_velocity.length() > hard_soft_sound_threshold:
+			hard_player.play()
+		else:
+			soft_player.play()
+	else:
+		soft_player.play()
+
 
 func slice():
+	mutex.lock()
 	if slices_left <= 1: return
+	mutex.unlock()
 	
 	var trans := _get_slice_transform()
-	var meshes := MeshSlicer.slice_mesh(trans, _mesh_node.mesh, cross_section_material)
+	var meshes = MeshSlicer.slice_mesh(trans, _mesh_node.mesh, cross_section_material)
+	call_deferred("slice_rest",meshes)
+	slice_thread.call_deferred("wait_to_finish")
+
+func slice_rest(meshes):
 	slices_left -= 1
 	_mesh_node.mesh = meshes[0]
 	_adjust_collision_shape(_sliceable, meshes[0])
@@ -105,9 +152,14 @@ func slice():
 		mesh_node_to_delete.queue_free()
 		
 	if slices_left == 1:
-		slice = _create_slice(meshes[1])
+		slice = _create_slice(meshes[0])
 		_sliceable.add_sibling(slice)
 		_make_slice_ready(slice)
+		get_parent_node_3d().visible = false
+		if hard_player.count_playing > 0:
+			await hard_player.finished
+		if soft_player.count_playing > 0:
+			await soft_player.finished
 		get_parent().call_deferred("queue_free")
 	
 
@@ -224,7 +276,10 @@ func _updated_children(node: Node) -> void:
 
 func _get_configuration_warnings():
 	var out: Array[String] = []
-	if get_child_count() == 0:
+	var has_coll_shape: bool = false
+	for child in get_children():
+		has_coll_shape = child is CollisionShape3D
+	if not has_coll_shape:
 		out.push_back("If it appears, you can ignore the warining about the missing collision shape for this area. It will take the collision shape of the parent then.")
 	if not _mesh_node_or_parent:
 		out.push_back("Mesh node is not configured. Please select the mesh node with the mesh that shall be sliced.")
@@ -232,3 +287,10 @@ func _get_configuration_warnings():
 		out.push_back("Please don't use 4 slices. For some unkown reason the tool doesn't work properly then.")
 	
 	return out
+
+func _on_has_left_spawn():
+	monitoring = true
+
+# Thread must be disposed (or "joined"), for portability.
+func _exit_tree():
+	slice_thread.wait_to_finish()

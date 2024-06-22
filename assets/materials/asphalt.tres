@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://3ma4e1fdhaqk"]
+
+[ext_resource type="Texture2D" uid="uid://bwfkl1uuco5xj" path="res://assets/materials/asphalt_albedo.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dyy5ok7hloif6" path="res://assets/materials/asphalt_orm.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://dfsv3dvceatop" path="res://assets/materials/asphalt_normal.png" id="3"]
+
+[resource]
+albedo_texture = ExtResource("1")
+metallic = 1.0
+roughness_texture = ExtResource("2")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3")
+ao_enabled = true
+ao_texture = ExtResource("2")
+uv1_scale = Vector3(200, 200, 200)
+grow_amount = -16.0
