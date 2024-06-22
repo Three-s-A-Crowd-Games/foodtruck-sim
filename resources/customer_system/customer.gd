@@ -14,7 +14,7 @@ const Colors := [
 
 const Accessoires := [
 	null,
-	preload("res://assets/models/accessoires/schnelle_brille.blend")
+	preload("res://assets/models/accessoires/schnelle_brille.blend"),
 ]
 
 var wait_pos :Path3D
