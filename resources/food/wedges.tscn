@@ -11,6 +11,7 @@
 size = Vector3(0.096322, 0.136966, 0.0580176)
 
 [node name="Wedges" groups=["fries"] instance=ExtResource("1_7rhqd")]
+mass = 0.2
 script = ExtResource("2_qevvr")
 type = 19
 

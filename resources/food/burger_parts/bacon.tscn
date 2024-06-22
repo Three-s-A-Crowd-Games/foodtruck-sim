@@ -9,6 +9,7 @@
 size = Vector3(0.0399561, 0.00951172, 0.155)
 
 [node name="Bacon" instance=ExtResource("1_vy2us")]
+mass = 0.025
 script = ExtResource("2_33s8p")
 type = 20
 
