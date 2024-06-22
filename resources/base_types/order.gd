@@ -1,8 +1,8 @@
 class_name Order
 extends RefCounted
 
-const MIN_ORDER_TIME := 120
-const MAX_ORDER_TIME := 240
+const MIN_ORDER_TIME := 60
+const MAX_ORDER_TIME := 120
 
 var number :int
 
@@ -21,18 +21,6 @@ func completed():
 	le_timer.stop()
 	if is_instance_valid(order_paper):
 		order_paper.queue_free()
-	
-	if is_instance_valid(tray):
-		var despawn_timer = Timer.new()
-		despawn_timer.one_shot = true
-		despawn_timer.wait_time = 5
-		despawn_timer.timeout.connect(done)
-		tray.add_child(despawn_timer)
-		despawn_timer.start()
-
-func done():
-	if is_instance_valid(tray):
-		tray.nuke()
 
 func _on_timeout() -> void:
 	print("Order",number," timed out")
