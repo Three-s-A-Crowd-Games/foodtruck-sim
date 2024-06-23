@@ -37,6 +37,17 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://assets/materials/ketchup_container.tres"
 }
+},
+"nodes": {
+"PATH:Cylinder": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:container": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:lid": {
+"mesh_instance/cast_shadow": 0
+}
 }
 }
 fbx/importer=0

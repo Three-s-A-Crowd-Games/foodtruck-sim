@@ -31,7 +31,52 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Cube_006": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_007": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_008": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_009": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_010": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_011": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_012": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_013": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_014": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_015": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_016": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_017": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_018": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cube_019": {
+"mesh_instance/cast_shadow": 0
+}
+}
+}
 fbx/importer=1
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

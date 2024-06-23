@@ -31,7 +31,58 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Collection/Cube": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Collection/Cube2": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Collection/Cube_002": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Collection/Cube_0022": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Collection_001/counterbottom": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Collection_001/countermiddle": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Collection_001/countertop": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:bottom-wall": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:monitor-convcol/Cube_001": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:monitor-convcol/Cylinder": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:monitor-convcol/Cylinder_001": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:monitor-convcol/Cylinder_002": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:monitor-convcol/Cylinder_003": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:shelf_front_col/Cube2": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:shelf_front_col/Cube_0012": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:shelf_front_col/Cube_002": {
+"mesh_instance/cast_shadow": 0
+}
+}
+}
 fbx/importer=1
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

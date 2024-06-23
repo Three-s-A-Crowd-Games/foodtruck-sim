@@ -31,7 +31,34 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Cylinder": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cylinder_002": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cylinder_004": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cylinder_005": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cylinder_006": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:Cylinder_007": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:base": {
+"mesh_instance/cast_shadow": 0
+},
+"PATH:cutting-base": {
+"mesh_instance/cast_shadow": 0
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

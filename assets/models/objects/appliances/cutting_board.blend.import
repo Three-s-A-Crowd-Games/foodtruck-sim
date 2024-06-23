@@ -37,6 +37,11 @@ _subresources={
 "use_external/enabled": true,
 "use_external/path": "res://assets/materials/wood.tres"
 }
+},
+"nodes": {
+"PATH:Cube": {
+"mesh_instance/cast_shadow": 0
+}
 }
 }
 fbx/importer=1

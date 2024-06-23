@@ -5,4 +5,4 @@
 
 [node name="CheeseBlock" instance=ExtResource("1_snvp5")]
 
-[node name="block_of_cheese" parent="." index="2" instance=ExtResource("2_2qyn3")]
+[node name="block_of_cheese" type="Node3D" parent="." index="2" instance=ExtResource("2_2qyn3")]
