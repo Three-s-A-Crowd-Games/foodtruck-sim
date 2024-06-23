@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3ln1w7x5yeff"]
+
+[ext_resource type="PackedScene" uid="uid://wa0qw7gtqgym" path="res://resources/base_types/spawn_block.tscn" id="1_s5w4a"]
+[ext_resource type="PackedScene" uid="uid://cn3qh01448r7b" path="res://assets/models/objects/furniture/foodbox.blend" id="2_p6hlu"]
+[ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="2_x5pvy"]
+
+[node name="TomatoBox" instance=ExtResource("1_s5w4a")]
+item_scene = ExtResource("2_x5pvy")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00231934, 0.0772629, 0)
+
+[node name="SpawnPosition" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047914, 0)
+
+[node name="foodbox" parent="." index="2" instance=ExtResource("2_p6hlu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.051, 0)

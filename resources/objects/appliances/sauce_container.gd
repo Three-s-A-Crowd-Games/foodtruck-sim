@@ -26,7 +26,6 @@ func _ready() -> void:
 	floor_sauce_timer.timeout.connect(reset_floor_sauce)
 	
 	le_sauce_type = Ingredient.Type.get(le_sauce_type_primitive)
-	print(le_sauce_type)
 	
 	# Figure out materials
 	match le_sauce_type:
@@ -70,11 +69,12 @@ func sauce():
 		# We now have our closest stack-zone. Time to give its parent some sauce
 		var le_part :BurgerPart = closest_stack.get_parent()
 		var le_sauce_instance = le_sauce.instantiate()
-		le_sauce_instance.position.y = le_part.height
 		le_sauce_instance.get_node("sauce").set_surface_override_material(0,sauce_mat)
 		le_part.add_child(le_sauce_instance)
 		if le_part.flipped_state == BurgerPart.FlipState.FLIPPED:
 			le_sauce_instance.rotation_degrees.x = 180
+		else:
+			le_sauce_instance.position.y = le_part.height
 		le_part.sauced = le_sauce_type
 		
 		stack_zones_in_area.erase(closest_stack)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=46 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=52 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
 [ext_resource type="Material" uid="uid://3ma4e1fdhaqk" path="res://assets/materials/asphalt.tres" id="3_4gcjg"]
 [ext_resource type="PackedScene" uid="uid://ckp7cmiuw7m3x" path="res://resources/objects/appliances/drink_fridge.tscn" id="3_uf20c"]
 [ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="4_1mh3m"]
+[ext_resource type="PackedScene" uid="uid://cbl3uf2fxx256" path="res://assets/models/objects/appliances/dönerbudenbox.blend" id="4_w2uoh"]
 [ext_resource type="PackedScene" uid="uid://bw18w7lqkorf5" path="res://resources/objects/appliances/frying_basket.tscn" id="4_xgses"]
 [ext_resource type="PackedScene" uid="uid://c54y4lqme3kal" path="res://resources/objects/furniture/BunBottomBox.tscn" id="7_5gd1o"]
 [ext_resource type="PackedScene" uid="uid://bkl3bmlcidvdg" path="res://resources/objects/accessoires/flipper.tscn" id="8_8x8av"]
@@ -18,18 +19,22 @@
 [ext_resource type="PackedScene" uid="uid://witvb00gyysp" path="res://assets/models/objects/appliances/fries_box.blend" id="16_c4lkf"]
 [ext_resource type="PackedScene" uid="uid://dqu2cm5yrrt54" path="res://resources/objects/accessoires/friesbox.tscn" id="16_t2krs"]
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
-[ext_resource type="PackedScene" path="res://resources/objects/appliances/sauce_container.tscn" id="17_117gm"]
+[ext_resource type="PackedScene" uid="uid://bb2wkkxwt7lot" path="res://resources/objects/appliances/sauce_container.tscn" id="17_117gm"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="18_wcr04"]
 [ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="19_5w3yg"]
-[ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="19_24xoq"]
 [ext_resource type="PackedScene" path="res://resources/objects/next_order_button.tscn" id="21_pidlo"]
 [ext_resource type="PackedScene" uid="uid://cyquot0luo414" path="res://resources/special_areas/pinning_area.tscn" id="21_x5e2k"]
 [ext_resource type="PackedScene" uid="uid://oefjh0xalhqn" path="res://assets/models/objects/furniture/pin-board.blend" id="22_17cek"]
 [ext_resource type="PackedScene" path="res://resources/objects/cash_register.tscn" id="23_5npd4"]
 [ext_resource type="PackedScene" path="res://resources/objects/accessoires/plate.tscn" id="24_pblrq"]
-[ext_resource type="PackedScene" uid="uid://clf7iny7d8p84" path="res://resources/objects/furniture/cheese_block.tscn" id="28_vu0rv"]
-[ext_resource type="PackedScene" uid="uid://c0brq67lg35qy" path="res://resources/objects/furniture/lettuce_block.tscn" id="29_ce0ft"]
+[ext_resource type="PackedScene" uid="uid://clf7iny7d8p84" path="res://resources/objects/foodboxes/cheese_block.tscn" id="28_vu0rv"]
+[ext_resource type="PackedScene" uid="uid://c0brq67lg35qy" path="res://resources/objects/foodboxes/lettuce_block.tscn" id="29_ce0ft"]
 [ext_resource type="PackedScene" uid="uid://ri8whwljtqxn" path="res://resources/objects/furniture/tv_screen.tscn" id="30_3c70x"]
+[ext_resource type="PackedScene" uid="uid://dpdsnivi17hj6" path="res://resources/customer_system/customer_manager.tscn" id="31_qvdth"]
+[ext_resource type="PackedScene" uid="uid://iut5v7hlcdcc" path="res://assets/models/objects/appliances/cutting_board.blend" id="33_ox6ib"]
+[ext_resource type="PackedScene" uid="uid://dec5p1w8uxafs" path="res://resources/food/onion.tscn" id="34_7crlg"]
+[ext_resource type="PackedScene" uid="uid://dvrvbjk0evblt" path="res://resources/food/cucumber.tscn" id="34_gppqg"]
+[ext_resource type="PackedScene" uid="uid://c3ln1w7x5yeff" path="res://resources/objects/foodboxes/tomato_box.tscn" id="36_g3esd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -70,9 +75,6 @@ size = Vector3(0.2, 0.166309, 0.294)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ydnwk"]
 size = Vector3(0.19, 0.075, 0.175)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hcekt"]
-size = Vector3(0.1, 0.1, 0.1)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_48ymk"]
 size = Vector3(0.1, 0.15, 0.1)
 
@@ -87,6 +89,12 @@ size = Vector3(0.0147419, 0.231293, 0.830749)
 [sub_resource type="BoxShape3D" id="BoxShape3D_mm4js"]
 size = Vector3(0.44519, 0.0537109, 1.21478)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_ayldn"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c8ojw"]
+size = Vector3(0.16, 0.11, 0.07)
+
 [node name="Main" type="Node3D"]
 script = ExtResource("1_d3g8y")
 
@@ -96,9 +104,16 @@ camera_attributes = SubResource("CameraAttributesPhysical_vmgr7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.80519, 0.312031, -0.504287, 0.178342, 0.683596, 0.707736, 0.565564, -0.659798, 0.494777, -3.88802, 7.74142, 6.44357)
-light_intensity_lux = 54545.5
+light_intensity_lux = 18487.8
 shadow_enabled = true
 directional_shadow_mode = 1
+
+[node name="OutsideLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.549212, 2.14091, 1.0378)
+light_energy = 7.0
+light_size = 1.745
+shadow_enabled = true
+omni_attenuation = -4.0
 
 [node name="Floor" type="StaticBody3D" parent="."]
 collision_layer = 8388609
@@ -111,11 +126,20 @@ shape = SubResource("BoxShape3D_fjiod")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00545907)
 mesh = SubResource("BoxMesh_d002o")
 
-[node name="DrinkFridge" parent="Floor" instance=ExtResource("3_uf20c")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114324, 0.750915, 0.797968)
-
 [node name="Truck" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.750915, 0)
+
+[node name="dönerbudenbox" parent="Truck" instance=ExtResource("4_w2uoh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.962887, 0.974621, -0.436392)
+
+[node name="CheeseBlock" parent="Truck/dönerbudenbox" instance=ExtResource("28_vu0rv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0875574, 0)
+
+[node name="dönerbudenbox2" parent="Truck" instance=ExtResource("4_w2uoh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.141, 0.975, -0.436)
+
+[node name="LettuceBlock" parent="Truck/dönerbudenbox2" instance=ExtResource("29_ce0ft")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0873482, 0)
 
 [node name="FryingBasket" parent="Truck" instance=ExtResource("4_xgses")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.059876, 0.969363, -0.467769)
@@ -124,10 +148,10 @@ transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.0598
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.308859, 0.969363, -0.467769)
 
 [node name="BunBottomBox" parent="Truck" instance=ExtResource("7_5gd1o")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.11812, 0.976285, -0.506978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.05789, 1.06345, -0.82346)
 
 [node name="BunTopBox" parent="Truck" instance=ExtResource("8_j1ief")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.957566, 0.972559, -0.663451)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06068, 1.32717, -0.82665)
 
 [node name="truck_v1" parent="Truck" instance=ExtResource("10_vl4gb")]
 
@@ -141,6 +165,10 @@ collision_mask = 524289
 [node name="left-wall" parent="Truck/truck_v1" index="1"]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -1.275, 1.05, 0)
 
+[node name="StaticBody3D" parent="Truck/truck_v1/left-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
+
 [node name="StaticBody3D" parent="Truck/truck_v1/front-wall" index="0"]
 collision_layer = 8388609
 collision_mask = 524289
@@ -149,11 +177,47 @@ collision_mask = 524289
 collision_layer = 8388609
 collision_mask = 524289
 
+[node name="StaticBody3D" parent="Truck/truck_v1/back-wall" index="0"]
+collision_layer = 8388609
+collision_mask = 524289
+
 [node name="Point" parent="Truck/truck_v1" index="6"]
 light_energy = 1000.0
 shadow_enabled = true
 omni_range = 2.848
 omni_attenuation = 1.93187
+
+[node name="Point2" parent="Truck/truck_v1/Collection" index="6"]
+light_energy = 75.0
+omni_range = 0.67
+
+[node name="Point_001" parent="Truck/truck_v1/Collection" index="7"]
+light_energy = 75.0
+omni_range = 0.67
+
+[node name="Point_002" parent="Truck/truck_v1/Collection" index="8"]
+light_energy = 75.0
+omni_range = 0.67
+
+[node name="Point_003" parent="Truck/truck_v1/Collection" index="9"]
+light_energy = 75.0
+omni_range = 0.67
+
+[node name="Point_004" parent="Truck/truck_v1/Collection" index="10"]
+light_energy = 75.0
+omni_range = 0.67
+
+[node name="Point_005" parent="Truck/truck_v1/Collection" index="11"]
+light_energy = 75.0
+omni_range = 0.67
+
+[node name="Point_006" parent="Truck/truck_v1/Collection" index="12"]
+light_energy = 75.0
+omni_range = 0.67
+
+[node name="Point_007" parent="Truck/truck_v1/Collection" index="13"]
+light_energy = 75.0
+omni_range = 0.67
 
 [node name="Stove" parent="Truck" instance=ExtResource("4_1mh3m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.479958, 0, -0.605357)
@@ -172,7 +236,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850798, 1.97374, 0.783707)
 shape = SubResource("BoxShape3D_j8awf")
 
 [node name="Flipper" parent="." instance=ExtResource("8_8x8av")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.7577, -0.299544)
+transform = Transform3D(0.959986, 0, -0.280047, 0, 1, 0, 0.280047, 0, 0.959986, -1, 1.7577, -0.651897)
 
 [node name="TraySpawner" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.577731, 1.37232, 0.73644)
@@ -238,37 +302,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01475, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0295531, 0)
 
 [node name="PotatoCutter" parent="." instance=ExtResource("16_uegm4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.07273, 1.72365, -0.0745517)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, -1.14029, 1.72365, 0.637206)
 
 [node name="SauceContainer" parent="." instance=ExtResource("17_117gm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.450145, 1.72365, 0.751436)
+transform = Transform3D(-0.766044, 0, -0.642788, 0, 1, 0, 0.642788, 0, -0.766044, 0.888094, 1.72365, -0.563461)
 
 [node name="SauceContainer2" parent="." instance=ExtResource("17_117gm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.741647, 1.72365, 0.751436)
+transform = Transform3D(-0.965926, 0, -0.258819, 0, 1, 0, 0.258819, 0, -0.965926, 1.02162, 1.72365, -0.307314)
 le_sauce_type_primitive = "BBQ"
 
 [node name="SauceContainer3" parent="." instance=ExtResource("17_117gm")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.0342, 1.72365, 0.751436)
+transform = Transform3D(-0.258819, 0, -0.965926, 0, 1, 0, 0.965926, 0, -0.258819, 0.641343, 1.72365, -0.728016)
 le_sauce_type_primitive = "MUSTARD"
 
 [node name="Knife" parent="." instance=ExtResource("18_wcr04")]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.764642, 1.7495, -0.261837)
-
-[node name="TomatoSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.760213, 2.52801, -0.867288)
-script = ExtResource("14_83ec4")
-item_scene = ExtResource("19_24xoq")
-
-[node name="Tomato" parent="TomatoSpawner" instance=ExtResource("19_24xoq")]
-
-[node name="ExitDetector" type="Area3D" parent="TomatoSpawner"]
-collision_layer = 0
-collision_mask = 65536
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="TomatoSpawner/ExitDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.039813, 0)
-shape = SubResource("BoxShape3D_hcekt")
+transform = Transform3D(0.928505, 0, 0.371319, 0, 1, 0, -0.371319, 0, 0.928505, -1.00024, 1.76358, -0.143541)
 
 [node name="PotatoSpawner" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1399, 2.52517, 0.161466)
@@ -291,7 +339,7 @@ shape = SubResource("BoxShape3D_48ymk")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161468, 0.765339, 0.16495)
 
 [node name="PinningArea" parent="." instance=ExtResource("21_x5e2k")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.628921, 2.23697, -0.939232)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.443292, 2.23697, -0.939232)
 
 [node name="CollisionShape3D" parent="PinningArea" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0160006, 0.0597191, 0.0169069)
@@ -308,36 +356,77 @@ shape = SubResource("BoxShape3D_6gvic")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.213596, 2.28869, 0.95)
 
 [node name="Order_Paper_Spawner" parent="NextOrderButton" index="2"]
-transform = Transform3D(-1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, 0, 0.115238, -0.561851)
+transform = Transform3D(-1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, -0.354469, 0.115238, -0.561851)
 rotation_order = 0
 
 [node name="pin-board" parent="." instance=ExtResource("22_17cek")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.613744, 2.29615, -0.95)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.428115, 2.29615, -0.95)
 
 [node name="pin-board2" parent="." instance=ExtResource("22_17cek")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.24875, 2.30832, -0.00618118)
 
 [node name="CashRegister" parent="." instance=ExtResource("23_5npd4")]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -1.01426, 1.72365, 0.683726)
+transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.277287, 1.72365, 0.761474)
+
+[node name="OrderDetectionArea" parent="CashRegister" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0098435, 1.19209e-07, -6.81877e-05)
 
 [node name="CollisionShape3D" parent="CashRegister/OrderDetectionArea" index="0"]
-transform = Transform3D(-0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, -0.707107, -0.708997, 0.0416946, 0.00309908)
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.773393, 0.0416946, -0.417708)
 shape = SubResource("BoxShape3D_mm4js")
-
-[node name="CheeseBlock" parent="." instance=ExtResource("28_vu0rv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13841, 2.51592, 0.339753)
-
-[node name="LettuceBlock" parent="." instance=ExtResource("29_ce0ft")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13152, 2.51592, 0.497684)
 
 [node name="TV-Screen" parent="." instance=ExtResource("30_3c70x")]
 transform = Transform3D(0.939665, -0.0895358, 0.330171, -1.11759e-08, 0.965142, 0.261727, -0.342096, -0.245935, 0.90691, 0.776048, 2.4923, 0.736524)
 
+[node name="DrinkFridge" parent="." instance=ExtResource("3_uf20c")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114324, 0.750915, 0.797968)
+
+[node name="CustomerManager" parent="." instance=ExtResource("31_qvdth")]
+
+[node name="cutting_board" parent="." instance=ExtResource("33_ox6ib")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.02526, 1.72365, 0.163604)
+
+[node name="OnionSpawner" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12368, 2.51591, -0.0336269)
+script = ExtResource("14_83ec4")
+item_scene = ExtResource("34_7crlg")
+
+[node name="Onion" parent="OnionSpawner" instance=ExtResource("34_7crlg")]
+
+[node name="ExitDetector" type="Area3D" parent="OnionSpawner"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OnionSpawner/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0358591, 0)
+shape = SubResource("BoxShape3D_ayldn")
+
+[node name="CucumberSpawner" type="Node3D" parent="."]
+transform = Transform3D(0.0171732, 0, 0.999853, 0, 1, 0, -0.999853, 0, 0.0171732, -1.08623, 2.55112, 0.388385)
+script = ExtResource("14_83ec4")
+item_scene = ExtResource("34_gppqg")
+
+[node name="Cucumber" parent="CucumberSpawner" instance=ExtResource("34_gppqg")]
+
+[node name="ExitDetector" type="Area3D" parent="CucumberSpawner"]
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CucumberSpawner/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0299165, 0)
+shape = SubResource("BoxShape3D_c8ojw")
+
+[node name="TomatoBox" parent="." instance=ExtResource("36_g3esd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.543952, 2.51592, -0.820215)
+
 [connection signal="body_exited" from="TraySpawner/ExitDetector" to="TraySpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="FriesboxSpawner/ExitDetector" to="FriesboxSpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="PlateSpawner/ExitDetector" to="PlateSpawner" method="_on_exit_detector_body_exited"]
-[connection signal="body_exited" from="TomatoSpawner/ExitDetector" to="TomatoSpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="PotatoSpawner/ExitDetector" to="PotatoSpawner" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="OnionSpawner/ExitDetector" to="OnionSpawner" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="CucumberSpawner/ExitDetector" to="CucumberSpawner" method="_on_exit_detector_body_exited"]
 
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]

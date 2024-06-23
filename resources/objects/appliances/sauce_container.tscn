@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d088mil7a0mga"]
+[gd_scene load_steps=8 format=3 uid="uid://bb2wkkxwt7lot"]
 
 [ext_resource type="PackedScene" uid="uid://cdtmfbjo7usea" path="res://assets/models/objects/appliances/sauce_container.blend" id="1_dsvtd"]
 [ext_resource type="Script" path="res://resources/objects/appliances/sauce_container.gd" id="1_frgr5"]
@@ -32,17 +32,17 @@ script = ExtResource("1_frgr5")
 [node name="sauce_container" parent="." instance=ExtResource("1_dsvtd")]
 
 [node name="SaucePump" type="SpringArm3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.407, 0)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.323098, 0)
 collision_mask = 32768
 shape = SubResource("CylinderShape3D_hcxhu")
-spring_length = 0.11
+spring_length = 0.09
 margin = 0.0
 
 [node name="sauce_pump" parent="SaucePump" instance=ExtResource("2_5lxv6")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 9.88111e-10, -0.00129902)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267145, 0.305404, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231688, 0.237603, 0)
 emitting = false
 amount = 30
 lifetime = 0.37
@@ -52,7 +52,7 @@ process_material = SubResource("ParticleProcessMaterial_ntsli")
 draw_pass_1 = SubResource("CapsuleMesh_4fyne")
 
 [node name="SauceArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267, 0.156, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231543, 0.0881992, 0)
 collision_layer = 0
 collision_mask = 65540
 monitorable = false
@@ -62,12 +62,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0432284, 0)
 shape = SubResource("CylinderShape3D_tbgg8")
 
 [node name="SauceOutlet" type="Marker3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267145, 0.305404, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231688, 0.237603, 0)
 
 [node name="FloorFinder" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.267145, 0.305404, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231688, 0.237603, 0)
 target_position = Vector3(0, -3, 0)
-collision_mask = 8388608
 hit_back_faces = false
 
 [connection signal="area_entered" from="SauceArea" to="." method="_on_sauce_area_area_entered"]

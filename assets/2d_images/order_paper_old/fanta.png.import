@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1xn1yfon2ed7"
-path="res://.godot/imported/hor_line_seg.png-1aa671d1e6af359bc5c4ea97892851ef.ctex"
+uid="uid://tb6iacxucgyv"
+path="res://.godot/imported/fanta.png-21dcea29e90c48e2a7deab5a0be23589.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d_images/order_paper/hor_line_seg.png"
-dest_files=["res://.godot/imported/hor_line_seg.png-1aa671d1e6af359bc5c4ea97892851ef.ctex"]
+source_file="res://assets/2d_images/order_paper_old/fanta.png"
+dest_files=["res://.godot/imported/fanta.png-21dcea29e90c48e2a7deab5a0be23589.ctex"]
 
 [params]
 

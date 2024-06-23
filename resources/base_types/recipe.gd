@@ -10,7 +10,7 @@ enum Category{
 
 enum Type{
 	BURGER,
-	FRIES,
+	SIDES,
 	DRINKS
 }
 
@@ -25,11 +25,11 @@ static var recipes: Dictionary = {
 		Category : Category.MAIN, 
 		Ingredient.Category : [Ingredient.Category.BURGER_PART, Ingredient.Category.SAUCES], 
 		Constraints.MINIMUM_AMOUNT : 3,
-		Constraints.MUST_HAVE : [Ingredient.Type.BUN_BOTTOM, Ingredient.Type.PATTY, Ingredient.Type.BUN_TOP]
+		Constraints.MUST_HAVE : [Ingredient.Type.BUN_BOTTOM, [Ingredient.Type.PATTY, Ingredient.Type.V_PATTY], Ingredient.Type.BUN_TOP]
 		},
-	Type.FRIES : {
+	Type.SIDES : {
 		Category : Category.SIDE, 
-		Ingredient.Category : [Ingredient.Category.FRIES],
+		Ingredient.Category : [Ingredient.Category.SIDES],
 		Constraints.MAXIMUM_AMOUNT : 1,
 		},
 	Type.DRINKS : {
@@ -41,7 +41,7 @@ static var recipes: Dictionary = {
 
 static var categories: Dictionary = {
 	Category.MAIN : [Type.BURGER],
-	Category.SIDE : [Type.FRIES],
+	Category.SIDE : [Type.SIDES],
 	Category.DRINK : [Type.DRINKS]
 }
 

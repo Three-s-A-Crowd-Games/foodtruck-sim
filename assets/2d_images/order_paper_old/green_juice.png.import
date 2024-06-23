@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5qte4djdq84m"
-path="res://.godot/imported/ver_line_con.png-2e962085a7e9341a51507208fc3b7468.ctex"
+uid="uid://c6xiqq3xp30ye"
+path="res://.godot/imported/green_juice.png-d3dcc1893091d95fdf2b7a13ae58c177.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d_images/order_paper/ver_line_con.png"
-dest_files=["res://.godot/imported/ver_line_con.png-2e962085a7e9341a51507208fc3b7468.ctex"]
+source_file="res://assets/2d_images/order_paper_old/green_juice.png"
+dest_files=["res://.godot/imported/green_juice.png-d3dcc1893091d95fdf2b7a13ae58c177.ctex"]
 
 [params]
 
