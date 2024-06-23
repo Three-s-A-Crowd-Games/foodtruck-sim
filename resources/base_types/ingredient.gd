@@ -32,6 +32,7 @@ enum Type{
 	MUSTARD,
 	WEDGES,
 	BACON,
+	V_PATTY,
 }
 
 enum Constraints{
@@ -127,11 +128,15 @@ static var ingredients: Dictionary = {
 		Category : Category.BURGER_PART,
 		Order_Paper_Tex: "res://assets/2d_images/order_paper/bacon.png"
 		},
+	Type.V_PATTY : {
+		Category : Category.BURGER_PART,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/v_patty.png"
+		},
 }
 
 static var categories: Dictionary = {
 	Category.BURGER_PART : {
-		Type : [Type.BUN_TOP, Type.BUN_BOTTOM, Type.PATTY, Type.ONION, Type.CHEESE, Type.CUCUMBER, Type.TOMATO, Type.LETTUCE]
+		Type : [Type.BUN_TOP, Type.BUN_BOTTOM, Type.PATTY, Type.ONION, Type.CHEESE, Type.CUCUMBER, Type.TOMATO, Type.LETTUCE, Type.V_PATTY]
 	},
 	Category.SIDES : {
 		Type : [Type.FRIES, Type.WEDGES]

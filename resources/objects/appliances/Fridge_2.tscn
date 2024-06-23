@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://vb88b4k65xny"]
+[gd_scene load_steps=12 format=3 uid="uid://vb88b4k65xny"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="2_1foms"]
 [ext_resource type="PackedScene" uid="uid://3osplhacfbif" path="res://assets/models/objects/furniture/fridge_lid.blend" id="3_p7rys"]
@@ -6,7 +6,8 @@
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="5_onvuc"]
 [ext_resource type="PackedScene" uid="uid://uka8fkdexvy2" path="res://assets/models/objects/furniture/fridge_bottom.blend" id="6_2ooe4"]
 [ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="6_r3kjv"]
-[ext_resource type="PackedScene" uid="uid://b0e07jtb6csss" path="res://resources/food/burger_parts/bacon.tscn" id="7_pgvxu"]
+[ext_resource type="PackedScene" path="res://resources/food/burger_parts/bacon.tscn" id="7_pgvxu"]
+[ext_resource type="PackedScene" uid="uid://ejklhqsbujh" path="res://resources/food/burger_parts/v_patty.tscn" id="8_4drec"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gehbk"]
 size = Vector3(0.295508, 0.0639313, 0.0889526)
@@ -312,4 +313,93 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.107406, 0.152
 [node name="Bacon54" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.107406, 0.152238)
 
+[node name="VPattyCabinet" type="Node3D" parent="."]
+
+[node name="ExitDetector" type="Area3D" parent="VPattyCabinet"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.222033, 1.07304, 0)
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="VPattyCabinet/ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.236165, -0.387957, 0.00934714)
+shape = SubResource("BoxShape3D_2wavr")
+
+[node name="Content" type="Node3D" parent="VPattyCabinet"]
+script = ExtResource("5_onvuc")
+item_scene = ExtResource("8_4drec")
+
+[node name="VPatty" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.575501, -0.204802)
+
+[node name="VPatty2" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.576, -0.08)
+
+[node name="VPatty3" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.576, 0.057)
+
+[node name="VPatty4" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.576, 0.197)
+
+[node name="VPatty5" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.614, -0.204802)
+
+[node name="VPatty6" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.614, -0.08)
+
+[node name="VPatty7" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.614, 0.057)
+
+[node name="VPatty8" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.614, 0.197)
+
+[node name="VPatty9" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.652, -0.204802)
+
+[node name="VPatty10" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.652, -0.08)
+
+[node name="VPatty11" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.652, 0.057)
+
+[node name="VPatty12" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.652, 0.197)
+
+[node name="VPatty13" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.689, -0.204802)
+
+[node name="VPatty14" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.689, -0.08)
+
+[node name="VPatty15" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.689, 0.057)
+
+[node name="VPatty16" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.689, 0.197)
+
+[node name="VPatty17" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.727, -0.204802)
+
+[node name="VPatty18" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.727, -0.08)
+
+[node name="VPatty19" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.727, 0.057)
+
+[node name="VPatty20" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.727, 0.197)
+
+[node name="VPatty21" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.765, -0.204802)
+
+[node name="VPatty22" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.765, -0.08)
+
+[node name="VPatty23" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.765, 0.057)
+
+[node name="VPatty24" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.765, 0.197)
+
 [connection signal="body_exited" from="PattyCabinet/ExitDetector" to="PattyCabinet/Content" method="_on_exit_detector_body_exited"]
+[connection signal="body_exited" from="VPattyCabinet/ExitDetector" to="VPattyCabinet/Content" method="_on_exit_detector_body_exited"]

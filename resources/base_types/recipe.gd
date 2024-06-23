@@ -25,7 +25,7 @@ static var recipes: Dictionary = {
 		Category : Category.MAIN, 
 		Ingredient.Category : [Ingredient.Category.BURGER_PART, Ingredient.Category.SAUCES], 
 		Constraints.MINIMUM_AMOUNT : 3,
-		Constraints.MUST_HAVE : [Ingredient.Type.BUN_BOTTOM, Ingredient.Type.PATTY, Ingredient.Type.BUN_TOP]
+		Constraints.MUST_HAVE : [Ingredient.Type.BUN_BOTTOM, [Ingredient.Type.PATTY, Ingredient.Type.V_PATTY], Ingredient.Type.BUN_TOP]
 		},
 	Type.SIDES : {
 		Category : Category.SIDE, 
