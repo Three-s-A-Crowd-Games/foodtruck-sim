@@ -1,10 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://5b36bokc0k4k"]
+[gd_scene load_steps=20 format=3 uid="uid://5b36bokc0k4k"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_5moal"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="1_8xdyp"]
 [ext_resource type="PackedScene" uid="uid://doqn4cetycndv" path="res://resources/test_helpers/food_piece.tscn" id="2_ek6i4"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="4_xjd3b"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="5_6vayu"]
+[ext_resource type="PackedScene" uid="uid://dvrvbjk0evblt" path="res://resources/food/cucumber.tscn" id="6_syx2q"]
+[ext_resource type="PackedScene" uid="uid://dec5p1w8uxafs" path="res://resources/food/onion.tscn" id="7_g5l8d"]
+[ext_resource type="PackedScene" uid="uid://btgalluoa7ukb" path="res://resources/test_helpers/cone.tscn" id="8_gyeit"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
 sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
@@ -95,7 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_t6ju8")
 
 [node name="Cube" parent="." instance=ExtResource("1_8xdyp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.8064, 1, 2.98873)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.348558, 1.06296, -0.447136)
 collision_mask = 131079
 
 [node name="FoodPiece" parent="." instance=ExtResource("2_ek6i4")]
@@ -113,4 +116,13 @@ stream = SubResource("AudioStreamMP3_nyg33")
 autoplay = true
 
 [node name="Tomato" parent="." instance=ExtResource("5_6vayu")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.710147, 1.21086, 0.139593)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.621212, 1.21086, 0.54284)
+
+[node name="Cucumber" parent="." instance=ExtResource("6_syx2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358656, 1, 0.279034)
+
+[node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000203013, 1, 0.42593)
+
+[node name="Cone" parent="." instance=ExtResource("8_gyeit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176819, 1.15495, -0.435212)
