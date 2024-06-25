@@ -78,7 +78,11 @@ func _reverse_stack(hand_pickup: XRToolsFunctionPickup):
 	if part_below:
 		stack_zone.pick_up_object(part_below)
 	else:
+		var obj := stack_zone.picked_up_object as BurgerPart
+		if obj and obj.dropped.is_connected(stack_zone._on_target_dropped):
+			obj.dropped.disconnect(stack_zone._on_target_dropped)
 		stack_zone.drop_object()
+		return
 	
 	is_reversing = false
 	return
