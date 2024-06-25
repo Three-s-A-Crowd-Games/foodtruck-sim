@@ -94,7 +94,7 @@ var can_ranged_grab: bool = true
 ## Frozen state to restore to when dropped
 var restore_freeze : bool = false
 
-var position_before_pickup := Vector3.ZERO
+var position_before_pickup = null
 
 var has_left_spawner := false :
 	set(value):
@@ -116,6 +116,8 @@ var _highlight_requests : Dictionary = {}
 # Is this node highlighted
 var _highlighted : bool = false
 
+var needs_shadow = []
+
 # Remember some state so we can return to it when the user drops the object
 @onready var original_collision_mask : int = collision_mask
 @onready var original_collision_layer : int = collision_layer
@@ -133,6 +135,9 @@ func _ready():
 		var grab_point := child as XRToolsGrabPoint
 		if grab_point:
 			_grab_points.push_back(grab_point)
+	for node in find_children("*","MeshInstance3D",true):
+		if !node.cast_shadow:
+			needs_shadow.append(node)
 
 # Called when the node exits the tree
 func _exit_tree():
@@ -230,7 +235,10 @@ func pick_up(by: Node3D) -> void:
 		return
 	
 	freeze = false
-	position_before_pickup = global_position
+	if position_before_pickup == null:
+		for mesh in needs_shadow:
+			mesh.cast_shadow = true
+		position_before_pickup = global_position
 
 	# Find the grabber information
 	var grabber := Grabber.new(by)

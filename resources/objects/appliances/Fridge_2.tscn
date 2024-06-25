@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://vb88b4k65xny"]
+[gd_scene load_steps=14 format=3 uid="uid://vb88b4k65xny"]
 
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="2_1foms"]
 [ext_resource type="PackedScene" uid="uid://3osplhacfbif" path="res://assets/models/objects/furniture/fridge_lid.blend" id="3_p7rys"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bvqmwtclnwibr" path="res://resources/occluder_data/Fridge_2.occ" id="4_2isad"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="4_nr872"]
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="5_onvuc"]
 [ext_resource type="PackedScene" uid="uid://uka8fkdexvy2" path="res://assets/models/objects/furniture/fridge_bottom.blend" id="6_2ooe4"]
@@ -48,6 +49,11 @@ shape = SubResource("BoxShape3D_gehbk")
 
 [node name="fridge-v2-lid" parent="HandleGrabber/XRToolsInteractableHinge" instance=ExtResource("3_p7rys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0886158, -0.904813, -0.45851)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="HandleGrabber/XRToolsInteractableHinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0416747, -0.842778)
+visible = false
+occluder = ExtResource("4_2isad")
 
 [node name="fridge-v2-bottom" parent="." instance=ExtResource("6_2ooe4")]
 

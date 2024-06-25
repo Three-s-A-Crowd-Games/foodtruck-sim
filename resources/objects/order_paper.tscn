@@ -239,6 +239,7 @@ stretch_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.002, -0.143)
 centered = false
 offset = Vector2(-180, -650)
+modulate = Color(0.74558, 0.74558, 0.74558, 1)
 pixel_size = 0.0005
 axis = 1
 texture_filter = 1

@@ -21,8 +21,8 @@ nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=1
-meshes/lightmap_texel_size=0.2
+meshes/light_baking=2
+meshes/lightmap_texel_size=0.1
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
@@ -33,139 +33,13 @@ animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={
 "nodes": {
-"PATH:Cube": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_001": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_002": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_003": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_004": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_005": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_006": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_007": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_008": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_009": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_010": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_011": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_012": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_013": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_014": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_015": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_016": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_017": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_018": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_019": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_020": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_021": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_022": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_023": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_024": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_025": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_026": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_027": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_028": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_029": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_030": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_031": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_032": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_033": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_034": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_035": {
+"PATH:Buttons": {
 "mesh_instance/cast_shadow": 0
 },
 "PATH:Cube_036": {
 "mesh_instance/cast_shadow": 0
 },
-"PATH:Cube_037": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_038": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_039": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_040": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_041": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cube_042": {
-"mesh_instance/cast_shadow": 0
-},
 "PATH:Cube_043": {
-"mesh_instance/cast_shadow": 0
-},
-"PATH:Cylinder": {
 "mesh_instance/cast_shadow": 0
 },
 "PATH:Cylinder_001": {
