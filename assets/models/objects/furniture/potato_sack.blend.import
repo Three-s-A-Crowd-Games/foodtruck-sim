@@ -31,7 +31,46 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"materials": {
+"Material.002": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/potato.tres"
+},
+"Material.003": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/potato.tres"
+},
+"Material.004": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/potato.tres"
+},
+"Material.005": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/potato.tres"
+},
+"Material.006": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/potato.tres"
+},
+"Material.007": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/potato.tres"
+},
+"Material.008": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/potato.tres"
+},
+"Material.009": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/potato.tres"
+},
+"Material.010": {
+"use_external/enabled": true,
+"use_external/path": "res://assets/materials/potato.tres"
+}
+}
+}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1
