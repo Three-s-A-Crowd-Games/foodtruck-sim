@@ -10,10 +10,12 @@ extends Node3D
 func _on_toggle_stove(stove_on :bool):
 	if(stove_on):
 		knob_model.rotation_degrees.z = 90
+		if audio_player.playing: audio_player.stop()
 		audio_player.stream = sound_on
 		audio_player.play()
 	else:
 		knob_model.rotation_degrees.z = 0
+		if audio_player.playing: audio_player.stop()
 		audio_player.stream = sound_off
 		audio_player.play()
 	cooking_area.enabled = !cooking_area.enabled
