@@ -8,9 +8,7 @@ extends Area3D
 var slice_thread :Thread
 var mutex := Mutex.new()
 
-var original_width: float
-var original_height: float
-var original_depth: float
+var original_size: Vector3
 var slice_positions: Array[float]
 var slices_left: int
 var slice_width: float
@@ -57,6 +55,10 @@ var hard_soft_sound_threshold: float = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Engine.is_editor_hint():
+		child_entered_tree.connect(_updated_children)
+		child_exiting_tree.connect(_updated_children)
+		return
 	slice_thread = Thread.new()
 	mutex = Mutex.new()
 	
@@ -79,21 +81,18 @@ func _ready():
 	get_parent().has_left_spawn.connect(_on_has_left_spawn)
 	
 	body_entered.connect(_on_body_entered)
-	if Engine.is_editor_hint():
-		child_entered_tree.connect(_updated_children)
-		child_exiting_tree.connect(_updated_children)
 	
 	slices_left = slice_count
 	
 	var mesh_node_y_angle := _mesh_node.transform.basis.y.angle_to(Vector3.UP)
 	
 	var aabb = _mesh_node.mesh.get_aabb()
-	original_width = sin(mesh_node_y_angle) * aabb.size.y + cos(mesh_node_y_angle) * aabb.size.x
-	original_height = cos(mesh_node_y_angle) * aabb.size.y + sin(mesh_node_y_angle) * aabb.size.x
-	original_depth = aabb.size.z
-	slice_width = original_width / slice_count
+	original_size.x = sin(mesh_node_y_angle) * aabb.size.y + cos(mesh_node_y_angle) * aabb.size.x
+	original_size.y = cos(mesh_node_y_angle) * aabb.size.y + sin(mesh_node_y_angle) * aabb.size.x
+	original_size.z = aabb.size.z
+	slice_width = original_size.x / slice_count
 	for i in range(1,slice_count):
-		slice_positions.push_back(original_width/2 - slice_width * i)
+		slice_positions.push_back(original_size.x/2 - slice_width * i)
 		
 	collision_layer = 0
 	collision_mask = pow(2,5) # Mask layer 6
@@ -152,6 +151,7 @@ func slice_rest(meshes):
 		mesh_node_to_delete.queue_free()
 		
 	if slices_left == 1:
+		slices_left -= 1
 		slice = _create_slice(meshes[0])
 		_sliceable.add_sibling(slice)
 		_make_slice_ready(slice)
@@ -169,7 +169,7 @@ func _make_slice_ready(slice: BurgerPart) -> void:
 	slice.height = slice_width
 	slice.stack_zone_distance = slice_width + slice.burger_part_seperation_distance
 	slice.stack_zone.position.y = slice.stack_zone_distance
-	slice.stack_zone.get_node("CollisionShape3D").shape.radius = original_height/2
+	slice.stack_zone.get_node("CollisionShape3D").shape.radius = original_size.y/2
 	slice.mass = slice_mass
 	slice.original_mass = slice_mass
 	slice.center_of_mass = Vector3(0, slice_width/2, 0)
@@ -192,8 +192,8 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	var slice: BurgerPart = slice_scene.instantiate()
 	slice.transform = _sliceable.transform
 	slice.transform.origin += slice.basis.x * (slice_width+slice_spawn_seperation_distance) * (slices_left +1)
-	slice.position.y = original_height/2 + 0.02 + _sliceable.position.y
-	slice.rotate_z(7*PI/20)
+	slice.position.y = original_size.y/2 + 0.02 + _sliceable.position.y
+	slice.rotate_z(PI)
 	
 	var mesh_node := _find_mesh_child_node(slice)
 	if not mesh_node:
@@ -230,7 +230,7 @@ func _position_child_nodes(mesh_node: MeshInstance3D, coll_node: CollisionShape3
 	else:
 		shift.y = slice_width * (ceil(slice_count/2.0) - (slices_left+1) + 0.5*_flip_factor) * _flip_factor
 	
-	shift.x = original_height/2 if _is_mesh_ontop_xz else 0
+	shift.x = original_size.y/2 if _is_mesh_ontop_xz else 0
 	
 	mesh_node.position += shift
 	coll_node.position.y = coll_node.shape.height/2
@@ -254,20 +254,20 @@ func _adjust_collision_shape(node: Node, mesh: Mesh) -> void:
 			match remain_shape:
 				"CylinderShape3D":
 					if not coll_node.shape is CylinderShape3D: coll_node.shape = CylinderShape3D.new()
-					coll_node.shape.radius = original_height/2
+					coll_node.shape.radius = original_size.y/2
 					coll_node.shape.height = slices_left * slice_width
 					coll_node.transform.basis = Basis(Vector3.BACK, PI/2)
 				"BoxShape3D":
 					if not coll_node.shape is BoxShape3D: coll_node.shape = BoxShape3D.new()
 					coll_node.shape.size.x = slices_left * slice_width
-					coll_node.shape.size.y = original_height
-					coll_node.shape.size.z = original_depth
+					coll_node.shape.size.y = original_size.y
+					coll_node.shape.size.z = original_size.z
 					coll_node.transform.basis = Basis.IDENTITY
 			
 			coll_node.position.x = -1 * slice_width/2.0 * (slice_count-slices_left)
 		else:
 			if not coll_node.shape is CylinderShape3D: coll_node.shape = CylinderShape3D.new()
-			coll_node.shape.radius = original_height/2
+			coll_node.shape.radius = original_size.y/2
 			coll_node.shape.height = slice_width
 	
 
@@ -293,4 +293,5 @@ func _on_has_left_spawn():
 
 # Thread must be disposed (or "joined"), for portability.
 func _exit_tree():
+	if Engine.is_editor_hint(): return
 	slice_thread.wait_to_finish()
