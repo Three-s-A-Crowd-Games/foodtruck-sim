@@ -18,4 +18,4 @@ script = ExtResource("2_igwbi")
 player_count = 5
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="PickableSoundQueue3D"]
-bus = &"SFX"
+bus = &"Collision"
