@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=47 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -18,17 +18,19 @@
 [ext_resource type="PackedScene" uid="uid://witvb00gyysp" path="res://assets/models/objects/appliances/fries_box.blend" id="16_c4lkf"]
 [ext_resource type="PackedScene" uid="uid://dqu2cm5yrrt54" path="res://resources/objects/accessoires/friesbox.tscn" id="16_t2krs"]
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
-[ext_resource type="PackedScene" path="res://resources/objects/appliances/sauce_container.tscn" id="17_117gm"]
+[ext_resource type="PackedScene" uid="uid://d088mil7a0mga" path="res://resources/objects/appliances/sauce_container.tscn" id="17_117gm"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="18_wcr04"]
 [ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="19_5w3yg"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="19_24xoq"]
-[ext_resource type="PackedScene" path="res://resources/objects/next_order_button.tscn" id="21_pidlo"]
+[ext_resource type="PackedScene" uid="uid://dy8lnrkp88fju" path="res://resources/objects/next_order_button.tscn" id="21_pidlo"]
 [ext_resource type="PackedScene" uid="uid://cyquot0luo414" path="res://resources/special_areas/pinning_area.tscn" id="21_x5e2k"]
 [ext_resource type="PackedScene" uid="uid://oefjh0xalhqn" path="res://assets/models/objects/furniture/pin-board.blend" id="22_17cek"]
-[ext_resource type="PackedScene" path="res://resources/objects/cash_register.tscn" id="23_5npd4"]
-[ext_resource type="PackedScene" path="res://resources/objects/accessoires/plate.tscn" id="24_pblrq"]
+[ext_resource type="PackedScene" uid="uid://c3qt746s7dnh3" path="res://resources/objects/cash_register.tscn" id="23_5npd4"]
+[ext_resource type="PackedScene" uid="uid://b1gbpv13fh1ap" path="res://resources/objects/accessoires/plate.tscn" id="24_pblrq"]
 [ext_resource type="PackedScene" uid="uid://clf7iny7d8p84" path="res://resources/objects/furniture/cheese_block.tscn" id="28_vu0rv"]
 [ext_resource type="PackedScene" uid="uid://c0brq67lg35qy" path="res://resources/objects/furniture/lettuce_block.tscn" id="29_ce0ft"]
+[ext_resource type="AudioStream" uid="uid://coma8n0hjwigh" path="res://audio/ambience/nature_ambience.mp3" id="30_opvv8"]
+[ext_resource type="AudioStream" uid="uid://cgy2ydh3uar57" path="res://audio/ambience/street_ambience.mp3" id="31_rc4pj"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -328,6 +330,20 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13841, 2.51592, 0.339753)
 
 [node name="LettuceBlock" parent="." instance=ExtResource("29_ce0ft")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13152, 2.51592, 0.497684)
+
+[node name="AmbiencePlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09653, 0, -3.02787)
+stream = ExtResource("30_opvv8")
+volume_db = -12.0
+autoplay = true
+bus = &"Ambience"
+
+[node name="AmbiencePlayer2" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.77989, 0, -3.02787)
+stream = ExtResource("31_rc4pj")
+volume_db = -12.0
+autoplay = true
+bus = &"Ambience"
 
 [connection signal="body_exited" from="TraySpawner/ExitDetector" to="TraySpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="FriesboxSpawner/ExitDetector" to="FriesboxSpawner" method="_on_exit_detector_body_exited"]
