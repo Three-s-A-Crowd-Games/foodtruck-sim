@@ -11,7 +11,6 @@ extends Node3D
 @onready var bottom_mat :Material = load("res://assets/materials/ketchup_container.tres")
 
 @onready var pump_player = $SaucePump/PumpSoundPlayer
-@onready var pump_playback: AudioStreamPlaybackInteractive = pump_player.get_stream_playback()
 @onready var sauce_player = $SauceSoundPlayer
 
 
@@ -61,8 +60,8 @@ func _process(delta: float) -> void:
 		was_up = false
 		
 	elif was_down and hit_length > 0.01:
-		pump_player.get_stream_playback().switch_to_clip(1)
 		if not pump_player.playing: pump_player.play()
+		pump_player.get_stream_playback().switch_to_clip(1)
 		was_down = false
 		
 	if hit_length <= 0.01:
