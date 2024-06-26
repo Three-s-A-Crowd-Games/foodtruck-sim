@@ -10,9 +10,15 @@ extends Node3D
 @onready var sauce_mat :Material = load("res://assets/materials/ketchup.tres")
 @onready var bottom_mat :Material = load("res://assets/materials/ketchup_container.tres")
 
+@onready var pump_player = $SaucePump/PumpSoundPlayer
+@onready var pump_playback: AudioStreamPlaybackInteractive = pump_player.get_stream_playback()
+@onready var sauce_player = $SauceSoundPlayer
+
+
 var floor_sauce_timer :Timer
 
-var just_hit :bool = false
+var was_up := true
+var was_down := false
 var stack_zones_in_area :Array = []
 
 var le_sauce_type :Ingredient.Type
@@ -44,14 +50,32 @@ func _ready() -> void:
 			pass
 	$sauce_container/container.set_surface_override_material(0,bottom_mat)
 	$GPUParticles3D.draw_pass_1.material = sauce_mat
+	
 
 func _process(delta: float) -> void:
-	if(!just_hit and sauce_pump.get_hit_length() <= 0.01):
-		just_hit = true
-		particle_spawner.emitting = true
-		sauce()
-	elif(just_hit and sauce_pump.get_hit_length() > 0.01):
-		just_hit = false
+	var hit_length := sauce_pump.get_hit_length()
+	
+	if was_up and hit_length < sauce_pump.spring_length - 0.01:
+		if not pump_player.playing: pump_player.play()
+		pump_player.get_stream_playback().switch_to_clip(0)
+		was_up = false
+		
+	elif was_down and hit_length > 0.01:
+		pump_player.get_stream_playback().switch_to_clip(1)
+		if not pump_player.playing: pump_player.play()
+		was_down = false
+		
+	if hit_length <= 0.01:
+		if not was_down:
+			particle_spawner.emitting = true
+			if sauce_player.playing: sauce_player.stop()
+			sauce_player.play()
+			sauce()
+		was_down = true
+		
+	elif hit_length >= sauce_pump.spring_length - 0.01:
+		was_up = true
+	
 
 func sauce():
 	if !stack_zones_in_area.is_empty():
