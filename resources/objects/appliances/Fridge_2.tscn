@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="5_onvuc"]
 [ext_resource type="PackedScene" uid="uid://uka8fkdexvy2" path="res://assets/models/objects/furniture/fridge_bottom.blend" id="6_2ooe4"]
 [ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="6_r3kjv"]
-[ext_resource type="PackedScene" path="res://resources/food/burger_parts/bacon.tscn" id="7_pgvxu"]
+[ext_resource type="PackedScene" uid="uid://b0e07jtb6csss" path="res://resources/food/burger_parts/bacon.tscn" id="7_pgvxu"]
 [ext_resource type="PackedScene" uid="uid://ejklhqsbujh" path="res://resources/food/burger_parts/v_patty.tscn" id="8_4drec"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gehbk"]

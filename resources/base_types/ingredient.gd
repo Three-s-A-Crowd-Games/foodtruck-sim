@@ -150,6 +150,9 @@ static var categories: Dictionary = {
 	}
 }
 
+static func parse_ingredient(ingr :Ingredient):
+	return Ingredient.Type.keys()[ingr]
+
 static func parse_ingredient_list(le_array :Array) -> String: #Alda was is Godoooo für ne Language.
 	# Oder halt GDScript is mir doch Schnuppe (~ Henry)
 	var le_string :String = ""
