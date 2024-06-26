@@ -16,6 +16,7 @@ func _on_area_3d_body_exited(body: Node3D) -> void:
 
 
 func _on_interactable_slider_slider_limit_min_reached() -> void:
+	if machine_slicable_inside.is_empty(): return
 	for machine_slicable in machine_slicable_inside:
 		machine_slicable.get_node("MachineSlicable").slice()
 	sliced.emit()
