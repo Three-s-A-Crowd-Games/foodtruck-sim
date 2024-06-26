@@ -1,7 +1,7 @@
 extends Node3D
 
-@export var sound_on: AudioStream = preload("res://audio/object_interaction/fryer_switch_on.mp3")
-@export var sound_off: AudioStream = preload("res://audio/object_interaction/fryer_switch_off.mp3")
+@export var sound_on: AudioStream = preload("res://audio/object_interaction/fryer/fryer_switch_on.mp3")
+@export var sound_off: AudioStream = preload("res://audio/object_interaction/fryer/fryer_switch_off.mp3")
 
 @onready var switch_top :Node3D = $"fryer/switch-top"
 @onready var frying_area: FryingArea = $FryingArea

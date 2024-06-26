@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ct3n7fgsi6aog" path="res://assets/models/objects/appliances/plate.blend" id="1_4e6ak"]
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_bqmy8"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_d3ajt"]
-[ext_resource type="AudioStream" uid="uid://bgnsewghikrfk" path="res://audio/object_interaction/plate/plate-normal.mp3" id="4_lfe8p"]
+[ext_resource type="AudioStream" uid="uid://bgnsewghikrfk" path="res://audio/collision/plate/plate-normal.mp3" id="4_lfe8p"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="5_75t1f"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_tb0kb"]

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_1rdhe"]
 [ext_resource type="PackedScene" uid="uid://dqomsxfv4y7op" path="res://assets/models/drinks/juice.blend" id="2_ebvvj"]
 [ext_resource type="Material" path="res://assets/materials/green_juice.tres" id="3_n6wpv"]
-[ext_resource type="Resource" uid="uid://fp24axuqlukk" path="res://audio/object_interaction/bottle/plastic_bottle.tres" id="4_vgcq0"]
+[ext_resource type="Resource" uid="uid://fp24axuqlukk" path="res://audio/collision/bottle/plastic_bottle.tres" id="4_vgcq0"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4l1u6"]
 size = Vector3(0.05, 0.108, 0.05)
