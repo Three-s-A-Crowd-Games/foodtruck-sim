@@ -1,5 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://vb88b4k65xny"]
 
+[ext_resource type="Script" path="res://resources/objects/appliances/fridge.gd" id="1_f8mbw"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="2_1foms"]
 [ext_resource type="PackedScene" uid="uid://3osplhacfbif" path="res://assets/models/objects/furniture/fridge_lid.blend" id="3_p7rys"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="4_nr872"]
@@ -8,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="6_r3kjv"]
 [ext_resource type="PackedScene" uid="uid://b0e07jtb6csss" path="res://resources/food/burger_parts/bacon.tscn" id="7_pgvxu"]
 [ext_resource type="PackedScene" uid="uid://ejklhqsbujh" path="res://resources/food/burger_parts/v_patty.tscn" id="8_4drec"]
+[ext_resource type="AudioStream" uid="uid://ccwq7dliyf14f" path="res://audio/ambience/fridge.mp3" id="8_0aexw"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gehbk"]
 size = Vector3(0.295508, 0.0639313, 0.0889526)
@@ -20,6 +22,7 @@ size = Vector3(0.213088, 0.363706, 0.591004)
 size = Vector3(0.213088, 0.363706, 0.591004)
 
 [node name="Fridge" type="Node3D"]
+script = ExtResource("1_f8mbw")
 
 [node name="HandleGrabber" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912131, 0.41992)
@@ -401,5 +404,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.765, 0.057)
 [node name="VPatty24" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.765, 0.197)
 
+[node name="InteractionSFX" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912068, -0.260591)
+pitch_scale = 0.8
+bus = &"SFX"
+
+[node name="Ambience" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_0aexw")
+volume_db = -15.0
+pitch_scale = 0.8
+autoplay = true
+bus = &"Ambience"
+
+[connection signal="hinge_moved" from="HandleGrabber/XRToolsInteractableHinge" to="." method="_on_xr_tools_interactable_hinge_hinge_moved"]
 [connection signal="body_exited" from="PattyCabinet/ExitDetector" to="PattyCabinet/Content" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="VPattyCabinet/ExitDetector" to="VPattyCabinet/Content" method="_on_exit_detector_body_exited"]

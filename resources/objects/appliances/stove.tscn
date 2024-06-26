@@ -43,6 +43,10 @@ shape = SubResource("ConvexPolygonShape3D_w8m3r")
 
 [node name="stove-v2" parent="." instance=ExtResource("1_7ipw7")]
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.269784, 0.942415, -0.422271)
+bus = &"SFX"
+
 [connection signal="toggle_stove" from="KnobOrigin/KnobTurner" to="." method="_on_toggle_stove"]
 
 [editable path="CookingArea"]

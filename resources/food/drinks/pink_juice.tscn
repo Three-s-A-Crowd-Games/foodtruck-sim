@@ -1,16 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjpvlp2ajyr7n"]
+[gd_scene load_steps=6 format=3 uid="uid://bjpvlp2ajyr7n"]
 
 [ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_gmtdd"]
 [ext_resource type="PackedScene" uid="uid://dqomsxfv4y7op" path="res://assets/models/drinks/juice.blend" id="2_715m1"]
 [ext_resource type="Material" path="res://assets/materials/pink_juice.tres" id="3_vjnf8"]
+[ext_resource type="Resource" uid="uid://fp24axuqlukk" path="res://audio/collision/bottle/plastic_bottle.tres" id="4_7vn45"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4l1u6"]
 size = Vector3(0.05, 0.108, 0.05)
 
 [node name="PinkJuice" groups=["drink"] instance=ExtResource("1_gmtdd")]
 mass = 0.5
-freeze = true
-continuous_cd = true
 type = 15
 
 [node name="CollisionShape3D" parent="." index="0"]
@@ -21,5 +20,8 @@ shape = SubResource("BoxShape3D_4l1u6")
 
 [node name="Cube_001" parent="juice" index="2"]
 surface_material_override/0 = ExtResource("3_vjnf8")
+
+[node name="PickableSoundQueue3D" parent="." index="2"]
+pickable_audio_type = ExtResource("4_7vn45")
 
 [editable path="juice"]

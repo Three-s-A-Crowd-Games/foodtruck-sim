@@ -46,6 +46,9 @@ displacement = Vector3(0, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145818, 1.0378, 0.186716)
 shape = SubResource("BoxShape3D_852q6")
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="InteractableAreaButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.147023, 1.09611, 0.182554)
+
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12235, 0.918491, -0.110441)
 emitting = false

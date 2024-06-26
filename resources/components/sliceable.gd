@@ -134,7 +134,6 @@ func _on_body_entered(body):
 	else:
 		soft_player.play()
 
-
 func slice():
 	if slices_left <= 1: return
 	if _next_slice_meshes.is_empty():
