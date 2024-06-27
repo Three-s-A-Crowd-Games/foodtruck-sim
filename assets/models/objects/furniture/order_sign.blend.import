@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://t5mrv5bqnwf6"
-path="res://.godot/imported/cucumber_box.blend-63329cff87a7c91780e5d0031e25431e.scn"
+uid="uid://iion2ersu5hy"
+path="res://.godot/imported/order_sign.blend-2dd66f04e9ac905036d29cd2384daacf.scn"
 
 [deps]
 
-source_file="res://assets/models/objects/furniture/cucumber_box.blend"
-dest_files=["res://.godot/imported/cucumber_box.blend-63329cff87a7c91780e5d0031e25431e.scn"]
+source_file="res://assets/models/objects/furniture/order_sign.blend"
+dest_files=["res://.godot/imported/order_sign.blend-2dd66f04e9ac905036d29cd2384daacf.scn"]
 
 [params]
 

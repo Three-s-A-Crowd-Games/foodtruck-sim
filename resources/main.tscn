@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=53 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -38,6 +38,7 @@
 [ext_resource type="PackedScene" uid="uid://c3ln1w7x5yeff" path="res://resources/objects/foodboxes/tomato_box.tscn" id="36_g3esd"]
 [ext_resource type="PackedScene" uid="uid://wp3apeaout4l" path="res://resources/objects/foodboxes/potato_sack.tscn" id="36_g23rl"]
 [ext_resource type="PackedScene" uid="uid://c5meogjyhip4e" path="res://resources/objects/foodboxes/cucumber_box.tscn" id="37_3wst3"]
+[ext_resource type="PackedScene" uid="uid://iion2ersu5hy" path="res://assets/models/objects/furniture/order_sign.blend" id="39_eelyf"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -149,17 +150,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.06068, 1.32717, -0.82665)
 
 [node name="truck_v1" parent="Truck" instance=ExtResource("10_vl4gb")]
 
-[node name="truck_canopy" parent="Truck/truck_v1" instance=ExtResource("11_cly5n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.547873, 0)
-
-[node name="right-wall" parent="Truck/truck_v1" index="1"]
+[node name="right-wall" parent="Truck/truck_v1" index="0"]
 transform = Transform3D(1.045, 0, 0, 0, 1.045, 0, 0, 0, 1.045, 1.275, 1.05, 0)
 
 [node name="StaticBody3D" parent="Truck/truck_v1/right-wall" index="0"]
 collision_layer = 8388609
 collision_mask = 524289
 
-[node name="left-wall" parent="Truck/truck_v1" index="2"]
+[node name="left-wall" parent="Truck/truck_v1" index="1"]
 transform = Transform3D(1.05, 0, 0, 0, 1.05, 0, 0, 0, 1.05, -1.275, 1.05, 0)
 
 [node name="StaticBody3D" parent="Truck/truck_v1/left-wall" index="0"]
@@ -178,7 +176,7 @@ collision_mask = 524289
 collision_layer = 8388609
 collision_mask = 524289
 
-[node name="Point" parent="Truck/truck_v1" index="7"]
+[node name="Point" parent="Truck/truck_v1" index="6"]
 light_energy = 1000.0
 shadow_enabled = true
 omni_range = 2.848
@@ -215,6 +213,9 @@ omni_range = 0.67
 [node name="Point_007" parent="Truck/truck_v1/Collection" index="13"]
 light_energy = 75.0
 omni_range = 0.67
+
+[node name="truck_canopy" parent="Truck/truck_v1" instance=ExtResource("11_cly5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.547873, 0)
 
 [node name="Stove" parent="Truck" instance=ExtResource("4_1mh3m")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.479958, 0, -0.605357)
@@ -335,8 +336,17 @@ shape = SubResource("BoxShape3D_6gvic")
 [node name="NextOrderButton" parent="." instance=ExtResource("21_pidlo")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.213596, 2.28869, 0.95)
 
+[node name="CollisionShape3D" parent="NextOrderButton" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373524, 0.0214447, 0)
+
+[node name="Cylinder_002" parent="NextOrderButton/order_button" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373524, 0.01553, 0)
+
+[node name="Cylinder_003" parent="NextOrderButton/order_button" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373524, 0.039442, 0)
+
 [node name="Order_Paper_Spawner" parent="NextOrderButton" index="2"]
-transform = Transform3D(-1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, -0.354469, 0.115238, -0.537121)
+transform = Transform3D(-1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, -0.293622, 0.0833645, -0.537121)
 rotation_order = 0
 
 [node name="pin-board" parent="." instance=ExtResource("22_17cek")]
@@ -393,6 +403,9 @@ transform = Transform3D(0.341184, 0, -0.939997, 0, 1, 0, 0.939997, 0, 0.341184, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.145577, 2.51592, -0.82594)
 
 [node name="Node" type="Node" parent="."]
+
+[node name="order_sign" type="Node3D" parent="." instance=ExtResource("39_eelyf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245646, 2.51584, 0.95)
 
 [connection signal="body_exited" from="TraySpawner/ExitDetector" to="TraySpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="FriesboxSpawner/ExitDetector" to="FriesboxSpawner" method="_on_exit_detector_body_exited"]
