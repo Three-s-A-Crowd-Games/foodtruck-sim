@@ -87,8 +87,7 @@ const DEFAULT_LAYER := 0b0000_0000_0000_0001_0000_0000_0000_0000
 @export var picked_by_require : String = ""
 
 ## Material for the highlight
-
-@onready var material : StandardMaterial3D
+var material : StandardMaterial3D = preload("res://resources/highlight_material.tres")
 
 
 ## If true, the object can be picked up at range
@@ -130,10 +129,15 @@ func is_xr_class(name : String) -> bool:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var highlight_node = XRToolsHighlightVisible.new()
+	add_child(highlight_node)
+	var meshes = find_children("*","MeshInstance3D", true, true)
+	for mesh in meshes:
+		var duplicated_mesh = mesh.duplicate()
+		highlight_node.add_child(duplicated_mesh)
+		duplicated_mesh.scale *= 1.1
+		duplicated_mesh.set_surface_override_material(0, material)
 	# Get all grab points
-	var meshes = find_children("*","MeshInstance3D", true, false).duplicate()
-	meshes.scale = -1.1
-	meshes.set_surface_override_material(0, material)
 	for child in get_children():
 		var grab_point := child as XRToolsGrabPoint
 		if grab_point:
