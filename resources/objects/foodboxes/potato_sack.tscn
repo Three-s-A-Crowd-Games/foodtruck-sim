@@ -8,6 +8,6 @@
 item_scene = ExtResource("2_462bf")
 
 [node name="SpawnPosition" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.286908, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.157065, 0)
 
 [node name="potato_sack" parent="." index="2" instance=ExtResource("3_wdus8")]

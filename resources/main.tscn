@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=51 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -21,7 +21,6 @@
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
 [ext_resource type="PackedScene" uid="uid://d088mil7a0mga" path="res://resources/objects/appliances/sauce_container.tscn" id="17_117gm"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="18_wcr04"]
-[ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="19_5w3yg"]
 [ext_resource type="PackedScene" uid="uid://dy8lnrkp88fju" path="res://resources/objects/next_order_button.tscn" id="21_pidlo"]
 [ext_resource type="PackedScene" uid="uid://cyquot0luo414" path="res://resources/special_areas/pinning_area.tscn" id="21_x5e2k"]
 [ext_resource type="PackedScene" uid="uid://oefjh0xalhqn" path="res://assets/models/objects/furniture/pin-board.blend" id="22_17cek"]
@@ -34,9 +33,10 @@
 [ext_resource type="PackedScene" uid="uid://dpdsnivi17hj6" path="res://resources/customer_system/customer_manager.tscn" id="31_qvdth"]
 [ext_resource type="AudioStream" uid="uid://cgy2ydh3uar57" path="res://audio/ambience/street_ambience.mp3" id="31_rc4pj"]
 [ext_resource type="PackedScene" uid="uid://iut5v7hlcdcc" path="res://assets/models/objects/appliances/cutting_board.blend" id="33_ox6ib"]
-[ext_resource type="PackedScene" uid="uid://dec5p1w8uxafs" path="res://resources/food/onion.tscn" id="34_7crlg"]
-[ext_resource type="PackedScene" uid="uid://dvrvbjk0evblt" path="res://resources/food/cucumber.tscn" id="34_gppqg"]
+[ext_resource type="PackedScene" uid="uid://c882gp7cbbr4k" path="res://resources/objects/foodboxes/onion_box.tscn" id="35_6rrfr"]
 [ext_resource type="PackedScene" uid="uid://c3ln1w7x5yeff" path="res://resources/objects/foodboxes/tomato_box.tscn" id="36_g3esd"]
+[ext_resource type="PackedScene" uid="uid://wp3apeaout4l" path="res://resources/objects/foodboxes/potato_sack.tscn" id="36_g23rl"]
+[ext_resource type="PackedScene" uid="uid://c5meogjyhip4e" path="res://resources/objects/foodboxes/cucumber_box.tscn" id="37_3wst3"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -77,9 +77,6 @@ size = Vector3(0.2, 0.166309, 0.294)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ydnwk"]
 size = Vector3(0.19, 0.075, 0.175)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_48ymk"]
-size = Vector3(0.1, 0.15, 0.1)
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_8pe7s"]
 resource_local_to_scene = true
 size = Vector3(0.0175209, 0.231544, 0.835083)
@@ -90,12 +87,6 @@ size = Vector3(0.0147419, 0.231293, 0.830749)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mm4js"]
 size = Vector3(0.44519, 0.0537109, 1.21478)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ayldn"]
-size = Vector3(0.1, 0.1, 0.1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_c8ojw"]
-size = Vector3(0.16, 0.11, 0.07)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_d3g8y")
@@ -320,23 +311,6 @@ le_sauce_type_primitive = "MUSTARD"
 [node name="Knife" parent="." instance=ExtResource("18_wcr04")]
 transform = Transform3D(0.928505, 0, 0.371319, 0, 1, 0, -0.371319, 0, 0.928505, -1.00024, 1.76358, -0.143541)
 
-[node name="PotatoSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1399, 2.52517, 0.161466)
-script = ExtResource("14_83ec4")
-item_scene = ExtResource("19_5w3yg")
-
-[node name="Potato" parent="PotatoSpawner" instance=ExtResource("19_5w3yg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0211883, 0, 0)
-
-[node name="ExitDetector" type="Area3D" parent="PotatoSpawner"]
-collision_layer = 0
-collision_mask = 65536
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="PotatoSpawner/ExitDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0678086, 0)
-shape = SubResource("BoxShape3D_48ymk")
-
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.161468, 0.765339, 0.16495)
 
@@ -388,40 +362,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0114324, 0.750915, 0.797968
 [node name="cutting_board" parent="." instance=ExtResource("33_ox6ib")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.02526, 1.72365, 0.163604)
 
-[node name="OnionSpawner" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.12368, 2.51591, -0.0336269)
-script = ExtResource("14_83ec4")
-item_scene = ExtResource("34_7crlg")
-
-[node name="Onion" parent="OnionSpawner" instance=ExtResource("34_7crlg")]
-
-[node name="ExitDetector" type="Area3D" parent="OnionSpawner"]
-collision_layer = 0
-collision_mask = 65536
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="OnionSpawner/ExitDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0358591, 0)
-shape = SubResource("BoxShape3D_ayldn")
-
-[node name="CucumberSpawner" type="Node3D" parent="."]
-transform = Transform3D(0.0171732, 0, 0.999853, 0, 1, 0, -0.999853, 0, 0.0171732, -1.08623, 2.55112, 0.388385)
-script = ExtResource("14_83ec4")
-item_scene = ExtResource("34_gppqg")
-
-[node name="Cucumber" parent="CucumberSpawner" instance=ExtResource("34_gppqg")]
-
-[node name="ExitDetector" type="Area3D" parent="CucumberSpawner"]
-collision_layer = 0
-collision_mask = 65536
-monitorable = false
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CucumberSpawner/ExitDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0299165, 0)
-shape = SubResource("BoxShape3D_c8ojw")
-
 [node name="TomatoBox" parent="." instance=ExtResource("36_g3esd")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.543952, 2.51592, -0.820215)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.12674, 2.57152, -0.206372)
 
 [node name="AmbiencePlayer" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.09653, 0, -3.02787)
@@ -437,12 +379,18 @@ volume_db = -12.0
 autoplay = true
 bus = &"Ambience"
 
+[node name="OnionBox" parent="." instance=ExtResource("35_6rrfr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.539057, 2.51591, -0.819595)
+
+[node name="PotatoSack" parent="." instance=ExtResource("36_g23rl")]
+transform = Transform3D(0.341184, 0, -0.939997, 0, 1, 0, 0.939997, 0, 0.341184, -1.13543, 2.51591, 0.274582)
+
+[node name="CucumberBox" parent="." instance=ExtResource("37_3wst3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.145577, 2.51592, -0.82594)
+
 [connection signal="body_exited" from="TraySpawner/ExitDetector" to="TraySpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="FriesboxSpawner/ExitDetector" to="FriesboxSpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="PlateSpawner/ExitDetector" to="PlateSpawner" method="_on_exit_detector_body_exited"]
-[connection signal="body_exited" from="PotatoSpawner/ExitDetector" to="PotatoSpawner" method="_on_exit_detector_body_exited"]
-[connection signal="body_exited" from="OnionSpawner/ExitDetector" to="OnionSpawner" method="_on_exit_detector_body_exited"]
-[connection signal="body_exited" from="CucumberSpawner/ExitDetector" to="CucumberSpawner" method="_on_exit_detector_body_exited"]
 
 [editable path="Truck/truck_v1"]
 [editable path="Truck/CookingArea"]
