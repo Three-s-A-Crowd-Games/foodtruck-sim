@@ -8,6 +8,15 @@
 item_scene = ExtResource("2_462bf")
 
 [node name="SpawnPosition" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.157065, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0371068, 0.157065, 0)
 
 [node name="potato_sack" parent="." index="2" instance=ExtResource("3_wdus8")]
+
+[node name="SpawnPosition2" type="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0568816, 0.0543732, 0)
+
+[node name="SpawnPosition3" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0895652, 0.157065, 0)
+
+[node name="SpawnPosition4" type="Marker3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0877505, 0.0526048, 0)

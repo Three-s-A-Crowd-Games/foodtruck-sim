@@ -11,6 +11,12 @@ item_scene = ExtResource("2_xch3w")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00231934, 0.0772629, 0)
 
 [node name="SpawnPosition" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047914, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.047914, 0.0506871)
 
 [node name="cucumber_box" parent="." index="2" instance=ExtResource("3_k0twi")]
+
+[node name="SpawnPosition2" type="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145521, 0.047914, 0.0506871)
+
+[node name="SpawnPosition3" type="Marker3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.145167, 0.047914, 0.0506871)
