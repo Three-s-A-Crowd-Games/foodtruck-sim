@@ -1,58 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://canauins47xs5"]
+[gd_scene load_steps=5 format=3 uid="uid://canauins47xs5"]
 
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="1_buoe2"]
 [ext_resource type="PackedScene" uid="uid://bqc71xcemsg8s" path="res://resources/food/burger_parts/bun_top.tscn" id="2_kixki"]
-[ext_resource type="PackedScene" uid="uid://dosk17t0rja0m" path="res://assets/models/objects/appliances/bunbox.blend" id="3_pcphv"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_jojpa"]
-size = Vector3(0.28772, 0.0127869, 0.281078)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_2ejn2"]
-size = Vector3(0.0220337, 0.149963, 0.279419)
+[ext_resource type="PackedScene" uid="uid://dp1po2dj134jq" path="res://assets/models/objects/furniture/bun_box_holder.blend" id="3_do5ij"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2dah"]
 resource_local_to_scene = true
-size = Vector3(0.25, 0.179434, 0.25)
+size = Vector3(0.159546, 0.122066, 0.25)
 
 [node name="BunBottomBox" type="Node3D"]
 
-[node name="BunBoxBody" type="StaticBody3D" parent="."]
-collision_layer = 65537
-collision_mask = 0
-
-[node name="bunbox" parent="BunBoxBody" instance=ExtResource("3_pcphv")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="BunBoxBody"]
-shape = SubResource("BoxShape3D_jojpa")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="BunBoxBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.133135, 0.0770124, 0.00219727)
-shape = SubResource("BoxShape3D_2ejn2")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="BunBoxBody"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.133537, 0.0770124, 6.10352e-05)
-shape = SubResource("BoxShape3D_2ejn2")
-
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="BunBoxBody"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00343937, 0.0770124, -0.128564)
-shape = SubResource("BoxShape3D_2ejn2")
-
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="BunBoxBody"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.00343937, 0.0770124, 0.131541)
-shape = SubResource("BoxShape3D_2ejn2")
-
 [node name="ExitDetector" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.127198, 0)
+transform = Transform3D(1, 0, 0, 0, 0.854178, -0.519981, 0, 0.519981, 0.854178, 0, 0.160155, 0.0611429)
 collision_layer = 0
 collision_mask = 65536
 monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ExitDetector"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0322527, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0125122, -0.0609369, 0)
 shape = SubResource("BoxShape3D_g2dah")
 
 [node name="Content" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.854178, -0.519981, 0, 0.519981, 0.854178, 0, 0.0515054, -0.00499771)
 script = ExtResource("1_buoe2")
 item_scene = ExtResource("2_kixki")
 
@@ -60,6 +29,11 @@ item_scene = ExtResource("2_kixki")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0184291, 0)
 
 [node name="BunTop2" parent="Content" instance=ExtResource("2_kixki")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0758533, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.056, 0)
+
+[node name="BunTop3" parent="Content" instance=ExtResource("2_kixki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.088, 0)
+
+[node name="bun_box_holder" parent="." instance=ExtResource("3_do5ij")]
 
 [connection signal="body_exited" from="ExitDetector" to="Content" method="_on_exit_detector_body_exited"]

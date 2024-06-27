@@ -1,29 +1,34 @@
 extends Node3D
 
 @export var item_scene:PackedScene
-var item: XRToolsPickable
-var spawn_position: Vector3
+var items: Array
 
 func _ready():
-	spawn_position = $SpawnPosition.position
-	$SpawnPosition.queue_free()
-	_add_new_item()
+	printt("Markerss", find_children("*", "Marker3D", true, false).size())
+	for marker in find_children("*", "Marker3D", true, false):
+		_add_new_item(marker.position)
+		marker.queue_free()
 	
 
-func _add_new_item() -> void:
-	item = item_scene.instantiate()
-	item.visible = false
-	add_child(item)
-	for snap_zone: XRToolsSnapZone in item.find_children("*", "XRToolsSnapZone", true, false):
+func _add_new_item(pos :Vector3) -> void:
+	var cur_item = item_scene.instantiate()
+	cur_item.visible = false
+	add_child(cur_item)
+	for snap_zone: XRToolsSnapZone in cur_item.find_children("*", "XRToolsSnapZone", true, false):
 		snap_zone.enabled = false
-	item.position = spawn_position
+	cur_item.position = pos
+	items.append(cur_item)
+	print("Spawned")
 
 func _on_area_3d_body_exited(body):
 	if not body is XRToolsPickable: return
-	if(body == item and  not body.has_left_spawner):
+	body = body as XRToolsPickable
+	if(body in items and  not body.has_left_spawner):
+		print("Huh")
+		items.erase(body)
 		body.visible = true
 		body.has_left_spawner = true
 		for snap_zone: XRToolsSnapZone in body.find_children("*", "XRToolsSnapZone", true, false):
 			snap_zone.enabled = true
-		_add_new_item()
+		_add_new_item(to_local(body.position_before_pickup))
 	

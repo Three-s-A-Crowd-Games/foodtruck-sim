@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3qt746s7dnh3"]
+
+[ext_resource type="Script" path="res://resources/objects/cash_register.gd" id="1_3u8ug"]
+[ext_resource type="PackedScene" uid="uid://b1qu1vosylom8" path="res://assets/models/objects/furniture/cash_register.blend" id="1_7i60n"]
+[ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="2_sqmye"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajt5s"]
+size = Vector3(0.235, 0.075, 0.15)
+
+[node name="CashRegister" type="Node3D"]
+script = ExtResource("1_3u8ug")
+
+[node name="cash_register" parent="." instance=ExtResource("1_7i60n")]
+
+[node name="InteractableAreaButton" parent="." instance=ExtResource("2_sqmye")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.235957, 0)
+collision_mask = 16777216
+button = NodePath("../cash_register/Cube_036")
+displacement = Vector3(0, -0.005, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0602272, 0.0528318)
+shape = SubResource("BoxShape3D_ajt5s")
+
+[node name="OrderDetectionArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 65540
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="OrderDetectionArea"]
+
+[connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_interactable_area_button_button_pressed"]
+[connection signal="body_entered" from="OrderDetectionArea" to="." method="_on_order_detection_area_body_entered"]
+[connection signal="body_exited" from="OrderDetectionArea" to="." method="_on_order_detection_area_body_exited"]
+
+[editable path="cash_register"]

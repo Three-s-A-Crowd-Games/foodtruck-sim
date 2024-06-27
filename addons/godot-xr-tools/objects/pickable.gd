@@ -33,6 +33,7 @@ signal action_pressed(pickable)
 # Signal emitted when the highlight state changes
 signal highlight_updated(pickable, enable)
 
+signal has_left_spawn
 
 ## Method used to grab object at range
 enum RangedMethod {
@@ -96,10 +97,11 @@ var can_ranged_grab: bool = true
 ## Frozen state to restore to when dropped
 var restore_freeze : bool = false
 
-var position_before_pickup := Vector3.ZERO
+var position_before_pickup = null
 
 var has_left_spawner := false :
 	set(value):
+		if value: has_left_spawn.emit()
 		has_left_spawner = value
 
 # Count of 'is_closest' grabbers
@@ -237,8 +239,10 @@ func pick_up(by: Node3D) -> void:
 	# Skip if not enabled
 	if not enabled:
 		return
-
-	position_before_pickup = global_position
+	
+	freeze = false
+	if position_before_pickup == null:
+		position_before_pickup = global_position
 
 	# Find the grabber information
 	var grabber := Grabber.new(by)

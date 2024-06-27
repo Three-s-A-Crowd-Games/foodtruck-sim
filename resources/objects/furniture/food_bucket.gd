@@ -4,8 +4,8 @@ extends Node3D
 
 
 func _on_exit_detector_body_exited(body):
-	body = body as Food
-	if(body and !body.has_left_spawner):
+	body = body as XRToolsPickable
+	if(body and !body.has_left_spawner and self.get_children().has(body)):
 		body.has_left_spawner = true
 		var item = item_scene.instantiate()
 		add_child(item)

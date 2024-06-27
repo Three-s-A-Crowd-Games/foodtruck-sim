@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wqifidp1mmv6" path="res://assets/models/objects/furniture/stove.blend" id="1_7ipw7"]
 [ext_resource type="Script" path="res://resources/objects/appliances/stove.gd" id="1_jta84"]
-[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/systems/cooking_area.tscn" id="2_kuxf2"]
+[ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/special_areas/cooking_area.tscn" id="2_kuxf2"]
 [ext_resource type="Script" path="res://resources/objects/appliances/KnobTurner.gd" id="3_4xfrm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6ypmn"]
@@ -42,6 +42,10 @@ rotation_order = 5
 shape = SubResource("ConvexPolygonShape3D_w8m3r")
 
 [node name="stove-v2" parent="." instance=ExtResource("1_7ipw7")]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.269784, 0.942415, -0.422271)
+bus = &"SFX"
 
 [connection signal="toggle_stove" from="KnobOrigin/KnobTurner" to="." method="_on_toggle_stove"]
 

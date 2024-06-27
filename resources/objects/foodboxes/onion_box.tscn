@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c882gp7cbbr4k"]
+
+[ext_resource type="PackedScene" uid="uid://wa0qw7gtqgym" path="res://resources/base_types/spawn_block.tscn" id="1_err0f"]
+[ext_resource type="PackedScene" uid="uid://dec5p1w8uxafs" path="res://resources/food/onion.tscn" id="2_2eev1"]
+[ext_resource type="PackedScene" uid="uid://ddksvo4yrpi5t" path="res://assets/models/objects/furniture/onion_box.blend" id="3_mpn8s"]
+
+[node name="OnionBox" instance=ExtResource("1_err0f")]
+item_scene = ExtResource("2_2eev1")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00231934, 0.0772629, 0)
+
+[node name="SpawnPosition" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0608011, 0.047914, 0.0222625)
+
+[node name="onion_box" parent="." index="2" instance=ExtResource("3_mpn8s")]
+
+[node name="SpawnPosition2" type="Marker3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0550117, 0.047914, 0.0220739)

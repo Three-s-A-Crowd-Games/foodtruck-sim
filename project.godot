@@ -19,6 +19,7 @@ config/icon="res://assets/icon.svg"
 
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 XrSimulator="*res://addons/xr-simulator/XRSimulator.tscn"
+OrderController="*res://resources/base_types/order_controller.gd"
 
 [editor_plugins]
 
@@ -43,23 +44,31 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 3d_physics/layer_24="Floor"
 3d_physics/layer_25="ButtonInteractionLayer"
 3d_physics/layer_26="Flippable"
-3d_physics/layer_27="FloorSauce"
+3d_physics/layer_27="PaperPinning"
 
 [physics]
 
+common/physics_ticks_per_second=72
+common/max_physics_steps_per_frame=12
 3d/physics_engine="JoltPhysics3D"
 jolt_3d/sleep/enabled=false
-jolt_3d/solver/velocity_iterations=16
-jolt_3d/solver/position_iterations=6
-jolt_3d/solver/bounce_velocity_threshold=0.0
+jolt_3d/continuous_cd/movement_threshold=40.0
+jolt_3d/continuous_cd/max_penetration=5.0
+jolt_3d/kinematics/recovery_iterations=6
+jolt_3d/solver/velocity_iterations=20
+jolt_3d/solver/position_iterations=4
+jolt_3d/solver/position_correction=25.0
+jolt_3d/solver/bounce_velocity_threshold=0.1
 
 [rendering]
 
+occlusion_culling/bvh_build_quality=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/use_physical_light_units=true
-anti_aliasing/quality/msaa_3d=1
+lights_and_shadows/tighter_shadow_caster_culling=false
+occlusion_culling/use_occlusion_culling=true
 
 [xr]
 

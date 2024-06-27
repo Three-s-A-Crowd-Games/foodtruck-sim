@@ -29,6 +29,7 @@ size = Vector3(0.238184, 0.0075531, 0.0492248)
 [node name="Knife" instance=ExtResource("1_aidih")]
 collision_mask = 8585223
 mass = 0.3
+continuous_cd = true
 picked_up_layer = 65568
 
 [node name="CollisionShape3D" parent="." index="0"]

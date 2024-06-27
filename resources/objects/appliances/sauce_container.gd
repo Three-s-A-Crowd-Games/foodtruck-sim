@@ -10,9 +10,14 @@ extends Node3D
 @onready var sauce_mat :Material = load("res://assets/materials/ketchup.tres")
 @onready var bottom_mat :Material = load("res://assets/materials/ketchup_container.tres")
 
+@onready var pump_player = $SaucePump/PumpSoundPlayer
+@onready var sauce_player = $SauceSoundPlayer
+
+
 var floor_sauce_timer :Timer
 
-var just_hit :bool = false
+var was_up := true
+var was_down := false
 var stack_zones_in_area :Array = []
 
 var le_sauce_type :Ingredient.Type
@@ -23,10 +28,9 @@ func _ready() -> void:
 	add_child(floor_sauce_timer)
 	floor_sauce_timer.one_shot = true
 	floor_sauce_timer.wait_time = 4
-	floor_sauce_timer.connect("timeout", reset_floor_sauce)
+	floor_sauce_timer.timeout.connect(reset_floor_sauce)
 	
 	le_sauce_type = Ingredient.Type.get(le_sauce_type_primitive)
-	print(le_sauce_type)
 	
 	# Figure out materials
 	match le_sauce_type:
@@ -37,21 +41,38 @@ func _ready() -> void:
 			sauce_mat = load("res://assets/materials/bbq_sauce.tres")
 			bottom_mat = load("res://assets/materials/bbq_container.tres")
 		Ingredient.Type.MUSTARD:
-			print("Must")
 			sauce_mat = load("res://assets/materials/mustard.tres")
 			bottom_mat = load("res://assets/materials/mustard_container.tres")
 		_:
 			pass
 	$sauce_container/container.set_surface_override_material(0,bottom_mat)
 	$GPUParticles3D.draw_pass_1.material = sauce_mat
+	
 
 func _process(delta: float) -> void:
-	if(!just_hit and sauce_pump.get_hit_length() <= 0.01):
-		just_hit = true
-		particle_spawner.emitting = true
-		sauce()
-	elif(just_hit and sauce_pump.get_hit_length() > 0.01):
-		just_hit = false
+	var hit_length := sauce_pump.get_hit_length()
+	
+	if was_up and hit_length < sauce_pump.spring_length - 0.01:
+		if not pump_player.playing: pump_player.play()
+		pump_player.get_stream_playback().switch_to_clip(0)
+		was_up = false
+		
+	elif was_down and hit_length > 0.01:
+		if not pump_player.playing: pump_player.play()
+		pump_player.get_stream_playback().switch_to_clip(1)
+		was_down = false
+		
+	if hit_length <= 0.01:
+		if not was_down:
+			particle_spawner.emitting = true
+			if sauce_player.playing: sauce_player.stop()
+			sauce_player.play()
+			sauce()
+		was_down = true
+		
+	elif hit_length >= sauce_pump.spring_length - 0.01:
+		was_up = true
+	
 
 func sauce():
 	if !stack_zones_in_area.is_empty():
@@ -71,11 +92,12 @@ func sauce():
 		# We now have our closest stack-zone. Time to give its parent some sauce
 		var le_part :BurgerPart = closest_stack.get_parent()
 		var le_sauce_instance = le_sauce.instantiate()
-		le_sauce_instance.position.y = le_part.height
 		le_sauce_instance.get_node("sauce").set_surface_override_material(0,sauce_mat)
 		le_part.add_child(le_sauce_instance)
 		if le_part.flipped_state == BurgerPart.FlipState.FLIPPED:
 			le_sauce_instance.rotation_degrees.x = 180
+		else:
+			le_sauce_instance.position.y = le_part.height
 		le_part.sauced = le_sauce_type
 		
 		stack_zones_in_area.erase(closest_stack)

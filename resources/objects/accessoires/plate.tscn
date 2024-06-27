@@ -1,0 +1,49 @@
+[gd_scene load_steps=10 format=3 uid="uid://b1gbpv13fh1ap"]
+
+[ext_resource type="PackedScene" uid="uid://ct3n7fgsi6aog" path="res://assets/models/objects/appliances/plate.blend" id="1_4e6ak"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_bqmy8"]
+[ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="2_d3ajt"]
+[ext_resource type="AudioStream" uid="uid://bgnsewghikrfk" path="res://audio/collision/plate/plate-normal.mp3" id="4_lfe8p"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="5_75t1f"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tb0kb"]
+height = 0.0298327
+radius = 0.0891484
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_xeafo"]
+resource_local_to_scene = true
+radius = 0.0481934
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y33kf"]
+random_pitch = 1.5
+streams_count = 1
+stream_0/stream = ExtResource("4_lfe8p")
+
+[sub_resource type="Resource" id="Resource_0504j"]
+script = ExtResource("5_75t1f")
+name = ""
+drop_sound = SubResource("AudioStreamRandomizer_y33kf")
+
+[node name="Plate" groups=["main_container"] instance=ExtResource("1_bqmy8")]
+mass = 0.25
+freeze = true
+continuous_cd = true
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0141981, 0)
+shape = SubResource("CylinderShape3D_tb0kb")
+
+[node name="SnapZone" parent="." index="1" instance=ExtResource("2_d3ajt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00999548, 0)
+snap_require = "food"
+
+[node name="CollisionShape3D" parent="SnapZone" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0075097, 0)
+shape = SubResource("SphereShape3D_xeafo")
+
+[node name="Plate" parent="." index="2" instance=ExtResource("1_4e6ak")]
+
+[node name="PickableSoundQueue3D" parent="." index="3"]
+pickable_audio_type = SubResource("Resource_0504j")
+
+[editable path="SnapZone"]

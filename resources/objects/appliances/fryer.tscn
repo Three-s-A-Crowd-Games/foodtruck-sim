@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://resources/objects/appliances/fryer.gd" id="1_ah4t3"]
 [ext_resource type="PackedScene" uid="uid://cj3rf56khwid5" path="res://assets/models/objects/furniture/fryer.blend" id="1_xthe5"]
-[ext_resource type="PackedScene" uid="uid://oa4nb5wne6a6" path="res://resources/systems/frying_area.tscn" id="2_h440w"]
+[ext_resource type="PackedScene" uid="uid://oa4nb5wne6a6" path="res://resources/special_areas/frying_area.tscn" id="2_h440w"]
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="3_qcbej"]
 [ext_resource type="ArrayMesh" uid="uid://bcj31tgx2nnqb" path="res://assets/models/paticles/fryer_particle.obj" id="5_ef5m1"]
 
@@ -45,6 +45,9 @@ displacement = Vector3(0, 0, 0)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145818, 1.0378, 0.186716)
 shape = SubResource("BoxShape3D_852q6")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="InteractableAreaButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.147023, 1.09611, 0.182554)
 
 [node name="GPUParticles3D" type="GPUParticles3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.12235, 0.918491, -0.110441)

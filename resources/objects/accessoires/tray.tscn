@@ -1,8 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://daq62tyjf4nnf"]
+[gd_scene load_steps=18 format=3 uid="uid://daq62tyjf4nnf"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_xu6s3"]
 [ext_resource type="PackedScene" uid="uid://c72eirorwjtwe" path="res://assets/models/objects/appliances/tray.blend" id="2_gmvqh"]
+[ext_resource type="Script" path="res://resources/objects/accessoires/tray.gd" id="2_l2i2c"]
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="3_so64g"]
+[ext_resource type="Script" path="res://resources/components/recipe_detector.gd" id="5_c8kme"]
+[ext_resource type="AudioStream" uid="uid://dknxxnvoii6je" path="res://audio/collision/tray/tray_collision-01.mp3" id="6_6u1vs"]
+[ext_resource type="AudioStream" uid="uid://bfsapc8l07aqm" path="res://audio/collision/tray/tray_collision-02.mp3" id="7_6j76a"]
+[ext_resource type="AudioStream" uid="uid://cywd0c5eq3j1u" path="res://audio/collision/tray/tray_collision-03.mp3" id="8_yd0un"]
+[ext_resource type="AudioStream" uid="uid://3v4wvm4ogys0" path="res://audio/collision/tray/tray_collision-04.mp3" id="9_hsctp"]
+[ext_resource type="AudioStream" uid="uid://ce8031n7k5dcm" path="res://audio/collision/tray/tray_collision-05.mp3" id="10_mf7px"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="11_mxa8p"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uqtse"]
 size = Vector3(0.399673, 0.0226135, 0.351685)
@@ -19,8 +27,28 @@ radius = 0.055
 resource_local_to_scene = true
 radius = 0.04
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_twhti"]
+playback_mode = 1
+random_pitch = 1.3
+random_volume_offset_db = 2.0
+streams_count = 5
+stream_0/stream = ExtResource("6_6u1vs")
+stream_1/stream = ExtResource("7_6j76a")
+stream_2/stream = ExtResource("8_yd0un")
+stream_3/stream = ExtResource("9_hsctp")
+stream_4/stream = ExtResource("10_mf7px")
+
+[sub_resource type="Resource" id="Resource_8aaaw"]
+script = ExtResource("11_mxa8p")
+name = ""
+drop_sound = SubResource("AudioStreamRandomizer_twhti")
+
 [node name="Tray" instance=ExtResource("1_xu6s3")]
 collision_mask = 8388615
+mass = 0.25
+freeze = true
+continuous_cd = true
+script = ExtResource("2_l2i2c")
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0103589, 0)
@@ -29,7 +57,10 @@ shape = SubResource("BoxShape3D_uqtse")
 [node name="tray2" parent="." index="1" instance=ExtResource("2_gmvqh")]
 
 [node name="MainZone" parent="." index="2" instance=ExtResource("3_so64g")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.000601623, 0.0813667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00265676, 0.0813667)
+script = ExtResource("5_c8kme")
+first_element_ignore_group = "main_container"
+snap_require = "main_container"
 
 [node name="CollisionShape3D" parent="MainZone" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0113606)
@@ -37,15 +68,24 @@ shape = SubResource("SphereShape3D_hvw5g")
 
 [node name="SideZone" parent="." index="3" instance=ExtResource("3_so64g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0655148, 0.00175793, -0.0994227)
+script = ExtResource("5_c8kme")
+first_element_ignore_group = "side_container"
+snap_require = "side_container"
 
 [node name="CollisionShape3D" parent="SideZone" index="0"]
 shape = SubResource("SphereShape3D_xhhi8")
 
 [node name="DrinkZone" parent="." index="4" instance=ExtResource("3_so64g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.119498, 0.00200606, -0.0994227)
+script = ExtResource("5_c8kme")
+first_element_ignore_group = ""
+snap_require = "drink"
 
 [node name="CollisionShape3D" parent="DrinkZone" index="0"]
 shape = SubResource("SphereShape3D_4pgys")
+
+[node name="PickableSoundQueue3D" parent="." index="5"]
+pickable_audio_type = SubResource("Resource_8aaaw")
 
 [editable path="MainZone"]
 [editable path="SideZone"]

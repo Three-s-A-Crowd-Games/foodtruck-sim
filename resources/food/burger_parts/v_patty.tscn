@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://ejklhqsbujh"]
+
+[ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_2hqs3"]
+[ext_resource type="Script" path="res://resources/food/burger_parts/v_patty.gd" id="2_y312x"]
+[ext_resource type="PackedScene" uid="uid://w3j7uqy2hp8x" path="res://assets/models/food/patty.blend" id="3_x70p6"]
+[ext_resource type="Material" uid="uid://r7krd44oydjo" path="res://assets/materials/vegan_patty_raw.tres" id="4_c07d3"]
+[ext_resource type="Script" path="res://resources/components/cookable.gd" id="4_gaj74"]
+[ext_resource type="AudioStream" uid="uid://cat36ory7225l" path="res://audio/cooking/cooking_audio_stream_interactive.tres" id="5_2p13w"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_mgd0g"]
+height = 0.0216041
+radius = 0.06
+
+[node name="VPatty" instance=ExtResource("1_2hqs3")]
+script = ExtResource("2_y312x")
+type = 21
+ranged_grab_method = 1
+second_hand_grab = 0
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0111159, 0)
+shape = SubResource("CylinderShape3D_mgd0g")
+
+[node name="Patty" parent="." index="1" instance=ExtResource("3_x70p6")]
+
+[node name="Circle" parent="Patty" index="0"]
+surface_material_override/0 = ExtResource("4_c07d3")
+
+[node name="Cookable" type="Node3D" parent="." index="2"]
+script = ExtResource("4_gaj74")
+cook_sounds_stream = ExtResource("5_2p13w")
+
+[connection signal="cooked_status_changed" from="Cookable" to="." method="_on_cookable_cooked_status_changed"]
+
+[editable path="Patty"]
