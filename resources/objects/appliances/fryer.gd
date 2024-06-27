@@ -5,7 +5,7 @@ extends Node3D
 
 @onready var switch_top :Node3D = $"fryer/switch-top"
 @onready var frying_area: FryingArea = $FryingArea
-@onready var audio_player: AudioStreamPlayer3D = $InteractableAreaButton/AudioStreamPlayer3D
+@onready var switch_audio_player: AudioStreamPlayer3D = $InteractableAreaButton/SwitchAudioPlayer
 
 var active :bool = false
 
@@ -16,13 +16,13 @@ func _on_interactable_area_button_button_pressed(button):
 		switch_top.rotation_degrees.x = 25
 		$GPUParticles3D.emitting = true
 		$GPUParticles3D2.emitting = true
-		if audio_player.playing: audio_player.stop()
-		audio_player.stream = sound_on
-		audio_player.play()
+		if switch_audio_player.playing: switch_audio_player.stop()
+		switch_audio_player.stream = sound_on
+		switch_audio_player.play()
 	else:
 		switch_top.rotation_degrees.x = 0
 		$GPUParticles3D.emitting = false
 		$GPUParticles3D2.emitting = false
-		if audio_player.playing: audio_player.stop()
-		audio_player.stream = sound_off
-		audio_player.play()
+		if switch_audio_player.playing: switch_audio_player.stop()
+		switch_audio_player.stream = sound_off
+		switch_audio_player.play()
