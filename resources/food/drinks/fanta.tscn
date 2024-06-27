@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_8tdhg"]
 [ext_resource type="PackedScene" uid="uid://bc25p02qcab5r" path="res://assets/models/drinks/bottle.blend" id="2_f30c1"]
-[ext_resource type="Material" path="res://assets/materials/fanta.tres" id="3_yfccd"]
+[ext_resource type="Material" uid="uid://chwmuyicieifu" path="res://assets/materials/fanta.tres" id="3_yfccd"]
 [ext_resource type="Resource" uid="uid://fp24axuqlukk" path="res://audio/collision/bottle/plastic_bottle.tres" id="4_dwk7f"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_bqv7l"]
