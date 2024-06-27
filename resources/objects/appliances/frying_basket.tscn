@@ -19,7 +19,7 @@ size = Vector3(0.0124512, 0.13031, 0.293701)
 size = Vector3(0.0266113, 0.0120239, 0.032959)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ovwft"]
-size = Vector3(0.027, 0.0370581, 0.0101523)
+size = Vector3(0.027, 0.0297595, 0.0101523)
 
 [sub_resource type="BoxMesh" id="BoxMesh_n76sj"]
 size = Vector3(0.16, 0.005, 0.27)
@@ -33,6 +33,8 @@ size = Vector3(0.17, 0.135, 0.005)
 [node name="FryingBasket" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 7
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.05, -0.1)
 continuous_cd = true
 script = ExtResource("1_opsrh")
 
@@ -63,11 +65,11 @@ transform = Transform3D(0.997185, 0.0749787, 0, -0.0749787, 0.997185, 0, 0, 0, 1
 shape = SubResource("BoxShape3D_7wwsc")
 
 [node name="CollisionShape3D7" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.996347, -0.0853995, 0, 0.0853995, 0.996347, 0, 0.0884804, -0.160345)
+transform = Transform3D(1, 0, 0, 0, 0.996347, -0.0853995, 0, 0.0853995, 0.996347, 0, 0.0884804, -0.164046)
 shape = SubResource("BoxShape3D_uk6a1")
 
 [node name="CollisionShape3D8" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.864976, -0.501813, 0, 0.501813, 0.864976, 0, 0.0805157, -0.178818)
+transform = Transform3D(1, 0, 0, 0, 0.999338, -0.036365, 0, 0.036365, 0.999338, 0, 0.0768688, -0.183799)
 shape = SubResource("BoxShape3D_ovwft")
 
 [node name="Occlusion" type="Node3D" parent="."]

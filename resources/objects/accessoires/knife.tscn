@@ -29,6 +29,8 @@ size = Vector3(0.238184, 0.0075531, 0.0492248)
 [node name="Knife" instance=ExtResource("1_aidih")]
 collision_mask = 8585223
 mass = 0.3
+center_of_mass_mode = 1
+center_of_mass = Vector3(0.1, 0.01, 0)
 continuous_cd = true
 picked_up_layer = 65568
 
