@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ebv77htvtll6"
-path="res://.godot/imported/truck_poster.blend-2e4745386029351f8b9508f43d56ea8a.scn"
+uid="uid://b24k52u0hsm63"
+path="res://.godot/imported/truck_canopy.blend-c84f29fe0ae31d23c2c700857889a59e.scn"
 
 [deps]
 
-source_file="res://assets/models/truck_poster.blend"
-dest_files=["res://.godot/imported/truck_poster.blend-2e4745386029351f8b9508f43d56ea8a.scn"]
+source_file="res://assets/models/objects/furniture/truck_canopy.blend"
+dest_files=["res://.godot/imported/truck_canopy.blend-c84f29fe0ae31d23c2c700857889a59e.scn"]
 
 [params]
 
