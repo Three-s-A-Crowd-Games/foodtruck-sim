@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=54 format=3 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://vb88b4k65xny" path="res://resources/objects/appliances/Fridge_2.tscn" id="11_js3xx"]
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="14_83ec4"]
 [ext_resource type="PackedScene" uid="uid://daq62tyjf4nnf" path="res://resources/objects/accessoires/tray.tscn" id="15_2qref"]
+[ext_resource type="Texture2D" uid="uid://ib7ju2i56syv" path="res://assets/2d_images/tray_area_image.png" id="16_4ir7a"]
 [ext_resource type="PackedScene" uid="uid://witvb00gyysp" path="res://assets/models/objects/appliances/fries_box.blend" id="16_c4lkf"]
 [ext_resource type="PackedScene" uid="uid://dqu2cm5yrrt54" path="res://resources/objects/accessoires/friesbox.tscn" id="16_t2krs"]
 [ext_resource type="PackedScene" uid="uid://b43qe84nsktof" path="res://resources/objects/appliances/potato_cutter.tscn" id="16_uegm4"]
@@ -233,6 +234,11 @@ enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.850798, 1.97374, 0.783707)
 shape = SubResource("BoxShape3D_j8awf")
 
+[node name="tray_area" type="Sprite3D" parent="Truck"]
+transform = Transform3D(0.75, 0, 0, 0, -3.27835e-08, -0.75, 0, 0.75, -3.27835e-08, -0.491537, 0.99524, 1.20252)
+pixel_size = 0.0001
+texture = ExtResource("16_4ir7a")
+
 [node name="Flipper" parent="." instance=ExtResource("8_8x8av")]
 transform = Transform3D(0.959986, 0, -0.280047, 0, 1, 0, 0.280047, 0, 0.959986, -1, 1.7577, -0.651897)
 
@@ -404,7 +410,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.145577, 2.51592, -0.82594)
 
 [node name="Node" type="Node" parent="."]
 
-[node name="order_sign" type="Node3D" parent="." instance=ExtResource("39_eelyf")]
+[node name="order_sign" parent="." instance=ExtResource("39_eelyf")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245646, 2.51584, 0.95)
 
 [connection signal="body_exited" from="TraySpawner/ExitDetector" to="TraySpawner" method="_on_exit_detector_body_exited"]
