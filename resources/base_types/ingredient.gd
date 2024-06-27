@@ -5,7 +5,7 @@ extends RefCounted
 
 enum Category{
 	BURGER_PART,
-	FRIES,
+	SIDES,
 	DRINKS,
 	SAUCES
 }
@@ -30,6 +30,9 @@ enum Type{
 	KETCHUP,
 	BBQ,
 	MUSTARD,
+	WEDGES,
+	BACON,
+	V_PATTY,
 }
 
 enum Constraints{
@@ -78,7 +81,7 @@ static var ingredients: Dictionary = {
 		Order_Paper_Tex: "res://assets/2d_images/order_paper/tomato.png"
 		},
 	Type.FRIES : {
-		Category : Category.FRIES,
+		Category : Category.SIDES,
 		Order_Paper_Tex: "res://assets/2d_images/order_paper/fries.png"
 		},
 	Type.WATER: {
@@ -117,14 +120,26 @@ static var ingredients: Dictionary = {
 		Category : Category.SAUCES,
 		Order_Paper_Tex: "res://assets/2d_images/order_paper/mustard.png"
 	},
+	Type.WEDGES : {
+		Category : Category.SIDES,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/wedges.png"
+		},
+	Type.BACON : {
+		Category : Category.BURGER_PART,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/bacon.png"
+		},
+	Type.V_PATTY : {
+		Category : Category.BURGER_PART,
+		Order_Paper_Tex: "res://assets/2d_images/order_paper/v_patty.png"
+		},
 }
 
 static var categories: Dictionary = {
 	Category.BURGER_PART : {
-		Type : [Type.BUN_TOP, Type.BUN_BOTTOM, Type.PATTY, Type.ONION, Type.CHEESE, Type.CUCUMBER, Type.TOMATO, Type.LETTUCE]
+		Type : [Type.BUN_TOP, Type.BUN_BOTTOM, Type.PATTY, Type.ONION, Type.CHEESE, Type.CUCUMBER, Type.TOMATO, Type.LETTUCE, Type.V_PATTY]
 	},
-	Category.FRIES : {
-		Type : [Type.FRIES]
+	Category.SIDES : {
+		Type : [Type.FRIES, Type.WEDGES]
 	},
 	Category.DRINKS : {
 		Type : [Type.WATER, Type.COKE, Type.FANTA, Type.ORANGE_JUICE, Type.GREEN_JUICE, Type.PINK_JUICE]
@@ -134,6 +149,9 @@ static var categories: Dictionary = {
 		Constraints.NO_DOUBLE_STACK : true
 	}
 }
+
+static func parse_ingredient(ingr :Ingredient):
+	return Ingredient.Type.keys()[ingr]
 
 static func parse_ingredient_list(le_array :Array) -> String: #Alda was is Godoooo für ne Language.
 	# Oder halt GDScript is mir doch Schnuppe (~ Henry)

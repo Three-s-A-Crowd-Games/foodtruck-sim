@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5qte4djdq84m"
-path="res://.godot/imported/ver_line_con.png-2e962085a7e9341a51507208fc3b7468.ctex"
+uid="uid://tb6iacxucgyv"
+path="res://.godot/imported/fanta.png-21dcea29e90c48e2a7deab5a0be23589.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d_images/order_paper/ver_line_con.png"
-dest_files=["res://.godot/imported/ver_line_con.png-2e962085a7e9341a51507208fc3b7468.ctex"]
+source_file="res://assets/2d_images/order_paper_old/fanta.png"
+dest_files=["res://.godot/imported/fanta.png-21dcea29e90c48e2a7deab5a0be23589.ctex"]
 
 [params]
 

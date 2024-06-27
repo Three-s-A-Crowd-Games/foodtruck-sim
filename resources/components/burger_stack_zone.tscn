@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://cw0b2iwt6v05s" path="res://audio/object_interaction/stacking/stacking4.mp3" id="3_ftye4"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gs2hq"]
+resource_local_to_scene = true
 height = 0.04
 radius = 0.06
 

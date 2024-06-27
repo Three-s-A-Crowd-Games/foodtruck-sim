@@ -9,6 +9,7 @@ func check_order(order :Order) -> bool:
 	var main_check = main_zone.check_for_recipe(order.main_recipe)
 	var side_check = side_zone.check_for_recipe(order.side_recipe)
 	var drink_check = drink_zone.check_for_recipe(order.drink_recipe)
+	printt(main_check, side_check, drink_check)
 	if (main_check and side_check and drink_check):
 		return true
 	# Wrong order

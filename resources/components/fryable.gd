@@ -32,21 +32,17 @@ func _ready():
 func _process(delta):
 	time_fryed += delta
 	if(status == FryStatus.RAW && time_fryed >= frying_time):
-		print("fryed")
 		status = FryStatus.FRYED
 		fry_status_changed.emit(status)
 	if(status == FryStatus.FRYED && time_fryed >= burning_time):
-		print("Burned")
 		status = FryStatus.BURNED
 		fry_status_changed.emit(status)
 		is_frying = false
 
 func start_frying():
-	print("started")
 	if(status != FryStatus.BURNED && !is_frying):
 		is_frying = true
 
 func stop_frying():
-	print("stopped")
 	if(is_frying):
 		is_frying = false

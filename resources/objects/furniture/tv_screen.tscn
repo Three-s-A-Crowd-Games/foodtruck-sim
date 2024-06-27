@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://ri8whwljtqxn"]
+
+[ext_resource type="Script" path="res://resources/objects/furniture/tv_screen.gd" id="1_xfpw6"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tx6jc"]
+viewport_path = NodePath("SubViewport")
+
+[node name="TV-Screen" type="Node3D"]
+script = ExtResource("1_xfpw6")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+pixel_size = 0.0005
+texture = SubResource("ViewportTexture_tx6jc")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1280, 720)
+
+[node name="MainContainer" type="VBoxContainer" parent="SubViewport"]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 40.0
+offset_bottom = 40.0

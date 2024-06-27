@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://foq8jda2ks2h"
-path="res://.godot/imported/hor_line.png-8ddd25909614612ee602fe6ebbf002fa.ctex"
+uid="uid://x03cq57c80in"
+path="res://.godot/imported/Empty_Bar.png-1e79add0943c42980471772e9b4dfad5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/2d_images/order_paper/hor_line.png"
-dest_files=["res://.godot/imported/hor_line.png-8ddd25909614612ee602fe6ebbf002fa.ctex"]
+source_file="res://assets/2d_images/Empty_Bar.png"
+dest_files=["res://.godot/imported/Empty_Bar.png-1e79add0943c42980471772e9b4dfad5.ctex"]
 
 [params]
 
