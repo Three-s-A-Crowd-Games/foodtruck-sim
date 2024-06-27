@@ -4,7 +4,6 @@ extends Node3D
 var items: Array
 
 func _ready():
-	printt("Markerss", find_children("*", "Marker3D", true, false).size())
 	for marker in find_children("*", "Marker3D", true, false):
 		_add_new_item(marker.position)
 		marker.queue_free()
@@ -18,13 +17,11 @@ func _add_new_item(pos :Vector3) -> void:
 		snap_zone.enabled = false
 	cur_item.position = pos
 	items.append(cur_item)
-	print("Spawned")
 
 func _on_area_3d_body_exited(body):
 	if not body is XRToolsPickable: return
 	body = body as XRToolsPickable
 	if(body in items and  not body.has_left_spawner):
-		print("Huh")
 		items.erase(body)
 		body.visible = true
 		body.has_left_spawner = true

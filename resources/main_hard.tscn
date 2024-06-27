@@ -1,4 +1,4 @@
-[gd_scene load_steps=169 format=4 uid="uid://c0v7muk0g6i1v"]
+[gd_scene load_steps=162 format=4 uid="uid://c0v7muk0g6i1v"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_bp7lj"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_koa30"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b24k52u0hsm63" path="res://assets/models/objects/furniture/truck_canopy.blend" id="10_fgdx6"]
 [ext_resource type="PackedScene" uid="uid://duco67gjqwbh3" path="res://assets/models/objects/furniture/truck.blend" id="10_sxopa"]
 [ext_resource type="PackedScene" uid="uid://dk7kgwkqveoel" path="res://resources/objects/appliances/stove.tscn" id="11_it22y"]
+[ext_resource type="PackedScene" uid="uid://iion2ersu5hy" path="res://assets/models/objects/furniture/order_sign.blend" id="11_lxusy"]
 [ext_resource type="PackedScene" uid="uid://cun37a3kia4ky" path="res://resources/objects/appliances/fryer.tscn" id="12_bqo52"]
 [ext_resource type="PackedScene" uid="uid://cwwf7sktcami7" path="res://resources/special_areas/cooking_area.tscn" id="14_jdra4"]
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="16_rslco"]
@@ -1608,6 +1609,9 @@ size = Vector3(0.0175209, 0.231544, 0.835083)
 resource_local_to_scene = true
 size = Vector3(0.0147419, 0.231293, 0.830749)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_mm4js"]
+size = Vector3(0.44519, 0.0537109, 1.21478)
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4yqg0"]
 resource_name = "Material.001"
 cull_mode = 2
@@ -1683,79 +1687,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_or1ij")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fxjvg"]
-resource_name = "Material.003"
-cull_mode = 2
-albedo_color = Color(0.32209, 0.32209, 0.32209, 1)
-metallic = 0.417582
-roughness = 0.5
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_en4xb"]
-_surfaces = [{
-"aabb": AABB(-0.01, -0.0025, -0.01, 0.02, 0.005, 0.02),
-"format": 34896613377,
-"index_count": 372,
-"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAFAAMAAgAEAAUABAAHAAUABAAGAAcABgAJAAcABgAIAAkACAALAAkACAAKAAsACgANAAsACgAMAA0ADAAPAA0ADAAOAA8ADgARAA8ADgAQABEAEAATABEAEAASABMAEgAVABMAEgAUABUAFAAXABUAFAAWABcAFgAZABcAFgAYABkAGAAbABkAGAAaABsAGgAdABsAGgAcAB0AHAAfAB0AHAAeAB8AHgAhAB8AHgAgACEAIAAjACEAIAAiACMAIgAlACMAIgAkACUAJAAnACUAJAAmACcAJgApACcAJgAoACkAKAArACkAKAAqACsAKgAtACsAKgAsAC0ALAAvAC0ALAAuAC8ALgAxAC8ALgAwADEAMAAzADEAMAAyADMAMgA1ADMAMgA0ADUANAA3ADUANAA2ADcANgA5ADcANgA4ADkAOAA7ADkAOAA6ADsAOgA9ADsAOgA8AD0ABQABAAMAAQA9AD8APQA5ADsAOQA1ADcANQAxADMAMQAtAC8ALQApACsAKQAlACcAJQAhACMAIQAdAB8AHQAZABsAGQAVABcAFQARABMAEQANAA8ADQAJAAsACQAFAAcABQA9AAEAPQA1ADkANQAtADEALQAlACkAJQAdACEAHQAVABkAFQANABEADQAFAAkABQA1AD0ANQAlAC0AJQAVAB0AFQAFAA0ABQAlADUAJQAFABUAPAA/AD0APAA+AD8APgABAD8APgAAAAEAPgACAAAAAgAGAAQABgAKAAgACgAOAAwADgASABAAEgAWABQAFgAaABgAGgAeABwAHgAiACAAIgAmACQAJgAqACgAKgAuACwALgAyADAAMgA2ADQANgA6ADgAOgA+ADwAPgAGAAIABgAOAAoADgAWABIAFgAeABoAHgAmACIAJgAuACoALgA2ADIANgA+ADoAPgAOAAYADgAeABYAHgAuACYALgA+ADYAPgAeAA4AHgA+AC4A"),
-"lods": [0.000935743, PackedByteArray("AAAFAAEAAAAGAAUABgANAAUABgAKAA0ACgAOAA0ADgARAA0ADgAQABEAEAAVABEAEAAWABUAFgAaABUAGgAdABUAGgAcAB0AHAAiAB0AIgAlAB0AIgAmACUAJgAqACUAKgAtACUAKgAuAC0ALgA1AC0ALgAyADUAMgA2ADUANgA9ADUANgA6AD0AOgA8AD0APAABAD0APAAAAAEABQA9AAEABQA1AD0ABQAlADUANQAlAC0AJQAFABUAJQAVAB0AFQAFAA0AFQANABEAPAAGAAAABgAOAAoAPAAOAAYADgAWABAADgAcABYAPAAcAA4AFgAcABoANgA8ADoALgA8ADYAHAA8AC4ALgA2ADIAHAAuACYAJgAuACoAHAAmACIA"), 0.00238691, PackedByteArray("AAAFAAEAAAAGAAUABgANAAUABgAQAA0AEAAVAA0AEAAaABUAGgAlABUAGgAiACUAIgAqACUAKgA1ACUAKgAyADUAMgA6ADUAOgABADUAOgAAAAEABQA1AAEABQAlADUAJQAFABUAFQAFAA0AOgAGAAAAOgAQAAYAOgAaABAAGgA6ACoAKgA6ADIAGgAqACIA"), 0.012813, PackedByteArray("AAAFAAEAAAAqAAUAKgAVAAUAKgAlABUAKgA1ACUAKgAyADUAMgABADUAMgAAAAEABQA1AAEABQAlADUAJQAFABUAMgAqAAAA")],
-"name": "Material.003",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 64,
-"vertex_data": PackedByteArray("/38AAGMSAAD/f///AAAAAGGVAAB+FAAA+Jj//3UCAADxqQAAuxoAAPuw//++CQAA5LwAANwkAAAcx///khUAAIDNAAB+MgAAgdr//30lAAAi2wAAGkMAAGzq///iOAAAQ+UAAA1WAABA9v//A08AAIDrAACdagAAif3//wZnAACb7QAA/38AAP//////fwAAgOsAAGGVAACJ/f//+JgAAEPlAADxqQAAQPb///uwAAAi2wAA5LwAAGzq//8cxwAAgM0AAIDNAACB2v//gdoAAOS8AAAi2wAAHMf//2zqAADxqQAAQ+UAAPuw//9A9gAAYZUAAIDrAAD4mP//if0AAP9/AACb7QAA/3//////AACdagAAgOsAAAZn//+J/QAADVYAAEPlAAADT///QPYAABpDAAAi2wAA4jj//2zqAAB+MgAAgM0AAH0l//+B2gAA3CQAAOS8AACSFf//HMcAALsaAADxqQAAvgn///uwAAB+FAAAYZUAAHUC///4mAAAYxIAAP9/AAAAAP///38AAH4UAACdagAAdQL//wZnAAC7GgAADVYAAL4J//8DTwAA3CQAABpDAACSFf//4jgAAH4yAAB+MgAAfSX//30lAAAaQwAA3CQAAOI4//+SFQAADVYAALsaAAADT///vgkAAJ1qAAB+FAAABmf//3UCAAA=")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_qyvh3"]
-resource_name = "cash_register_Cylinder"
-_surfaces = [{
-"aabb": AABB(-0.01, -0.0025, -0.01, 0.02, 0.005, 0.02),
-"attribute_data": PackedByteArray("/7+Ogv///38AAP9//z+Ogv//AAAAAAAA+8u9g//3/3//9/9//Eu9g//3AAD/9wAAgtc8h//v/3//7/9/glc8h//vAAD/7wAAIeLpjP/n/3//5/9/IWLpjP/nAAD/5wAAcOuNlP/f/3//3/9/cWuNlP/fAAD/3wAAFPPdnf/X/3//1/9/FXPdnf/XAAD/1wAAwvh8qP/P/3//z/9/wnh8qP/PAAD/zwAAQfwCtP/H/3//x/9/QXwCtP/HAAD/xwAAb/3/v/+//3//v/9/cH3/v/+/AAD/vwAAQfz7y/+3/3//t/9/QXz7y/+3AAD/twAAwviC1/+v/3//r/9/wniC1/+vAAD/rwAAFPMh4v+n/3//p/9/FXMh4v+nAAD/pwAAcOtw6/+f/3//n/9/cWtw6/+fAAD/nwAAIeIU8/+X/3//l/9/IWIU8/+XAAD/lwAAgtfC+P+P/3//j/9/glfC+P+PAAD/jwAA+8tB/P+H/3//h/9//EtB/P+HAAD/hwAA/79v/f9//3//f/9//z9v/f9/AAD/fwAAArRB/P93/3//d/9/AzRB/P93AAD/dwAAfKjC+P9v/3//b/9/fCjC+P9vAAD/bwAA3Z0U8/9n/3//Z/9/3R0U8/9nAAD/ZwAAjZRw6/9f/3//X/9/jhRw6/9fAAD/XwAA6Ywh4v9X/3//V/9/6gwh4v9XAAD/VwAAPIeC1/9P/3//T/9/PAeC1/9PAAD/TwAAvYP7y/9H/3//R/9/vQP7y/9HAAD/RwAAjoL/v/8//3//P/9/jwL/v/8/AAD/PwAAvYMCtP83/3//N/9/vQMCtP83AAD/NwAAPId8qP8v/3//L/9/PAd8qP8vAAD/LwAA6Yzdnf8n/3//J/9/6gzdnf8nAAD/JwAAjZSNlP8f/3//H/9/jhSNlP8fAAD/HwAA3Z3pjP8X/3//F/9/3R3pjP8XAAD/FwAAfKg8h/8P/3//D/9/fCg8h/8PAAD/DwAAArS9g/8H/3//B/9/AzS9g/8HAAD/BwAA"),
-"format": 34896613399,
-"index_count": 372,
-"index_data": PackedByteArray("AQAKAAQAAQAHAAoACAAQAAsACAANABAADgAWABEADgATABYAFAAcABcAFAAZABwAGgAiAB0AGgAfACIAIAAoACMAIAAlACgAJgAuACkAJgArAC4ALAA1AC8ALAAyADUAMQA7ADQAMQA4ADsANwBBADoANwA+AEEAPQBHAEAAPQBEAEcAQwBNAEYAQwBKAE0ASQBTAEwASQBQAFMATwBZAFIATwBWAFkAVQBfAFgAVQBcAF8AWwBkAF4AWwBhAGQAYgBqAGUAYgBnAGoAaABwAGsAaABtAHAAbgB2AHEAbgBzAHYAdAB8AHcAdAB5AHwAegCCAH0AegB/AIIAgACIAIMAgACFAIgAhgCOAIkAhgCLAI4AjACUAI8AjACRAJQAkgCbAJUAkgCYAJsAlwChAJoAlwCeAKEAnQCnAKAAnQCkAKcAowCtAKYAowCqAK0AqQCzAKwAqQCwALMArwC5ALIArwC2ALkADwADAAkAAwC3AL0AtwCrALEAqwCfAKUAnwCTAJkAkwCHAI0AhwB7AIEAewBvAHUAbwBjAGkAYwBXAF0AVwBLAFEASwA/AEUAPwAzADkAMwAnAC0AJwAbACEAGwAPABUADwC3AAMAtwCfAKsAnwCHAJMAhwBvAHsAbwBXAGMAVwA/AEsAPwAnADMAJwAPABsADwCfALcAnwBvAIcAbwA/AFcAPwAPACcADwBvAJ8AbwAPAD8AtQC/ALgAtQC8AL8AuwAFAL4AuwACAAUAugAGAAAABgASAAwAEgAeABgAHgAqACQAKgA2ADAANgBCADwAQgBOAEgATgBaAFQAWgBmAGAAZgByAGwAcgB+AHgAfgCKAIQAigCWAJAAlgCiAJwAogCuAKgArgC6ALQAugASAAYAEgAqAB4AKgBCADYAQgBaAE4AWgByAGYAcgCKAH4AigCiAJYAogC6AK4AugAqABIAKgBaAEIAWgCKAHIAigC6AKIAugBaACoAWgC6AIoA"),
-"lods": [0.000935743, PackedByteArray("AQAQAAQAAQATABAAEwAoABAAEwAfACgAHwArACgAKwA0ACgAKwAxADQAMQBAADQAMQBDAEAAQwBPAEAATwBYAEAATwBVAFgAVQBnAFgAZwBwAFgAZwBzAHAAcwB/AHAAfwCIAHAAfwCLAIgAiwCgAIgAiwCXAKAAlwCjAKAAowC4AKAAowCvALgArwC1ALgAtQAFALgAtQACAAUADwC3AAMADwCfALcADwBvAJ8AnwBvAIcAbwAPAD8AbwA/AFcAPwAPACcAPwAnADMAtAASAAAAEgAqAB4AtAAqABIAKgBCADAAKgBUAEIAtABUACoAQgBUAE4AogC0AK4AigC0AKIAVAC0AIoAigCiAJYAVACKAHIAcgCKAH4AVAByAGYA"), 0.00238691, PackedByteArray("AQAQAAQAAQATABAAEwAoABAAEwAxACgAMQBAACgAMQBPAEAATwBwAEAATwBnAHAAZwB/AHAAfwCgAHAAfwCXAKAAlwCvAKAArwAFAKAArwACAAUADwCfAAMADwBvAJ8AbwAPAD8APwAPACcArgASAAAArgAwABIArgBOADAATgCuAH4AfgCuAJYATgB+AGYA"), 0.012813, PackedByteArray("AQAQAAQAAQB/ABAAfwBAABAAfwBwAEAAfwCgAHAAfwCXAKAAlwAFAKAAlwACAAUADwCfAAMADwBvAJ8AbwAPAD8AlgB+AAAA")],
-"material": SubResource("StandardMaterial3D_fxjvg"),
-"name": "Material.003",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 192,
-"vertex_data": PackedByteArray("/38AAGMS/z//fwAAYxIJ/P9/AABjEgn8/3///wAA/7//f///AAAJ/P9///8AAAn8YZUAAH4U/z9hlQAAfhQJ/GGVAAB+FB30+Jj//3UC/7/4mP//dQIJ/PiY//91Ah308akAALsa/z/xqQAAuxod9PGpAAC7GjHs+7D//74J/7/7sP//vgkd9Puw//++CTHs5LwAANwk/z/kvAAA3CQx7OS8AADcJEfkHMf//5IV/78cx///khUx7BzH//+SFUfkgM0AAH4y/z+AzQAAfjJH5IDNAAB+Ml7cgdr//30l/7+B2v//fSVH5IHa//99JV7cItsAABpD/z8i2wAAGkNe3CLbAAAaQ3fUbOr//+I4/79s6v//4jhe3Gzq///iOHfUQ+UAAA1W/z9D5QAADVZ31EPlAAANVpTMQPb//wNP/79A9v//A0931ED2//8DT5TMgOsAAJ1q/z+A6wAAnWqUzIDrAACdarXEif3//wZn/7+J/f//BmeUzIn9//8GZ7XEm+0AAP9//z+b7QAA/3/dvJvtAAD/f7XE//////9//7///////3/dvP//////f7XEgOsAAGGV/z+A6wAAYZUNtYDrAABhld28if3///iY/7+J/f//+JgNtYn9///4mN28Q+UAAPGp/z9D5QAA8alLrUPlAADxqQ21QPb///uw/79A9v//+7BLrUD2///7sA21ItsAAOS8/z8i2wAA5LyhpSLbAADkvEutbOr//xzH/79s6v//HMehpWzq//8cx0utgM0AAIDN/z+AzQAAgM0fnoDNAACAzaGlgdr//4Ha/7+B2v//gdofnoHa//+B2qGl5LwAACLb/z/kvAAAItvvluS8AAAi2x+eHMf//2zq/78cx///bOrvlhzH//9s6h+e8akAAEPl/z/xqQAAQ+V7kPGpAABD5e+W+7D//0D2/7/7sP//QPZ7kPuw//9A9u+WYZUAAIDr/z9hlQAAgOsGjGGVAACA63uQ+Jj//4n9/7/4mP//if0GjPiY//+J/XuQ/38AAJvt/z//fwAAm+0GjP9/AACb7QaM/3///////7//f/////8GjP9//////waMnWoAAIDr/z+dagAAgOsGjJ1qAACA63uQBmf//4n9/78GZ///if0GjAZn//+J/XuQDVYAAEPl/z8NVgAAQ+V7kA1WAABD5e+WA0///0D2/78DT///QPZ7kANP//9A9u+WGkMAACLb/z8aQwAAItvvlhpDAAAi2x+e4jj//2zq/7/iOP//bOrvluI4//9s6h+efjIAAIDN/z9+MgAAgM0fnn4yAACAzaGlfSX//4Ha/799Jf//gdofnn0l//+B2qGl3CQAAOS8/z/cJAAA5LyhpdwkAADkvEutkhX//xzH/7+SFf//HMehpZIV//8cx0utuxoAAPGp/z+7GgAA8alLrbsaAADxqQ21vgn///uw/7++Cf//+7BLrb4J///7sA21fhQAAGGV/z9+FAAAYZUNtX4UAABhld28dQL///iY/791Av//+JgNtXUC///4mN28YxIAAP9//z9jEgAA/3/dvGMSAAD/f7XEAAD///9//78AAP///3/dvAAA////f7XEfhQAAJ1q/z9+FAAAnWqUzH4UAACdarXEdQL//wZn/791Av//BmeUzHUC//8GZ7XEuxoAAA1W/z+7GgAADVZ31LsaAAANVpTMvgn//wNP/7++Cf//A0931L4J//8DT5TM3CQAABpD/z/cJAAAGkNe3NwkAAAaQ3fUkhX//+I4/7+SFf//4jhe3JIV///iOHfUfjIAAH4y/z9+MgAAfjJH5H4yAAB+Ml7cfSX//30l/799Jf//fSVH5H0l//99JV7cGkMAANwk/z8aQwAA3CQx7BpDAADcJEfk4jj//5IV/7/iOP//khUx7OI4//+SFUfkDVYAALsa/z8NVgAAuxod9A1WAAC7GjHsA0///74J/78DT///vgkd9ANP//++CTHsnWoAAH4U/z+dagAAfhQJ/J1qAAB+FB30Bmf//3UC/78GZ///dQIJ/AZn//91Ah30AAD/fzp/aBCWbzr/////fzp/aBCWbzr/AAD/fzp/aBC0fb4R////fzp/aBC0fb4RAAD/f7R9vhEsfBYT////f7R9vhEsfBYTAAD/fyx8FhOaenYU/v//fyx8FhOaenYUAAD/f5p6dhT3eOcV/v//f5p6dhT3eOcVAAD/f/d45xU2d3AX/v//f/d45xU2d3AXAAD/fzZ3cBdNdRwZ/v//fzZ3cBdNdRwZAAD/f011HBkqc/0a/v//f011HBkqc/0aAAD/f7ZwJB0qc/0a////f7ZwJB0qc/0aAAD/f8xtsR+2cCQd/v//f8xtsR+2cCQdAAD/fzZq1yLMbbEf/v//fzZq1yLMbbEfAAD/f5dl5CY2atci/v//f5dl5CY2atciAAD/f0RfcSyXZeQm////f0RfcSyXZeQmAAD/f9xVsTREX3Es/v//f9xVsTREX3EsAAD/f/5Fm0LcVbE0////f/5Fm0LcVbE0AAD/f4ok81/+RZtC/v//f4ok81/+RZtCAAD/f4ok818LIImk////f4ok818LIImkAAD/fwsgiaRkPf7F////fwsgiaRkPf7FAAD/f2Q9/sVOS9vV////f2Q9/sVOS9vVAAD/f05L29WOU0Pf/v//f05L29WOU0PfAAD/f45TQ98aWZfl/v//f45TQ98aWZflAAD/fxpZl+UoXTbq/v//fxpZl+UoXTbqAAD/fyhdNupNYMzt/v//fyhdNupNYMztAAD/f01gzO3bYrXw/v//f01gzO3bYrXwAAD/f9titfACZSrz////f9titfACZSrzAAD/f+JmTfUCZSrz/v//f+JmTfUCZSrzAAD/f49oNvfiZk31/v//f49oNvfiZk31AAD/fxhq9viPaDb3/v//fxhq9viPaDb3AAD/f4hrmvoYavb4////f4hrmvoYavb4AAD/f+hsLPyIa5r6/v//f+hsLPyIa5r6AAD/f0FutP3obCz8////f0FutP3obCz8AAD/f5ZvOv9BbrT9/v//f5ZvOv9BbrT9")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_en4xb")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_jxf6l"]
-_surfaces = [{
-"aabb": AABB(-0.015, -0.005, -0.015, 0.03, 0.01, 0.03001),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEA"),
-"name": "Material.001",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAOn/AAAAAP//6f8AAAAAAAAAAAAAAAD//wAAAAD//wAA6f8AAP/////p/wAA//8AAAAAAAD/////AAAAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_5we33"]
-resource_name = "cash_register_Cube_004"
-_surfaces = [{
-"aabb": AABB(-0.015, -0.005, -0.015, 0.03, 0.01, 0.03001),
-"attribute_data": PackedByteArray("/18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9/"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
-"material": SubResource("StandardMaterial3D_4yqg0"),
-"name": "Material.001",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAOn//78AAAAA6f//vwAAAADp/1TVAAD//+n//78AAP//6f///wAA///p/1TVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//wAA//8AAP//AAD//wAA//8AAFTV//8AAOn//7///wAA6f//v///AADp/1TV/////+n//7//////6f/////////p/1TV//8AAAAA/////wAAAAD/v///AAAAAFTV/////wAA////////AAD///////8AAFTV/////wAA/39U1VTV//////9//79U1VTV/7//vwAA/39U1VTV/7//v/9//79U1VTV/////wAA/3+qKqoq//////9//7+qKqoq/7//vwAA/3+qKqoq/7//v/9//7+qKqoq")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_jxf6l")
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_wcks5"]
 _surfaces = [{
 "aabb": AABB(-0.125, -0.05, -0.175, 0.25, 0.1, 0.35001),
@@ -1792,44 +1723,6 @@ shadow_mesh = SubResource("ArrayMesh_wcks5")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4qrjf"]
 data = PackedVector3Array(-0.125, 0.02, -0.10829, -0.125, 0.05, -0.175, -0.125, 0.05, -0.10829, -0.125, 0.02, -0.10829, -0.125, 0.02, -0.175, -0.125, 0.05, -0.175, -0.0306619, 0.02, -0.175, 0.125, 0.05, -0.175, -0.0306619, 0.05, -0.175, -0.0306619, 0.02, -0.175, 0.125, 0.02, -0.175, 0.125, 0.05, -0.175, 0.125, 0.02, -0.10829, 0.125, 0.0477885, -0.103942, 0.125, 0.05, -0.10829, 0.125, 0.02, -0.10829, 0.125, 0.02, -0.049307, 0.125, 0.0477885, -0.103942, -0.0306619, -0.05, -0.049307, 0.125, -0.05, 0.175, 0.125, -0.05, -0.049307, -0.0306619, -0.05, -0.049307, -0.0306619, -0.05, 0.175, 0.125, -0.05, 0.175, -0.104876, 0.05, -0.175, -0.125, 0.05, -0.10829, -0.125, 0.05, -0.175, -0.104876, 0.05, -0.175, -0.104876, 0.05, -0.10829, -0.125, 0.05, -0.10829, -0.0306619, -0.05, -0.175, 0.125, -0.05, -0.10829, 0.125, -0.05, -0.175, -0.0306619, -0.05, -0.175, -0.0306619, -0.05, -0.10829, 0.125, -0.05, -0.10829, 0.125, 0.02, -0.175, 0.125, 0.05, -0.10829, 0.125, 0.05, -0.175, 0.125, 0.02, -0.175, 0.125, 0.02, -0.10829, 0.125, 0.05, -0.10829, -0.0306619, 0.0477885, -0.103942, 0.125, 0.05, -0.10829, 0.125, 0.0477885, -0.103942, -0.0306619, 0.0477885, -0.103942, -0.0306619, 0.05, -0.10829, 0.125, 0.05, -0.10829, -0.125, -0.05, -0.049307, -0.125, 0.02, -0.10829, -0.125, 0.02, -0.049307, -0.125, -0.05, -0.049307, -0.125, -0.05, -0.10829, -0.125, 0.02, -0.10829, 0.125, -0.05, -0.175, 0.125, 0.02, -0.10829, 0.125, 0.02, -0.175, 0.125, -0.05, -0.175, 0.125, -0.05, -0.10829, 0.125, 0.02, -0.10829, -0.104876, -0.05, 0.175, -0.125, 0.02, 0.175, -0.104876, 0.02, 0.175, -0.104876, -0.05, 0.175, -0.125, -0.05, 0.175, -0.125, 0.02, 0.175, 0.125, -0.05, -0.049307, 0.125, 0.02, 0.175, 0.125, 0.02, -0.049307, 0.125, -0.05, -0.049307, 0.125, -0.05, 0.175, 0.125, 0.02, 0.175, -0.0306619, -0.05, -0.175, 0.125, 0.02, -0.175, -0.0306619, 0.02, -0.175, -0.0306619, -0.05, -0.175, 0.125, -0.05, -0.175, 0.125, 0.02, -0.175, -0.125, -0.05, -0.10829, -0.125, 0.02, -0.175, -0.125, 0.02, -0.10829, -0.125, -0.05, -0.10829, -0.125, -0.05, -0.175, -0.125, 0.02, -0.175, 0.125, -0.05, -0.10829, 0.125, 0.02, -0.049307, 0.125, 0.02, -0.10829, 0.125, -0.05, -0.10829, 0.125, -0.05, -0.049307, 0.125, 0.02, -0.049307, -0.125, -0.05, 0.175, -0.125, 0.02, -0.049307, -0.125, 0.02, 0.175, -0.125, -0.05, 0.175, -0.125, -0.05, -0.049307, -0.125, 0.02, -0.049307, -0.0306619, 0.02, 0.175, 0.125, 0.02, -0.049307, 0.125, 0.02, 0.175, -0.0306619, 0.02, 0.175, -0.0306619, 0.02, -0.049307, 0.125, 0.02, -0.049307, -0.0306619, -0.05, -0.10829, 0.125, -0.05, -0.049307, 0.125, -0.05, -0.10829, -0.0306619, -0.05, -0.10829, -0.0306619, -0.05, -0.049307, 0.125, -0.05, -0.049307, -0.125, 0.05, -0.10829, -0.125, 0.02, -0.049307, -0.125, 0.02, -0.10829, -0.125, 0.05, -0.10829, -0.125, 0.0477885, -0.103942, -0.125, 0.02, -0.049307, -0.125, -0.05, -0.10829, -0.104876, -0.05, -0.049307, -0.104876, -0.05, -0.10829, -0.125, -0.05, -0.10829, -0.125, -0.05, -0.049307, -0.104876, -0.05, -0.049307, -0.125, 0.02, 0.175, -0.104876, 0.02, -0.049307, -0.104876, 0.02, 0.175, -0.125, 0.02, 0.175, -0.125, 0.02, -0.049307, -0.104876, 0.02, -0.049307, -0.125, -0.05, -0.175, -0.104876, 0.02, -0.175, -0.125, 0.02, -0.175, -0.125, -0.05, -0.175, -0.104876, -0.05, -0.175, -0.104876, 0.02, -0.175, -0.0306619, -0.05, 0.175, -0.104876, 0.02, 0.175, -0.0306619, 0.02, 0.175, -0.0306619, -0.05, 0.175, -0.104876, -0.05, 0.175, -0.104876, 0.02, 0.175, -0.125, 0.0477885, -0.103942, -0.104876, 0.05, -0.10829, -0.104876, 0.0477885, -0.103942, -0.125, 0.0477885, -0.103942, -0.125, 0.05, -0.10829, -0.104876, 0.05, -0.10829, -0.125, -0.05, -0.175, -0.104876, -0.05, -0.10829, -0.104876, -0.05, -0.175, -0.125, -0.05, -0.175, -0.125, -0.05, -0.10829, -0.104876, -0.05, -0.10829, -0.0306619, 0.05, -0.175, -0.104876, 0.05, -0.10829, -0.104876, 0.05, -0.175, -0.0306619, 0.05, -0.175, -0.0306619, 0.05, -0.10829, -0.104876, 0.05, -0.10829, -0.125, -0.05, -0.049307, -0.104876, -0.05, 0.175, -0.104876, -0.05, -0.049307, -0.125, -0.05, -0.049307, -0.125, -0.05, 0.175, -0.104876, -0.05, 0.175, -0.125, 0.02, -0.175, -0.104876, 0.05, -0.175, -0.125, 0.05, -0.175, -0.125, 0.02, -0.175, -0.104876, 0.02, -0.175, -0.104876, 0.05, -0.175, 0.125, 0.05, -0.175, -0.0306619, 0.05, -0.10829, -0.0306619, 0.05, -0.175, 0.125, 0.05, -0.175, 0.125, 0.05, -0.10829, -0.0306619, 0.05, -0.10829, 0.125, -0.05, 0.175, -0.0306619, 0.02, 0.175, 0.125, 0.02, 0.175, 0.125, -0.05, 0.175, -0.0306619, -0.05, 0.175, -0.0306619, 0.02, 0.175, -0.104876, -0.05, -0.10829, -0.0306619, -0.05, -0.049307, -0.0306619, -0.05, -0.10829, -0.104876, -0.05, -0.10829, -0.104876, -0.05, -0.049307, -0.0306619, -0.05, -0.049307, -0.104876, 0.02, 0.175, -0.0306619, 0.02, -0.049307, -0.0306619, 0.02, 0.175, -0.104876, 0.02, 0.175, -0.104876, 0.02, -0.049307, -0.0306619, 0.02, -0.049307, -0.104876, -0.05, -0.175, -0.0306619, 0.02, -0.175, -0.104876, 0.02, -0.175, -0.104876, -0.05, -0.175, -0.0306619, -0.05, -0.175, -0.0306619, 0.02, -0.175, -0.104876, -0.05, -0.175, -0.0306619, -0.05, -0.10829, -0.0306619, -0.05, -0.175, -0.104876, -0.05, -0.175, -0.104876, -0.05, -0.10829, -0.0306619, -0.05, -0.10829, -0.104876, -0.05, -0.049307, -0.0306619, -0.05, 0.175, -0.0306619, -0.05, -0.049307, -0.104876, -0.05, -0.049307, -0.104876, -0.05, 0.175, -0.0306619, -0.05, 0.175, -0.104876, 0.02, -0.175, -0.0306619, 0.05, -0.175, -0.104876, 0.05, -0.175, -0.104876, 0.02, -0.175, -0.0306619, 0.02, -0.175, -0.0306619, 0.05, -0.175, -0.104876, 0.02, -0.049307, -0.0306619, 0.0477885, -0.103942, -0.0306619, 0.02, -0.049307, -0.104876, 0.02, -0.049307, -0.104876, 0.0477885, -0.103942, -0.0306619, 0.0477885, -0.103942, -0.125, 0.02, -0.049307, -0.104876, 0.0477885, -0.103942, -0.104876, 0.02, -0.049307, -0.125, 0.02, -0.049307, -0.125, 0.0477885, -0.103942, -0.104876, 0.0477885, -0.103942, -0.0306619, 0.02, -0.049307, 0.125, 0.0477885, -0.103942, 0.125, 0.02, -0.049307, -0.0306619, 0.02, -0.049307, -0.0306619, 0.0477885, -0.103942, 0.125, 0.0477885, -0.103942, -0.095, 0.02, -0.10829, -0.107679, 0.0326795, -0.157679, -0.103787, 0.02, -0.153787, -0.095, 0.02, -0.10829, -0.105254, 0.028037, -0.113554, -0.107679, 0.0326795, -0.157679, -0.0306619, 0.02, -0.145, 0.107679, 0.0326795, -0.157679, 0.103787, 0.02, -0.153787, -0.0306619, 0.02, -0.145, -0.0306619, 0.0287868, -0.153787, 0.107679, 0.0326795, -0.157679, 0.095, 0.02, -0.10829, 0.105254, 0.028037, -0.113554, 0.102094, 0.00116036, -0.0538229, 0.102094, 0.00116036, -0.0538229, 0.105254, 0.028037, -0.113554, 0.103788, 0.0288794, -0.113559, -0.0306619, -0.02, -0.049307, 0.107679, -0.0326795, 0.157679, -0.0306619, -0.0287868, 0.153787, -0.0306619, -0.02, -0.049307, 0.103787, -0.0287868, -0.049307, 0.107679, -0.0326795, 0.157679, -0.104876, 0.0287868, -0.153787, -0.105254, 0.028037, -0.113554, -0.104876, 0.0203621, -0.112937, -0.104876, 0.0287868, -0.153787, -0.107679, 0.0326795, -0.157679, -0.105254, 0.028037, -0.113554, -0.0306619, -0.0287868, -0.153787, 0.103787, -0.0287868, -0.10829, -0.0306619, -0.02, -0.10829, -0.0306619, -0.0287868, -0.153787, 0.107679, -0.0326795, -0.157679, 0.103787, -0.0287868, -0.10829, 0.103787, 0.02, -0.153787, 0.105254, 0.028037, -0.113554, 0.095, 0.02, -0.10829, 0.103787, 0.02, -0.153787, 0.107679, 0.0326795, -0.157679, 0.105254, 0.028037, -0.113554, -0.0306619, 0.0210485, -0.117542, 0.105254, 0.028037, -0.113554, -0.0306619, 0.0203621, -0.112937, -0.0306619, 0.0210485, -0.117542, 0.103788, 0.0288794, -0.113559, 0.105254, 0.028037, -0.113554, -0.103787, -0.0287868, -0.049307, -0.095, 0.02, -0.10829, -0.103787, -0.0287868, -0.10829, -0.103787, -0.0287868, -0.049307, -0.102094, 0.00116036, -0.0538229, -0.095, 0.02, -0.10829, 0.107679, -0.0326795, -0.157679, 0.095, 0.02, -0.10829, 0.103787, -0.0287868, -0.10829, 0.107679, -0.0326795, -0.157679, 0.103787, 0.02, -0.153787, 0.095, 0.02, -0.10829, -0.104876, -0.0287868, 0.153787, -0.107679, 0.00267949, 0.157679, -0.107679, -0.0326795, 0.157679, -0.104876, -0.0287868, 0.153787, -0.104876, -0.0012132, 0.153787, -0.107679, 0.00267949, 0.157679, 0.103787, -0.0287868, -0.049307, 0.107679, 0.00267949, 0.157679, 0.107679, -0.0326795, 0.157679, 0.103787, -0.0287868, -0.049307, 0.102094, 0.00116036, -0.0538229, 0.107679, 0.00267949, 0.157679, -0.0306619, -0.0287868, -0.153787, 0.103787, 0.02, -0.153787, 0.107679, -0.0326795, -0.157679, -0.0306619, -0.0287868, -0.153787, -0.0306619, 0.02, -0.145, 0.103787, 0.02, -0.153787, -0.103787, -0.0287868, -0.10829, -0.103787, 0.02, -0.153787, -0.107679, -0.0326795, -0.157679, -0.103787, -0.0287868, -0.10829, -0.095, 0.02, -0.10829, -0.103787, 0.02, -0.153787, 0.103787, -0.0287868, -0.10829, 0.102094, 0.00116036, -0.0538229, 0.103787, -0.0287868, -0.049307, 0.103787, -0.0287868, -0.10829, 0.095, 0.02, -0.10829, 0.102094, 0.00116036, -0.0538229, -0.107679, -0.0326795, 0.157679, -0.102094, 0.00116036, -0.0538229, -0.103787, -0.0287868, -0.049307, -0.107679, -0.0326795, 0.157679, -0.107679, 0.00267949, 0.157679, -0.102094, 0.00116036, -0.0538229, -0.0306619, -0.0012132, 0.153787, 0.102094, 0.00116036, -0.0538229, -0.0306619, -0.0091736, -0.0562999, -0.0306619, -0.0012132, 0.153787, 0.107679, 0.00267949, 0.157679, 0.102094, 0.00116036, -0.0538229, -0.0306619, -0.02, -0.10829, 0.103787, -0.0287868, -0.049307, -0.0306619, -0.02, -0.049307, -0.0306619, -0.02, -0.10829, 0.103787, -0.0287868, -0.10829, 0.103787, -0.0287868, -0.049307, -0.105254, 0.028037, -0.113554, -0.095, 0.02, -0.10829, -0.103788, 0.0288794, -0.113559, -0.103788, 0.0288794, -0.113559, -0.095, 0.02, -0.10829, -0.102094, 0.00116036, -0.0538229, -0.103787, -0.0287868, -0.10829, -0.104876, -0.02, -0.049307, -0.103787, -0.0287868, -0.049307, -0.103787, -0.0287868, -0.10829, -0.104876, -0.02, -0.10829, -0.104876, -0.02, -0.049307, -0.107679, 0.00267949, 0.157679, -0.104876, -0.0091736, -0.0562999, -0.102094, 0.00116036, -0.0538229, -0.107679, 0.00267949, 0.157679, -0.104876, -0.0012132, 0.153787, -0.104876, -0.0091736, -0.0562999, -0.107679, -0.0326795, -0.157679, -0.104876, 0.02, -0.145, -0.104876, -0.0287868, -0.153787, -0.107679, -0.0326795, -0.157679, -0.103787, 0.02, -0.153787, -0.104876, 0.02, -0.145, -0.0306619, -0.0287868, 0.153787, -0.104876, -0.0012132, 0.153787, -0.104876, -0.0287868, 0.153787, -0.0306619, -0.0287868, 0.153787, -0.0306619, -0.0012132, 0.153787, -0.104876, -0.0012132, 0.153787, -0.103788, 0.0288794, -0.113559, -0.104876, 0.0210485, -0.117542, -0.105254, 0.028037, -0.113554, -0.105254, 0.028037, -0.113554, -0.104876, 0.0210485, -0.117542, -0.104876, 0.0203621, -0.112937, -0.107679, -0.0326795, -0.157679, -0.104876, -0.02, -0.10829, -0.103787, -0.0287868, -0.10829, -0.107679, -0.0326795, -0.157679, -0.104876, -0.0287868, -0.153787, -0.104876, -0.02, -0.10829, -0.0306619, 0.0287868, -0.153787, -0.104876, 0.0203621, -0.112937, -0.0306619, 0.0203621, -0.112937, -0.0306619, 0.0287868, -0.153787, -0.104876, 0.0287868, -0.153787, -0.104876, 0.0203621, -0.112937, -0.103787, -0.0287868, -0.049307, -0.104876, -0.0287868, 0.153787, -0.107679, -0.0326795, 0.157679, -0.103787, -0.0287868, -0.049307, -0.104876, -0.02, -0.049307, -0.104876, -0.0287868, 0.153787, -0.103787, 0.02, -0.153787, -0.104876, 0.0287868, -0.153787, -0.104876, 0.02, -0.145, -0.103787, 0.02, -0.153787, -0.107679, 0.0326795, -0.157679, -0.104876, 0.0287868, -0.153787, 0.107679, 0.0326795, -0.157679, -0.0306619, 0.0203621, -0.112937, 0.105254, 0.028037, -0.113554, 0.107679, 0.0326795, -0.157679, -0.0306619, 0.0287868, -0.153787, -0.0306619, 0.0203621, -0.112937, 0.107679, -0.0326795, 0.157679, -0.0306619, -0.0012132, 0.153787, -0.0306619, -0.0287868, 0.153787, 0.107679, -0.0326795, 0.157679, 0.107679, 0.00267949, 0.157679, -0.0306619, -0.0012132, 0.153787, -0.104876, -0.02, -0.10829, -0.0306619, -0.02, -0.049307, -0.104876, -0.02, -0.049307, -0.104876, -0.02, -0.10829, -0.0306619, -0.02, -0.10829, -0.0306619, -0.02, -0.049307, -0.104876, -0.0012132, 0.153787, -0.0306619, -0.0091736, -0.0562999, -0.104876, -0.0091736, -0.0562999, -0.104876, -0.0012132, 0.153787, -0.0306619, -0.0012132, 0.153787, -0.0306619, -0.0091736, -0.0562999, -0.104876, -0.0287868, -0.153787, -0.0306619, 0.02, -0.145, -0.0306619, -0.0287868, -0.153787, -0.104876, -0.0287868, -0.153787, -0.104876, 0.02, -0.145, -0.0306619, 0.02, -0.145, -0.104876, -0.0287868, -0.153787, -0.0306619, -0.02, -0.10829, -0.104876, -0.02, -0.10829, -0.104876, -0.0287868, -0.153787, -0.0306619, -0.0287868, -0.153787, -0.0306619, -0.02, -0.10829, -0.104876, -0.02, -0.049307, -0.0306619, -0.0287868, 0.153787, -0.104876, -0.0287868, 0.153787, -0.104876, -0.02, -0.049307, -0.0306619, -0.02, -0.049307, -0.0306619, -0.0287868, 0.153787, -0.104876, 0.02, -0.145, -0.0306619, 0.0287868, -0.153787, -0.0306619, 0.02, -0.145, -0.104876, 0.02, -0.145, -0.104876, 0.0287868, -0.153787, -0.0306619, 0.0287868, -0.153787, -0.104876, -0.0091736, -0.0562999, -0.0306619, 0.0210485, -0.117542, -0.104876, 0.0210485, -0.117542, -0.104876, -0.0091736, -0.0562999, -0.0306619, -0.0091736, -0.0562999, -0.0306619, 0.0210485, -0.117542, -0.102094, 0.00116036, -0.0538229, -0.104876, 0.0210485, -0.117542, -0.103788, 0.0288794, -0.113559, -0.102094, 0.00116036, -0.0538229, -0.104876, -0.0091736, -0.0562999, -0.104876, 0.0210485, -0.117542, -0.0306619, -0.0091736, -0.0562999, 0.103788, 0.0288794, -0.113559, -0.0306619, 0.0210485, -0.117542, -0.0306619, -0.0091736, -0.0562999, 0.102094, 0.00116036, -0.0538229, 0.103788, 0.0288794, -0.113559, -0.104876, 0.05, -0.10829, -0.104876, 0.0203621, -0.112937, -0.104876, 0.0477885, -0.103942, -0.104876, 0.0477885, -0.103942, -0.104876, 0.0203621, -0.112937, -0.104876, 0.0210485, -0.117542, -0.0306619, 0.05, -0.10829, -0.104876, 0.0203621, -0.112937, -0.104876, 0.05, -0.10829, -0.0306619, 0.05, -0.10829, -0.0306619, 0.0203621, -0.112937, -0.104876, 0.0203621, -0.112937, -0.0306619, 0.0477885, -0.103942, -0.0306619, 0.0210485, -0.117542, -0.0306619, 0.05, -0.10829, -0.0306619, 0.05, -0.10829, -0.0306619, 0.0210485, -0.117542, -0.0306619, 0.0203621, -0.112937, -0.104876, 0.0477885, -0.103942, -0.0306619, 0.0210485, -0.117542, -0.0306619, 0.0477885, -0.103942, -0.104876, 0.0477885, -0.103942, -0.104876, 0.0210485, -0.117542, -0.0306619, 0.0210485, -0.117542)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gduyv"]
-resource_name = "Material.009"
-cull_mode = 2
-albedo_color = Color(0.906639, 0.889918, 0, 1)
-roughness = 0.5
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_87is1"]
-_surfaces = [{
-"aabb": AABB(-0.01, -0.005, -0.01, 0.02, 0.01, 0.02001),
-"format": 34896613377,
-"index_count": 36,
-"index_data": PackedByteArray("AAADAAEAAAACAAMAAgAHAAMAAgAGAAcABgAFAAcABgAEAAUABAABAAUABAAAAAEAAgAEAAYAAgAAAAQABwABAAMABwAFAAEA"),
-"name": "Material.009",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 8,
-"vertex_data": PackedByteArray("AAAAAN7/AAAAAP//3v8AAAAAAAAAAAAAAAD//wAAAAD//wAA3v8AAP/////e/wAA//8AAAAAAAD/////AAAAAA==")
-}]
-blend_shape_mode = 0
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_bmfx0"]
-resource_name = "cash_register_Cube_009"
-_surfaces = [{
-"aabb": AABB(-0.01, -0.005, -0.01, 0.02, 0.01, 0.02001),
-"attribute_data": PackedByteArray("/18AAP8f/z//X////58AAP/f/z//n////1//v/8f/3//X/+//5//v//f/3//n/+//1//P/9f/z//X/8//5//P/+f/z//n/8//1//f/9f/3//X/9//5//f/+f/3//n/9/"),
-"format": 34896613399,
-"index_count": 36,
-"index_data": PackedByteArray("AgALAAUAAgAIAAsABgAVAAkABgASABUAFAARABcAFAAOABEADAADAA8ADAAAAAMABwANABMABwABAA0AFgAEAAoAFgAQAAQA"),
-"material": SubResource("StandardMaterial3D_gduyv"),
-"name": "Material.009",
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 24,
-"vertex_data": PackedByteArray("AAAAAN7//78AAAAA3v//vwAAAADe/1TVAAD//97//78AAP//3v///wAA///e/1TVAAAAAAAA//8AAAAAAAD/vwAAAAAAAFTVAAD//wAA//8AAP//AAD//wAA//8AAFTV//8AAN7//7///wAA3v//v///AADe/1TV/////97//7//////3v/////////e/1TV//8AAAAA/////wAAAAD/v///AAAAAFTV/////wAA////////AAD///////8AAFTV/////wAA/39U1VTV//////9//79U1VTV/7//vwAA/39U1VTV/7//v/9//79U1VTV/////wAA/3+qKqoq//////9//7+qKqoq/7//vwAA/3+qKqoq/7//v/9//7+qKqoq")
-}]
-blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_87is1")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtx36"]
 resource_name = "Material.005"
@@ -2052,9 +1945,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_timwf")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mm4js"]
-size = Vector3(0.44519, 0.0537109, 1.21478)
-
 [node name="Main" type="Node3D"]
 script = ExtResource("1_bp7lj")
 
@@ -2178,404 +2068,302 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.547873, 0)
 
 [node name="Sphere_019" parent="Truck/truck_v1/truck_canopy" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177962, 2.38796, 1.16582)
-visible = false
 mesh = SubResource("ArrayMesh_1comd")
-skeleton = NodePath("")
 
 [node name="Sphere_018" parent="Truck/truck_v1/truck_canopy" index="1"]
 transform = Transform3D(0.97844, 0.117165, -0.17008, -0.0594685, 0.94846, 0.311266, 0.197784, -0.294441, 0.934979, 0.176588, 2.41896, 1.31991)
 visible = false
 mesh = SubResource("ArrayMesh_e2aeu")
-skeleton = NodePath("")
 
 [node name="Sphere_017" parent="Truck/truck_v1/truck_canopy" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177962, 2.39897, 1.47726)
 visible = false
 mesh = SubResource("ArrayMesh_ev61g")
-skeleton = NodePath("")
 
 [node name="Sphere_016" parent="Truck/truck_v1/truck_canopy" index="3"]
 transform = Transform3D(0.995846, 0.0612547, -0.0673704, -0.0447702, 0.973673, 0.223508, 0.0792877, -0.219564, 0.972371, 0.177322, 2.42062, 1.61724)
-visible = false
 mesh = SubResource("ArrayMesh_awxg2")
-skeleton = NodePath("")
 
 [node name="Sphere_015" parent="Truck/truck_v1/truck_canopy" index="4"]
 transform = Transform3D(0.993601, -0.0528361, 0.0998258, 0.0782287, 0.959447, -0.270818, -0.0814685, 0.276894, 0.95744, 0.178521, 2.41247, 1.78038)
 visible = false
 mesh = SubResource("ArrayMesh_p1d2t")
-skeleton = NodePath("")
 
 [node name="Sphere_014" parent="Truck/truck_v1/truck_canopy" index="5"]
 transform = Transform3D(0.995913, 0.0606963, -0.0668792, -0.0444788, 0.9741, 0.221701, 0.0786035, -0.21782, 0.972818, 0.171846, 2.41378, 1.97138)
-visible = false
 mesh = SubResource("ArrayMesh_om8ym")
-skeleton = NodePath("")
 
 [node name="Sphere_013" parent="Truck/truck_v1/truck_canopy" index="6"]
 transform = Transform3D(0.966149, -0.238132, 0.099245, 0.236485, 0.971225, 0.0282138, -0.103108, -0.00378875, 0.994663, 0.122301, 2.41521, 2.03278)
 visible = false
 mesh = SubResource("ArrayMesh_nu6kp")
-skeleton = NodePath("")
 
 [node name="Sphere_012" parent="Truck/truck_v1/truck_canopy" index="7"]
 transform = Transform3D(0.990988, 0.119275, -0.0609611, -0.123805, 0.989323, -0.076889, 0.0511393, 0.0837433, 0.995174, -0.0991947, 2.39135, 2.03199)
-visible = false
 mesh = SubResource("ArrayMesh_nxesv")
-skeleton = NodePath("")
 
 [node name="Sphere_011" parent="Truck/truck_v1/truck_canopy" index="8"]
 transform = Transform3D(0.949594, -0.296009, 0.1032, 0.270675, 0.940283, 0.206407, -0.158135, -0.168069, 0.973009, -0.306143, 2.41338, 2.03768)
 visible = false
 mesh = SubResource("ArrayMesh_jacwt")
-skeleton = NodePath("")
 
 [node name="Sphere_010" parent="Truck/truck_v1/truck_canopy" index="9"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512829, 2.38834, 2.03274)
-visible = false
 mesh = SubResource("ArrayMesh_v1ufp")
-skeleton = NodePath("")
 
 [node name="Sphere_009" parent="Truck/truck_v1/truck_canopy" index="10"]
 transform = Transform3D(0.98082, 0.171871, -0.0919353, -0.181511, 0.977277, -0.109467, 0.0710321, 0.124055, 0.98973, -0.679465, 2.42688, 2.02613)
 visible = false
 mesh = SubResource("ArrayMesh_jis8e")
-skeleton = NodePath("")
 
 [node name="Sphere_008" parent="Truck/truck_v1/truck_canopy" index="11"]
 transform = Transform3D(0.965392, -0.244778, 0.0900134, 0.227384, 0.958999, 0.169168, -0.127731, -0.142846, 0.981468, -0.853976, 2.40678, 2.03416)
-visible = false
 mesh = SubResource("ArrayMesh_8un6a")
-skeleton = NodePath("")
 
 [node name="Sphere_007" parent="Truck/truck_v1/truck_canopy" index="12"]
 transform = Transform3D(0.993149, 0.103818, -0.0536309, -0.109224, 0.987877, -0.110318, 0.0415277, 0.11542, 0.992448, -1.05864, 2.39362, 2.02829)
 visible = false
 mesh = SubResource("ArrayMesh_jpngf")
-skeleton = NodePath("")
 
 [node name="Sphere_006" parent="Truck/truck_v1/truck_canopy" index="13"]
 transform = Transform3D(0.993707, -0.0645008, -0.0915772, 0.0386421, 0.964776, -0.260218, 0.105136, 0.255041, 0.961197, -1.20823, 2.43076, 2.01929)
-visible = false
 mesh = SubResource("ArrayMesh_fyoh0")
-skeleton = NodePath("")
 
 [node name="Sphere_005" parent="Truck/truck_v1/truck_canopy" index="14"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21266, 2.39967, 1.86842)
 visible = false
 mesh = SubResource("ArrayMesh_p5u8o")
-skeleton = NodePath("")
 
 [node name="Sphere_004" parent="Truck/truck_v1/truck_canopy" index="15"]
 transform = Transform3D(0.955213, 0.295919, 0, -0.295919, 0.955213, 0, 0, 0, 1, -1.219, 2.43009, 1.71825)
-visible = false
 mesh = SubResource("ArrayMesh_yxo8g")
-skeleton = NodePath("")
 
 [node name="Sphere_003" parent="Truck/truck_v1/truck_canopy" index="16"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21266, 2.39873, 1.56537)
 visible = false
 mesh = SubResource("ArrayMesh_chdyn")
-skeleton = NodePath("")
 
 [node name="Sphere_002" parent="Truck/truck_v1/truck_canopy" index="17"]
 transform = Transform3D(0.992039, 0.0432066, -0.118284, -0.0752354, 0.956585, -0.281575, 0.100983, 0.288232, 0.952221, -1.21311, 2.42334, 1.42689)
-visible = false
 mesh = SubResource("ArrayMesh_xnmib")
-skeleton = NodePath("")
 
 [node name="Sphere_001" parent="Truck/truck_v1/truck_canopy" index="18"]
 transform = Transform3D(0.99621, -0.00894738, 0.0865209, -0.0123318, 0.97012, 0.242313, -0.0861036, -0.242462, 0.966332, -1.21258, 2.40284, 1.26634)
 visible = false
 mesh = SubResource("ArrayMesh_b43xn")
-skeleton = NodePath("")
 
 [node name="Sphere" parent="Truck/truck_v1/truck_canopy" index="19"]
 transform = Transform3D(1, 0, 0, 0, 0.952308, -0.305137, 0, 0.305137, 0.952308, -1.20891, 2.40062, 1.11439)
-visible = false
 mesh = SubResource("ArrayMesh_074cg")
-skeleton = NodePath("")
 
 [node name="Point_020" parent="Truck/truck_v1/truck_canopy" index="20"]
 transform = Transform3D(0.707966, 0, 0, 0, 0, 0.707966, 0, -0.707966, 0, 0.177962, 2.38796, 1.16568)
 visible = false
 light_color = Color(0.668694, 1, 0.674015, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_019" parent="Truck/truck_v1/truck_canopy" index="21"]
 transform = Transform3D(0.692702, 0.120411, 0.082949, -0.0421017, -0.220366, 0.671477, 0.140024, -0.661933, -0.208454, 0.176612, 2.41892, 1.31978)
 visible = false
 light_color = Color(0.664626, 0.644263, 1, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_018" parent="Truck/truck_v1/truck_canopy" index="22"]
 transform = Transform3D(0.707966, 0, 0, 0, 0, 0.707966, 0, -0.707966, 0, 0.177962, 2.39897, 1.47712)
 visible = false
 light_color = Color(0.710277, 1, 0.767354, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_017" parent="Truck/truck_v1/truck_canopy" index="23"]
 transform = Transform3D(0.705025, 0.0476959, 0.0433662, -0.0316957, -0.158236, 0.689327, 0.0561329, -0.688405, -0.155444, 0.177331, 2.42058, 1.6171)
 visible = false
 light_color = Color(0.947225, 0.672811, 1, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_016" parent="Truck/truck_v1/truck_canopy" index="24"]
 transform = Transform3D(0.703436, -0.0706732, -0.0374062, 0.0553832, 0.19173, 0.679255, -0.0576769, -0.677835, 0.196032, 0.178507, 2.41251, 1.78025)
 visible = false
 light_color = Color(0.692337, 0.978272, 1, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_015" parent="Truck/truck_v1/truck_canopy" index="25"]
 transform = Transform3D(0.705072, 0.0473482, 0.0429709, -0.0314895, -0.156957, 0.689629, 0.0556486, -0.688722, -0.154209, 0.171855, 2.41375, 1.97125)
 visible = false
 light_color = Color(0.697415, 1, 0.719033, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_014" parent="Truck/truck_v1/truck_canopy" index="26"]
 transform = Transform3D(0.684, -0.0702621, -0.168589, 0.167424, -0.0199744, 0.687594, -0.0729969, -0.704187, -0.00268226, 0.122287, 2.41521, 2.03264)
 visible = false
 light_color = Color(0.719333, 1, 0.727563, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_013" parent="Truck/truck_v1/truck_canopy" index="27"]
 transform = Transform3D(0.701586, 0.0431584, 0.084443, -0.0876497, 0.0544348, 0.700407, 0.0362049, -0.704549, 0.0592875, -0.0991861, 2.39136, 2.03185)
 visible = false
 light_color = Color(0.726868, 0.699987, 1, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_012" parent="Truck/truck_v1/truck_canopy" index="28"]
 transform = Transform3D(0.67228, -0.073062, -0.209564, 0.191629, -0.146129, 0.665688, -0.111954, -0.688857, -0.118987, -0.306158, 2.41335, 2.03754)
 visible = false
 light_color = Color(0.883924, 0.70258, 1, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_011" parent="Truck/truck_v1/truck_canopy" index="29"]
 transform = Transform3D(0.707966, 0, 0, 0, 0, 0.707966, 0, -0.707966, 0, -0.512829, 2.38834, 2.0326)
 visible = false
 light_color = Color(1, 0.775009, 0.943747, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_010" parent="Truck/truck_v1/truck_canopy" index="30"]
 transform = Transform3D(0.694387, 0.065087, 0.121679, -0.128503, 0.0774987, 0.691879, 0.0502883, -0.700695, 0.0878263, -0.679452, 2.4269, 2.02599)
 visible = false
 light_color = Color(0.779622, 1, 0.761088, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_009" parent="Truck/truck_v1/truck_canopy" index="31"]
 transform = Transform3D(0.683464, -0.0637264, -0.173294, 0.16098, -0.119765, 0.678938, -0.0904295, -0.694846, -0.10113, -0.853988, 2.40676, 2.03402)
 visible = false
 light_color = Color(1, 0.705197, 0.840584, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_008" parent="Truck/truck_v1/truck_canopy" index="32"]
 transform = Transform3D(0.703116, 0.0379688, 0.0734994, -0.0773267, 0.0781015, 0.699383, 0.0294002, -0.702619, 0.0817136, -1.05863, 2.39364, 2.02815)
 visible = false
 light_color = Color(1, 0.9293, 0.686516, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_007" parent="Truck/truck_v1/truck_canopy" index="33"]
 transform = Transform3D(0.70351, 0.0648335, -0.0456644, 0.0273573, 0.184225, 0.683029, 0.0744325, -0.680495, 0.180561, -1.20822, 2.4308, 2.01916)
 visible = false
 light_color = Color(0.683814, 1, 0.659469, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_006" parent="Truck/truck_v1/truck_canopy" index="34"]
 transform = Transform3D(0.707966, 0, 0, 0, 0, 0.707966, 0, -0.707966, 0, -1.21266, 2.39967, 1.86827)
 visible = false
 light_color = Color(0.74768, 0.772232, 1, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_005" parent="Truck/truck_v1/truck_canopy" index="35"]
 transform = Transform3D(0.676258, 1.1928e-08, 0.209501, -0.209501, 3.85028e-08, 0.676258, 0, -0.707966, 4.03081e-08, -1.219, 2.43009, 1.71811)
 visible = false
 light_color = Color(0.828069, 1, 0.765728, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_004" parent="Truck/truck_v1/truck_canopy" index="36"]
 transform = Transform3D(0.707966, 0, 0, 0, 0, 0.707966, 0, -0.707966, 0, -1.21266, 2.39873, 1.56523)
 visible = false
 light_color = Color(1, 0.684259, 0.998657, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_003" parent="Truck/truck_v1/truck_canopy" index="37"]
 transform = Transform3D(0.70233, 0.0837408, 0.0305888, -0.0532641, 0.199345, 0.67723, 0.0714922, -0.67414, 0.204058, -1.2131, 2.42338, 1.42675)
 visible = false
 light_color = Color(0.724909, 0.824455, 1, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_002" parent="Truck/truck_v1/truck_canopy" index="38"]
 transform = Transform3D(0.705283, -0.0612538, -0.00633443, -0.00873053, -0.171549, 0.686812, -0.0609584, -0.68413, -0.171655, -1.21259, 2.4028, 1.2662)
 visible = false
 light_color = Color(1, 0.687961, 0.742521, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Point_001" parent="Truck/truck_v1/truck_canopy" index="39"]
 transform = Transform3D(0.707966, 0, 0, 0, 0.216027, 0.674202, 0, -0.674202, 0.216027, -1.20891, 2.40066, 1.11425)
 visible = false
 light_color = Color(1, 0.9293, 0.686516, 1)
-light_energy = 163.054
-omni_range = 4096.0
 
 [node name="Plane" parent="Truck/truck_v1/truck_canopy" index="40"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.516983, 2.46728, 1.53145)
-visible = false
 mesh = SubResource("ArrayMesh_cmut7")
-skeleton = NodePath("")
 
 [node name="Cylinder_021" parent="Truck/truck_v1/truck_canopy" index="41"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177962, 2.41348, 1.16561)
-visible = false
 mesh = SubResource("ArrayMesh_dmxm0")
-skeleton = NodePath("")
 
 [node name="Cylinder_020" parent="Truck/truck_v1/truck_canopy" index="42"]
 transform = Transform3D(0.97844, 0.117165, -0.17008, -0.0594685, 0.94846, 0.311266, 0.197784, -0.294441, 0.934979, 0.179614, 2.44311, 1.3122)
 visible = false
 mesh = SubResource("ArrayMesh_sf7jl")
-skeleton = NodePath("")
 
 [node name="Cylinder_019" parent="Truck/truck_v1/truck_canopy" index="43"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.177962, 2.4245, 1.47705)
 visible = false
 mesh = SubResource("ArrayMesh_1k6ss")
-skeleton = NodePath("")
 
 [node name="Cylinder_018" parent="Truck/truck_v1/truck_canopy" index="44"]
 transform = Transform3D(0.995846, 0.0612547, -0.0673704, -0.0447702, 0.973673, 0.223508, 0.0792877, -0.219564, 0.972371, 0.1789, 2.44542, 1.61143)
-visible = false
 mesh = SubResource("ArrayMesh_o0bmj")
-skeleton = NodePath("")
 
 [node name="Cylinder_017" parent="Truck/truck_v1/truck_canopy" index="45"]
 transform = Transform3D(0.993601, -0.0528361, 0.0998258, 0.0782287, 0.959447, -0.270818, -0.0814685, 0.276894, 0.95744, 0.177151, 2.43702, 1.78725)
 visible = false
 mesh = SubResource("ArrayMesh_yomd6")
-skeleton = NodePath("")
 
 [node name="Cylinder_016" parent="Truck/truck_v1/truck_canopy" index="46"]
 transform = Transform3D(0.995913, 0.0606963, -0.0668792, -0.0444788, 0.9741, 0.221701, 0.0786035, -0.21782, 0.972818, 0.173409, 2.4386, 1.96562)
-visible = false
 mesh = SubResource("ArrayMesh_q5sqi")
-skeleton = NodePath("")
 
 [node name="Cylinder_015" parent="Truck/truck_v1/truck_canopy" index="47"]
 transform = Transform3D(0.966149, -0.238132, 0.099245, 0.236485, 0.971225, 0.0282138, -0.103108, -0.00378875, 0.994663, 0.116202, 2.44, 2.03247)
 visible = false
 mesh = SubResource("ArrayMesh_tvdpn")
-skeleton = NodePath("")
 
 [node name="Cylinder_014" parent="Truck/truck_v1/truck_canopy" index="48"]
 transform = Transform3D(0.990988, 0.119275, -0.0609611, -0.123805, 0.989323, -0.076889, 0.0511393, 0.0837433, 0.995174, -0.0961371, 2.41662, 2.03392)
-visible = false
 mesh = SubResource("ArrayMesh_ujqhi")
-skeleton = NodePath("")
 
 [node name="Cylinder_013" parent="Truck/truck_v1/truck_canopy" index="49"]
 transform = Transform3D(0.949594, -0.296009, 0.1032, 0.270675, 0.940283, 0.206407, -0.158135, -0.168069, 0.973009, -0.313721, 2.43734, 2.03318)
 visible = false
 mesh = SubResource("ArrayMesh_dv3sb")
-skeleton = NodePath("")
 
 [node name="Cylinder_012" parent="Truck/truck_v1/truck_canopy" index="50"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512829, 2.41387, 2.03253)
-visible = false
 mesh = SubResource("ArrayMesh_e6csm")
-skeleton = NodePath("")
 
 [node name="Cylinder_011" parent="Truck/truck_v1/truck_canopy" index="51"]
 transform = Transform3D(0.98082, 0.171871, -0.0919353, -0.181511, 0.977277, -0.109467, 0.0710321, 0.124055, 0.98973, -0.675059, 2.45185, 2.02909)
 visible = false
 mesh = SubResource("ArrayMesh_rbd3m")
-skeleton = NodePath("")
 
 [node name="Cylinder_010" parent="Truck/truck_v1/truck_canopy" index="52"]
 transform = Transform3D(0.965392, -0.244778, 0.0900134, 0.227384, 0.958999, 0.169168, -0.127731, -0.142846, 0.981468, -0.860243, 2.43123, 2.03031)
-visible = false
 mesh = SubResource("ArrayMesh_hrwai")
-skeleton = NodePath("")
 
 [node name="Cylinder_009" parent="Truck/truck_v1/truck_canopy" index="53"]
 transform = Transform3D(0.993149, 0.103818, -0.0536309, -0.109224, 0.987877, -0.110318, 0.0415277, 0.11542, 0.992448, -1.05597, 2.41886, 2.03103)
 visible = false
 mesh = SubResource("ArrayMesh_srwdu")
-skeleton = NodePath("")
 
 [node name="Cylinder_008" parent="Truck/truck_v1/truck_canopy" index="54"]
 transform = Transform3D(0.993707, -0.0645008, -0.0915772, 0.0386421, 0.964776, -0.260218, 0.105136, 0.255041, 0.961197, -1.20986, 2.45545, 2.0256)
-visible = false
 mesh = SubResource("ArrayMesh_s3e80")
-skeleton = NodePath("")
 
 [node name="Cylinder_007" parent="Truck/truck_v1/truck_canopy" index="55"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21266, 2.4252, 1.86821)
 visible = false
 mesh = SubResource("ArrayMesh_u8iv1")
-skeleton = NodePath("")
 
 [node name="Cylinder_006" parent="Truck/truck_v1/truck_canopy" index="56"]
 transform = Transform3D(0.955213, 0.295919, 0, -0.295919, 0.955213, 0, 0, 0, 1, -1.21145, 2.45448, 1.71804)
-visible = false
 mesh = SubResource("ArrayMesh_27x1o")
-skeleton = NodePath("")
 
 [node name="Cylinder_005" parent="Truck/truck_v1/truck_canopy" index="57"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.21266, 2.42425, 1.56516)
 visible = false
 mesh = SubResource("ArrayMesh_3ac0g")
-skeleton = NodePath("")
 
 [node name="Cylinder_004" parent="Truck/truck_v1/truck_canopy" index="58"]
 transform = Transform3D(0.992039, 0.0432066, -0.118284, -0.0752354, 0.956585, -0.281575, 0.100983, 0.288232, 0.952221, -1.21199, 2.44782, 1.43405)
-visible = false
 mesh = SubResource("ArrayMesh_vmqbn")
-skeleton = NodePath("")
 
 [node name="Cylinder_003" parent="Truck/truck_v1/truck_canopy" index="59"]
 transform = Transform3D(0.99621, -0.00894738, 0.0865209, -0.0123318, 0.97012, 0.242313, -0.0861036, -0.242462, 0.966332, -1.21282, 2.42755, 1.25995)
 visible = false
 mesh = SubResource("ArrayMesh_p2ps6")
-skeleton = NodePath("")
 
 [node name="Cylinder_002" parent="Truck/truck_v1/truck_canopy" index="60"]
 transform = Transform3D(1, 0, 0, 0, 0.952308, -0.305137, 0, 0.305137, 0.952308, -1.20891, 2.42499, 1.12198)
-visible = false
 mesh = SubResource("ArrayMesh_iut3d")
-skeleton = NodePath("")
 
 [node name="Cylinder_001" parent="Truck/truck_v1/truck_canopy" index="61"]
 transform = Transform3D(1, 0, 0, 0, 0.949447, -0.313927, 0, 0.313927, 0.949447, -1.12272, 2.29547, 1.17814)
 mesh = SubResource("ArrayMesh_bnk5u")
-skeleton = NodePath("")
 
 [node name="Cylinder" parent="Truck/truck_v1/truck_canopy" index="62"]
 transform = Transform3D(1, 0, 0, 0, 0.949447, -0.313927, 0, 0.313927, 0.949447, 0.119136, 2.29547, 1.17814)
 mesh = SubResource("ArrayMesh_bnk5u")
-skeleton = NodePath("")
 
 [node name="Cube" parent="Truck/truck_v1/truck_canopy" index="63"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.512633, 2.48294, 1.52753)
 mesh = SubResource("ArrayMesh_8xf3k")
-skeleton = NodePath("")
+
+[node name="order_sign" parent="Truck/truck_v1" instance=ExtResource("11_lxusy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245646, 1.76493, 0.95)
 
 [node name="Stove" parent="Truck" instance=ExtResource("11_it22y")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.479958, 0, -0.605357)
@@ -2684,8 +2472,17 @@ shape = SubResource("BoxShape3D_6gvic")
 [node name="NextOrderButton" parent="." instance=ExtResource("26_3voqb")]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0.213596, 2.28869, 0.95)
 
+[node name="CollisionShape3D" parent="NextOrderButton" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373524, 0.0214447, 0)
+
+[node name="Cylinder_002" parent="NextOrderButton/order_button" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373524, 0.01553, 0)
+
+[node name="Cylinder_003" parent="NextOrderButton/order_button" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0373524, 0.039442, 0)
+
 [node name="Order_Paper_Spawner" parent="NextOrderButton" index="2"]
-transform = Transform3D(-1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, -0.354469, 0.115238, -0.561851)
+transform = Transform3D(-1, 0, -8.74228e-08, -8.74228e-08, -4.37114e-08, 1, -3.82137e-15, 1, 4.37114e-08, -0.293622, 0.0833645, -0.537121)
 rotation_order = 0
 
 [node name="pin-board" parent="." instance=ExtResource("27_tg6bc")]
@@ -2697,10 +2494,16 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.248
 [node name="CashRegister" parent="." instance=ExtResource("28_qjc17")]
 transform = Transform3D(-1, 0, 0, 0, 1, 0, 0, 0, -1, 0.277287, 1.72365, 0.761474)
 
+[node name="OrderDetectionArea" parent="CashRegister" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0098435, 1.19209e-07, -6.81877e-05)
+
+[node name="CollisionShape3D" parent="CashRegister/OrderDetectionArea" index="0"]
+transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.773393, 0.0416946, -0.417708)
+shape = SubResource("BoxShape3D_mm4js")
+
 [node name="Cube" parent="CashRegister/cash_register" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0519182, 0)
 mesh = SubResource("ArrayMesh_g1mec")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" parent="CashRegister/cash_register/Cube/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_bdfmv")
@@ -2708,78 +2511,40 @@ shape = SubResource("ConvexPolygonShape3D_bdfmv")
 [node name="Cube_001" parent="CashRegister/cash_register" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0519182, 0.00539949)
 mesh = SubResource("ArrayMesh_ulbbp")
-skeleton = NodePath("")
 
-[node name="Cylinder" parent="CashRegister/cash_register" index="2"]
-transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0.100083, 0.0519182, 0.200624)
-mesh = SubResource("ArrayMesh_qyvh3")
-skeleton = NodePath("")
-
-[node name="Cube_004" parent="CashRegister/cash_register" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.135175, -0.00266612, -0.184717)
-cast_shadow = 0
-mesh = SubResource("ArrayMesh_5we33")
-skeleton = NodePath("")
-
-[node name="Cube_006" parent="CashRegister/cash_register" index="4"]
+[node name="Cube_006" parent="CashRegister/cash_register" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.150696, 0)
 mesh = SubResource("ArrayMesh_veepq")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" parent="CashRegister/cash_register/Cube_006/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_4qrjf")
 
-[node name="Cube_009" parent="CashRegister/cash_register" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0405314, 0.171852, 0)
-cast_shadow = 0
-mesh = SubResource("ArrayMesh_bmfx0")
-skeleton = NodePath("")
-
-[node name="Cube_036" parent="CashRegister/cash_register" index="6"]
+[node name="Cube_036" parent="CashRegister/cash_register" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0967708, 0.171852, 0.110311)
-cast_shadow = 0
 mesh = SubResource("ArrayMesh_6vtl2")
-skeleton = NodePath("")
 
-[node name="Cube_042" parent="CashRegister/cash_register" index="7"]
+[node name="Cube_042" parent="CashRegister/cash_register" index="6"]
 transform = Transform3D(0.999842, -0.0111614, 0.0138286, 0.0162327, 0.890302, -0.45508, -0.00723226, 0.455233, 0.890343, 0.0657418, 0.187176, -0.0775519)
-cast_shadow = 0
 mesh = SubResource("ArrayMesh_t25gj")
-skeleton = NodePath("")
 
-[node name="Cylinder_001" parent="CashRegister/cash_register" index="8"]
+[node name="Cylinder_001" parent="CashRegister/cash_register" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0829975, 0.231107, -0.146318)
-cast_shadow = 0
 mesh = SubResource("ArrayMesh_v0eg6")
-skeleton = NodePath("")
 
-[node name="Cube_043" parent="CashRegister/cash_register" index="9"]
+[node name="Cube_043" parent="CashRegister/cash_register" index="8"]
 transform = Transform3D(0.951057, 0, -0.309017, 0, 1, 0, 0.309017, 0, 0.951057, 0.0801407, 0.265396, -0.147292)
-cast_shadow = 0
 mesh = SubResource("ArrayMesh_gttqb")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" parent="CashRegister/cash_register/Cube_043/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_87hls")
 
-[node name="Text" parent="CashRegister/cash_register" index="10"]
+[node name="Text" parent="CashRegister/cash_register" index="9"]
 transform = Transform3D(0.99991, -0.0116566, 0.00669096, 0.0134404, 0.8672, -0.497778, 0, 0.497823, 0.867279, 0.0505066, 0.182687, -0.0575359)
-cast_shadow = 0
 mesh = SubResource("ArrayMesh_k2pxy")
-skeleton = NodePath("")
 
-[node name="Text_001" parent="CashRegister/cash_register" index="11"]
+[node name="Text_001" parent="CashRegister/cash_register" index="10"]
 transform = Transform3D(0.951056, -0.309017, -1.49012e-08, 1.49012e-08, 5.96046e-08, -1, 0.309017, 0.951056, 5.96046e-08, 0.0555586, 0.260683, -0.144653)
-cast_shadow = 0
 mesh = SubResource("ArrayMesh_qceg6")
-skeleton = NodePath("")
-
-[node name="OrderDetectionArea" parent="CashRegister" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0098435, 1.19209e-07, -6.81877e-05)
-
-[node name="CollisionShape3D" parent="CashRegister/OrderDetectionArea" index="0"]
-transform = Transform3D(0, 0, 1, 0, 1, 0, -1, 0, 0, 0.773393, 0.0416946, -0.417708)
-shape = SubResource("BoxShape3D_mm4js")
 
 [node name="TV-Screen" parent="." instance=ExtResource("29_jels6")]
 transform = Transform3D(0.939665, -0.0895358, 0.330171, -1.11759e-08, 0.965142, 0.261727, -0.342096, -0.245935, 0.90691, 0.776048, 2.4923, 0.736524)
