@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://5b36bokc0k4k"]
+[gd_scene load_steps=17 format=3 uid="uid://5b36bokc0k4k"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_5moal"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="1_8xdyp"]
 [ext_resource type="PackedScene" uid="uid://doqn4cetycndv" path="res://resources/test_helpers/food_piece.tscn" id="2_ek6i4"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="4_xjd3b"]
+[ext_resource type="PackedScene" uid="uid://dfs1nnktcexvm" path="res://resources/food/burger_parts/lettuce.tscn" id="6_n1w72"]
 [ext_resource type="PackedScene" uid="uid://c3bsc5kmrbo4i" path="res://resources/food/burger_parts/patty.tscn" id="7_yj730"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
@@ -122,3 +123,6 @@ rotation_edit_mode = 2
 
 [node name="SpawnPoint" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59908, 0, 0.0708036)
+
+[node name="Lettuce" parent="." instance=ExtResource("6_n1w72")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.50644, 1.61523, -1.17047)
