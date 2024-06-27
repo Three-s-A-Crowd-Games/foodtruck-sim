@@ -6,7 +6,7 @@
 [ext_resource type="Material" path="res://assets/materials/onion_inside_material.tres" id="4_np3uk"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_dia17"]
-radius = 0.0402188
+radius = 0.156
 
 [node name="Onion" instance=ExtResource("1_5ncwy")]
 collision_mask = 8519687
@@ -15,10 +15,11 @@ angular_damp = 21.0
 type = 8
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0335287, 0)
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0.0370467, 0)
 shape = SubResource("SphereShape3D_dia17")
 
 [node name="onion" parent="." index="1" instance=ExtResource("2_r81y7")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0)
 
 [node name="Sliceable" parent="." index="2" node_paths=PackedStringArray("_mesh_node_or_parent") instance=ExtResource("3_54r5x")]
 cross_section_material = ExtResource("4_np3uk")
