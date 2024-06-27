@@ -49,6 +49,7 @@ shadow_mesh = SubResource("ArrayMesh_l21b4")
 
 [node name="VPatty" instance=ExtResource("1_2hqs3")]
 script = ExtResource("2_y312x")
+type = 21
 ranged_grab_method = 1
 second_hand_grab = 0
 

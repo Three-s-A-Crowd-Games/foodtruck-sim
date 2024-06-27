@@ -16,7 +16,7 @@ extends XRToolsInteractableHandleDriven
 
 
 ## Signal for slider moved
-signal slider_moved(position)
+signal slider_moved(position: float, offset: float)
 signal slider_limit_max_reached()
 signal slider_limit_min_reached()
 
@@ -76,13 +76,13 @@ func _process(_delta: float) -> void:
 	var offset := offset_sum.x / grabbed_handles.size()
 
 	# Move the slider by the requested offset
-	move_slider(slider_position + offset)
+	move_slider(offset)
 
 
 # Move the slider to the specified position
-func move_slider(position: float) -> void:
+func move_slider(offset: float) -> void:
 	# Do the slider move
-	position = _do_move_slider(position)
+	var position = _do_move_slider(slider_position + offset)
 	if position == slider_position:
 		return
 
@@ -102,7 +102,7 @@ func move_slider(position: float) -> void:
 # Handle release of slider
 func _on_slider_released(_interactable: XRToolsInteractableSlider):
 	if default_on_release:
-		move_slider(default_position)
+		move_slider(default_position - slider_position)
 
 
 # Called when the slider position is set externally

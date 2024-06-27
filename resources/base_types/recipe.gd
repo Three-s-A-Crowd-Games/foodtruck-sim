@@ -52,7 +52,7 @@ static func create_recipe(type: Type) -> Recipe:
 	var new_recipe :=  Recipe.new()
 	new_recipe.type = type
 	var min_amount := 0
-	var max_amount := 12
+	var max_amount := 10
 	var possible_ingredients: Array
 	
 	# gather all the ingredients that can be used for this type of recipe

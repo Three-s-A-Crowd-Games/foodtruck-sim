@@ -1,6 +1,7 @@
-[gd_scene load_steps=32 format=4 uid="uid://ckp7cmiuw7m3x"]
+[gd_scene load_steps=36 format=4 uid="uid://ckp7cmiuw7m3x"]
 
 [ext_resource type="PackedScene" uid="uid://bwyexseyq51sy" path="res://addons/godot-xr-tools/interactables/interactable_hinge.tscn" id="1_63rb2"]
+[ext_resource type="Script" path="res://resources/objects/appliances/fridge.gd" id="1_iqpxe"]
 [ext_resource type="PackedScene" uid="uid://b3jv45h2xhgrr" path="res://assets/models/objects/furniture/drinks_fridge.blend" id="2_dqt6y"]
 [ext_resource type="PackedScene" uid="uid://blkhfuec27pv7" path="res://assets/models/objects/furniture/drinks_fridge_door.blend" id="3_iv44q"]
 [ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="3_wxa4e"]
@@ -13,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://qqspv2qscbqp" path="res://resources/food/drinks/green_juice.tscn" id="10_ticfo"]
 [ext_resource type="PackedScene" uid="uid://bjpvlp2ajyr7n" path="res://resources/food/drinks/pink_juice.tscn" id="11_jpd3v"]
 [ext_resource type="ArrayOccluder3D" uid="uid://cnjbxxvrh1ofw" path="res://resources/occluder_data/drink_fridge.occ" id="12_cyjd8"]
+[ext_resource type="AudioStream" uid="uid://ccwq7dliyf14f" path="res://audio/ambience/fridge.mp3" id="13_dv3ys"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_s572p"]
 size = Vector3(0.235479, 0.035, 0.0355164)
@@ -193,6 +195,7 @@ size = Vector3(0.2, 0.141813, 0.25)
 size = Vector3(0.2, 0.141813, 0.25)
 
 [node name="DrinkFridge" type="Node3D"]
+script = ExtResource("1_iqpxe")
 
 [node name="HingeOrigin" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0.242842, 0.419361, -0.15306)
@@ -414,6 +417,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0287097, 0, -0.025)
 [node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
 occluder = ExtResource("12_cyjd8")
 
+[node name="InteractionSFX" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+
+[node name="Ambience" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_dv3ys")
+volume_db = -15.0
+autoplay = true
+bus = &"Ambience"
+
+[connection signal="hinge_moved" from="HingeOrigin/InteractableHinge" to="." method="_on_xr_tools_interactable_hinge_hinge_moved"]
 [connection signal="body_exited" from="Content/WaterArea/ExitDetector" to="Content/WaterArea" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="Content/CokeArea/ExitDetector" to="Content/CokeArea" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="Content/FantaArea/ExitDetector" to="Content/FantaArea" method="_on_exit_detector_body_exited"]

@@ -17,6 +17,7 @@ var _flip_factor: int
 var _mesh_node: MeshInstance3D
 var _inverse_mesh_basis: Basis
 var _is_mesh_ontop_xz := false
+var _next_slice_meshes: Array = []
 @export var cross_section_material: Material
 @export var slice_spawn_seperation_distance := 0.02
 ## Select how many slices the object will produce. But be sure to set it high enaugh so the slices won't be to big.
@@ -93,6 +94,8 @@ func _ready():
 	slice_width = original_size.x / slice_count
 	for i in range(1,slice_count):
 		slice_positions.push_back(original_size.x/2 - slice_width * i)
+	original_size *= _mesh_node_or_parent.scale
+	slice_width *= _mesh_node_or_parent.scale.x
 		
 	collision_layer = 0
 	collision_mask = pow(2,5) # Mask layer 6
@@ -112,10 +115,16 @@ func _ready():
 				player.stream = load("res://audio/slicing/normal/slice_normal_soft_audio_stream_randomizer.tres")
 			"Crunchy":
 				player.stream = load("res://audio/slicing/crunchy/slice_crunchy_soft_audio_stream_randomizer.tres")
-				
+	
+
+func precalculate_slice():
+	var trans := _get_slice_transform(_mesh_node.transform.basis)
+	_next_slice_meshes = MeshSlicer.slice_mesh(trans, _mesh_node.mesh, cross_section_material)
+	slice_thread.call_deferred("wait_to_finish")
+	
 
 func _on_body_entered(body):
-	slice_thread.start(slice,Thread.PRIORITY_HIGH)
+	slice()
 	if body is RigidBody3D:
 		if body is XRToolsPickable and body.is_picked_up():
 			soft_player.play()
@@ -127,23 +136,17 @@ func _on_body_entered(body):
 	else:
 		soft_player.play()
 
-
 func slice():
-	mutex.lock()
 	if slices_left <= 1: return
-	mutex.unlock()
+	if _next_slice_meshes.is_empty():
+		slice_thread.start(precalculate_slice, Thread.PRIORITY_HIGH)
+		return
 	
-	var trans := _get_slice_transform()
-	var meshes = MeshSlicer.slice_mesh(trans, _mesh_node.mesh, cross_section_material)
-	call_deferred("slice_rest",meshes)
-	slice_thread.call_deferred("wait_to_finish")
-
-func slice_rest(meshes):
 	slices_left -= 1
-	_mesh_node.mesh = meshes[0]
-	_adjust_collision_shape(_sliceable, meshes[0])
-	call_deferred("_adjust_collision_shape", self, meshes[0])
-	var slice := _create_slice(meshes[1])
+	_mesh_node.mesh = _next_slice_meshes[0]
+	_adjust_collision_shape(_sliceable, _next_slice_meshes[0])
+	call_deferred("_adjust_collision_shape", self, _next_slice_meshes[0])
+	var slice := _create_slice(_next_slice_meshes[1])
 	_sliceable.add_sibling(slice)
 	_make_slice_ready(slice)
 	
@@ -152,7 +155,7 @@ func slice_rest(meshes):
 		
 	if slices_left == 1:
 		slices_left -= 1
-		slice = _create_slice(meshes[0])
+		slice = _create_slice(_next_slice_meshes[0])
 		_sliceable.add_sibling(slice)
 		_make_slice_ready(slice)
 		get_parent_node_3d().visible = false
@@ -161,7 +164,10 @@ func slice_rest(meshes):
 		if soft_player.count_playing > 0:
 			await soft_player.finished
 		get_parent().call_deferred("queue_free")
+		return
 	
+	_next_slice_meshes.clear()
+	slice_thread.start(precalculate_slice, Thread.PRIORITY_HIGH)
 
 ## This method sets up some properties of the slice
 ## and hereby overrides the values calculated by the ready mehtod in BurgerPart.gd
@@ -169,18 +175,18 @@ func _make_slice_ready(slice: BurgerPart) -> void:
 	slice.height = slice_width
 	slice.stack_zone_distance = slice_width + slice.burger_part_seperation_distance
 	slice.stack_zone.position.y = slice.stack_zone_distance
-	slice.stack_zone.get_node("CollisionShape3D").shape.radius = original_size.y/2
+	slice.stack_zone.get_node("CollisionShape3D").shape.radius = original_size.y / 2
 	slice.mass = slice_mass
 	slice.original_mass = slice_mass
 	slice.center_of_mass = Vector3(0, slice_width/2, 0)
 	slice.original_center_of_mass = Vector3(0, slice_width/2, 0)
 
-func _get_slice_transform() -> Transform3D:
+func _get_slice_transform(mesh_node_basis: Basis) -> Transform3D:
 	# As far as I know the mesh slicing tool cuts along the xy-plane of the given transform.
 	# The transform has to be in the local space of the mesh node.
 	var trans := Transform3D.IDENTITY.rotated(Vector3.UP, PI/2)
-	trans.basis = _mesh_node.transform.basis * trans.basis
-	var angle = _mesh_node.transform.basis.y.signed_angle_to(Vector3.UP, Vector3.BACK)
+	trans.basis = mesh_node_basis * trans.basis
+	var angle = mesh_node_basis.y.signed_angle_to(Vector3.UP, Vector3.BACK)
 	_flip_factor = 1 if angle == 0 else sign(angle)
 	trans.origin.x = slice_positions[slice_count - slices_left] * _flip_factor
 	trans.origin *= _inverse_mesh_basis
@@ -199,6 +205,7 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	if not mesh_node:
 		mesh_node = MeshInstance3D.new()
 		mesh_node.transform.basis = _inverse_mesh_basis
+		mesh_node.transform.basis *= _mesh_node_or_parent.scale.x
 		slice.add_child(mesh_node)
 	mesh_node.mesh = mesh
 	
@@ -269,7 +276,6 @@ func _adjust_collision_shape(node: Node, mesh: Mesh) -> void:
 			if not coll_node.shape is CylinderShape3D: coll_node.shape = CylinderShape3D.new()
 			coll_node.shape.radius = original_size.y/2
 			coll_node.shape.height = slice_width
-	
 
 func _updated_children(node: Node) -> void:
 	update_configuration_warnings()
@@ -289,6 +295,7 @@ func _get_configuration_warnings():
 	return out
 
 func _on_has_left_spawn():
+	slice_thread.start(precalculate_slice, Thread.PRIORITY_HIGH)
 	monitoring = true
 
 # Thread must be disposed (or "joined"), for portability.

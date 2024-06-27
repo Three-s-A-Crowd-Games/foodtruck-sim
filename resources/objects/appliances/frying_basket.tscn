@@ -7,7 +7,7 @@
 size = Vector3(0.0568848, 0.0311584, 0.0980225)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g5k6q"]
-size = Vector3(0.170044, 0.0101929, 0.28244)
+size = Vector3(0.17, 0.025, 0.282)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hp36e"]
 size = Vector3(0.166504, 0.137848, 0.0107422)
@@ -33,6 +33,7 @@ size = Vector3(0.17, 0.135, 0.005)
 [node name="FryingBasket" type="RigidBody3D"]
 collision_layer = 4
 collision_mask = 7
+continuous_cd = true
 script = ExtResource("1_opsrh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

@@ -45,6 +45,7 @@ func _recursive_check(ingredients: Array[Ingredient.Type], index: int, rawObject
 	# All other elements
 	index += 1
 	if object.type != ingredients[index-1]:
+		printt("WrongItem", object.type)
 		return false
 	else:
 		#Check if Cooked/Fried
