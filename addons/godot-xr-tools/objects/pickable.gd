@@ -94,7 +94,7 @@ var can_ranged_grab: bool = true
 ## Frozen state to restore to when dropped
 var restore_freeze : bool = false
 
-var position_before_pickup := Vector3.ZERO
+var position_before_pickup = null
 
 var has_left_spawner := false :
 	set(value):
@@ -230,7 +230,8 @@ func pick_up(by: Node3D) -> void:
 		return
 	
 	freeze = false
-	position_before_pickup = global_position
+	if position_before_pickup == null:
+		position_before_pickup = global_position
 
 	# Find the grabber information
 	var grabber := Grabber.new(by)

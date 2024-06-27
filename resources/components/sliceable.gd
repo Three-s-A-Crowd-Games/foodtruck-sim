@@ -94,6 +94,8 @@ func _ready():
 	slice_width = original_size.x / slice_count
 	for i in range(1,slice_count):
 		slice_positions.push_back(original_size.x/2 - slice_width * i)
+	original_size *= _mesh_node_or_parent.scale
+	slice_width *= _mesh_node_or_parent.scale.x
 		
 	collision_layer = 0
 	collision_mask = pow(2,5) # Mask layer 6
@@ -173,7 +175,7 @@ func _make_slice_ready(slice: BurgerPart) -> void:
 	slice.height = slice_width
 	slice.stack_zone_distance = slice_width + slice.burger_part_seperation_distance
 	slice.stack_zone.position.y = slice.stack_zone_distance
-	slice.stack_zone.get_node("CollisionShape3D").shape.radius = original_size.y/2
+	slice.stack_zone.get_node("CollisionShape3D").shape.radius = original_size.y / 2
 	slice.mass = slice_mass
 	slice.original_mass = slice_mass
 	slice.center_of_mass = Vector3(0, slice_width/2, 0)
@@ -203,6 +205,7 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	if not mesh_node:
 		mesh_node = MeshInstance3D.new()
 		mesh_node.transform.basis = _inverse_mesh_basis
+		mesh_node.transform.basis *= _mesh_node_or_parent.scale.x
 		slice.add_child(mesh_node)
 	mesh_node.mesh = mesh
 	
@@ -273,7 +276,6 @@ func _adjust_collision_shape(node: Node, mesh: Mesh) -> void:
 			if not coll_node.shape is CylinderShape3D: coll_node.shape = CylinderShape3D.new()
 			coll_node.shape.radius = original_size.y/2
 			coll_node.shape.height = slice_width
-	
 
 func _updated_children(node: Node) -> void:
 	update_configuration_warnings()
