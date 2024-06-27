@@ -1,4 +1,4 @@
-[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://chl8miy43wicm"]
+[gd_resource type="ORMMaterial3D" load_steps=2 format=3 uid="uid://dlf2yp0lbd2lc"]
 
 [ext_resource type="Texture2D" uid="uid://c8iiqjrgjo4nk" path="res://assets/materials/cucumber_material_albedo.png" id="1"]
 
