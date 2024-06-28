@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://5b36bokc0k4k"]
+[gd_scene load_steps=21 format=3 uid="uid://5b36bokc0k4k"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_5moal"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="1_8xdyp"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dvrvbjk0evblt" path="res://resources/food/cucumber.tscn" id="6_syx2q"]
 [ext_resource type="PackedScene" uid="uid://dec5p1w8uxafs" path="res://resources/food/onion.tscn" id="7_g5l8d"]
 [ext_resource type="PackedScene" uid="uid://btgalluoa7ukb" path="res://resources/test_helpers/cone.tscn" id="8_gyeit"]
+[ext_resource type="PackedScene" uid="uid://c43mpw7y30r72" path="res://resources/food/burger_parts/bun_bottom.tscn" id="9_bnktn"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
 sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
@@ -118,11 +119,27 @@ autoplay = true
 [node name="Tomato" parent="." instance=ExtResource("5_6vayu")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.621212, 1.21086, 0.54284)
 
+[node name="Sliceable" parent="Tomato" index="2"]
+monitoring = true
+
+[node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11529, 0)
+
+[node name="Sliceable" parent="Onion" index="2"]
+monitoring = true
+
 [node name="Cucumber" parent="." instance=ExtResource("6_syx2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358656, 1, 0.279034)
 
-[node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000203013, 1, 0.42593)
+[node name="Sliceable" parent="Cucumber" index="1"]
+monitoring = true
 
 [node name="Cone" parent="." instance=ExtResource("8_gyeit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176819, 1.15495, -0.435212)
+
+[node name="BunBottom" parent="." instance=ExtResource("9_bnktn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.783903, 1.00903, 0)
+
+[editable path="Tomato"]
+[editable path="Onion"]
+[editable path="Cucumber"]
