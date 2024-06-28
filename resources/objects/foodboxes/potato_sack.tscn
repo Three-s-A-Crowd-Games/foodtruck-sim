@@ -7,10 +7,13 @@
 [node name="PotatoSack" instance=ExtResource("1_db410")]
 item_scene = ExtResource("2_462bf")
 
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.139334, 0)
+
 [node name="SpawnPosition" parent="." index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0371068, 0.157065, 0)
 
-[node name="potato_sack" parent="." index="2" instance=ExtResource("3_wdus8")]
+[node name="potato_sack" type="Node3D" parent="." index="2" instance=ExtResource("3_wdus8")]
 
 [node name="SpawnPosition2" type="Marker3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0568816, 0.0543732, 0)

@@ -13,6 +13,7 @@ config_version=5
 config/name="Foodtruck-Sim"
 run/main_scene="res://resources/main.tscn"
 config/features=PackedStringArray("4.3")
+run/max_fps=72
 config/icon="res://assets/icon.svg"
 
 [autoload]
@@ -27,6 +28,7 @@ enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
 
 [layer_names]
 
+3d_render/layer_20="Ebene 20"
 3d_physics/layer_1="Static World"
 3d_physics/layer_2="Dynamic World"
 3d_physics/layer_3="Pickable Objects"
@@ -65,10 +67,27 @@ jolt_3d/solver/bounce_velocity_threshold=0.1
 occlusion_culling/bvh_build_quality=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+driver/threads/thread_model=0
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/use_physical_light_units=true
-lights_and_shadows/tighter_shadow_caster_culling=false
+lights_and_shadows/directional_shadow/size.mobile=1024
+reflections/sky_reflections/ggx_samples.mobile=4
+reflections/reflection_atlas/reflection_size.mobile=32
+global_illumination/gi/use_half_resolution=true
+textures/default_filters/anisotropic_filtering_level=1
+environment/ssao/quality=1
+environment/ssil/quality=1
+scaling_3d/scale=0.8
+occlusion_culling/occlusion_rays_per_thread=128
+environment/screen_space_reflection/roughness_quality=0
+environment/subsurface_scattering/subsurface_scattering_quality=0
+lightmapping/probe_capture/update_speed=10.0
+limits/spatial_indexer/threaded_cull_minimum_instances=32
+anti_aliasing/quality/msaa_3d=1
 occlusion_culling/use_occlusion_culling=true
+lights_and_shadows/positional_shadow/atlas_size.mobile=1024
+lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=2
+lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=3
 
 [xr]
 

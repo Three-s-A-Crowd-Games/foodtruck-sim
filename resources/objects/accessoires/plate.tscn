@@ -41,7 +41,7 @@ snap_require = "food"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0075097, 0)
 shape = SubResource("SphereShape3D_xeafo")
 
-[node name="Plate" parent="." index="2" instance=ExtResource("1_4e6ak")]
+[node name="Plate" type="Node3D" parent="." index="2" instance=ExtResource("1_4e6ak")]
 
 [node name="PickableSoundQueue3D" parent="." index="3"]
 pickable_audio_type = SubResource("Resource_0504j")

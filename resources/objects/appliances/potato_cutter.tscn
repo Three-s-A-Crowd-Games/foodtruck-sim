@@ -10,6 +10,9 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_yp4h6"]
 size = Vector3(0.0123242, 0.085, 0.02)
 
+[sub_resource type="BoxMesh" id="BoxMesh_170ma"]
+size = Vector3(0.01, 0.12, 0.12)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ju1t"]
 size = Vector3(0.13, 0.16, 0.14)
 
@@ -41,6 +44,12 @@ shape = SubResource("BoxShape3D_yp4h6")
 
 [node name="potato_cutter_top" parent="SliderOrigin/InteractableSlider" instance=ExtResource("2_p1ha5")]
 transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.300236, 1.31237e-08, -0.0892264)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SliderOrigin/InteractableSlider"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0.0183323, -0.000351655, -0.0889733)
+cast_shadow = 3
+mesh = SubResource("BoxMesh_170ma")
+skeleton = NodePath("../HandleOrigin")
 
 [node name="Area3D" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0952191, 0)

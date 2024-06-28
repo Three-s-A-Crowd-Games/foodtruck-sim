@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://vb88b4k65xny"]
+[gd_scene load_steps=16 format=3 uid="uid://vb88b4k65xny"]
 
 [ext_resource type="Script" path="res://resources/objects/appliances/fridge.gd" id="1_f8mbw"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_hinge.gd" id="2_1foms"]
 [ext_resource type="PackedScene" uid="uid://3osplhacfbif" path="res://assets/models/objects/furniture/fridge_lid.blend" id="3_p7rys"]
+[ext_resource type="ArrayOccluder3D" uid="uid://bvqmwtclnwibr" path="res://resources/occluder_data/Fridge_2.occ" id="4_2isad"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/interactables/interactable_handle.gd" id="4_nr872"]
 [ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="5_onvuc"]
 [ext_resource type="PackedScene" uid="uid://uka8fkdexvy2" path="res://assets/models/objects/furniture/fridge_bottom.blend" id="6_2ooe4"]
@@ -10,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b0e07jtb6csss" path="res://resources/food/burger_parts/bacon.tscn" id="7_pgvxu"]
 [ext_resource type="AudioStream" uid="uid://ccwq7dliyf14f" path="res://audio/ambience/fridge.mp3" id="8_0aexw"]
 [ext_resource type="PackedScene" uid="uid://ejklhqsbujh" path="res://resources/food/burger_parts/v_patty.tscn" id="8_4drec"]
+[ext_resource type="ArrayOccluder3D" uid="uid://xndd7wtke685" path="res://resources/occluder_data/Fridge.occ" id="9_4c7j7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gehbk"]
 size = Vector3(0.295508, 0.0639313, 0.0889526)
@@ -51,6 +53,13 @@ shape = SubResource("BoxShape3D_gehbk")
 [node name="fridge-v2-lid" parent="HandleGrabber/XRToolsInteractableHinge" instance=ExtResource("3_p7rys")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0886158, -0.904813, -0.45851)
 
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="HandleGrabber/XRToolsInteractableHinge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0416747, -0.842778)
+visible = false
+occluder = ExtResource("4_2isad")
+
+[node name="fridge-v2-bottom" parent="." instance=ExtResource("6_2ooe4")]
+
 [node name="PattyCabinet" type="Node3D" parent="."]
 
 [node name="ExitDetector" type="Area3D" parent="PattyCabinet"]
@@ -67,82 +76,44 @@ shape = SubResource("BoxShape3D_2wavr")
 script = ExtResource("5_onvuc")
 item_scene = ExtResource("6_r3kjv")
 
-[node name="Patty" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.575501, -0.204802)
-
-[node name="Patty2" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.575501, -0.079995)
-
-[node name="Patty3" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.575501, 0.197262)
-
-[node name="Patty4" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.613571, -0.204802)
-
-[node name="Patty5" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.613571, -0.079995)
-
-[node name="Patty6" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.613571, 0.197262)
-
-[node name="Patty7" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.651643, -0.204802)
-
-[node name="Patty8" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.651643, -0.079995)
-
-[node name="Patty9" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.651643, 0.197262)
-
 [node name="Patty10" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.689214, -0.204802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.701817, -0.204802)
 
 [node name="Patty11" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.689214, -0.079995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.701817, -0.079995)
 
 [node name="Patty12" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.689214, 0.197262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.701817, 0.197262)
 
 [node name="Patty13" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.726509, -0.204802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.739112, -0.204802)
 
 [node name="Patty14" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.726509, -0.079995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.739112, -0.079995)
 
 [node name="Patty15" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.726509, 0.197262)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.739112, 0.197262)
 
 [node name="Patty16" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, -0.204802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.777454, -0.204802)
 
 [node name="Patty17" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, -0.079995)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.777454, -0.079995)
 
 [node name="Patty18" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, 0.197262)
-
-[node name="Patty19" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.575501, 0.0565019)
-
-[node name="Patty20" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.613571, 0.0565019)
-
-[node name="Patty21" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.651643, 0.0565019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.777454, 0.197262)
 
 [node name="Patty22" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.689214, 0.0565019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.701817, 0.0565019)
 
 [node name="Patty23" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.726509, 0.0565019)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.739112, 0.0565019)
 
 [node name="Patty24" parent="PattyCabinet/Content" instance=ExtResource("6_r3kjv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.764851, 0.0565019)
-
-[node name="fridge-v2-bottom" parent="." instance=ExtResource("6_2ooe4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.219, 0.777454, 0.0565019)
 
 [node name="BaconCabinet" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19415, 0.576928, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19415, 0.72962, 0)
 
 [node name="ExitDetector" type="Area3D" parent="BaconCabinet"]
 
@@ -235,87 +206,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.0457135, 0.15
 [node name="Bacon27" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.0457135, 0.152238)
 
-[node name="Bacon28" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543355, 0.0616927, -0.177759)
-
-[node name="Bacon29" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.0616927, -0.177759)
-
-[node name="Bacon30" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.0616927, -0.177759)
-
-[node name="Bacon31" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543355, 0.0616927, -0.0176803)
-
-[node name="Bacon32" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.0616927, -0.0176803)
-
-[node name="Bacon33" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.0616927, -0.0176803)
-
-[node name="Bacon34" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543355, 0.0616927, 0.152238)
-
-[node name="Bacon35" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.0616927, 0.152238)
-
-[node name="Bacon36" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.0616927, 0.152238)
-
-[node name="Bacon37" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543355, 0.0897375, -0.177759)
-
-[node name="Bacon38" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.0897375, -0.177759)
-
-[node name="Bacon39" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.0897375, -0.177759)
-
-[node name="Bacon40" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543355, 0.0897375, -0.0176803)
-
-[node name="Bacon41" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.0897375, -0.0176803)
-
-[node name="Bacon42" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.0897375, -0.0176803)
-
-[node name="Bacon43" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543355, 0.0897375, 0.152238)
-
-[node name="Bacon44" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.0897375, 0.152238)
-
-[node name="Bacon45" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.0897375, 0.152238)
-
-[node name="Bacon46" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543355, 0.107406, -0.177759)
-
-[node name="Bacon47" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.107406, -0.177759)
-
-[node name="Bacon48" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.107406, -0.177759)
-
-[node name="Bacon49" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543355, 0.107406, -0.0176803)
-
-[node name="Bacon50" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.107406, -0.0176803)
-
-[node name="Bacon51" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.107406, -0.0176803)
-
-[node name="Bacon52" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0543355, 0.107406, 0.152238)
-
-[node name="Bacon53" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000888228, 0.107406, 0.152238)
-
-[node name="Bacon54" parent="BaconCabinet/Content" instance=ExtResource("7_pgvxu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0596945, 0.107406, 0.152238)
-
 [node name="VPattyCabinet" type="Node3D" parent="."]
 
 [node name="ExitDetector" type="Area3D" parent="VPattyCabinet"]
@@ -332,77 +222,44 @@ shape = SubResource("BoxShape3D_2wavr")
 script = ExtResource("5_onvuc")
 item_scene = ExtResource("8_4drec")
 
-[node name="VPatty" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.575501, -0.204802)
-
-[node name="VPatty2" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.576, -0.08)
-
-[node name="VPatty3" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.576, 0.057)
-
-[node name="VPatty4" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.576, 0.197)
-
-[node name="VPatty5" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.614, -0.204802)
-
-[node name="VPatty6" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.614, -0.08)
-
-[node name="VPatty7" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.614, 0.057)
-
-[node name="VPatty8" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.614, 0.197)
-
-[node name="VPatty9" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.652, -0.204802)
-
-[node name="VPatty10" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.652, -0.08)
-
-[node name="VPatty11" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.652, 0.057)
-
-[node name="VPatty12" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.652, 0.197)
-
 [node name="VPatty13" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.689, -0.204802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.705479, -0.204802)
 
 [node name="VPatty14" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.689, -0.08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.705479, -0.08)
 
 [node name="VPatty15" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.689, 0.057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.705479, 0.057)
 
 [node name="VPatty16" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.689, 0.197)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.705479, 0.197)
 
 [node name="VPatty17" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.727, -0.204802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.743479, -0.204802)
 
 [node name="VPatty18" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.727, -0.08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.743479, -0.08)
 
 [node name="VPatty19" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.727, 0.057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.743479, 0.057)
 
 [node name="VPatty20" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.727, 0.197)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.743479, 0.197)
 
 [node name="VPatty21" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.765, -0.204802)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0206672, 0.781479, -0.204802)
 
 [node name="VPatty22" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.765, -0.08)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.781479, -0.08)
 
 [node name="VPatty23" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.765, 0.057)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.781479, 0.057)
 
 [node name="VPatty24" parent="VPattyCabinet/Content" instance=ExtResource("8_4drec")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.765, 0.197)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.021, 0.781479, 0.197)
+
+[node name="OccluderInstance3D" type="OccluderInstance3D" parent="."]
+occluder = ExtResource("9_4c7j7")
 
 [node name="InteractionSFX" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.912068, -0.260591)

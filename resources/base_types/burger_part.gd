@@ -43,6 +43,7 @@ func _ready():
 	stack_zone.position.y = stack_zone_distance
 	
 	center_of_mass = original_center_of_mass
+	super._ready()
 	
 
 func _process(_delta):
