@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b43qe84nsktof"]
+[gd_scene load_steps=10 format=3 uid="uid://b43qe84nsktof"]
 
 [ext_resource type="PackedScene" uid="uid://c80aiwmup0pf1" path="res://assets/models/objects/appliances/potato_cutter_bottom.blend" id="1_f1lyt"]
 [ext_resource type="Script" path="res://resources/objects/appliances/potato_cutter.gd" id="1_u3en0"]

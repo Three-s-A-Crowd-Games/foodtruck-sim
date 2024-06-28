@@ -7,8 +7,11 @@ extends Food
 
 func _ready():
 	_on_fryable_fry_status_changed(Fryable.FryStatus.RAW)
+	super._ready()
 
 func _on_fryable_fry_status_changed(status):
+	if status != Fryable.FryStatus.RAW and get_node("MachineSlicable") != null:
+		get_node("MachineSlicable").can_be_sliced = false
 	for fry in all_fries:
 		match status:
 			Fryable.FryStatus.RAW:

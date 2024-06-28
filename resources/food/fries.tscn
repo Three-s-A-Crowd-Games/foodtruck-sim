@@ -17,11 +17,10 @@ type = 3
 transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00361282, 0, 0.00361282, 0.999994, -0.000417709, 0.0506544, -0.00495278)
 shape = SubResource("BoxShape3D_qiqfu")
 
-[node name="fries" parent="." index="1" instance=ExtResource("3_s4j63")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0180124)
-
-[node name="Fryable" type="Node" parent="." index="2"]
+[node name="Fryable" type="Node" parent="." index="1"]
 script = ExtResource("2_o57es")
+
+[node name="fries" parent="." index="3" instance=ExtResource("3_s4j63")]
 
 [connection signal="fry_status_changed" from="Fryable" to="." method="_on_fryable_fry_status_changed"]
 

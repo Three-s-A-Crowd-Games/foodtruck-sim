@@ -257,12 +257,10 @@ params/damping = 0.01
 
 [node name="Paper_001" parent="order_paper" index="0"]
 mesh = SubResource("ArrayMesh_tenq2")
-skeleton = NodePath("")
 
 [node name="Pin" parent="order_paper" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.007, -0.159767)
 mesh = SubResource("ArrayMesh_nbkep")
-skeleton = NodePath("")
 
 [connection signal="area_entered" from="Pin-Area" to="." method="_on_pin_area_entered"]
 [connection signal="area_exited" from="Pin-Area" to="." method="_on_pin_area_exited"]
