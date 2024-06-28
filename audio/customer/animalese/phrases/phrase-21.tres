@@ -1,0 +1,83 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=22 format=3 uid="uid://d0s24jevabkcv"]
+
+[ext_resource type="AudioStream" uid="uid://cje1vc1htug1i" path="res://audio/customer/animalese/audio_files/08-Letter.wav" id="1_ujc2g"]
+[ext_resource type="AudioStream" uid="uid://dcnrq2ii35y1c" path="res://audio/customer/animalese/audio_files/05-Letter.wav" id="2_esiln"]
+[ext_resource type="AudioStream" uid="uid://74qmwu0x23p5" path="res://audio/customer/animalese/audio_files/29-space.wav" id="3_1ol84"]
+[ext_resource type="AudioStream" uid="uid://cpc81c84f4f80" path="res://audio/customer/animalese/audio_files/03-Letter.wav" id="4_txtmh"]
+[ext_resource type="AudioStream" uid="uid://bchbv7qy4x0as" path="res://audio/customer/animalese/audio_files/15-Letter.wav" id="5_bvonb"]
+[ext_resource type="AudioStream" uid="uid://bbcnp4m7tqdx3" path="res://audio/customer/animalese/audio_files/21-Letter.wav" id="6_wsrut"]
+[ext_resource type="AudioStream" uid="uid://cpxjw02s01843" path="res://audio/customer/animalese/audio_files/09-Letter.wav" id="9_kv1av"]
+[ext_resource type="AudioStream" uid="uid://c1vm8vojr5cse" path="res://audio/customer/animalese/audio_files/07-Letter.wav" id="10_dewd4"]
+[ext_resource type="AudioStream" uid="uid://4pt46k4ydcyj" path="res://audio/customer/animalese/audio_files/25-Letter.wav" id="11_3oqio"]
+[ext_resource type="AudioStream" uid="uid://cax1gj0vymqfe" path="res://audio/customer/animalese/audio_files/20-Letter.wav" id="12_vmjah"]
+[ext_resource type="AudioStream" uid="uid://0kddhapaacaf" path="res://audio/customer/animalese/audio_files/01-Letter.wav" id="13_04ptr"]
+[ext_resource type="AudioStream" uid="uid://vmaowtdxhybi" path="res://audio/customer/animalese/audio_files/02-Letter.wav" id="14_tir31"]
+[ext_resource type="AudioStream" uid="uid://mbu5rkhn1nhy" path="res://audio/customer/animalese/audio_files/17-Letter.wav" id="15_6acaj"]
+[ext_resource type="AudioStream" uid="uid://scxuntqpjr21" path="res://audio/customer/animalese/audio_files/18-Letter.wav" id="15_tu3nc"]
+[ext_resource type="AudioStream" uid="uid://v4w73364bipm" path="res://audio/customer/animalese/audio_files/27-Letter.wav" id="16_xsq6m"]
+[ext_resource type="AudioStream" uid="uid://c33ehwhupwc6b" path="res://audio/customer/animalese/audio_files/14-Letter.wav" id="17_j4lug"]
+[ext_resource type="AudioStream" uid="uid://cjims47reinpo" path="res://audio/customer/animalese/audio_files/30-break.wav" id="18_tu3ji"]
+[ext_resource type="AudioStream" uid="uid://dlloqtcnjcesk" path="res://audio/customer/animalese/audio_files/10-Letter.wav" id="19_dyiph"]
+[ext_resource type="AudioStream" uid="uid://b10sn632ta4or" path="res://audio/customer/animalese/audio_files/22-Letter.wav" id="19_xcc0q"]
+[ext_resource type="AudioStream" uid="uid://bo0kdns30kf1m" path="res://audio/customer/animalese/audio_files/16-Letter.wav" id="20_cfxk3"]
+[ext_resource type="AudioStream" uid="uid://bmcuyukfpkpmy" path="res://audio/customer/animalese/audio_files/13-Letter.wav" id="21_2x40e"]
+
+[resource]
+loop = false
+fade_time = 0.0
+stream_count = 55
+stream_0 = ExtResource("1_ujc2g")
+stream_1 = ExtResource("2_esiln")
+stream_2 = ExtResource("11_3oqio")
+stream_3 = ExtResource("18_tu3ji")
+stream_4 = ExtResource("3_1ol84")
+stream_5 = ExtResource("19_xcc0q")
+stream_6 = ExtResource("2_esiln")
+stream_7 = ExtResource("10_dewd4")
+stream_8 = ExtResource("13_04ptr")
+stream_9 = ExtResource("17_j4lug")
+stream_10 = ExtResource("3_1ol84")
+stream_11 = ExtResource("20_cfxk3")
+stream_12 = ExtResource("13_04ptr")
+stream_13 = ExtResource("12_vmjah")
+stream_14 = ExtResource("11_3oqio")
+stream_15 = ExtResource("18_tu3ji")
+stream_16 = ExtResource("3_1ol84")
+stream_17 = ExtResource("12_vmjah")
+stream_18 = ExtResource("5_bvonb")
+stream_19 = ExtResource("21_2x40e")
+stream_20 = ExtResource("13_04ptr")
+stream_21 = ExtResource("12_vmjah")
+stream_22 = ExtResource("5_bvonb")
+stream_23 = ExtResource("18_tu3ji")
+stream_24 = ExtResource("3_1ol84")
+stream_25 = ExtResource("4_txtmh")
+stream_26 = ExtResource("6_wsrut")
+stream_27 = ExtResource("4_txtmh")
+stream_28 = ExtResource("6_wsrut")
+stream_29 = ExtResource("21_2x40e")
+stream_30 = ExtResource("14_tir31")
+stream_31 = ExtResource("2_esiln")
+stream_32 = ExtResource("15_tu3nc")
+stream_33 = ExtResource("18_tu3ji")
+stream_34 = ExtResource("3_1ol84")
+stream_35 = ExtResource("14_tir31")
+stream_36 = ExtResource("15_6acaj")
+stream_37 = ExtResource("3_1ol84")
+stream_38 = ExtResource("16_xsq6m")
+stream_39 = ExtResource("13_04ptr")
+stream_40 = ExtResource("6_wsrut")
+stream_41 = ExtResource("4_txtmh")
+stream_42 = ExtResource("2_esiln")
+stream_43 = ExtResource("18_tu3ji")
+stream_44 = ExtResource("3_1ol84")
+stream_45 = ExtResource("10_dewd4")
+stream_46 = ExtResource("15_tu3nc")
+stream_47 = ExtResource("2_esiln")
+stream_48 = ExtResource("17_j4lug")
+stream_49 = ExtResource("3_1ol84")
+stream_50 = ExtResource("19_dyiph")
+stream_51 = ExtResource("6_wsrut")
+stream_52 = ExtResource("9_kv1av")
+stream_53 = ExtResource("4_txtmh")
+stream_54 = ExtResource("2_esiln")

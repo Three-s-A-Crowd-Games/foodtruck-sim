@@ -1,0 +1,68 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=18 format=3 uid="uid://4caa4ewe3je4"]
+
+[ext_resource type="AudioStream" uid="uid://cje1vc1htug1i" path="res://audio/customer/animalese/audio_files/08-Letter.wav" id="1_64sck"]
+[ext_resource type="AudioStream" uid="uid://dcnrq2ii35y1c" path="res://audio/customer/animalese/audio_files/05-Letter.wav" id="2_fpn25"]
+[ext_resource type="AudioStream" uid="uid://74qmwu0x23p5" path="res://audio/customer/animalese/audio_files/29-space.wav" id="3_wbaqs"]
+[ext_resource type="AudioStream" uid="uid://cax1gj0vymqfe" path="res://audio/customer/animalese/audio_files/20-Letter.wav" id="6_0lo70"]
+[ext_resource type="AudioStream" uid="uid://0kddhapaacaf" path="res://audio/customer/animalese/audio_files/01-Letter.wav" id="7_3vct0"]
+[ext_resource type="AudioStream" uid="uid://vmaowtdxhybi" path="res://audio/customer/animalese/audio_files/02-Letter.wav" id="8_ibq3x"]
+[ext_resource type="AudioStream" uid="uid://4pt46k4ydcyj" path="res://audio/customer/animalese/audio_files/25-Letter.wav" id="9_f1ak1"]
+[ext_resource type="AudioStream" uid="uid://bbcnp4m7tqdx3" path="res://audio/customer/animalese/audio_files/21-Letter.wav" id="10_snrfj"]
+[ext_resource type="AudioStream" uid="uid://scxuntqpjr21" path="res://audio/customer/animalese/audio_files/18-Letter.wav" id="11_ap3jp"]
+[ext_resource type="AudioStream" uid="uid://cjims47reinpo" path="res://audio/customer/animalese/audio_files/30-break.wav" id="13_8nr6r"]
+[ext_resource type="AudioStream" uid="uid://bchbv7qy4x0as" path="res://audio/customer/animalese/audio_files/15-Letter.wav" id="15_l0thx"]
+[ext_resource type="AudioStream" uid="uid://bmcuyukfpkpmy" path="res://audio/customer/animalese/audio_files/13-Letter.wav" id="16_bxe8j"]
+[ext_resource type="AudioStream" uid="uid://v4w73364bipm" path="res://audio/customer/animalese/audio_files/27-Letter.wav" id="17_qo4ap"]
+[ext_resource type="AudioStream" uid="uid://b72qws3llri45" path="res://audio/customer/animalese/audio_files/12-Letter.wav" id="17_ti5og"]
+[ext_resource type="AudioStream" uid="uid://bo0kdns30kf1m" path="res://audio/customer/animalese/audio_files/16-Letter.wav" id="18_bo1g3"]
+[ext_resource type="AudioStream" uid="uid://cpc81c84f4f80" path="res://audio/customer/animalese/audio_files/03-Letter.wav" id="19_wsawi"]
+[ext_resource type="AudioStream" uid="uid://droitl1u7fj8t" path="res://audio/customer/animalese/audio_files/04-Letter.wav" id="20_20tap"]
+
+[resource]
+loop = false
+fade_time = 0.0
+stream_count = 44
+stream_0 = ExtResource("1_64sck")
+stream_1 = ExtResource("2_fpn25")
+stream_2 = ExtResource("9_f1ak1")
+stream_3 = ExtResource("13_8nr6r")
+stream_4 = ExtResource("3_wbaqs")
+stream_5 = ExtResource("18_bo1g3")
+stream_6 = ExtResource("7_3vct0")
+stream_7 = ExtResource("6_0lo70")
+stream_8 = ExtResource("9_f1ak1")
+stream_9 = ExtResource("13_8nr6r")
+stream_10 = ExtResource("3_wbaqs")
+stream_11 = ExtResource("17_ti5og")
+stream_12 = ExtResource("2_fpn25")
+stream_13 = ExtResource("6_0lo70")
+stream_14 = ExtResource("10_snrfj")
+stream_15 = ExtResource("19_wsawi")
+stream_16 = ExtResource("2_fpn25")
+stream_17 = ExtResource("13_8nr6r")
+stream_18 = ExtResource("3_wbaqs")
+stream_19 = ExtResource("6_0lo70")
+stream_20 = ExtResource("15_l0thx")
+stream_21 = ExtResource("16_bxe8j")
+stream_22 = ExtResource("7_3vct0")
+stream_23 = ExtResource("6_0lo70")
+stream_24 = ExtResource("15_l0thx")
+stream_25 = ExtResource("13_8nr6r")
+stream_26 = ExtResource("3_wbaqs")
+stream_27 = ExtResource("19_wsawi")
+stream_28 = ExtResource("10_snrfj")
+stream_29 = ExtResource("19_wsawi")
+stream_30 = ExtResource("10_snrfj")
+stream_31 = ExtResource("16_bxe8j")
+stream_32 = ExtResource("8_ibq3x")
+stream_33 = ExtResource("2_fpn25")
+stream_34 = ExtResource("11_ap3jp")
+stream_35 = ExtResource("13_8nr6r")
+stream_36 = ExtResource("3_wbaqs")
+stream_37 = ExtResource("16_bxe8j")
+stream_38 = ExtResource("10_snrfj")
+stream_39 = ExtResource("17_qo4ap")
+stream_40 = ExtResource("6_0lo70")
+stream_41 = ExtResource("7_3vct0")
+stream_42 = ExtResource("11_ap3jp")
+stream_43 = ExtResource("20_20tap")

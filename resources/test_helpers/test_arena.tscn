@@ -1,13 +1,18 @@
-[gd_scene load_steps=20 format=3 uid="uid://5b36bokc0k4k"]
+[gd_scene load_steps=24 format=3 uid="uid://5b36bokc0k4k"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_5moal"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="1_8xdyp"]
 [ext_resource type="PackedScene" uid="uid://doqn4cetycndv" path="res://resources/test_helpers/food_piece.tscn" id="2_ek6i4"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="4_xjd3b"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="5_6vayu"]
+[ext_resource type="AudioStream" uid="uid://c7rb10hphy0g8" path="res://audio/customer/animalese/phrases/phrase-28.tres" id="5_j4agf"]
 [ext_resource type="PackedScene" uid="uid://dvrvbjk0evblt" path="res://resources/food/cucumber.tscn" id="6_syx2q"]
 [ext_resource type="PackedScene" uid="uid://dec5p1w8uxafs" path="res://resources/food/onion.tscn" id="7_g5l8d"]
 [ext_resource type="PackedScene" uid="uid://btgalluoa7ukb" path="res://resources/test_helpers/cone.tscn" id="8_gyeit"]
+[ext_resource type="PackedScene" uid="uid://c43mpw7y30r72" path="res://resources/food/burger_parts/bun_bottom.tscn" id="9_bnktn"]
+[ext_resource type="PackedScene" uid="uid://b0e07jtb6csss" path="res://resources/food/burger_parts/bacon.tscn" id="11_4mdx6"]
+[ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="11_x88sq"]
+[ext_resource type="PackedScene" uid="uid://um05xwvrkanf" path="res://resources/objects/order_paper.tscn" id="12_wxbvo"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
 sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
@@ -43,8 +48,6 @@ size = Vector3(20, 8, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t6ju8"]
 size = Vector3(2, 1, 2)
-
-[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_nyg33"]
 
 [node name="TestArena" type="Node3D"]
 script = ExtResource("1_5moal")
@@ -112,7 +115,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575992, 1.14486, -0.609377)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59908, 0, 0.0708036)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = SubResource("AudioStreamMP3_nyg33")
+stream = ExtResource("5_j4agf")
 autoplay = true
 
 [node name="Tomato" parent="." instance=ExtResource("5_6vayu")]
@@ -126,3 +129,21 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000203013, 1, 0.42593)
 
 [node name="Cone" parent="." instance=ExtResource("8_gyeit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176819, 1.15495, -0.435212)
+
+[node name="BunBottom" parent="." instance=ExtResource("9_bnktn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.783903, 1.00903, 0)
+
+[node name="Bacon" parent="." instance=ExtResource("11_4mdx6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25033, 0.406181)
+
+[node name="OrderPaper" parent="." instance=ExtResource("12_wxbvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547668, 1.67304, -0.45851)
+
+[node name="Potato" parent="." instance=ExtResource("11_x88sq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.316388, 1.13906, 0)
+
+[editable path="Tomato"]
+[editable path="Tomato/tomato2"]
+[editable path="Onion"]
+[editable path="Cucumber"]
+[editable path="Cucumber/cucumber"]
