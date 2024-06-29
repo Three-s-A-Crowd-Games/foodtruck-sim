@@ -83,6 +83,7 @@ environment/screen_space_reflection/roughness_quality=0
 environment/subsurface_scattering/subsurface_scattering_quality=0
 lightmapping/probe_capture/update_speed=10.0
 limits/spatial_indexer/threaded_cull_minimum_instances=32
+limits/opengl/max_lights_per_object=12
 anti_aliasing/quality/msaa_3d=1
 occlusion_culling/use_occlusion_culling=true
 lights_and_shadows/positional_shadow/atlas_size.mobile=1024
