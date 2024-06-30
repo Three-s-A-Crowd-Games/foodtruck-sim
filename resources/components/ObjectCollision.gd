@@ -16,6 +16,6 @@ func _on_function_pickup_has_picked_up(what):
 
 
 func _on_function_pickup_has_dropped():
-	remove_child(shape_node)
+	if shape_node: remove_child(shape_node)
 	shape_node = null
 	collision_mask = 0

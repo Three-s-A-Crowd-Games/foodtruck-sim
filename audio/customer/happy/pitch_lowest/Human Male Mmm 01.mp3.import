@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buynqnpoyo0qe"
+path="res://.godot/imported/Human Male Mmm 01.mp3-d68b311d22cc4d03e85818d861f68c85.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/happy/pitch_lowest/Human Male Mmm 01.mp3"
+dest_files=["res://.godot/imported/Human Male Mmm 01.mp3-d68b311d22cc4d03e85818d861f68c85.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

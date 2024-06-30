@@ -14,11 +14,11 @@ enum CookedStatus {
 @export var cooking_time: float = 5.0
 @export var burning_time: float = 10.0
 
-@export var cook_sounds_stream: AudioStreamInteractive
+@export var cook_sounds_stream: AudioStreamInteractive = preload("res://audio/cooking/cooking_audio_stream_interactive.tres")
 @export var finish_sound: AudioStream
 var audio_player_1: AudioStreamPlayer3D
 var audio_player_2: AudioStreamPlayer3D
-var fade_tweener
+var fade_tweener: Tween
 
 var time_cooked: float = 0.0
 var status: CookedStatus = CookedStatus.RAW

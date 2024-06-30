@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yunjtmkgfvu"
+path="res://.godot/imported/Human Male Yawn 02.mp3-233f64cee75c907567238533c1ef63e0.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/wait/pitch_normal/Human Male Yawn 02.mp3"
+dest_files=["res://.godot/imported/Human Male Yawn 02.mp3-233f64cee75c907567238533c1ef63e0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

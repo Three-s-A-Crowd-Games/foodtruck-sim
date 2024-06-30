@@ -16,15 +16,28 @@ config/features=PackedStringArray("4.3")
 run/max_fps=72
 config/icon="res://assets/icon.svg"
 
+[audio_node_wrangler]
+
+settings/warn_of_uncommitted_git_changes=true
+
 [autoload]
 
 XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
 XrSimulator="*res://addons/xr-simulator/XRSimulator.tscn"
 OrderController="*res://resources/base_types/order_controller.gd"
+AudioNodeWranglerMgr="*res://addons/audio_node_wrangler/audio_node_wrangler_mgr.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot-xr-tools/plugin.cfg")
+enabled=PackedStringArray("res://addons/audio_node_wrangler/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg")
+
+[input]
+
+toggle_audio_node_wrangler_hud={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194332,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 

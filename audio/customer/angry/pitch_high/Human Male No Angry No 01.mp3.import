@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddxffu3ab0cr1"
+path="res://.godot/imported/Human Male No Angry No 01.mp3-4d17203ee5e0582fd815a1ba97550ead.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/angry/pitch_high/Human Male No Angry No 01.mp3"
+dest_files=["res://.godot/imported/Human Male No Angry No 01.mp3-4d17203ee5e0582fd815a1ba97550ead.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

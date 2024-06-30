@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d08rg0s67mgax"
+path="res://.godot/imported/Human Male Burp 04.mp3-37934398ab9c4d316092c3ff31676dca.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/satisfied/pitch_normal/Human Male Burp 04.mp3"
+dest_files=["res://.godot/imported/Human Male Burp 04.mp3-37934398ab9c4d316092c3ff31676dca.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

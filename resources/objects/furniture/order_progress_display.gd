@@ -1,6 +1,8 @@
 class_name OrderProgressDisplay
 extends MarginContainer
 
+signal time_low
+
 const colors = [
 	Color("#00FF3F"), #Green
 	Color("#E7D300"), #Orange
@@ -10,6 +12,7 @@ const colors = [
 @onready var le_bar := $CenterContainer/HBoxContainer/TextureProgressBar
 
 var timer :Timer = null
+var is_fist_threshold_breached := false
 
 func _process(delta: float) -> void:
 	if timer != null:
@@ -18,6 +21,9 @@ func _process(delta: float) -> void:
 		var percent = timer.time_left / timer.wait_time
 		var col_should :Color = colors[0]
 		if (percent <= 0.3):
+			if not is_fist_threshold_breached:
+				time_low.emit()
+				is_fist_threshold_breached = true
 			col_should = colors[1]
 		if (percent <= 0.15):
 			col_should = colors[2]

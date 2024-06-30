@@ -1,0 +1,21 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=9 format=3 uid="uid://d23hjj56mdot2"]
+
+[ext_resource type="AudioStream" uid="uid://b4gaasohseuld" path="res://audio/customer/wait/pitch_lowest/Human Male Sighs Tired Sigh 01.mp3" id="1_in4jy"]
+[ext_resource type="AudioStream" uid="uid://cmskm56hy6yvq" path="res://audio/customer/wait/pitch_lowest/Human Male Yawn 01.mp3" id="2_cqn24"]
+[ext_resource type="AudioStream" uid="uid://bwm8korjxyri4" path="res://audio/customer/wait/pitch_lowest/Human Male Yawn 02.mp3" id="3_03f75"]
+[ext_resource type="AudioStream" uid="uid://cwiawve1erxta" path="res://audio/customer/wait/pitch_lowest/Human Male Yawn Soft Yawn 01.mp3" id="4_to0cp"]
+[ext_resource type="AudioStream" uid="uid://bmxnrwhoyqg6m" path="res://audio/customer/wait/pitch_lowest/Human Male Yawn Tired Yawn 01.mp3" id="5_yhudh"]
+[ext_resource type="AudioStream" uid="uid://bmqwwhagkjci3" path="res://audio/customer/wait/pitch_lowest/Human Male Yawning And Stretching 03.mp3" id="6_uw5ft"]
+[ext_resource type="AudioStream" uid="uid://6c2bmdwwct5h" path="res://audio/customer/wait/pitch_lowest/Human Male Yawns 01.mp3" id="7_2hawd"]
+[ext_resource type="AudioStream" uid="uid://02ddomco7ttq" path="res://audio/customer/wait/pitch_lowest/Human Male Yawns Short 06.mp3" id="8_40qe3"]
+
+[resource]
+streams_count = 8
+stream_0/stream = ExtResource("1_in4jy")
+stream_1/stream = ExtResource("2_cqn24")
+stream_2/stream = ExtResource("3_03f75")
+stream_3/stream = ExtResource("4_to0cp")
+stream_4/stream = ExtResource("5_yhudh")
+stream_5/stream = ExtResource("6_uw5ft")
+stream_6/stream = ExtResource("7_2hawd")
+stream_7/stream = ExtResource("8_40qe3")

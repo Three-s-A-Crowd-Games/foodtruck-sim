@@ -1,0 +1,57 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=20 format=3 uid="uid://dd6j8loyj162m"]
+
+[ext_resource type="AudioStream" uid="uid://cxxh7kwbavb2h" path="res://audio/customer/animalese/audio_files/pitch_high/23-Letter.mp3" id="1_sxaui"]
+[ext_resource type="AudioStream" uid="uid://bl504gi5rmon8" path="res://audio/customer/animalese/audio_files/pitch_high/08-Letter.mp3" id="2_gx3pf"]
+[ext_resource type="AudioStream" uid="uid://bmxqgd2xljaw8" path="res://audio/customer/animalese/audio_files/pitch_high/18-Letter.mp3" id="3_8k04k"]
+[ext_resource type="AudioStream" uid="uid://s8i6mkl40x1n" path="res://audio/customer/animalese/audio_files/29-space.mp3" id="4_o5ehp"]
+[ext_resource type="AudioStream" uid="uid://csbtevj4t8ol8" path="res://audio/customer/animalese/audio_files/pitch_high/04-Letter.mp3" id="5_lijg8"]
+[ext_resource type="AudioStream" uid="uid://bg7ok681mp43y" path="res://audio/customer/animalese/audio_files/pitch_high/05-Letter.mp3" id="6_eto7m"]
+[ext_resource type="AudioStream" uid="uid://b4i0wqem7kvlq" path="res://audio/customer/animalese/audio_files/pitch_high/01-Letter.mp3" id="7_owgyg"]
+[ext_resource type="AudioStream" uid="uid://behj5xpjrfmvu" path="res://audio/customer/animalese/audio_files/pitch_high/13-Letter.mp3" id="8_k33ga"]
+[ext_resource type="AudioStream" uid="uid://l6iqb3q2jmhw" path="res://audio/customer/animalese/audio_files/pitch_high/22-Letter.mp3" id="9_l6jqn"]
+[ext_resource type="AudioStream" uid="uid://bf1hd8v2rx5ck" path="res://audio/customer/animalese/audio_files/pitch_high/03-Letter.mp3" id="10_aycik"]
+[ext_resource type="AudioStream" uid="uid://cmgvn8l3rp8yw" path="res://audio/customer/animalese/audio_files/pitch_high/20-Letter.mp3" id="11_1l8cs"]
+[ext_resource type="AudioStream" uid="uid://bponjx0xeo60t" path="res://audio/customer/animalese/audio_files/pitch_high/09-Letter.mp3" id="12_ipafc"]
+[ext_resource type="AudioStream" uid="uid://bi1o7q5noeeeu" path="res://audio/customer/animalese/audio_files/pitch_high/15-Letter.mp3" id="13_i0g3n"]
+[ext_resource type="AudioStream" uid="uid://d0bff6bu8jcgk" path="res://audio/customer/animalese/audio_files/pitch_high/14-Letter.mp3" id="14_5yeqk"]
+[ext_resource type="AudioStream" uid="uid://j5okbhnd3hu3" path="res://audio/customer/animalese/audio_files/pitch_high/19-Letter.mp3" id="15_1lgqj"]
+[ext_resource type="AudioStream" uid="uid://bgt5co6lv7t4" path="res://audio/customer/animalese/audio_files/pitch_high/16-Letter.mp3" id="16_yo12h"]
+[ext_resource type="AudioStream" uid="uid://ca2k0uwjmcovm" path="res://audio/customer/animalese/audio_files/30-break.mp3" id="17_fn7wh"]
+[ext_resource type="AudioStream" uid="uid://y7q48amx4e0t" path="res://audio/customer/animalese/audio_files/pitch_high/25-Letter.mp3" id="18_g1fae"]
+[ext_resource type="AudioStream" uid="uid://dhs1thtlodmud" path="res://audio/customer/animalese/audio_files/pitch_high/21-Letter.mp3" id="19_l0ymo"]
+
+[resource]
+loop = false
+fade_time = 0.0
+stream_count = 31
+stream_0 = ExtResource("1_sxaui")
+stream_1 = ExtResource("2_gx3pf")
+stream_2 = ExtResource("7_owgyg")
+stream_3 = ExtResource("11_1l8cs")
+stream_4 = ExtResource("17_fn7wh")
+stream_5 = ExtResource("15_1lgqj")
+stream_6 = ExtResource("4_o5ehp")
+stream_7 = ExtResource("18_g1fae")
+stream_8 = ExtResource("13_i0g3n")
+stream_9 = ExtResource("19_l0ymo")
+stream_10 = ExtResource("3_8k04k")
+stream_11 = ExtResource("4_o5ehp")
+stream_12 = ExtResource("5_lijg8")
+stream_13 = ExtResource("3_8k04k")
+stream_14 = ExtResource("6_eto7m")
+stream_15 = ExtResource("7_owgyg")
+stream_16 = ExtResource("8_k33ga")
+stream_17 = ExtResource("4_o5ehp")
+stream_18 = ExtResource("9_l6jqn")
+stream_19 = ExtResource("7_owgyg")
+stream_20 = ExtResource("10_aycik")
+stream_21 = ExtResource("7_owgyg")
+stream_22 = ExtResource("11_1l8cs")
+stream_23 = ExtResource("12_ipafc")
+stream_24 = ExtResource("13_i0g3n")
+stream_25 = ExtResource("14_5yeqk")
+stream_26 = ExtResource("4_o5ehp")
+stream_27 = ExtResource("15_1lgqj")
+stream_28 = ExtResource("16_yo12h")
+stream_29 = ExtResource("13_i0g3n")
+stream_30 = ExtResource("11_1l8cs")

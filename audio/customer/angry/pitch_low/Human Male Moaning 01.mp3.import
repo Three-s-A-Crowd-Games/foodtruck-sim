@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dwrdwmo7jvfj4"
+path="res://.godot/imported/Human Male Moaning 01.mp3-ba686c4041dacd2b7408acf6aba4602a.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/angry/pitch_low/Human Male Moaning 01.mp3"
+dest_files=["res://.godot/imported/Human Male Moaning 01.mp3-ba686c4041dacd2b7408acf6aba4602a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

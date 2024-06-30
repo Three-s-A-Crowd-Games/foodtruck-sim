@@ -1,0 +1,19 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=8 format=3 uid="uid://c2lbdapm6kxhc"]
+
+[ext_resource type="AudioStream" uid="uid://cnurn0jccrg81" path="res://audio/customer/happy/pitch_normal/Human Male Giggle Little Kid Giggle 01.mp3" id="1_p06yp"]
+[ext_resource type="AudioStream" uid="uid://cjo8bwsjpxcch" path="res://audio/customer/happy/pitch_normal/Human Male Mmm 01.mp3" id="2_5sllr"]
+[ext_resource type="AudioStream" uid="uid://dnn1tw1f5uhbu" path="res://audio/customer/happy/pitch_normal/Human Male Mmm 02.mp3" id="3_lajjm"]
+[ext_resource type="AudioStream" uid="uid://bf7bfd40l8i4u" path="res://audio/customer/happy/pitch_normal/Human Male Mmm 03.mp3" id="4_7hmwg"]
+[ext_resource type="AudioStream" uid="uid://bouehmankcu1g" path="res://audio/customer/happy/pitch_normal/Human Male Mmm Sexy Mmm 01.mp3" id="5_khg2w"]
+[ext_resource type="AudioStream" uid="uid://xdcc18bev0bg" path="res://audio/customer/happy/pitch_normal/Human Male Ooh 02.mp3" id="6_xcfed"]
+[ext_resource type="AudioStream" uid="uid://b53kx67pehegk" path="res://audio/customer/happy/pitch_normal/Human Male Yahoo 01.mp3" id="7_s2v6s"]
+
+[resource]
+streams_count = 7
+stream_0/stream = ExtResource("1_p06yp")
+stream_1/stream = ExtResource("2_5sllr")
+stream_2/stream = ExtResource("3_lajjm")
+stream_3/stream = ExtResource("4_7hmwg")
+stream_4/stream = ExtResource("5_khg2w")
+stream_5/stream = ExtResource("6_xcfed")
+stream_6/stream = ExtResource("7_s2v6s")

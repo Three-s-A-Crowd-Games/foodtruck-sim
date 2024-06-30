@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b4gaasohseuld"
+path="res://.godot/imported/Human Male Sighs Tired Sigh 01.mp3-489954cfbd61a826a50d58624f9924f5.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/wait/pitch_lowest/Human Male Sighs Tired Sigh 01.mp3"
+dest_files=["res://.godot/imported/Human Male Sighs Tired Sigh 01.mp3-489954cfbd61a826a50d58624f9924f5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dopbl6b12qe71" path="res://assets/models/customer.blend" id="1_7apah"]
 [ext_resource type="Script" path="res://resources/customer_system/customer.gd" id="1_p13s8"]
+[ext_resource type="Script" path="res://resources/audio_helper/animalese_player.gd" id="3_dg5xo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s8vl5"]
 radius = 0.180607
@@ -70,5 +71,8 @@ libraries = {
 "": SubResource("AnimationLibrary_nnyya")
 }
 autoplay = "floaty"
+
+[node name="AnimalesePlayer" type="AudioStreamPlayer3D" parent="."]
+script = ExtResource("3_dg5xo")
 
 [editable path="customer"]

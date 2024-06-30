@@ -1,0 +1,25 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=11 format=3 uid="uid://07wmjm1m3i3s"]
+
+[ext_resource type="AudioStream" uid="uid://cpvnm28qetn0c" path="res://audio/customer/angry/pitch_low/Human Male Ahh 01.mp3" id="1_q6lm0"]
+[ext_resource type="AudioStream" uid="uid://dwrdwmo7jvfj4" path="res://audio/customer/angry/pitch_low/Human Male Moaning 01.mp3" id="2_ak845"]
+[ext_resource type="AudioStream" uid="uid://c2d3467e3pltm" path="res://audio/customer/angry/pitch_low/Human Male Moaning 02.mp3" id="3_qdwjn"]
+[ext_resource type="AudioStream" uid="uid://dtggt5icj7mhi" path="res://audio/customer/angry/pitch_low/Human Male No 01.mp3" id="4_54sqa"]
+[ext_resource type="AudioStream" uid="uid://b72qdkxrqqy3v" path="res://audio/customer/angry/pitch_low/Human Male No 04.mp3" id="5_m4s2e"]
+[ext_resource type="AudioStream" uid="uid://dssqj8dis4nld" path="res://audio/customer/angry/pitch_low/Human Male No Angry No 01.mp3" id="6_5byap"]
+[ext_resource type="AudioStream" uid="uid://3y83lw4vinw5" path="res://audio/customer/angry/pitch_low/Human Male No Deep No 01.mp3" id="7_ygy34"]
+[ext_resource type="AudioStream" uid="uid://dlsqtsusivaom" path="res://audio/customer/angry/pitch_low/Human Male Ooh Disgusted Ooh 01.mp3" id="8_7f5hw"]
+[ext_resource type="AudioStream" uid="uid://cx1qe86ol205w" path="res://audio/customer/angry/pitch_low/Human Male Roar Ggrrr Short 01.mp3" id="9_wsxt6"]
+[ext_resource type="AudioStream" uid="uid://b2tvj2yi6wj4k" path="res://audio/customer/angry/pitch_low/Human Male Vomit 01.mp3" id="10_e6fpp"]
+
+[resource]
+streams_count = 10
+stream_0/stream = ExtResource("1_q6lm0")
+stream_1/stream = ExtResource("2_ak845")
+stream_2/stream = ExtResource("3_qdwjn")
+stream_3/stream = ExtResource("4_54sqa")
+stream_4/stream = ExtResource("5_m4s2e")
+stream_5/stream = ExtResource("6_5byap")
+stream_6/stream = ExtResource("7_ygy34")
+stream_7/stream = ExtResource("8_7f5hw")
+stream_8/stream = ExtResource("9_wsxt6")
+stream_9/stream = ExtResource("10_e6fpp")

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c31q2su1ppuiy"
+path="res://.godot/imported/Human Male No 01.mp3-88c4ea5421a9247bca159a4a2843c282.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/angry/pitch_lowest/Human Male No 01.mp3"
+dest_files=["res://.godot/imported/Human Male No 01.mp3-88c4ea5421a9247bca159a4a2843c282.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

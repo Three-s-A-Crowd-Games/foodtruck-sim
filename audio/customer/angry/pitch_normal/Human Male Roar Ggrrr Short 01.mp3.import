@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c8ccyd2howbxf"
+path="res://.godot/imported/Human Male Roar Ggrrr Short 01.mp3-acced2d359e29ed71451f0ef33b63afb.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/angry/pitch_normal/Human Male Roar Ggrrr Short 01.mp3"
+dest_files=["res://.godot/imported/Human Male Roar Ggrrr Short 01.mp3-acced2d359e29ed71451f0ef33b63afb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

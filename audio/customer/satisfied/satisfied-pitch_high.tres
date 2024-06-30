@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=4 format=3 uid="uid://cmsytri1bthvl"]
+
+[ext_resource type="AudioStream" uid="uid://dxsapyghqqh5o" path="res://audio/customer/satisfied/pitch_high/Human Male Burp 02.mp3" id="1_n2ckc"]
+[ext_resource type="AudioStream" uid="uid://b5y40iacpwgqm" path="res://audio/customer/satisfied/pitch_high/Human Male Burp 04.mp3" id="2_5342x"]
+[ext_resource type="AudioStream" uid="uid://cl3bl4q0lcekm" path="res://audio/customer/satisfied/pitch_high/Human Male Burp 05.mp3" id="3_vp7ny"]
+
+[resource]
+streams_count = 3
+stream_0/stream = ExtResource("1_n2ckc")
+stream_1/stream = ExtResource("2_5342x")
+stream_2/stream = ExtResource("3_vp7ny")

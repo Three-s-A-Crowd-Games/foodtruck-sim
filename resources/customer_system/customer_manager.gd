@@ -3,6 +3,7 @@ extends Node3D
 const CUSTOMER_RESPAWN_TIME = 5
 const MAX_CUSTOMER_WAITING = 3
 const CUSTOMER_WAITING_DISTANCE = 0.6
+var SATISFIED_SOUND_PROGRESS_THRESHOLD := 0.9
 
 @onready var available_waiting_pos := $WaitingPoss.get_children()
 @onready var cust_scene :PackedScene = preload("res://resources/customer_system/customer.tscn")
@@ -63,6 +64,9 @@ func advance_path_follows(delta: float):
 				cur_follow.progress_ratio = customer.waiting_pos_stop_value + 0.0001
 			else:
 				cur_follow.progress_ratio += delta
+		elif(customer.will_make_satisfaction_sound and cur_follow.progress_ratio > SATISFIED_SOUND_PROGRESS_THRESHOLD):
+			customer.make_sound(Customer.SoundType.SATISFIED)
+			customer.will_make_satisfaction_sound = false
 		elif(cur_follow.progress_ratio < 1 and customer.can_leave):
 			if(cur_follow.progress_ratio + delta > 1):
 				if customer.tray != null: customer.tray.nuke()
@@ -81,27 +85,33 @@ func spawn_customer_if_possible():
 		path_follow.add_child(new_cust)
 		path_follows.append(path_follow)
 
-func get_wait_pos():
+func get_wait_pos() -> Path3D:
 	for pot_pos in waiting_pos_usage:
 		if(waiting_pos_usage.get(pot_pos) == null):
 			return pot_pos
+	return null
 
-func _got_order(le_order :Order):
-	var wait_pos :Path3D = get_wait_pos()
+func _got_order(le_order :Order) -> void:
 	var customer :Customer = customers_inline[0]
-	customers_inline.erase(customer)
-	waiting_pos_usage[wait_pos] = customer
+	customer.speech_finished.connect(_move_customer_from_line_to_wait, CONNECT_ONE_SHOT)
+	customer.make_sound(Customer.SoundType.SPEAK)
 	order_dict[le_order] = customer
+	le_order.order_time_low.connect(customer.make_sound.bind(Customer.SoundType.WAIT))
 	
+
+func _move_customer_from_line_to_wait(customer: Customer) -> void:
+	customers_inline.erase(customer)
 	var cust_par = customer.get_parent()
-	customer.wait_pos = wait_pos
 	cust_par.remove_child(customer)
 	path_follows.erase(cust_par)
 	cust_par.queue_free()
 	
+	var wait_pos :Path3D = get_wait_pos()
+	waiting_pos_usage[wait_pos] = customer
+	customer.wait_pos = wait_pos
 	var path_follow := PathFollow3D.new()
 	wait_pos.add_child(path_follow)
-	path_follow.add_child(customer)
+	path_follow.call_deferred("add_child", customer)
 	waiting_follows.append(path_follow)
 	customer.waiting_pos_stop_value = waiting_pos_stop_values[wait_pos.get_name()]
 
