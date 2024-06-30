@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://3y83lw4vinw5"
+path="res://.godot/imported/Human Male No Deep No 01.mp3-10b744151c1aad1e1c61064ca8406be3.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/angry/pitch_low/Human Male No Deep No 01.mp3"
+dest_files=["res://.godot/imported/Human Male No Deep No 01.mp3-10b744151c1aad1e1c61064ca8406be3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

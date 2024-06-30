@@ -1,0 +1,47 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=15 format=3 uid="uid://b5qpulaakbvtf"]
+
+[ext_resource type="AudioStream" uid="uid://cr2bsyn1fl5bs" path="res://audio/customer/animalese/audio_files/pitch_normal/05-Letter.mp3" id="1_4enbn"]
+[ext_resource type="AudioStream" uid="uid://c4v4xmxfgwj8e" path="res://audio/customer/animalese/audio_files/pitch_normal/22-Letter.mp3" id="2_x3yaq"]
+[ext_resource type="AudioStream" uid="uid://s8i6mkl40x1n" path="res://audio/customer/animalese/audio_files/29-space.mp3" id="3_bw2ju"]
+[ext_resource type="AudioStream" uid="uid://c1ugcrtwyysbs" path="res://audio/customer/animalese/audio_files/pitch_normal/01-Letter.mp3" id="4_mfdxc"]
+[ext_resource type="AudioStream" uid="uid://blf1durm1smd6" path="res://audio/customer/animalese/audio_files/pitch_normal/14-Letter.mp3" id="5_dn83o"]
+[ext_resource type="AudioStream" uid="uid://c1o3ec2ly27pm" path="res://audio/customer/animalese/audio_files/pitch_normal/25-Letter.mp3" id="6_g5cy5"]
+[ext_resource type="AudioStream" uid="uid://dp685vtuq5sks" path="res://audio/customer/animalese/audio_files/pitch_normal/23-Letter.mp3" id="7_mf7yv"]
+[ext_resource type="AudioStream" uid="uid://tcvjni2iogqm" path="res://audio/customer/animalese/audio_files/pitch_normal/18-Letter.mp3" id="8_3bpfa"]
+[ext_resource type="AudioStream" uid="uid://ddqojsv2g5tfq" path="res://audio/customer/animalese/audio_files/pitch_normal/03-Letter.mp3" id="9_cbc40"]
+[ext_resource type="AudioStream" uid="uid://cv44fl12rtcj8" path="res://audio/customer/animalese/audio_files/pitch_normal/09-Letter.mp3" id="10_bh7b0"]
+[ext_resource type="AudioStream" uid="uid://bu325okigqdip" path="res://audio/customer/animalese/audio_files/pitch_normal/16-Letter.mp3" id="11_wr7n7"]
+[ext_resource type="AudioStream" uid="uid://dujye6fj78k5c" path="res://audio/customer/animalese/audio_files/pitch_normal/19-Letter.mp3" id="12_cwq7e"]
+[ext_resource type="AudioStream" uid="uid://coth3rjkn0om6" path="res://audio/customer/animalese/audio_files/pitch_normal/20-Letter.mp3" id="13_op5or"]
+[ext_resource type="AudioStream" uid="uid://c3d4kl7td0we1" path="res://audio/customer/animalese/audio_files/pitch_normal/04-Letter.mp3" id="14_n4fnq"]
+
+[resource]
+loop = false
+fade_time = 0.0
+stream_count = 26
+stream_0 = ExtResource("1_4enbn")
+stream_1 = ExtResource("2_x3yaq")
+stream_2 = ExtResource("1_4enbn")
+stream_3 = ExtResource("8_3bpfa")
+stream_4 = ExtResource("3_bw2ju")
+stream_5 = ExtResource("13_op5or")
+stream_6 = ExtResource("8_3bpfa")
+stream_7 = ExtResource("10_bh7b0")
+stream_8 = ExtResource("1_4enbn")
+stream_9 = ExtResource("14_n4fnq")
+stream_10 = ExtResource("3_bw2ju")
+stream_11 = ExtResource("4_mfdxc")
+stream_12 = ExtResource("5_dn83o")
+stream_13 = ExtResource("6_g5cy5")
+stream_14 = ExtResource("3_bw2ju")
+stream_15 = ExtResource("5_dn83o")
+stream_16 = ExtResource("1_4enbn")
+stream_17 = ExtResource("7_mf7yv")
+stream_18 = ExtResource("3_bw2ju")
+stream_19 = ExtResource("8_3bpfa")
+stream_20 = ExtResource("1_4enbn")
+stream_21 = ExtResource("9_cbc40")
+stream_22 = ExtResource("10_bh7b0")
+stream_23 = ExtResource("11_wr7n7")
+stream_24 = ExtResource("1_4enbn")
+stream_25 = ExtResource("12_cwq7e")

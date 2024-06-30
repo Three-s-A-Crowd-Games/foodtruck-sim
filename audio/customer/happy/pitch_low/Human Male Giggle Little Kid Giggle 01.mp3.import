@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://buapvovj4s4b8"
+path="res://.godot/imported/Human Male Giggle Little Kid Giggle 01.mp3-f5d27bce3832986a156a9df73e229714.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/happy/pitch_low/Human Male Giggle Little Kid Giggle 01.mp3"
+dest_files=["res://.godot/imported/Human Male Giggle Little Kid Giggle 01.mp3-f5d27bce3832986a156a9df73e229714.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

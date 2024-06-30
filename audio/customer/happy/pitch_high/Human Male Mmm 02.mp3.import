@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ccpkgmhthe8es"
+path="res://.godot/imported/Human Male Mmm 02.mp3-561fbc876eddd2646130d9e27ee58f05.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/happy/pitch_high/Human Male Mmm 02.mp3"
+dest_files=["res://.godot/imported/Human Male Mmm 02.mp3-561fbc876eddd2646130d9e27ee58f05.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bvrx2j0qnxbco"
+path="res://.godot/imported/Human Male Yahoo 01.mp3-55bd0d4c0246b01a723e83c08196385e.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/happy/pitch_low/Human Male Yahoo 01.mp3"
+dest_files=["res://.godot/imported/Human Male Yahoo 01.mp3-55bd0d4c0246b01a723e83c08196385e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

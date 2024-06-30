@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cgtyl618bt3vc"
+path="res://.godot/imported/Human Male Mmm Sexy Mmm 01.mp3-1ebc237a6267796d6f50095ad54c17e5.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/happy/pitch_lowest/Human Male Mmm Sexy Mmm 01.mp3"
+dest_files=["res://.godot/imported/Human Male Mmm Sexy Mmm 01.mp3-1ebc237a6267796d6f50095ad54c17e5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

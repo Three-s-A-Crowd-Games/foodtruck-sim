@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b2tvj2yi6wj4k"
+path="res://.godot/imported/Human Male Vomit 01.mp3-48814011ba505e2762ee0cd66520847b.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/angry/pitch_low/Human Male Vomit 01.mp3"
+dest_files=["res://.godot/imported/Human Male Vomit 01.mp3-48814011ba505e2762ee0cd66520847b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
