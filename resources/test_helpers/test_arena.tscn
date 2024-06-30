@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://doqn4cetycndv" path="res://resources/test_helpers/food_piece.tscn" id="2_ek6i4"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="4_xjd3b"]
 [ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="5_6vayu"]
-[ext_resource type="AudioStream" uid="uid://c7rb10hphy0g8" path="res://audio/customer/animalese/phrases/phrase-28.tres" id="5_j4agf"]
+[ext_resource type="Script" path="res://resources/audio_helper/animalese_player.gd" id="6_hwbr7"]
 [ext_resource type="PackedScene" uid="uid://dvrvbjk0evblt" path="res://resources/food/cucumber.tscn" id="6_syx2q"]
 [ext_resource type="PackedScene" uid="uid://dec5p1w8uxafs" path="res://resources/food/onion.tscn" id="7_g5l8d"]
 [ext_resource type="PackedScene" uid="uid://btgalluoa7ukb" path="res://resources/test_helpers/cone.tscn" id="8_gyeit"]
@@ -115,11 +115,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575992, 1.14486, -0.609377)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59908, 0, 0.0708036)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
-stream = ExtResource("5_j4agf")
-autoplay = true
+bus = &"Voicelines"
+script = ExtResource("6_hwbr7")
 
 [node name="Tomato" parent="." instance=ExtResource("5_6vayu")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.621212, 1.21086, 0.54284)
+
+[node name="Sliceable" parent="Tomato" index="2"]
+slice_sound_type = "Normal"
 
 [node name="Cucumber" parent="." instance=ExtResource("6_syx2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358656, 1, 0.279034)
@@ -144,6 +147,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.316388, 1.13906, 0)
 
 [editable path="Tomato"]
 [editable path="Tomato/tomato2"]
-[editable path="Onion"]
 [editable path="Cucumber"]
 [editable path="Cucumber/cucumber"]
+[editable path="Onion"]
