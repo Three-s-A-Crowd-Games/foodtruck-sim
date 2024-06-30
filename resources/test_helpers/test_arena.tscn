@@ -49,8 +49,6 @@ size = Vector3(20, 8, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_t6ju8"]
 size = Vector3(2, 1, 2)
 
-[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_nyg33"]
-
 [node name="TestArena" type="Node3D"]
 script = ExtResource("1_5moal")
 
@@ -125,6 +123,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.621212, 1.21086, 0.54
 
 [node name="Sliceable" parent="Tomato" index="2"]
 monitoring = true
+slice_sound_type = "Normal"
 
 [node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11529, 0)
@@ -156,6 +155,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.316388, 1.13906, 0)
 
 [editable path="Tomato"]
 [editable path="Tomato/tomato2"]
+[editable path="Onion"]
 [editable path="Cucumber"]
 [editable path="Cucumber/cucumber"]
-[editable path="Onion"]

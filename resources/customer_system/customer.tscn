@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cjktikbqp1p4y"]
+[gd_scene load_steps=8 format=3 uid="uid://cjktikbqp1p4y"]
 
 [ext_resource type="PackedScene" uid="uid://dopbl6b12qe71" path="res://assets/models/customer.blend" id="1_7apah"]
 [ext_resource type="Script" path="res://resources/customer_system/customer.gd" id="1_p13s8"]
