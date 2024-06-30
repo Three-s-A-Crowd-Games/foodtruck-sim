@@ -1,21 +1,78 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://dfqbpintqyjln"]
+[gd_resource type="AudioBusLayout" load_steps=7 format=3 uid="uid://dfqbpintqyjln"]
+
+[sub_resource type="AudioEffectCompressor" id="AudioEffectCompressor_a2k1y"]
+resource_name = "Compressor"
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_obcuw"]
+resource_name = "Limiter"
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_xuj0x"]
+resource_name = "Delay"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_5c18i"]
+resource_name = "Reverb"
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_konfl"]
+resource_name = "Distortion"
+mode = 3
+drive = 0.22
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_kco31"]
+resource_name = "Distortion"
+mode = 3
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectCompressor_a2k1y")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectLimiter_obcuw")
+bus/0/effect/1/enabled = false
 bus/1/name = &"SFX"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
 bus/1/volume_db = 0.0
 bus/1/send = &"Master"
-bus/2/name = &"Ambience"
+bus/2/name = &"Collision"
 bus/2/solo = false
 bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 0.0
-bus/2/send = &"Master"
-bus/3/name = &"Collision"
+bus/2/send = &"SFX"
+bus/3/name = &"Ambience"
 bus/3/solo = false
 bus/3/mute = false
 bus/3/bypass_fx = false
 bus/3/volume_db = 0.0
-bus/3/send = &"SFX"
+bus/3/send = &"Master"
+bus/4/name = &"Indoor Ambience"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Ambience"
+bus/4/effect/0/effect = SubResource("AudioEffectDelay_xuj0x")
+bus/4/effect/0/enabled = true
+bus/4/effect/1/effect = SubResource("AudioEffectReverb_5c18i")
+bus/4/effect/1/enabled = true
+bus/4/effect/2/effect = SubResource("AudioEffectDistortion_konfl")
+bus/4/effect/2/enabled = true
+bus/5/name = &"Outdoor Ambience"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -0.00162125
+bus/5/send = &"Ambience"
+bus/6/name = &"Music"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"Master"
+bus/6/effect/0/effect = SubResource("AudioEffectDistortion_kco31")
+bus/6/effect/0/enabled = true
+bus/7/name = &"Voicelines"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = &"Master"
