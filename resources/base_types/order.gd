@@ -1,6 +1,8 @@
 class_name Order
 extends RefCounted
 
+signal order_time_low
+
 const MIN_ORDER_TIME := 60
 const MAX_ORDER_TIME := 120
 

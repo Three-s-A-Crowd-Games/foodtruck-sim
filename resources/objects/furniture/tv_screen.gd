@@ -15,6 +15,7 @@ func _add_order(le_order :Order):
 	$SubViewport/MainContainer.add_child(new_order_bar)
 	new_order_bar.setup(le_order)
 	order_bars.get_or_add(le_order, new_order_bar)
+	new_order_bar.time_low.connect(le_order.order_time_low.emit)
 
 func _remove_order(le_order :Order):
 	var order_bar :OrderProgressDisplay = order_bars.get(le_order)
