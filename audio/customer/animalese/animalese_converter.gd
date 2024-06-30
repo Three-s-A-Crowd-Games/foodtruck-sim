@@ -90,7 +90,6 @@ static func parse_text_to_file_paths(text: String, pitch: Customer.Pitch) -> Arr
 			#skip double characters
 			if j > 1 and chars[j] == chars[j-1]:
 				continue
-
 			#normal letters
 			elif chars[j] > 96 and chars[j] < 123:
 				#detect sh
@@ -107,10 +106,10 @@ static func parse_text_to_file_paths(text: String, pitch: Customer.Pitch) -> Arr
 				continue
 			#space charachters
 			elif chars[j] == SPACE:
-				path += "29-space"
+				path = AUDIO_FILE_DIRECTORY + "29-space"
 			#everything else is interpreted as a pause
 			else:
-				path += "30-break"
+				path = AUDIO_FILE_DIRECTORY + "30-break"
 			data[i].append(path + AUDIO_FILE_SUFFIX)
 	return data
 	
