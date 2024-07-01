@@ -22,6 +22,10 @@ shape = SubResource("CylinderShape3D_hu8ll")
 
 [node name="Order_Paper_Spawner" type="Marker3D" parent="." index="2"]
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="3"]
+bus = &"SFX"
+
 [connection signal="button_pressed" from="." to="." method="_on_button_pressed"]
+[connection signal="button_released" from="." to="." method="_on_button_released"]
 
 [editable path="order_button"]
