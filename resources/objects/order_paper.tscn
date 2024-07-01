@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://1xn1yfon2ed7" path="res://assets/2d_images/order_paper_old/hor_line_seg.png" id="8_flura"]
 [ext_resource type="Texture2D" uid="uid://5qte4djdq84m" path="res://assets/2d_images/order_paper_old/ver_line_con.png" id="10_54xfx"]
 [ext_resource type="Texture2D" uid="uid://1h1mk3w162y1" path="res://assets/2d_images/order_paper/green_juice.png" id="12_gaxr4"]
-[ext_resource type="Material" path="res://assets/materials/pin_red.tres" id="14_opbl8"]
+[ext_resource type="Material" uid="uid://nskpfbtkrngi" path="res://assets/materials/pin_red.tres" id="14_opbl8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ysdl4"]
 size = Vector3(0.201714, 0.030304, 0.380251)
@@ -261,6 +261,9 @@ mesh = SubResource("ArrayMesh_tenq2")
 [node name="Pin" parent="order_paper" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.007, -0.159767)
 mesh = SubResource("ArrayMesh_nbkep")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.163652)
 
 [connection signal="area_entered" from="Pin-Area" to="." method="_on_pin_area_entered"]
 [connection signal="area_exited" from="Pin-Area" to="." method="_on_pin_area_exited"]
