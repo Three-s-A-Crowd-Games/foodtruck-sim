@@ -29,8 +29,15 @@ monitorable = false
 
 [node name="cash_register" parent="." instance=ExtResource("1_7i60n")]
 
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.13396, 0)
+
+[node name="OrderCheckTimer" type="Timer" parent="."]
+autostart = true
+
 [connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_interactable_area_button_button_pressed"]
 [connection signal="body_entered" from="OrderDetectionArea" to="." method="_on_order_detection_area_body_entered"]
 [connection signal="body_exited" from="OrderDetectionArea" to="." method="_on_order_detection_area_body_exited"]
+[connection signal="timeout" from="OrderCheckTimer" to="." method="_on_order_check_timer_timeout"]
 
 [editable path="cash_register"]
