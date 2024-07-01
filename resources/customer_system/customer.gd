@@ -70,11 +70,10 @@ func happy(le_tray :Node3D):
 	tray.position = Vector3(0,0,0)
 
 func make_sound(sound_type: SoundType) -> void:
+	audio_player.stream = sound_type_stream[sound_type]
 	match sound_type:
 		SoundType.SPEAK:
-			audio_player.stream = CustomerVoiceProvider.get_random_phrase_by_pitch(voice_pitch)
 			audio_player.speak()
 			audio_player.finished.connect(speech_finished.emit.bind(self), CONNECT_ONE_SHOT)
 		_:
-			audio_player.stream = sound_type_stream[sound_type]
 			audio_player.play()
