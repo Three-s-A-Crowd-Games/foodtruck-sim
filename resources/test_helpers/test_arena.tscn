@@ -122,13 +122,21 @@ script = ExtResource("6_hwbr7")
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.621212, 1.21086, 0.54284)
 
 [node name="Sliceable" parent="Tomato" index="2"]
+monitoring = true
+slice_sound_type = "Normal"
+
+[node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11529, 0)
+
+[node name="Sliceable" parent="Onion" index="2"]
+monitoring = true
 slice_sound_type = "Normal"
 
 [node name="Cucumber" parent="." instance=ExtResource("6_syx2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358656, 1, 0.279034)
 
-[node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000203013, 1, 0.42593)
+[node name="Sliceable" parent="Cucumber" index="1"]
+monitoring = true
 
 [node name="Cone" parent="." instance=ExtResource("8_gyeit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176819, 1.15495, -0.435212)
@@ -147,6 +155,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.316388, 1.13906, 0)
 
 [editable path="Tomato"]
 [editable path="Tomato/tomato2"]
+[editable path="Onion"]
 [editable path="Cucumber"]
 [editable path="Cucumber/cucumber"]
-[editable path="Onion"]

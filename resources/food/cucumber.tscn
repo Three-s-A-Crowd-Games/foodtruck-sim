@@ -25,5 +25,6 @@ _mesh_node_or_parent = NodePath("../cucumber")
 slice_sound_type = "Crunchy"
 
 [node name="cucumber" parent="." index="2" instance=ExtResource("2_r2n6v")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.0557129, 0)
 
 [editable path="cucumber"]

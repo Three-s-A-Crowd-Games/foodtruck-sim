@@ -4,9 +4,9 @@ extends MarginContainer
 signal time_low
 
 const colors = [
-	Color("#35EA00"), #Green
-	Color("#FF8914"), #Orange
-	Color("#E31F00") #Red
+	Color("#00FF3F"), #Green
+	Color("#E7D300"), #Orange
+	Color("#E70031") #Red
 ]
 
 @onready var le_bar := $CenterContainer/HBoxContainer/TextureProgressBar
@@ -30,8 +30,6 @@ func _process(delta: float) -> void:
 		
 		if(le_bar.tint_progress != col_should):
 			le_bar.tint_progress = col_should
-			le_bar.tint_under = col_should
-			le_bar.tint_over = col_should
 
 func setup(le_order :Order):
 	#Text

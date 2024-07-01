@@ -21,13 +21,14 @@ var is_stack_root: bool:
 @onready var original_mass := mass
 
 func _ready():
+	super._ready()
 # INFO: The properties set in this method won't be correct for slices.
 # Therefore they will be overwritten afterwards by the sliceable component.
 	stack_zone.has_picked_up.connect(_on_burger_stack_zone_has_picked_up)
 	stack_zone.has_dropped.connect(_on_burger_stack_zone_has_dropped)
 	
 	var mesh_nodes = find_children("*", "MeshInstance3D", true, false)
-	assert(mesh_nodes.size() == 1, "This Burger Part has either 0 or more than one mesh nodes, which can't be handled so far.")
+	#assert(mesh_nodes.size() == 1, "This Burger Part has either 0 or more than one mesh nodes, which can't be handled so far.")
 	var mesh_node: MeshInstance3D = mesh_nodes[0]
 	var aabb = mesh_node.mesh.get_aabb()
 	height = aabb.size.y + aabb.position.y
@@ -42,6 +43,7 @@ func _ready():
 	stack_zone.position.y = stack_zone_distance
 	
 	center_of_mass = original_center_of_mass
+	super._ready()
 	
 
 func _process(_delta):

@@ -13,14 +13,14 @@ mass = 0.025
 script = ExtResource("2_33s8p")
 type = 20
 
-[node name="bacon" parent="." index="0" instance=ExtResource("3_xyda1")]
-
-[node name="CollisionShape3D" parent="." index="1"]
+[node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000207521, 0.0037793, 0)
 shape = SubResource("BoxShape3D_owlsw")
 
-[node name="Cookable" type="Node" parent="." index="3"]
+[node name="Cookable" type="Node" parent="." index="2"]
 script = ExtResource("2_oxljt")
+
+[node name="bacon" parent="." index="4" instance=ExtResource("3_xyda1")]
 
 [connection signal="cooked_status_changed" from="Cookable" to="." method="_on_cookable_cooked_status_changed"]
 
