@@ -41,10 +41,13 @@ var waiting_pos_stop_value = 0.0
 var tray :Tray = null
 
 var will_make_satisfaction_sound := bool(randi_range(0,1))
+var has_wait_voice_line := bool(randi_range(0,1))
 @onready var audio_player: AnimalesePlayer = $AnimalesePlayer
 @onready var voice_pitch: Pitch = Pitch.values().pick_random()
 @onready var sound_type_stream: Dictionary = CustomerVoiceProvider.get_voice_dic(voice_pitch)
 
+func _ready() -> void:
+	print(has_wait_voice_line)
 
 func randomize_appearance():
 	var main_mat := StandardMaterial3D.new()
@@ -75,5 +78,9 @@ func make_sound(sound_type: SoundType) -> void:
 		SoundType.SPEAK:
 			audio_player.speak()
 			audio_player.finished.connect(speech_finished.emit.bind(self), CONNECT_ONE_SHOT)
+			audio_player.finished.connect(func(): sound_type_stream[SoundType.SPEAK] = CustomerVoiceProvider.get_random_phrase_by_pitch(voice_pitch), CONNECT_ONE_SHOT)
+		SoundType.WAIT:
+			audio_player.play()
+			if has_wait_voice_line: audio_player.finished.connect(func(): make_sound(SoundType.SPEAK), CONNECT_ONE_SHOT)
 		_:
 			audio_player.play()
