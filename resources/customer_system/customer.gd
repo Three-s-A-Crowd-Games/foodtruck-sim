@@ -46,9 +46,6 @@ var has_wait_voice_line := bool(randi_range(0,1))
 @onready var voice_pitch: Pitch = Pitch.values().pick_random()
 @onready var sound_type_stream: Dictionary = CustomerVoiceProvider.get_voice_dic(voice_pitch)
 
-func _ready() -> void:
-	print(has_wait_voice_line)
-
 func randomize_appearance():
 	var main_mat := StandardMaterial3D.new()
 	main_mat.albedo_color = Colors.pick_random()
