@@ -2138,7 +2138,7 @@ texture = ExtResource("16_4ir7a")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.245646, 1.76493, 0.95)
 
 [node name="Flipper" parent="." instance=ExtResource("8_8x8av")]
-transform = Transform3D(0.959986, 0, -0.280047, 0, 1, 0, 0.280047, 0, 0.959986, -1, 1.7577, -0.651897)
+transform = Transform3D(1.91068e-15, 4.37114e-08, 1, 1, -4.37114e-08, 0, 4.37114e-08, 1, -4.37114e-08, -0.675817, 2.04191, -0.918239)
 
 [node name="TraySpawner" type="Node3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.577731, 1.37232, 0.73644)
