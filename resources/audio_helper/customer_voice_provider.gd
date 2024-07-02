@@ -18,7 +18,7 @@ static func get_random_phrase() -> AudioStreamPlaylist:
 	
 
 static func get_random_phrase_by_pitch(pitch: Customer.Pitch) -> AudioStreamPlaylist:
-	var num := randi_range(0, animalese_info.phrases_per_pitch[pitch])
+	var num := randi_range(0, animalese_info.phrases_per_pitch[pitch]-1)
 	var path: String = CustomerSoundHelper.AnimaleseHelper.get_playlist_path(pitch, num)
 	return load(path)
 	
