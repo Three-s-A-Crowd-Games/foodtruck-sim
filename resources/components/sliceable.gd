@@ -175,7 +175,7 @@ func _make_slice_ready(slice: BurgerPart) -> void:
 	slice.height = slice_width
 	slice.stack_zone_distance = slice_width + slice.burger_part_seperation_distance
 	slice.stack_zone.position.y = slice.stack_zone_distance
-	slice.stack_zone.get_node("CollisionShape3D").shape.radius = original_size.y / 2
+	slice.stack_zone.get_node("CollisionShape3D").shape.radius = original_size.y
 	slice.mass = slice_mass
 	slice.original_mass = slice_mass
 	slice.center_of_mass = Vector3(0, slice_width/2, 0)

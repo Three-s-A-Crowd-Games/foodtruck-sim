@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c3bsc5kmrbo4i"]
+[gd_scene load_steps=9 format=4 uid="uid://c3bsc5kmrbo4i"]
 
 [ext_resource type="PackedScene" uid="uid://w3j7uqy2hp8x" path="res://assets/models/food/patty.blend" id="1_kle5d"]
 [ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_ws3rg"]
@@ -61,6 +61,11 @@ shape = SubResource("CylinderShape3D_mgd0g")
 [node name="Cookable" type="Node3D" parent="." index="1"]
 script = ExtResource("4_0f6dl")
 cook_sounds_stream = ExtResource("5_q8bst")
+
+[node name="Patty" parent="." index="3" instance=ExtResource("1_kle5d")]
+
+[node name="Circle" parent="Patty" index="0"]
+mesh = SubResource("ArrayMesh_ow3p8")
 
 [node name="Patty" parent="." index="3" instance=ExtResource("1_kle5d")]
 

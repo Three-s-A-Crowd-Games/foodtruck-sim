@@ -2,9 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:assets/2d_images/tray_area_image.png.import
 uid="uid://ib7ju2i56syv"
 path.s3tc="res://.godot/imported/tray_area_image.png-379714bd034de2d95615955895bcfdea.s3tc.ctex"
 path.etc2="res://.godot/imported/tray_area_image.png-379714bd034de2d95615955895bcfdea.etc2.ctex"
+========
+uid="uid://bf8ga0mi6hbjg"
+path.s3tc="res://.godot/imported/poster1.png-9e244285c5c3d20d2f95de3846744b57.s3tc.ctex"
+path.etc2="res://.godot/imported/poster1.png-9e244285c5c3d20d2f95de3846744b57.etc2.ctex"
+>>>>>>>> dev:assets/materials/poster1.png.import
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +18,13 @@ metadata={
 
 [deps]
 
+<<<<<<<< HEAD:assets/2d_images/tray_area_image.png.import
 source_file="res://assets/2d_images/tray_area_image.png"
 dest_files=["res://.godot/imported/tray_area_image.png-379714bd034de2d95615955895bcfdea.s3tc.ctex", "res://.godot/imported/tray_area_image.png-379714bd034de2d95615955895bcfdea.etc2.ctex"]
+========
+source_file="res://assets/materials/poster1.png"
+dest_files=["res://.godot/imported/poster1.png-9e244285c5c3d20d2f95de3846744b57.s3tc.ctex", "res://.godot/imported/poster1.png-9e244285c5c3d20d2f95de3846744b57.etc2.ctex"]
+>>>>>>>> dev:assets/materials/poster1.png.import
 
 [params]
 

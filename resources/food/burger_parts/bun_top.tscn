@@ -17,4 +17,7 @@ shape = SubResource("CylinderShape3D_q5obm")
 
 [node name="BunTop" parent="." index="1" instance=ExtResource("1_12skk")]
 
+[node name="BurgerStackZone" parent="." index="2"]
+enabled = false
+
 [editable path="BunTop"]
