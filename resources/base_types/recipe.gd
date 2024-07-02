@@ -17,14 +17,29 @@ enum Type{
 enum Constraints{
 	MINIMUM_AMOUNT,
 	MAXIMUM_AMOUNT,
+	WEIGHT_TABLE_AMOUNT,
 	MUST_HAVE
 }
+
+const PART_AMOUNT_WEIGHTS: Dictionary = {
+	3 : 4,
+	4 : 5,
+	5 : 6,
+	6 : 5,
+	7 : 4,
+	8 : 3,
+	9 : 2,
+	10 : 1
+}
+
+static var total_weight := 0
+
 
 static var recipes: Dictionary = {
 	Type.BURGER : {
 		Category : Category.MAIN, 
 		Ingredient.Category : [Ingredient.Category.BURGER_PART, Ingredient.Category.SAUCES], 
-		Constraints.MINIMUM_AMOUNT : 3,
+		Constraints.WEIGHT_TABLE_AMOUNT : null,
 		Constraints.MUST_HAVE : [Ingredient.Type.BUN_BOTTOM, [Ingredient.Type.PATTY, Ingredient.Type.V_PATTY], Ingredient.Type.BUN_TOP]
 		},
 	Type.SIDES : {
@@ -59,15 +74,20 @@ static func create_recipe(type: Type) -> Recipe:
 	for ingredient_category in recipes[type][Ingredient.Category]:
 		possible_ingredients += Ingredient.categories[ingredient_category][Ingredient.Type]
 	
-	# Check if this recipe type has the MINIMUM_AMOUNT constraint
-	if recipes[type].has(Constraints.MINIMUM_AMOUNT):
-		min_amount = recipes[type].get(Constraints.MINIMUM_AMOUNT)
-	# Check if this recipe type has the MAXIMUM_AMOUNT constraint
-	if recipes[type].has(Constraints.MAXIMUM_AMOUNT):
-		max_amount = recipes[type].get(Constraints.MAXIMUM_AMOUNT)
+	var amount: int
+	if recipes[type].has(Constraints.WEIGHT_TABLE_AMOUNT):
+		amount = _get_random_part_amount()
+	else:
+		# Check if this recipe type has the MINIMUM_AMOUNT constraint
+		if recipes[type].has(Constraints.MINIMUM_AMOUNT):
+			min_amount = recipes[type].get(Constraints.MINIMUM_AMOUNT)
+		# Check if this recipe type has the MAXIMUM_AMOUNT constraint
+		if recipes[type].has(Constraints.MAXIMUM_AMOUNT):
+			max_amount = recipes[type].get(Constraints.MAXIMUM_AMOUNT)
+		
+		# take a random amount of ingredients
+		amount = randi_range(min_amount, max_amount)
 	
-	# take a random amount of ingredients
-	var amount = randi_range(min_amount, max_amount)
 	var compl_amount = amount
 	#free_moving_amount is important for double stacking -> tells us how many movable objects there are
 	var free_moving_amount = amount
@@ -167,3 +187,23 @@ static func get_amount_of_category(ingr_list :Array, cat :Ingredient.Category) -
 		if Ingredient.ingredients[ingr][Ingredient.Category] == cat:
 			count += 1
 	return count
+	
+
+static func _get_random_part_amount() -> int:
+	if total_weight == 0:
+		_calculate_total_weight()
+	
+	var val := randi_range(1,total_weight)
+	
+	for amount: int in PART_AMOUNT_WEIGHTS.keys():
+		val -= PART_AMOUNT_WEIGHTS[amount]
+		if val <= 0:
+			return amount
+		
+	return PART_AMOUNT_WEIGHTS.keys()[0]
+
+static func _calculate_total_weight() -> void:
+	var sum := 0
+	for weight: int in PART_AMOUNT_WEIGHTS.values():
+		sum += weight
+	total_weight = sum
