@@ -17,15 +17,32 @@ enum Type{
 enum Constraints{
 	MINIMUM_AMOUNT,
 	MAXIMUM_AMOUNT,
-	MUST_HAVE
+	WEIGHT_TABLE_AMOUNT,
+	MUST_HAVE,
+	MUST_HAVE_AFTER_AMOUNT
 }
+
+const PART_AMOUNT_WEIGHTS: Dictionary = {
+	3 : 4,
+	4 : 5,
+	5 : 6,
+	6 : 5,
+	7 : 4,
+	8 : 3,
+	9 : 2,
+	10 : 1
+}
+
+static var total_weight := 0
+
 
 static var recipes: Dictionary = {
 	Type.BURGER : {
 		Category : Category.MAIN, 
 		Ingredient.Category : [Ingredient.Category.BURGER_PART, Ingredient.Category.SAUCES], 
-		Constraints.MINIMUM_AMOUNT : 3,
-		Constraints.MUST_HAVE : [Ingredient.Type.BUN_BOTTOM, [Ingredient.Type.PATTY, Ingredient.Type.V_PATTY], Ingredient.Type.BUN_TOP]
+		Constraints.WEIGHT_TABLE_AMOUNT : null,
+		Constraints.MUST_HAVE : [Ingredient.Type.BUN_BOTTOM, [Ingredient.Type.PATTY, Ingredient.Type.V_PATTY], Ingredient.Type.BUN_TOP],
+		Constraints.MUST_HAVE_AFTER_AMOUNT : [{5 : [Ingredient.Type.KETCHUP,Ingredient.Type.BBQ,Ingredient.Type.MUSTARD]}]
 		},
 	Type.SIDES : {
 		Category : Category.SIDE, 
@@ -59,15 +76,20 @@ static func create_recipe(type: Type) -> Recipe:
 	for ingredient_category in recipes[type][Ingredient.Category]:
 		possible_ingredients += Ingredient.categories[ingredient_category][Ingredient.Type]
 	
-	# Check if this recipe type has the MINIMUM_AMOUNT constraint
-	if recipes[type].has(Constraints.MINIMUM_AMOUNT):
-		min_amount = recipes[type].get(Constraints.MINIMUM_AMOUNT)
-	# Check if this recipe type has the MAXIMUM_AMOUNT constraint
-	if recipes[type].has(Constraints.MAXIMUM_AMOUNT):
-		max_amount = recipes[type].get(Constraints.MAXIMUM_AMOUNT)
+	var amount: int
+	if recipes[type].has(Constraints.WEIGHT_TABLE_AMOUNT):
+		amount = _get_random_part_amount()
+	else:
+		# Check if this recipe type has the MINIMUM_AMOUNT constraint
+		if recipes[type].has(Constraints.MINIMUM_AMOUNT):
+			min_amount = recipes[type].get(Constraints.MINIMUM_AMOUNT)
+		# Check if this recipe type has the MAXIMUM_AMOUNT constraint
+		if recipes[type].has(Constraints.MAXIMUM_AMOUNT):
+			max_amount = recipes[type].get(Constraints.MAXIMUM_AMOUNT)
+		
+		# take a random amount of ingredients
+		amount = randi_range(min_amount, max_amount)
 	
-	# take a random amount of ingredients
-	var amount = randi_range(min_amount, max_amount)
 	var compl_amount = amount
 	#free_moving_amount is important for double stacking -> tells us how many movable objects there are
 	var free_moving_amount = amount
@@ -93,6 +115,23 @@ static func create_recipe(type: Type) -> Recipe:
 				if(Ingredient.ingredients[ingr].has(Ingredient.Constraints.POSITION)):
 					free_moving_amount -= 1
 			amount -= 1
+	
+	# Now lets see if there are any ingredient must-haves with the amount we picked
+	if(recipes[type].has(Constraints.MUST_HAVE_AFTER_AMOUNT)):
+		for must_have_AA :Dictionary in recipes[type][Constraints.MUST_HAVE_AFTER_AMOUNT]:
+			if must_have_AA.keys()[0] <= compl_amount:
+				var ingr
+				if must_have_AA.values()[0] is Array:
+					ingr = must_have_AA.values()[0].pick_random()
+				else:
+					ingr = must_have_AA.values()[0]
+				used_ingredients.append(ingr)
+				if(Ingredient.ingredients[ingr].has(Ingredient.Constraints.MAX_USE) and used_ingredients.count(ingr) >= Ingredient.ingredients[ingr][Ingredient.Constraints.MAX_USE]):
+					possible_ingredients.erase(ingr)
+					#Lets see if it is immobile
+					if(Ingredient.ingredients[ingr].has(Ingredient.Constraints.POSITION)):
+						free_moving_amount -= 1
+				amount -= 1
 	
 	var no_double_stack_amount = free_moving_amount/2
 	if free_moving_amount%2 != 0:
@@ -167,3 +206,23 @@ static func get_amount_of_category(ingr_list :Array, cat :Ingredient.Category) -
 		if Ingredient.ingredients[ingr][Ingredient.Category] == cat:
 			count += 1
 	return count
+	
+
+static func _get_random_part_amount() -> int:
+	if total_weight == 0:
+		_calculate_total_weight()
+	
+	var val := randi_range(1,total_weight)
+	
+	for amount: int in PART_AMOUNT_WEIGHTS.keys():
+		val -= PART_AMOUNT_WEIGHTS[amount]
+		if val <= 0:
+			return amount
+		
+	return PART_AMOUNT_WEIGHTS.keys()[0]
+
+static func _calculate_total_weight() -> void:
+	var sum := 0
+	for weight: int in PART_AMOUNT_WEIGHTS.values():
+		sum += weight
+	total_weight = sum

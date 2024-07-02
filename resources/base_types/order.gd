@@ -3,8 +3,10 @@ extends RefCounted
 
 signal order_time_low
 
-const MIN_ORDER_TIME := 60
-const MAX_ORDER_TIME := 120
+# After which size they are considered what type of order
+const S_MAIN_ORDER := 3
+const M_MAIN_ORDER := 5
+const L_MAIN_ORDER := 8
 
 var number :int
 
@@ -34,12 +36,35 @@ static func create_order(number :int) -> Order:
 	var new_order = Order.new()
 	new_order.number = number
 	new_order.le_timer = Timer.new()
-	new_order.le_timer.wait_time = randf_range(MIN_ORDER_TIME, MAX_ORDER_TIME)
 	new_order.le_timer.one_shot = true
 	new_order.le_timer.timeout.connect(new_order._on_timeout)
 	OrderController.add_child(new_order.le_timer)
-	new_order.le_timer.start()
 	new_order.main_recipe = Recipe.create_recipe(Recipe.categories[Recipe.Category.MAIN].pick_random())
 	new_order.side_recipe = Recipe.create_recipe(Recipe.categories[Recipe.Category.SIDE].pick_random())
 	new_order.drink_recipe = Recipe.create_recipe(Recipe.categories[Recipe.Category.DRINK].pick_random())
+	
+	# Calculate Order-Time
+	var calc_wait_time = 0
+	if new_order.drink_recipe.ingredients.size() > 0:
+		calc_wait_time += 10
+	if new_order.side_recipe.ingredients.size() > 0:
+		calc_wait_time += 30
+	calc_wait_time += get_main_wait(new_order.main_recipe.ingredients.size())
+	
+	new_order.le_timer.wait_time = calc_wait_time
+	new_order.le_timer.start()
+	
 	return new_order
+
+static func get_main_wait(amount :int) -> int:
+	var main_wait := 30
+	
+	if amount > S_MAIN_ORDER:
+		main_wait = 40
+	if amount > M_MAIN_ORDER:
+		main_wait = 70
+	if amount > L_MAIN_ORDER:
+		main_wait = 90
+	
+	return main_wait
+	

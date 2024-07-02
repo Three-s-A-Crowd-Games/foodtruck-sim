@@ -9,10 +9,13 @@ const colors = [
 	Color("#E70031") #Red
 ]
 
+@export_range(0,1) var first_threshold = 0.5
+@export_range(0,1) var second_threshold = 0.2
+
 @onready var le_bar := $CenterContainer/HBoxContainer/TextureProgressBar
 
 var timer :Timer = null
-var is_fist_threshold_breached := false
+var is_first_threshold_breached := false
 
 func _process(delta: float) -> void:
 	if timer != null:
@@ -20,13 +23,13 @@ func _process(delta: float) -> void:
 		
 		var percent = timer.time_left / timer.wait_time
 		var col_should :Color = colors[0]
-		if (percent <= 0.3):
-			if not is_fist_threshold_breached:
-				time_low.emit()
-				is_fist_threshold_breached = true
-			col_should = colors[1]
-		if (percent <= 0.15):
+		if (percent <= second_threshold):
 			col_should = colors[2]
+		elif (percent <= first_threshold):
+			if not is_first_threshold_breached:
+				time_low.emit()
+				is_first_threshold_breached = true
+			col_should = colors[1]
 		
 		if(le_bar.tint_progress != col_should):
 			le_bar.tint_progress = col_should
