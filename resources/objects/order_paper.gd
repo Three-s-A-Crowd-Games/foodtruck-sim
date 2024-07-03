@@ -5,10 +5,27 @@ extends XRToolsPickable
 @onready var order_number = $OrderViewport/PaperLayout/CenterTitle/OrderNumber
 @onready var side_tex = $OrderViewport/PaperLayout/CenterExtras/ExtrasContainer/SideTex
 @onready var drink_tex = $OrderViewport/PaperLayout/CenterExtras/ExtrasContainer/DrinkTex
+@onready var pin_sound_player = $AudioStreamPlayer3D
+
+const pin_sound: AudioStream = preload("res://audio/sfx/object_interaction/order_paper_pin/pin_order_paper.mp3")
+const unpin_sound: AudioStream = preload("res://audio/sfx/object_interaction/order_paper_pin/unpin_order_paper.mp3")
 
 const NORMAL_VIEWPORT_SIZE := 650
 var order :Order
 var in_pinning_zone :bool = false
+
+func _ready() -> void:
+	highlight_node = XRToolsHighlightVisible.new()
+	add_child(highlight_node)
+	var mesh = $order_paper/Paper_001
+	var duplicated_mesh: MeshInstance3D = mesh.duplicate()
+	var parent := mesh.get_parent()
+	if parent is not Food:
+		duplicated_mesh.scale = parent.scale
+	highlight_node.add_child(duplicated_mesh)
+	duplicated_mesh.scale *= 1.1
+	duplicated_mesh.set_surface_override_material(0, material)
+	super._ready()
 
 func set_order(le_order :Order):
 	# First lets set the order number
@@ -63,6 +80,8 @@ func set_order(le_order :Order):
 		$order_paper/Paper_001.position.z = (paper_size_before * paper_scale - paper_size_before) / 2
 		$CollisionShape3D.scale.z = paper_scale
 		$CollisionShape3D.position.z = (paper_size_before * paper_scale - paper_size_before) / 2
+		highlight_node.scale.z = paper_scale
+		highlight_node.position.z = (paper_size_before * paper_scale - paper_size_before) / 2
 
 
 # Handle Pinning
@@ -79,8 +98,12 @@ func _on_pin_area_entered(area: Area3D) -> void:
 	if area.is_in_group("pinning_zone"):
 		$order_paper/Pin.set_surface_override_material(1,load("res://assets/materials/pin_green.tres"))
 		in_pinning_zone = true
+		pin_sound_player.stream = pin_sound
+		pin_sound_player.play()
 
 func _on_pin_area_exited(area: Area3D) -> void:
 	if area.is_in_group("pinning_zone"):
 		$order_paper/Pin.set_surface_override_material(1,load("res://assets/materials/pin_red.tres"))
 		in_pinning_zone = false
+		pin_sound_player.stream = unpin_sound
+		pin_sound_player.play()

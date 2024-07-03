@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ce7vysyvondf8" path="res://addons/godot-xr-tools/objects/snap_zone.tscn" id="1_ix4ty"]
 [ext_resource type="Script" path="res://resources/components/burger_stack_zone.gd" id="2_enjaw"]
-[ext_resource type="AudioStream" uid="uid://cw0b2iwt6v05s" path="res://audio/object_interaction/stacking/stacking4.mp3" id="3_ftye4"]
+[ext_resource type="AudioStream" uid="uid://cw0b2iwt6v05s" path="res://audio/sfx/object_interaction/stacking/stacking4.mp3" id="3_ftye4"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_gs2hq"]
 resource_local_to_scene = true

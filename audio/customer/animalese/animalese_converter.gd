@@ -155,13 +155,3 @@ static func save_playlists(pitch: Customer.Pitch, lists: Array[AudioStreamPlayli
 static func get_audio_file_dir(pitch: Customer.Pitch) -> String:
 	return AUDIO_FILE_DIRECTORY + CustomerSoundHelper.PITCH_PATH_DIC[pitch]
 	
-
-static func dummy_test() -> void:
-	var list := AudioStreamPlaylist.new()
-	var stream = load("res://audio/edited/01-Letter.wav")
-	list.stream_count = 1
-	print(stream is AudioStreamWAV)
-	list.set_list_stream(0, stream)
-	print(list.get_list_stream(0))
-	ResourceSaver.save(list, "res://audio/phrase-x.tres")
-	

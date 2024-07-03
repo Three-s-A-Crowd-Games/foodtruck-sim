@@ -18,7 +18,8 @@ enum Constraints{
 	MINIMUM_AMOUNT,
 	MAXIMUM_AMOUNT,
 	WEIGHT_TABLE_AMOUNT,
-	MUST_HAVE
+	MUST_HAVE,
+	MUST_HAVE_AFTER_AMOUNT
 }
 
 const PART_AMOUNT_WEIGHTS: Dictionary = {
@@ -40,7 +41,8 @@ static var recipes: Dictionary = {
 		Category : Category.MAIN, 
 		Ingredient.Category : [Ingredient.Category.BURGER_PART, Ingredient.Category.SAUCES], 
 		Constraints.WEIGHT_TABLE_AMOUNT : null,
-		Constraints.MUST_HAVE : [Ingredient.Type.BUN_BOTTOM, [Ingredient.Type.PATTY, Ingredient.Type.V_PATTY], Ingredient.Type.BUN_TOP]
+		Constraints.MUST_HAVE : [Ingredient.Type.BUN_BOTTOM, [Ingredient.Type.PATTY, Ingredient.Type.V_PATTY], Ingredient.Type.BUN_TOP],
+		Constraints.MUST_HAVE_AFTER_AMOUNT : [{5 : [Ingredient.Type.KETCHUP,Ingredient.Type.BBQ,Ingredient.Type.MUSTARD]}]
 		},
 	Type.SIDES : {
 		Category : Category.SIDE, 
@@ -113,6 +115,23 @@ static func create_recipe(type: Type) -> Recipe:
 				if(Ingredient.ingredients[ingr].has(Ingredient.Constraints.POSITION)):
 					free_moving_amount -= 1
 			amount -= 1
+	
+	# Now lets see if there are any ingredient must-haves with the amount we picked
+	if(recipes[type].has(Constraints.MUST_HAVE_AFTER_AMOUNT)):
+		for must_have_AA :Dictionary in recipes[type][Constraints.MUST_HAVE_AFTER_AMOUNT]:
+			if must_have_AA.keys()[0] <= compl_amount:
+				var ingr
+				if must_have_AA.values()[0] is Array:
+					ingr = must_have_AA.values()[0].pick_random()
+				else:
+					ingr = must_have_AA.values()[0]
+				used_ingredients.append(ingr)
+				if(Ingredient.ingredients[ingr].has(Ingredient.Constraints.MAX_USE) and used_ingredients.count(ingr) >= Ingredient.ingredients[ingr][Ingredient.Constraints.MAX_USE]):
+					possible_ingredients.erase(ingr)
+					#Lets see if it is immobile
+					if(Ingredient.ingredients[ingr].has(Ingredient.Constraints.POSITION)):
+						free_moving_amount -= 1
+				amount -= 1
 	
 	var no_double_stack_amount = free_moving_amount/2
 	if free_moving_amount%2 != 0:

@@ -33,6 +33,10 @@ const Accessoires := [
 	null,
 	preload("res://assets/models/accessoires/schnelle_brille.blend"),
 	preload("res://assets/models/accessoires/prop_hat.blend"),
+	preload("res://assets/models/accessoires/bling_bling.blend"),
+	preload("res://assets/models/accessoires/googly_eyes.blend"),
+	preload("res://assets/models/accessoires/party_time.blend"),
+	preload("res://assets/models/accessoires/spiky_hair.blend"),
 ]
 
 var wait_pos :Path3D
@@ -41,10 +45,10 @@ var waiting_pos_stop_value = 0.0
 var tray :Tray = null
 
 var will_make_satisfaction_sound := bool(randi_range(0,1))
+var has_wait_voice_line := bool(randi_range(0,1))
 @onready var audio_player: AnimalesePlayer = $AnimalesePlayer
 @onready var voice_pitch: Pitch = Pitch.values().pick_random()
 @onready var sound_type_stream: Dictionary = CustomerVoiceProvider.get_voice_dic(voice_pitch)
-
 
 func randomize_appearance():
 	var main_mat := StandardMaterial3D.new()
@@ -70,11 +74,14 @@ func happy(le_tray :Node3D):
 	tray.position = Vector3(0,0,0)
 
 func make_sound(sound_type: SoundType) -> void:
+	audio_player.stream = sound_type_stream[sound_type]
 	match sound_type:
 		SoundType.SPEAK:
-			audio_player.stream = CustomerVoiceProvider.get_random_phrase_by_pitch(voice_pitch)
 			audio_player.speak()
 			audio_player.finished.connect(speech_finished.emit.bind(self), CONNECT_ONE_SHOT)
+			audio_player.finished.connect(func(): sound_type_stream[SoundType.SPEAK] = CustomerVoiceProvider.get_random_phrase_by_pitch(voice_pitch), CONNECT_ONE_SHOT)
+		SoundType.WAIT:
+			audio_player.play()
+			if has_wait_voice_line: audio_player.finished.connect(func(): make_sound(SoundType.SPEAK), CONNECT_ONE_SHOT)
 		_:
-			audio_player.stream = sound_type_stream[sound_type]
 			audio_player.play()

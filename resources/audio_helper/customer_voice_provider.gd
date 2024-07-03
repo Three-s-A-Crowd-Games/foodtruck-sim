@@ -18,7 +18,7 @@ static func get_random_phrase() -> AudioStreamPlaylist:
 	
 
 static func get_random_phrase_by_pitch(pitch: Customer.Pitch) -> AudioStreamPlaylist:
-	var num := randi_range(0, animalese_info.phrases_per_pitch[pitch])
+	var num := randi_range(0, animalese_info.phrases_per_pitch[pitch]-1)
 	var path: String = CustomerSoundHelper.AnimaleseHelper.get_playlist_path(pitch, num)
 	return load(path)
 	
@@ -26,7 +26,9 @@ static func get_random_phrase_by_pitch(pitch: Customer.Pitch) -> AudioStreamPlay
 static func get_voice_dic(pitch: Customer.Pitch) -> Dictionary:
 	var dic = {}
 	for sound_type in Customer.SoundType.values():
-		if sound_type == Customer.SoundType.SPEAK: continue
+		if sound_type == Customer.SoundType.SPEAK:
+			dic[sound_type] = get_random_phrase_by_pitch(pitch)
+			continue
 		dic[sound_type] = load(CustomerSoundHelper.get_sound_stream_path(sound_type, pitch))
 		
 	return dic

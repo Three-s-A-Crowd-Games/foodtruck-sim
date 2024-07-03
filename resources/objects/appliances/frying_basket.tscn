@@ -1,105 +1,120 @@
-[gd_scene load_steps=12 format=3 uid="uid://bw18w7lqkorf5"]
+[gd_scene load_steps=16 format=3 uid="uid://bw18w7lqkorf5"]
 
-[ext_resource type="Script" path="res://addons/godot-xr-tools/objects/pickable.gd" id="1_opsrh"]
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_3pyk8"]
 [ext_resource type="PackedScene" uid="uid://da6s4ivc7rwqr" path="res://assets/models/objects/furniture/fryer_basket.blend" id="2_hsonr"]
+[ext_resource type="AudioStream" uid="uid://dbj3hyqev5wic" path="res://audio/sfx/collision/frying_basket/frying_basket_collision.mp3" id="2_vijan"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="3_jojtm"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_pd675"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_xdw66"]
 size = Vector3(0.0568848, 0.0311584, 0.0980225)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_g5k6q"]
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xjtlq"]
+random_pitch = 1.2
+streams_count = 1
+stream_0/stream = ExtResource("2_vijan")
+
+[sub_resource type="Resource" id="Resource_tbejb"]
+script = ExtResource("3_jojtm")
+name = ""
+drop_sound = SubResource("AudioStreamRandomizer_xjtlq")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_itied"]
 size = Vector3(0.17, 0.025, 0.282)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_hp36e"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ra7te"]
 size = Vector3(0.166504, 0.137848, 0.0107422)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_7wwsc"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_71eu2"]
 size = Vector3(0.0124512, 0.13031, 0.293701)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uk6a1"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_urk8a"]
 size = Vector3(0.0266113, 0.0120239, 0.032959)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ovwft"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_7g7no"]
 size = Vector3(0.027, 0.0297595, 0.0101523)
 
-[sub_resource type="BoxMesh" id="BoxMesh_n76sj"]
+[sub_resource type="BoxMesh" id="BoxMesh_qekft"]
 size = Vector3(0.16, 0.005, 0.27)
 
-[sub_resource type="BoxMesh" id="BoxMesh_vmusv"]
+[sub_resource type="BoxMesh" id="BoxMesh_ttlw0"]
 size = Vector3(0.005, 0.13, 0.28)
 
-[sub_resource type="BoxMesh" id="BoxMesh_4b0cr"]
+[sub_resource type="BoxMesh" id="BoxMesh_nwv87"]
 size = Vector3(0.17, 0.135, 0.005)
 
-[node name="FryingBasket" type="RigidBody3D" groups=["appliances"]]
-collision_layer = 4
-collision_mask = 7
+[node name="FryingBasket" instance=ExtResource("1_3pyk8")]
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 0.05, -0.1)
 continuous_cd = true
-script = ExtResource("1_opsrh")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032959, 0.175443, -0.229431)
-shape = SubResource("BoxShape3D_pd675")
+shape = SubResource("BoxShape3D_xdw66")
 
-[node name="fryer-basket" parent="." instance=ExtResource("2_hsonr")]
+[node name="PickableSoundQueue3D" parent="." index="1"]
+pickable_audio_type = SubResource("Resource_tbejb")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+[node name="AudioStreamPlayer3D" parent="PickableSoundQueue3D" index="0"]
+volume_db = -6.0
+
+[node name="fryer-basket" parent="." index="2" instance=ExtResource("2_hsonr")]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00211705, 0.00934964, 0)
-shape = SubResource("BoxShape3D_g5k6q")
+shape = SubResource("BoxShape3D_itied")
 
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.998003, 0.0631737, 0, -0.0631737, 0.998003, 0.0090332, 0.0736603, -0.141203)
-shape = SubResource("BoxShape3D_hp36e")
+shape = SubResource("BoxShape3D_ra7te")
 
-[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 0.998027, -0.0627905, 0, 0.0627905, 0.998027, 0.0090332, 0.0736603, 0.144493)
-shape = SubResource("BoxShape3D_hp36e")
+shape = SubResource("BoxShape3D_ra7te")
 
-[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="." index="6"]
 transform = Transform3D(0.997248, -0.0741433, 0, 0.0741433, 0.997248, 0, 0, 0, 1, -0.0816268, 0.0743924, -0.00012207)
-shape = SubResource("BoxShape3D_7wwsc")
+shape = SubResource("BoxShape3D_71eu2")
 
-[node name="CollisionShape3D6" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="." index="7"]
 transform = Transform3D(0.997185, 0.0749787, 0, -0.0749787, 0.997185, 0, 0, 0, 1, 0.0887149, 0.0743924, -0.00012207)
-shape = SubResource("BoxShape3D_7wwsc")
+shape = SubResource("BoxShape3D_71eu2")
 
-[node name="CollisionShape3D7" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D7" type="CollisionShape3D" parent="." index="8"]
 transform = Transform3D(1, 0, 0, 0, 0.996347, -0.0853995, 0, 0.0853995, 0.996347, 0, 0.0884804, -0.164046)
-shape = SubResource("BoxShape3D_uk6a1")
+shape = SubResource("BoxShape3D_urk8a")
 
-[node name="CollisionShape3D8" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D8" type="CollisionShape3D" parent="." index="9"]
 transform = Transform3D(1, 0, 0, 0, 0.999338, -0.036365, 0, 0.036365, 0.999338, 0, 0.0768688, -0.183799)
-shape = SubResource("BoxShape3D_ovwft")
+shape = SubResource("BoxShape3D_7g7no")
 
-[node name="Occlusion" type="Node3D" parent="."]
+[node name="Occlusion" type="Node3D" parent="." index="10"]
 
-[node name="BottomOccluder" type="MeshInstance3D" parent="Occlusion"]
+[node name="BottomOccluder" type="MeshInstance3D" parent="Occlusion" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00454056, -0.00119678)
 cast_shadow = 3
-mesh = SubResource("BoxMesh_n76sj")
+mesh = SubResource("BoxMesh_qekft")
 skeleton = NodePath("../..")
 
-[node name="LeftOccluder" type="MeshInstance3D" parent="Occlusion"]
+[node name="LeftOccluder" type="MeshInstance3D" parent="Occlusion" index="1"]
 transform = Transform3D(0.999488, 0.0320039, 0, -0.0320039, 0.999488, 0, 0, 0, 1, 0.0845896, 0.0737044, -0.00119678)
 cast_shadow = 3
-mesh = SubResource("BoxMesh_vmusv")
+mesh = SubResource("BoxMesh_ttlw0")
 skeleton = NodePath("../..")
 
-[node name="RightOccluder" type="MeshInstance3D" parent="Occlusion"]
+[node name="RightOccluder" type="MeshInstance3D" parent="Occlusion" index="2"]
 transform = Transform3D(0.998716, -0.0506626, 0, 0.0506626, 0.998716, 0, 0, 0, 1, -0.0782136, 0.0737044, -0.00119678)
 cast_shadow = 3
-mesh = SubResource("BoxMesh_vmusv")
+mesh = SubResource("BoxMesh_ttlw0")
 skeleton = NodePath("../..")
 
-[node name="FrontOccluder" type="MeshInstance3D" parent="Occlusion"]
+[node name="FrontOccluder" type="MeshInstance3D" parent="Occlusion" index="3"]
 transform = Transform3D(1, 0, 0, 0, 0.993789, -0.111278, 0, 0.111278, 0.993789, 0, 0.0711234, 0.142931)
 cast_shadow = 3
-mesh = SubResource("BoxMesh_4b0cr")
+mesh = SubResource("BoxMesh_nwv87")
 skeleton = NodePath("../..")
 
-[node name="BackOccluder" type="MeshInstance3D" parent="Occlusion"]
+[node name="BackOccluder" type="MeshInstance3D" parent="Occlusion" index="4"]
 transform = Transform3D(1, 0, 0, 0, 0.994742, 0.102411, 0, -0.102411, 0.994742, 0, 0.0711234, -0.145324)
 cast_shadow = 3
-mesh = SubResource("BoxMesh_4b0cr")
+mesh = SubResource("BoxMesh_nwv87")
 skeleton = NodePath("../..")

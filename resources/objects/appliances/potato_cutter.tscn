@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://brhewcghesaex" path="res://assets/models/objects/appliances/potato_cutter_top.blend" id="2_p1ha5"]
 [ext_resource type="PackedScene" uid="uid://b0r6edl74ddo7" path="res://addons/godot-xr-tools/interactables/interactable_slider.tscn" id="2_wbi11"]
 [ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="3_vn7le"]
-[ext_resource type="Script" path="res://audio/object_interaction/potato_cutter/potato_cutter-audio_normal.gd" id="7_dknf1"]
+[ext_resource type="Script" path="res://audio/sfx/object_interaction/potato_cutter/potato_cutter-audio_normal.gd" id="7_dknf1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yp4h6"]
 size = Vector3(0.0123242, 0.085, 0.02)

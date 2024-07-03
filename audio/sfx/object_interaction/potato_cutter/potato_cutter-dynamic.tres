@@ -1,0 +1,73 @@
+[gd_resource type="AudioStreamInteractive" load_steps=5 format=3 uid="uid://b532qrhveg5se"]
+
+[ext_resource type="AudioStream" uid="uid://h2qxlc2wfysq" path="res://audio/sfx/object_interaction/potato_cutter/potato_cutter-begin.mp3" id="1_iqofw"]
+[ext_resource type="AudioStream" uid="uid://bwtvvxst7nty" path="res://audio/sfx/object_interaction/potato_cutter/potato_cutter-down.mp3" id="2_2vv75"]
+[ext_resource type="AudioStream" uid="uid://dtcw6ygnwsu5g" path="res://audio/sfx/object_interaction/potato_cutter/potato_cutter-up.mp3" id="3_lblmq"]
+[ext_resource type="AudioStream" uid="uid://cxgu0j71khbsj" path="res://audio/sfx/object_interaction/potato_cutter/potato_cutter-slice.mp3" id="4_liq1l"]
+
+[resource]
+clip_count = 4
+clip_0/name = &"begin"
+clip_0/stream = ExtResource("1_iqofw")
+clip_0/auto_advance = 1
+clip_0/next_clip = 1
+clip_1/name = &"down"
+clip_1/stream = ExtResource("2_2vv75")
+clip_1/auto_advance = 0
+clip_2/name = &"up"
+clip_2/stream = ExtResource("3_lblmq")
+clip_2/auto_advance = 0
+clip_3/name = &"slice"
+clip_3/stream = ExtResource("4_liq1l")
+clip_3/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 3,
+"to_time": 1
+},
+Vector2i(0, 2): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 3,
+"to_time": 1
+},
+Vector2i(1, 1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 3,
+"to_time": 1
+},
+Vector2i(1, 2): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(1, 3): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(2, 1): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 1
+},
+Vector2i(2, 2): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 3,
+"to_time": 1
+},
+Vector2i(3, 2): {
+"fade_beats": 1,
+"fade_mode": 2,
+"from_time": 0,
+"hold_previous": true,
+"to_time": 1
+}
+}

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://5f6yrmtb6v0l"
+path="res://.godot/imported/Bet You Can.mp3-b75a1528cb46a01e281dacb8d3b3c2ad.mp3str"
+
+[deps]
+
+source_file="res://audio/music/rock_hard/Bet You Can.mp3"
+dest_files=["res://.godot/imported/Bet You Can.mp3-b75a1528cb46a01e281dacb8d3b3c2ad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
