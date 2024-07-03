@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://kje4o0xgibhe"]
+[gd_scene load_steps=5 format=3 uid="uid://kje4o0xgibhe"]
 
+[ext_resource type="Script" path="res://resources/menus/options_menu.gd" id="1_75n17"]
 [ext_resource type="Texture2D" uid="uid://dr5r6kfulr3kv" path="res://assets/startscreen/buttons/back-btn.png" id="1_732sc"]
 [ext_resource type="Texture2D" uid="uid://ttn3ge8xqhoa" path="res://assets/startscreen/buttons/back-btn-pressed.png" id="2_pcrq0"]
 
@@ -10,6 +11,7 @@
 [node name="options-menu" type="VBoxContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_75n17")
 
 [node name="options-title" type="Label" parent="options-menu"]
 layout_mode = 2
@@ -64,6 +66,8 @@ layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
 theme = SubResource("Theme_0oyr6")
+max_value = 2.0
+value = 1.0
 
 [node name="sfx-volume" type="Panel" parent="options-menu/categories/sound-volume/sound-volume/slider"]
 custom_minimum_size = Vector2(500, 50)
@@ -85,6 +89,8 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
+max_value = 2.0
+value = 1.0
 
 [node name="ambience-volume" type="Panel" parent="options-menu/categories/sound-volume/sound-volume/slider"]
 custom_minimum_size = Vector2(500, 50)
@@ -106,6 +112,8 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
+max_value = 2.0
+value = 1.0
 
 [node name="music-volume" type="Panel" parent="options-menu/categories/sound-volume/sound-volume/slider"]
 custom_minimum_size = Vector2(500, 50)
@@ -127,6 +135,8 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
+max_value = 2.0
+value = 1.0
 
 [node name="dialogue-volume" type="Panel" parent="options-menu/categories/sound-volume/sound-volume/slider"]
 custom_minimum_size = Vector2(500, 50)
@@ -148,6 +158,8 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 4
+max_value = 2.0
+value = 1.0
 
 [node name="back-button" type="TextureButton" parent="options-menu/categories/sound-volume/sound-volume"]
 layout_mode = 2
@@ -175,6 +187,7 @@ horizontal_alignment = 1
 [node name="jazz-check" type="CheckBox" parent="options-menu/categories/music-genre/music-genre"]
 layout_mode = 2
 size_flags_horizontal = 4
+button_pressed = true
 text = "JAZZ"
 icon_alignment = 1
 
@@ -213,7 +226,8 @@ horizontal_alignment = 1
 [node name="retro-effect-check" type="CheckBox" parent="options-menu/categories/music-genre/music-genre"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "RETRO EFFECT"
+button_pressed = true
+text = "Vintage EFFECT"
 icon_alignment = 1
 
 [node name="back-button" type="TextureButton" parent="options-menu"]
