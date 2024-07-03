@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://2ryotm4e0cbu"
+path="res://.godot/imported/Feral Angel Waltz .mp3-70c7a8e93e7ceb268bf6db4b2f5cb8b6.mp3str"
+
+[deps]
+
+source_file="res://audio/music/rock_soft/Feral Angel Waltz .mp3"
+dest_files=["res://.godot/imported/Feral Angel Waltz .mp3-70c7a8e93e7ceb268bf6db4b2f5cb8b6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
