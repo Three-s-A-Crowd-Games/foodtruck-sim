@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cx8m4qq3trsl" path="res://assets/startscreen/funny_bend.blend" id="2_sc840"]
 [ext_resource type="Texture2D" uid="uid://ds0bri7ergtkj" path="res://assets/startscreen/menu_background_4k.png" id="3_sfgfx"]
 [ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_3dyxq"]
-[ext_resource type="PackedScene" uid="uid://kje4o0xgibhe" path="res://resources/menus/options_menu.tscn" id="5_0cgwm"]
+[ext_resource type="PackedScene" uid="uid://dycaltatac35e" path="res://resources/menus/main_menu.tscn" id="5_og656"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_o1vwi"]
 size = Vector3(20, 0.2, 20)
@@ -41,7 +41,7 @@ material_override = SubResource("StandardMaterial3D_ckmmi")
 [node name="MenuDisplay" parent="." instance=ExtResource("4_3dyxq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59155, -2.96293)
 screen_size = Vector2(2, 3)
-scene = ExtResource("5_0cgwm")
+scene = ExtResource("5_og656")
 viewport_size = Vector2(1000, 1500)
 unshaded = true
 

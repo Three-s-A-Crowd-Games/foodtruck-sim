@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://kje4o0xgibhe"]
+[gd_scene load_steps=6 format=3 uid="uid://kje4o0xgibhe"]
 
 [ext_resource type="Script" path="res://resources/menus/options_menu.gd" id="1_75n17"]
 [ext_resource type="Texture2D" uid="uid://dr5r6kfulr3kv" path="res://assets/startscreen/buttons/back-btn.png" id="1_732sc"]
@@ -279,8 +279,8 @@ size_flags_horizontal = 4
 
 [node name="jazz-check" type="CheckBox" parent="options-menu/categories/music-genre/music-genre/checkboxes"]
 layout_mode = 2
-button_pressed = true
 theme_override_font_sizes/font_size = 30
+button_pressed = true
 text = "JAZZ"
 alignment = 1
 icon_alignment = 1
@@ -334,9 +334,9 @@ custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 
 [node name="vintage-effect-button" type="CheckButton" parent="options-menu/categories/music-genre/music-genre/checkbuttons/HBoxContainer"]
-button_pressed = true
 layout_mode = 2
 size_flags_horizontal = 0
+button_pressed = true
 
 [node name="Label" type="Label" parent="options-menu/categories/music-genre/music-genre/checkbuttons/HBoxContainer"]
 custom_minimum_size = Vector2(155, 0)
