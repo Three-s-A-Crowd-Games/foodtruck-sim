@@ -9,7 +9,7 @@ size = Vector3(0.177856, 0.0244904, 0.0288086)
 [sub_resource type="BoxShape3D" id="BoxShape3D_18cw5"]
 size = Vector3(0.116791, 0.0085144, 0.0893555)
 
-[node name="Flipper" type="RigidBody3D"]
+[node name="Flipper" type="RigidBody3D" groups=["appliances"]]
 collision_layer = 4
 collision_mask = 131079
 mass = 0.23

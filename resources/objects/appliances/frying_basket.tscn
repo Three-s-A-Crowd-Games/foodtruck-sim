@@ -30,7 +30,7 @@ size = Vector3(0.005, 0.13, 0.28)
 [sub_resource type="BoxMesh" id="BoxMesh_4b0cr"]
 size = Vector3(0.17, 0.135, 0.005)
 
-[node name="FryingBasket" type="RigidBody3D"]
+[node name="FryingBasket" type="RigidBody3D" groups=["appliances"]]
 collision_layer = 4
 collision_mask = 7
 center_of_mass_mode = 1
