@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://crqhp3mfhswlh"]
+
+[ext_resource type="Script" path="res://resources/objects/furniture/radio.gd" id="1_68qqj"]
+[ext_resource type="PackedScene" uid="uid://n17dwbuk0dfg" path="res://assets/models/objects/furniture/radio.blend" id="1_xgoht"]
+[ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="3_jf81n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wmnyw"]
+size = Vector3(0.176758, 0.161743, 0.0996094)
+
+[node name="Radio" type="Node3D"]
+script = ExtResource("1_68qqj")
+
+[node name="radio" parent="." instance=ExtResource("1_xgoht")]
+
+[node name="Cube_002" parent="radio" index="6"]
+transform = Transform3D(1, 0, 0, 0, 0.986045, 0.16648, 0, -0.16648, 0.986045, 0.0513568, -0.0965872, -0.0601906)
+
+[node name="SFXPlayer" type="AudioStreamPlayer3D" parent="."]
+bus = &"SFX"
+
+[node name="MusicPlayer" type="AudioStreamPlayer3D" parent="."]
+volume_db = -30.0
+bus = &"Music"
+
+[node name="InteractableAreaButton" parent="." instance=ExtResource("3_jf81n")]
+collision_mask = 16908288
+monitorable = false
+button = NodePath("../radio/Cube_003")
+displacement = Vector3(0, 0, 0.003)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractableAreaButton"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0436401, -0.0321491)
+shape = SubResource("BoxShape3D_wmnyw")
+
+[connection signal="button_pressed" from="InteractableAreaButton" to="." method="_on_interactable_area_button_button_pressed"]
+[connection signal="button_released" from="InteractableAreaButton" to="." method="_on_interactable_area_button_button_released"]
+
+[editable path="radio"]

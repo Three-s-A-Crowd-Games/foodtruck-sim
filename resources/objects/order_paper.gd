@@ -5,6 +5,10 @@ extends XRToolsPickable
 @onready var order_number = $OrderViewport/PaperLayout/CenterTitle/OrderNumber
 @onready var side_tex = $OrderViewport/PaperLayout/CenterExtras/ExtrasContainer/SideTex
 @onready var drink_tex = $OrderViewport/PaperLayout/CenterExtras/ExtrasContainer/DrinkTex
+@onready var pin_sound_player = $AudioStreamPlayer3D
+
+const pin_sound: AudioStream = preload("res://audio/sfx/object_interaction/order_paper_pin/pin_order_paper.mp3")
+const unpin_sound: AudioStream = preload("res://audio/sfx/object_interaction/order_paper_pin/unpin_order_paper.mp3")
 
 const NORMAL_VIEWPORT_SIZE := 650
 var order :Order
@@ -94,8 +98,12 @@ func _on_pin_area_entered(area: Area3D) -> void:
 	if area.is_in_group("pinning_zone"):
 		$order_paper/Pin.set_surface_override_material(1,load("res://assets/materials/pin_green.tres"))
 		in_pinning_zone = true
+		pin_sound_player.stream = pin_sound
+		pin_sound_player.play()
 
 func _on_pin_area_exited(area: Area3D) -> void:
 	if area.is_in_group("pinning_zone"):
 		$order_paper/Pin.set_surface_override_material(1,load("res://assets/materials/pin_red.tres"))
 		in_pinning_zone = false
+		pin_sound_player.stream = unpin_sound
+		pin_sound_player.play()

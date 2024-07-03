@@ -42,6 +42,7 @@
 [ext_resource type="PackedScene" uid="uid://c5meogjyhip4e" path="res://resources/objects/foodboxes/cucumber_box.tscn" id="37_3wst3"]
 [ext_resource type="PackedScene" uid="uid://iion2ersu5hy" path="res://assets/models/objects/furniture/order_sign.blend" id="39_eelyf"]
 [ext_resource type="LightmapGIData" uid="uid://bli7hrjndsi5u" path="res://resources/main.lmbake" id="40_yfmbj"]
+[ext_resource type="PackedScene" uid="uid://crqhp3mfhswlh" path="res://resources/objects/furniture/radio.tscn" id="46_qocor"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -2321,6 +2322,9 @@ quality = 2
 interior = true
 texel_scale = 0.2
 light_data = ExtResource("40_yfmbj")
+
+[node name="Radio" parent="." instance=ExtResource("46_qocor")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.994845, 1.84926, 0.875825)
 
 [connection signal="body_exited" from="TraySpawner/ExitDetector" to="TraySpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="FriesboxSpawner/ExitDetector" to="FriesboxSpawner" method="_on_exit_detector_body_exited"]

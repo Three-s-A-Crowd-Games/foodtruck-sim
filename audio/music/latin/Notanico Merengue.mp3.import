@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://yi3j2l07qmbp"
+path="res://.godot/imported/Notanico Merengue.mp3-fc6ad6c3349e889703c04f49d13ff288.mp3str"
+
+[deps]
+
+source_file="res://audio/music/latin/Notanico Merengue.mp3"
+dest_files=["res://.godot/imported/Notanico Merengue.mp3-fc6ad6c3349e889703c04f49d13ff288.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -105,16 +105,16 @@ func _ready():
 	for player: AudioStreamPlayer3D in $SoundQueue3DHard.get_children():
 		match slice_sound_type:
 			"Normal":
-				player.stream = load("res://audio/slicing/normal/slice_normal_hard_audio_stream_randomizer.tres")
+				player.stream = load("res://audio/sfx/slicing/normal/slice_normal_hard_audio_stream_randomizer.tres")
 			"Crunchy":
-				player.stream = load("res://audio/slicing/crunchy/slice_crunchy_hard_audio_stream_randomizer.tres")
+				player.stream = load("res://audio/sfx/slicing/crunchy/slice_crunchy_hard_audio_stream_randomizer.tres")
 						
 	for player: AudioStreamPlayer3D in $SoundQueue3DSoft.get_children():
 		match slice_sound_type:
 			"Normal":
-				player.stream = load("res://audio/slicing/normal/slice_normal_soft_audio_stream_randomizer.tres")
+				player.stream = load("res://audio/sfx/slicing/normal/slice_normal_soft_audio_stream_randomizer.tres")
 			"Crunchy":
-				player.stream = load("res://audio/slicing/crunchy/slice_crunchy_soft_audio_stream_randomizer.tres")
+				player.stream = load("res://audio/sfx/slicing/crunchy/slice_crunchy_soft_audio_stream_randomizer.tres")
 	
 
 func precalculate_slice():

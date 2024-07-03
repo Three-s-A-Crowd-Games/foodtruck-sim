@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b252tg1cikai2"
+path="res://.godot/imported/Take the Lead.mp3-60b8c7e14bce4ba99444c7254ff9a2dc.mp3str"
+
+[deps]
+
+source_file="res://audio/music/rock_soft/Take the Lead.mp3"
+dest_files=["res://.godot/imported/Take the Lead.mp3-60b8c7e14bce4ba99444c7254ff9a2dc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
