@@ -30,6 +30,10 @@ script = ExtResource("1_ah4t3")
 
 [node name="fryer" parent="." instance=ExtResource("1_xthe5")]
 
+[node name="Point" parent="fryer" index="0"]
+light_energy = 0.0
+omni_range = 0.2
+
 [node name="FryingArea" parent="." instance=ExtResource("2_h440w")]
 
 [node name="CollisionShape3D" parent="FryingArea" index="0"]

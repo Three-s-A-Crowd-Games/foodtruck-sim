@@ -33,6 +33,10 @@ const Accessoires := [
 	null,
 	preload("res://assets/models/accessoires/schnelle_brille.blend"),
 	preload("res://assets/models/accessoires/prop_hat.blend"),
+	preload("res://assets/models/accessoires/bling_bling.blend"),
+	preload("res://assets/models/accessoires/googly_eyes.blend"),
+	preload("res://assets/models/accessoires/party_time.blend"),
+	preload("res://assets/models/accessoires/spiky_hair.blend"),
 ]
 
 var wait_pos :Path3D

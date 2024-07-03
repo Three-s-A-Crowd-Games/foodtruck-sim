@@ -46,4 +46,7 @@ shape = SubResource("SphereShape3D_xeafo")
 [node name="PickableSoundQueue3D" parent="." index="3"]
 pickable_audio_type = SubResource("Resource_0504j")
 
+[node name="PickableSoundQueue3D" parent="." index="3"]
+pickable_audio_type = SubResource("Resource_0504j")
+
 [editable path="SnapZone"]
