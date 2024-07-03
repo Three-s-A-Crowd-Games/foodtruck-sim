@@ -22,6 +22,9 @@ name = ""
 drop_sound = SubResource("AudioStreamRandomizer_sowht")
 
 [node name="Flipper" instance=ExtResource("1_px53d")]
+mass = 0.23
+center_of_mass_mode = 1
+continuous_cd = true
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.108815, 0.0214281, 0)
@@ -37,6 +40,6 @@ pickable_audio_type = SubResource("Resource_s1w17")
 [node name="AudioStreamPlayer3D" parent="PickableSoundQueue3D" index="0"]
 volume_db = -6.0
 
-[node name="flipper" parent="." index="4" instance=ExtResource("2_8nwab")]
+[node name="flipper" parent="." index="3" instance=ExtResource("2_8nwab")]
 
 [editable path="flipper"]

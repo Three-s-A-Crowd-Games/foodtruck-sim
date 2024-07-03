@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=4 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=150 format=4 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -43,8 +43,8 @@
 [ext_resource type="PackedScene" uid="uid://iion2ersu5hy" path="res://assets/models/objects/furniture/order_sign.blend" id="39_eelyf"]
 [ext_resource type="LightmapGIData" uid="uid://bli7hrjndsi5u" path="res://resources/main.lmbake" id="40_yfmbj"]
 [ext_resource type="PackedScene" uid="uid://3urchnywicj" path="res://resources/objects/furniture/trashcan.tscn" id="46_52h4n"]
-[ext_resource type="Script" path="res://resources/special_areas/deleting_area.gd" id="47_pk1hd"]
 [ext_resource type="PackedScene" uid="uid://crqhp3mfhswlh" path="res://resources/objects/furniture/radio.tscn" id="46_qocor"]
+[ext_resource type="Script" path="res://resources/special_areas/deleting_area.gd" id="47_pk1hd"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
