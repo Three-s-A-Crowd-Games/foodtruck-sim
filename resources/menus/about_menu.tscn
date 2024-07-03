@@ -1,0 +1,70 @@
+[gd_scene load_steps=3 format=3 uid="uid://2o450nho2yiq"]
+
+[ext_resource type="Texture2D" uid="uid://dr5r6kfulr3kv" path="res://assets/startscreen/buttons/back-btn.png" id="1_pjscc"]
+[ext_resource type="Texture2D" uid="uid://ttn3ge8xqhoa" path="res://assets/startscreen/buttons/back-btn-pressed.png" id="2_lj3th"]
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="licenses" type="Panel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/licenses"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="licences-title" type="Label" parent="VBoxContainer/HBoxContainer/licenses/VBoxContainer"]
+layout_mode = 2
+text = "LICENCES"
+horizontal_alignment = 1
+
+[node name="team" type="Panel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/team"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="team-title" type="Label" parent="VBoxContainer/HBoxContainer/team/VBoxContainer"]
+layout_mode = 2
+text = "TEAM"
+horizontal_alignment = 1
+
+[node name="licences" type="Panel" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(600, 600)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/licences"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="licences-title" type="Label" parent="VBoxContainer/HBoxContainer/licences/VBoxContainer"]
+layout_mode = 2
+text = "LICENCES"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pjscc")
+texture_pressed = ExtResource("2_lj3th")
+stretch_mode = 3

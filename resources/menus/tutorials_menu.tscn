@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://snisrcc4foay"]
+
+[ext_resource type="Texture2D" uid="uid://dr5r6kfulr3kv" path="res://assets/startscreen/buttons/back-btn.png" id="1_m86jq"]
+[ext_resource type="Texture2D" uid="uid://ttn3ge8xqhoa" path="res://assets/startscreen/buttons/back-btn-pressed.png" id="2_q5j3k"]
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="tutorial-menu" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = -392.0
+offset_right = 427.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="tutorial-title" type="Label" parent="tutorial-menu"]
+layout_mode = 2
+text = "TUTORIALS"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu"]
+layout_mode = 2
+
+[node name="contents" type="Panel" parent="tutorial-menu/HBoxContainer"]
+custom_minimum_size = Vector2(150, 600)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorial-menu/HBoxContainer/contents"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="video-title" type="Button" parent="tutorial-menu/HBoxContainer/contents/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "video 1"
+
+[node name="video" type="Panel" parent="tutorial-menu/HBoxContainer"]
+custom_minimum_size = Vector2(700, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu/HBoxContainer/video"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="video-back" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/HBoxContainer"]
+layout_mode = 2
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="tutorial-menu/HBoxContainer/video/HBoxContainer"]
+layout_mode = 2
+
+[node name="video-skip" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/HBoxContainer"]
+layout_mode = 2
+
+[node name="back-button" type="TextureButton" parent="tutorial-menu"]
+layout_mode = 2
+texture_normal = ExtResource("1_m86jq")
+texture_pressed = ExtResource("2_q5j3k")
+stretch_mode = 3

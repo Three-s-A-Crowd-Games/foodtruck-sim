@@ -1,16 +1,45 @@
-[gd_scene format=3 uid="uid://kje4o0xgibhe"]
+[gd_scene load_steps=9 format=3 uid="uid://dycaltatac35e"]
+
+[ext_resource type="Texture2D" uid="uid://dixs7oc64lres" path="res://assets/startscreen/buttons/start-btn.png" id="1_p6r1c"]
+[ext_resource type="Texture2D" uid="uid://qk7gidqs2fjh" path="res://assets/startscreen/buttons/start-btn-pressed.png" id="2_a16wl"]
+[ext_resource type="Texture2D" uid="uid://4ma2mg4664me" path="res://assets/startscreen/buttons/tutorial-btn.png" id="3_yei7w"]
+[ext_resource type="Texture2D" uid="uid://cxfdr1fop50w" path="res://assets/startscreen/buttons/tutorial-btn-pressed.png" id="4_4ko5o"]
+[ext_resource type="Texture2D" uid="uid://cy7f4yalkg6l1" path="res://assets/startscreen/buttons/options-btn.png" id="5_x67x8"]
+[ext_resource type="Texture2D" uid="uid://db4h7esxfy5qy" path="res://assets/startscreen/buttons/options-btn-pressed.png" id="6_r868i"]
+[ext_resource type="Texture2D" uid="uid://2lh6alnf33d" path="res://assets/startscreen/buttons/about-btn.png" id="7_bj5fq"]
+[ext_resource type="Texture2D" uid="uid://d3wptmkdxt2ks" path="res://assets/startscreen/buttons/about-btn-pressed.png" id="8_uv62s"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_left = -216.0
+offset_top = -254.0
+offset_right = 216.0
+offset_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_p6r1c")
+texture_pressed = ExtResource("2_a16wl")
+
+[node name="TutorialButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_yei7w")
+texture_pressed = ExtResource("4_4ko5o")
+
+[node name="OptionsButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_x67x8")
+texture_pressed = ExtResource("6_r868i")
+
+[node name="AboutButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_bj5fq")
+texture_pressed = ExtResource("8_uv62s")
