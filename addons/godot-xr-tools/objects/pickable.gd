@@ -97,7 +97,7 @@ var can_ranged_grab: bool = true
 ## Frozen state to restore to when dropped
 var restore_freeze : bool = false
 
-var position_before_pickup  = null
+var transform_before_pickup: Transform3D = Transform3D.IDENTITY
 
 var has_left_spawner := false :
 	set(value):
@@ -249,10 +249,10 @@ func pick_up(by: Node3D) -> void:
 		return
 	
 	freeze = false
-	if position_before_pickup == null:
+	if transform_before_pickup == Transform3D.IDENTITY:
 		for mesh in needs_shadow:
 			mesh.cast_shadow = true
-		position_before_pickup = global_transform
+		transform_before_pickup = global_transform
 
 	# Find the grabber information
 	var grabber := Grabber.new(by)

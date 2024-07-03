@@ -27,5 +27,5 @@ func _on_area_3d_body_exited(body):
 		body.has_left_spawner = true
 		for snap_zone: XRToolsSnapZone in body.find_children("*", "XRToolsSnapZone", true, false):
 			snap_zone.enabled = true
-		_add_new_item(to_local(body.position_before_pickup))
+		_add_new_item(to_local(body.transform_before_pickup.origin))
 	

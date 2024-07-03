@@ -9,4 +9,4 @@ func _on_exit_detector_body_exited(body):
 		body.has_left_spawner = true
 		var item = item_scene.instantiate()
 		add_child(item)
-		item.global_position = body.position_before_pickup
+		item.global_transform = body.transform_before_pickup

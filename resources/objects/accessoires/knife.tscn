@@ -26,7 +26,7 @@ closed_pose = ExtResource("8_fhgcs")
 [sub_resource type="BoxShape3D" id="BoxShape3D_t3pbl"]
 size = Vector3(0.238184, 0.0075531, 0.0492248)
 
-[node name="Knife" instance=ExtResource("1_aidih")]
+[node name="Knife" groups=["appliances"] instance=ExtResource("1_aidih")]
 collision_mask = 8585223
 mass = 0.3
 center_of_mass_mode = 1
