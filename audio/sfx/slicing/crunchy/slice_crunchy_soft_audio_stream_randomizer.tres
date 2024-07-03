@@ -1,0 +1,18 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=7 format=3 uid="uid://cqou1bvm7xypn"]
+
+[ext_resource type="AudioStream" uid="uid://cj706sq5gc1bp" path="res://audio/sfx/slicing/crunchy/soft/slice_crunchy_soft-1.mp3" id="1_von1j"]
+[ext_resource type="AudioStream" uid="uid://csggtd8totequ" path="res://audio/sfx/slicing/crunchy/soft/slice_crunchy_soft-2.mp3" id="2_loql0"]
+[ext_resource type="AudioStream" uid="uid://3trfq1gsvvvm" path="res://audio/sfx/slicing/crunchy/soft/slice_crunchy_soft-3.mp3" id="3_iiole"]
+[ext_resource type="AudioStream" uid="uid://cktl31wdi3kfy" path="res://audio/sfx/slicing/crunchy/soft/slice_crunchy_soft-4.mp3" id="4_rn78f"]
+[ext_resource type="AudioStream" uid="uid://cto70uvh4ddnj" path="res://audio/sfx/slicing/crunchy/soft/slice_crunchy_soft-5.mp3" id="5_2y5tu"]
+[ext_resource type="AudioStream" uid="uid://4rxhxb0omdls" path="res://audio/sfx/slicing/crunchy/soft/slice_crunchy_soft-6.mp3" id="6_frwhe"]
+
+[resource]
+playback_mode = 1
+streams_count = 6
+stream_0/stream = ExtResource("1_von1j")
+stream_1/stream = ExtResource("2_loql0")
+stream_2/stream = ExtResource("3_iiole")
+stream_3/stream = ExtResource("4_rn78f")
+stream_4/stream = ExtResource("5_2y5tu")
+stream_5/stream = ExtResource("6_frwhe")

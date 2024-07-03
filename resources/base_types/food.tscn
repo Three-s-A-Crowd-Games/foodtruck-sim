@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_46wm3"]
 [ext_resource type="Script" path="res://resources/base_types/food.gd" id="2_4u0g5"]
-[ext_resource type="AudioStream" uid="uid://bqjns2m3a4cyo" path="res://audio/collision/Food/drop_food.mp3" id="3_eja32"]
+[ext_resource type="AudioStream" uid="uid://bqjns2m3a4cyo" path="res://audio/sfx/collision/Food/drop_food.mp3" id="3_eja32"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="4_fmt4o"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_58f4c"]

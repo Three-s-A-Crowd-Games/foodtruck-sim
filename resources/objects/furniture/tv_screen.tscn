@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://ri8whwljtqxn"]
 
 [ext_resource type="Script" path="res://resources/objects/furniture/tv_screen.gd" id="1_xfpw6"]
-[ext_resource type="AudioStream" uid="uid://bdtyn7svtnfvq" path="res://audio/food_prep/tv/time_low.mp3" id="2_mjtx8"]
-[ext_resource type="AudioStream" uid="uid://lbo0giitbhbq" path="res://audio/food_prep/tv/time_runs_out.mp3" id="3_2gdwl"]
-[ext_resource type="AudioStream" uid="uid://dk7cj5lpal5hu" path="res://audio/food_prep/tv/order_failed.mp3" id="4_b2too"]
+[ext_resource type="AudioStream" uid="uid://bdtyn7svtnfvq" path="res://audio/sfx/food_prep/tv/time_low.mp3" id="2_mjtx8"]
+[ext_resource type="AudioStream" uid="uid://lbo0giitbhbq" path="res://audio/sfx/food_prep/tv/time_runs_out.mp3" id="3_2gdwl"]
+[ext_resource type="AudioStream" uid="uid://dk7cj5lpal5hu" path="res://audio/sfx/food_prep/tv/order_failed.mp3" id="4_b2too"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_tx6jc"]
 viewport_path = NodePath("SubViewport")

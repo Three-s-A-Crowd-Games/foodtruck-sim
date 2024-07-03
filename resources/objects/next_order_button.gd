@@ -1,7 +1,7 @@
 extends XRToolsInteractableAreaButton
 
-const PRESS_SOUND: AudioStream = preload("res://audio/object_interaction/order_button/order_button_pressed.mp3")
-const RELEASE_SOUND: AudioStream = preload("res://audio/object_interaction/order_button/order_button_released.mp3")
+const PRESS_SOUND: AudioStream = preload("res://audio/sfx/object_interaction/order_button/order_button_pressed.mp3")
+const RELEASE_SOUND: AudioStream = preload("res://audio/sfx/object_interaction/order_button/order_button_released.mp3")
 @onready var button_player: AudioStreamPlayer3D = $ButtonPlayer
 @onready var print_player: AudioStreamPlayer3D = $PrintPlayer
 

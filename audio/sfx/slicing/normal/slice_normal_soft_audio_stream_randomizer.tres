@@ -1,0 +1,36 @@
+[gd_resource type="AudioStreamRandomizer" load_steps=16 format=3 uid="uid://cclhy61thhrgl"]
+
+[ext_resource type="AudioStream" uid="uid://bl1m8yng87u5i" path="res://audio/sfx/slicing/normal/soft/slice_soft-1.mp3" id="1_kg6l5"]
+[ext_resource type="AudioStream" uid="uid://dta1s73sfys33" path="res://audio/sfx/slicing/normal/soft/slice_soft-2.mp3" id="2_38ehc"]
+[ext_resource type="AudioStream" uid="uid://d2tgmugu6r0d8" path="res://audio/sfx/slicing/normal/soft/slice_soft-11.mp3" id="3_a32ce"]
+[ext_resource type="AudioStream" uid="uid://bsefq33qkkd5i" path="res://audio/sfx/slicing/normal/soft/slice_soft-12.mp3" id="4_ivjla"]
+[ext_resource type="AudioStream" uid="uid://doaamst3rsuc2" path="res://audio/sfx/slicing/normal/soft/slice_soft-13.mp3" id="5_j6nc4"]
+[ext_resource type="AudioStream" uid="uid://bhq28snoousei" path="res://audio/sfx/slicing/normal/soft/slice_soft-14.mp3" id="6_hgt7u"]
+[ext_resource type="AudioStream" uid="uid://dhkonq015mgi1" path="res://audio/sfx/slicing/normal/soft/slice_soft-15.mp3" id="7_1ntu3"]
+[ext_resource type="AudioStream" uid="uid://ce1cqb8xbk4ae" path="res://audio/sfx/slicing/normal/soft/slice_soft-3.mp3" id="8_qbibi"]
+[ext_resource type="AudioStream" uid="uid://2x817n2nv81s" path="res://audio/sfx/slicing/normal/soft/slice_soft-4.mp3" id="9_s8xe4"]
+[ext_resource type="AudioStream" uid="uid://7d5chbjh6qbd" path="res://audio/sfx/slicing/normal/soft/slice_soft-5.mp3" id="10_86mgf"]
+[ext_resource type="AudioStream" uid="uid://dqtghcxio3wcm" path="res://audio/sfx/slicing/normal/soft/slice_soft-6.mp3" id="11_w4w2i"]
+[ext_resource type="AudioStream" uid="uid://bu125b5ratn1m" path="res://audio/sfx/slicing/normal/soft/slice_soft-7.mp3" id="12_bbu2q"]
+[ext_resource type="AudioStream" uid="uid://divasq2dkf5ew" path="res://audio/sfx/slicing/normal/soft/slice_soft-8.mp3" id="13_ft0e7"]
+[ext_resource type="AudioStream" uid="uid://wff64tui2fub" path="res://audio/sfx/slicing/normal/soft/slice_soft-9.mp3" id="14_cxmdm"]
+[ext_resource type="AudioStream" uid="uid://dcitrfo5flw0n" path="res://audio/sfx/slicing/normal/soft/slice_soft-10.mp3" id="15_0iqjg"]
+
+[resource]
+playback_mode = 1
+streams_count = 15
+stream_0/stream = ExtResource("1_kg6l5")
+stream_1/stream = ExtResource("2_38ehc")
+stream_2/stream = ExtResource("8_qbibi")
+stream_3/stream = ExtResource("9_s8xe4")
+stream_4/stream = ExtResource("10_86mgf")
+stream_5/stream = ExtResource("11_w4w2i")
+stream_6/stream = ExtResource("12_bbu2q")
+stream_7/stream = ExtResource("13_ft0e7")
+stream_8/stream = ExtResource("14_cxmdm")
+stream_9/stream = ExtResource("15_0iqjg")
+stream_10/stream = ExtResource("3_a32ce")
+stream_11/stream = ExtResource("4_ivjla")
+stream_12/stream = ExtResource("5_j6nc4")
+stream_13/stream = ExtResource("6_hgt7u")
+stream_14/stream = ExtResource("7_1ntu3")

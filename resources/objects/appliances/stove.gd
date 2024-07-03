@@ -1,7 +1,7 @@
 extends Node3D
 
-@export var sound_on: AudioStream = preload("res://audio/object_interaction/knob/knob-on.mp3")
-@export var sound_off: AudioStream = preload("res://audio/object_interaction/knob/knob-off.mp3")
+@export var sound_on: AudioStream = preload("res://audio/sfx/object_interaction/knob/knob-on.mp3")
+@export var sound_off: AudioStream = preload("res://audio/sfx/object_interaction/knob/knob-off.mp3")
 
 @onready var knob_model: MeshInstance3D  = $"stove-v2/knob"
 @onready var cooking_area: CookingArea = $CookingArea

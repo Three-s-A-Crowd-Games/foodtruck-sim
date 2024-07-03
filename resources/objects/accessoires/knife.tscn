@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://addons/godot-xr-tools/hands/poses/hand_pose_settings.gd" id="6_acof2"]
 [ext_resource type="PackedScene" uid="uid://c25yxb0vt53vc" path="res://addons/godot-xr-tools/objects/grab_points/grab_point_hand_left.tscn" id="7_o6xli"]
 [ext_resource type="Animation" uid="uid://plad1r85f7ws" path="res://addons/godot-xr-tools/hands/animations/left/Grip.res" id="8_fhgcs"]
-[ext_resource type="AudioStream" uid="uid://nu1gp3r0uw23" path="res://audio/collision/patty_flipper/patty_flipper_collision.mp3" id="10_cc76r"]
+[ext_resource type="AudioStream" uid="uid://nu1gp3r0uw23" path="res://audio/sfx/collision/patty_flipper/patty_flipper_collision.mp3" id="10_cc76r"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="11_7jxtd"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_r3qbb"]

@@ -7,8 +7,8 @@ extends XRToolsPickable
 @onready var drink_tex = $OrderViewport/PaperLayout/CenterExtras/ExtrasContainer/DrinkTex
 @onready var pin_sound_player = $AudioStreamPlayer3D
 
-const pin_sound: AudioStream = preload("res://audio/object_interaction/order_paper_pin/pin_order_paper.mp3")
-const unpin_sound: AudioStream = preload("res://audio/object_interaction/order_paper_pin/unpin_order_paper.mp3")
+const pin_sound: AudioStream = preload("res://audio/sfx/object_interaction/order_paper_pin/pin_order_paper.mp3")
+const unpin_sound: AudioStream = preload("res://audio/sfx/object_interaction/order_paper_pin/unpin_order_paper.mp3")
 
 const NORMAL_VIEWPORT_SIZE := 650
 var order :Order

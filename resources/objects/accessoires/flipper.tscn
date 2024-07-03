@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkl3bmlcidvdg"]
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_px53d"]
-[ext_resource type="AudioStream" uid="uid://nu1gp3r0uw23" path="res://audio/collision/patty_flipper/patty_flipper_collision.mp3" id="2_0llc4"]
+[ext_resource type="AudioStream" uid="uid://nu1gp3r0uw23" path="res://audio/sfx/collision/patty_flipper/patty_flipper_collision.mp3" id="2_0llc4"]
 [ext_resource type="PackedScene" uid="uid://xt3v0mfo0fhm" path="res://assets/models/objects/appliances/flipper.blend" id="2_8nwab"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="3_6wqy6"]
 

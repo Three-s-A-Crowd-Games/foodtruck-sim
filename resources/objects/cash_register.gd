@@ -3,8 +3,8 @@ extends Node3D
 const CASH_DRAWER_OPEN_DISTANCE := 0.265
 const OPEN_SOUND_DURATION := 1.4
 const CLOSE_SOUND_DURATION := 1.0
-const OPEN_SOUND: AudioStream = preload("res://audio/food_prep/cash_register/cash_register_open.mp3")
-const CLOSE_SOUND: AudioStream = preload("res://audio/food_prep/cash_register/cash_register_close.mp3")
+const OPEN_SOUND: AudioStream = preload("res://audio/sfx/food_prep/cash_register/cash_register_open.mp3")
+const CLOSE_SOUND: AudioStream = preload("res://audio/sfx/food_prep/cash_register/cash_register_close.mp3")
 
 var trays :Array
 var is_open := false

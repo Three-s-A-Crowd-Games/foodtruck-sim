@@ -1,7 +1,7 @@
 extends Node3D
 
-const SOUND_ON = preload("res://audio/object_interaction/radio/radio_on.mp3")
-const SOUND_OFF = preload("res://audio/object_interaction/radio/radio_off.mp3")
+const SOUND_ON = preload("res://audio/sfx/object_interaction/radio/radio_on.mp3")
+const SOUND_OFF = preload("res://audio/sfx/object_interaction/radio/radio_off.mp3")
 const ROTATION_ON = Vector3(-66.6,0,0)
 const ROTATION_OFF = Vector3(-9.6,0,0)
 var is_on = false

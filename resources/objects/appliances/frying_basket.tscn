@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_3pyk8"]
 [ext_resource type="PackedScene" uid="uid://da6s4ivc7rwqr" path="res://assets/models/objects/furniture/fryer_basket.blend" id="2_hsonr"]
-[ext_resource type="AudioStream" uid="uid://dbj3hyqev5wic" path="res://audio/collision/frying_basket/frying_basket_collision.mp3" id="2_vijan"]
+[ext_resource type="AudioStream" uid="uid://dbj3hyqev5wic" path="res://audio/sfx/collision/frying_basket/frying_basket_collision.mp3" id="2_vijan"]
 [ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="3_jojtm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xdw66"]

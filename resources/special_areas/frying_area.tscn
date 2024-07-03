@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://oa4nb5wne6a6"]
 
 [ext_resource type="Script" path="res://resources/special_areas/frying_area.gd" id="1_v6wvc"]
-[ext_resource type="AudioStream" uid="uid://bj2mx8rjeom4h" path="res://audio/cooking/fry/fry_idle.mp3" id="2_jqy48"]
+[ext_resource type="AudioStream" uid="uid://bj2mx8rjeom4h" path="res://audio/sfx/cooking/fry/fry_idle.mp3" id="2_jqy48"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_jjf45"]
 resource_local_to_scene = true

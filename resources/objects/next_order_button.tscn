@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cme66uldrjl2i" path="res://addons/godot-xr-tools/interactables/interactable_area_button.tscn" id="1_8pwo6"]
 [ext_resource type="Script" path="res://resources/objects/next_order_button.gd" id="2_81wx0"]
 [ext_resource type="PackedScene" uid="uid://t3bu35m8u0kq" path="res://assets/models/objects/furniture/order_button.blend" id="2_sfyja"]
-[ext_resource type="AudioStream" uid="uid://coqrwlvld3vjg" path="res://audio/food_prep/order_print/order_print.mp3" id="6_6gout"]
+[ext_resource type="AudioStream" uid="uid://coqrwlvld3vjg" path="res://audio/sfx/food_prep/order_print/order_print.mp3" id="6_6gout"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hu8ll"]
 height = 0.0797617
