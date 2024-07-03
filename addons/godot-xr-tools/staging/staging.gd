@@ -105,7 +105,7 @@ func _get_configuration_warnings() -> PackedStringArray:
 	var test_origin : XROrigin3D = XRHelpers.get_xr_origin(self)
 	if !test_origin:
 		warnings.append("No XROrigin3D node found, please add one")
-
+ 
 	# Report missing XR Camera
 	var test_camera : XRCamera3D = XRHelpers.get_xr_camera(self)
 	if !test_camera:

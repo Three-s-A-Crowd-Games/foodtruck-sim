@@ -135,7 +135,6 @@ func _update_progress_bar():
 
 func _update_enable_press_to_continue():
 	if is_inside_tree():
-		$ProgressBar.visible = !enable_press_to_continue
 		$PressToContinue.visible = enable_press_to_continue
 		$PressToContinue/HoldButton.enabled = enable_press_to_continue
 

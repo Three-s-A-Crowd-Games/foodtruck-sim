@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://h6hq3d0qcao5"]
+
+[ext_resource type="Script" path="res://resources/main_menu.gd" id="1_0wt60"]
+[ext_resource type="PackedScene" uid="uid://cx8m4qq3trsl" path="res://assets/startscreen/funny_bend.blend" id="2_sc840"]
+[ext_resource type="Texture2D" uid="uid://ds0bri7ergtkj" path="res://assets/startscreen/menu_background_4k.png" id="3_sfgfx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1vwi"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckmmi"]
+shading_mode = 0
+albedo_color = Color(0.641934, 0.641934, 0.641934, 1)
+albedo_texture = ExtResource("3_sfgfx")
+texture_filter = 1
+grow = true
+
+[node name="MainMenu" type="Node3D"]
+script = ExtResource("1_0wt60")
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.998869, -0.0101345, -0.0464497, 0.0475423, 0.212926, 0.975911, 0, -0.977016, 0.213167, 0, 13.8357, 0)
+light_intensity_lux = 25.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 8388609
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_o1vwi")
+
+[node name="funny_bend" parent="." instance=ExtResource("2_sc840")]
+transform = Transform3D(-2.18557e-06, 0, -50, 0, 50, 0, 50, 0, -2.18557e-06, 0, 0, 0)
+
+[node name="Cylinder" parent="funny_bend" index="0"]
+material_override = SubResource("StandardMaterial3D_ckmmi")
+
+[editable path="funny_bend"]

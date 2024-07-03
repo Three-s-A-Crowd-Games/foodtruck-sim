@@ -477,7 +477,6 @@ shape = SubResource("ConvexPolygonShape3D_w8m3r")
 [node name="light-bulb" parent="stove-v2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.255443, 1.11841, 0.31072)
 mesh = SubResource("ArrayMesh_mfjts")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" parent="stove-v2/light-bulb/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_dbdg4")
@@ -485,7 +484,6 @@ shape = SubResource("ConcavePolygonShape3D_dbdg4")
 [node name="light-socket" parent="stove-v2" index="1"]
 transform = Transform3D(0.0240798, 0, 0, 0, 0.0105031, 0, 0, 0, 0.0240798, -0.255317, 1.10839, 0.31108)
 mesh = SubResource("ArrayMesh_dk8qj")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" parent="stove-v2/light-socket/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_sg5au")
@@ -499,7 +497,6 @@ omni_range = 0.2
 [node name="Cube" parent="stove-v2" index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.194135, 1.14846, 0.310949)
 mesh = SubResource("ArrayMesh_l46xy")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" parent="stove-v2/Cube/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_bk3dd")
@@ -507,36 +504,28 @@ shape = SubResource("ConcavePolygonShape3D_bk3dd")
 [node name="door" parent="stove-v2" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00453623, 0.518229, -0.347152)
 mesh = SubResource("ArrayMesh_lhlxq")
-skeleton = NodePath("")
 
 [node name="handle" parent="stove-v2" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.690584, -0.392733)
 mesh = SubResource("ArrayMesh_ngu13")
-skeleton = NodePath("")
 
 [node name="stovetop" parent="stove-v2" index="6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.927797, -0.025887)
-cast_shadow = 0
 mesh = SubResource("ArrayMesh_ni5s8")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" parent="stove-v2/stovetop/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_wcgyn")
 
 [node name="knob" parent="stove-v2" index="7"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.276645, 0.948448, -0.393499)
-cast_shadow = 0
 mesh = SubResource("ArrayMesh_dkbsy")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" parent="stove-v2/knob/StaticBody3D" index="0"]
 shape = SubResource("ConvexPolygonShape3D_4uaho")
 
 [node name="counter" parent="stove-v2" index="8"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000904679, 0.0716532, 0)
-cast_shadow = 0
 mesh = SubResource("ArrayMesh_0uu48")
-skeleton = NodePath("")
 
 [node name="CollisionShape3D" parent="stove-v2/counter/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_px2ia")
