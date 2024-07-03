@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://snisrcc4foay"]
+[gd_scene load_steps=9 format=3 uid="uid://snisrcc4foay"]
 
+[ext_resource type="Texture2D" uid="uid://cmljm23cxva2m" path="res://assets/startscreen/buttons/backward-btn.png" id="1_a8owp"]
 [ext_resource type="Texture2D" uid="uid://dr5r6kfulr3kv" path="res://assets/startscreen/buttons/back-btn.png" id="1_m86jq"]
+[ext_resource type="Texture2D" uid="uid://cbw4shde4sjmd" path="res://assets/startscreen/buttons/backward-btn-pressed.png" id="2_7gbhm"]
 [ext_resource type="Texture2D" uid="uid://ttn3ge8xqhoa" path="res://assets/startscreen/buttons/back-btn-pressed.png" id="2_q5j3k"]
+[ext_resource type="Texture2D" uid="uid://50oydh8urfv2" path="res://assets/startscreen/buttons/backward-btn-blocked.png" id="3_w43jf"]
+[ext_resource type="Texture2D" uid="uid://3juvt2ny3h0v" path="res://assets/startscreen/buttons/forward-btn.png" id="4_sudxm"]
+[ext_resource type="Texture2D" uid="uid://ci1twr84lcq7n" path="res://assets/startscreen/buttons/forward-btn-pressed.png" id="5_pl6x5"]
+[ext_resource type="Texture2D" uid="uid://brscr1o7b2rbo" path="res://assets/startscreen/buttons/forward_btn_blocked.png" id="6_uj1iu"]
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -57,12 +63,18 @@ offset_bottom = 40.0
 
 [node name="video-back" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/HBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("1_a8owp")
+texture_pressed = ExtResource("2_7gbhm")
+texture_disabled = ExtResource("3_w43jf")
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="tutorial-menu/HBoxContainer/video/HBoxContainer"]
 layout_mode = 2
 
 [node name="video-skip" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/HBoxContainer"]
 layout_mode = 2
+texture_normal = ExtResource("4_sudxm")
+texture_pressed = ExtResource("5_pl6x5")
+texture_disabled = ExtResource("6_uj1iu")
 
 [node name="back-button" type="TextureButton" parent="tutorial-menu"]
 layout_mode = 2
