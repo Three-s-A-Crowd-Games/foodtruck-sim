@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://3urchnywicj"]
+
+[ext_resource type="Script" path="res://resources/special_areas/deleting_area.gd" id="1_wh21x"]
+[ext_resource type="PackedScene" uid="uid://ckecwgektryg7" path="res://assets/models/objects/furniture/trash_can.blend" id="2_bgnfr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5vmhb"]
+size = Vector3(0.267578, 0.272461, 0.175537)
+
+[node name="Trashcan" type="Area3D"]
+collision_layer = 0
+collision_mask = 65540
+monitorable = false
+script = ExtResource("1_wh21x")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.133286, 0.020013)
+shape = SubResource("BoxShape3D_5vmhb")
+
+[node name="trash_can" parent="." instance=ExtResource("2_bgnfr")]

@@ -16,7 +16,7 @@ script = ExtResource("4_fmt4o")
 name = ""
 drop_sound = SubResource("AudioStreamRandomizer_58f4c")
 
-[node name="Food" groups=["food"] instance=ExtResource("1_46wm3")]
+[node name="Food" groups=["consumables", "food"] instance=ExtResource("1_46wm3")]
 collision_mask = 8585223
 freeze = true
 continuous_cd = true
