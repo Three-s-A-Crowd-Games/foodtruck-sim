@@ -1,4 +1,4 @@
-[gd_scene load_steps=146 format=4 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=147 format=4 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
