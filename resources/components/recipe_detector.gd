@@ -3,6 +3,8 @@ extends XRToolsSnapZone
 # Require first element to be in this group and ignore
 @export var first_element_ignore_group :String
 
+@onready var orig_shape = $CollisionShape3D.shape
+
 func check_for_recipe(recipe: Recipe) -> bool:
 	if not is_instance_valid(recipe):
 		return false
@@ -10,6 +12,14 @@ func check_for_recipe(recipe: Recipe) -> bool:
 	var rev_ingredients = recipe.ingredients
 	rev_ingredients.reverse()
 	return _recursive_check(rev_ingredients, 0, picked_up_object)
+
+func pick_up_object(body :Node3D):
+	super.pick_up_object(body)
+	$CollisionShape3D.shape = body.find_children("*","CollisionShape3D")[0].shape
+
+func drop_object():
+	super.drop_object()
+	$CollisionShape3D.shape = orig_shape
 
 func _recursive_check(ingredients: Array[Ingredient.Type], index: int, rawObject: XRToolsPickable) -> bool:
 	if not is_instance_valid(rawObject):

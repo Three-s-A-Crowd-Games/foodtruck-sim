@@ -9,7 +9,7 @@ const CLOSE_SOUND: AudioStream = preload("res://audio/sfx/food_prep/cash_registe
 var trays :Array
 var is_open := false
 var tween: Tween
-@onready var cash_drawer_nodes: Array[Node3D] = [$cash_register/Cube_001, $cash_register/Cylinder]
+@onready var cash_drawer_nodes: Array[Node3D] = [$cash_register/Cube_001]
 @onready var audio_player := $AudioStreamPlayer3D
 
 func _process(delta: float) -> void:

@@ -21,7 +21,7 @@ script = ExtResource("3_6wqy6")
 name = ""
 drop_sound = SubResource("AudioStreamRandomizer_sowht")
 
-[node name="Flipper" instance=ExtResource("1_px53d")]
+[node name="Flipper" groups=["appliances"] instance=ExtResource("1_px53d")]
 mass = 0.23
 center_of_mass_mode = 1
 continuous_cd = true

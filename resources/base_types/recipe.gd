@@ -47,11 +47,13 @@ static var recipes: Dictionary = {
 	Type.SIDES : {
 		Category : Category.SIDE, 
 		Ingredient.Category : [Ingredient.Category.SIDES],
+		Constraints.MINIMUM_AMOUNT : 1,
 		Constraints.MAXIMUM_AMOUNT : 1,
 		},
 	Type.DRINKS : {
 		Category : Category.DRINK,
 		Ingredient.Category: [Ingredient.Category.DRINKS],
+		Constraints.MINIMUM_AMOUNT : 1,
 		Constraints.MAXIMUM_AMOUNT : 1,
 	}
 }

@@ -38,7 +38,7 @@ script = ExtResource("11_7jxtd")
 name = ""
 drop_sound = SubResource("AudioStreamRandomizer_orgpw")
 
-[node name="Knife" instance=ExtResource("1_aidih")]
+[node name="Knife" groups=["appliances"] instance=ExtResource("1_aidih")]
 collision_mask = 8585223
 mass = 0.3
 center_of_mass_mode = 1

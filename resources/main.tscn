@@ -1627,7 +1627,7 @@ size = Vector3(0.0147419, 0.231293, 0.830749)
 size = Vector3(0.44519, 0.0537109, 1.21478)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c0r1p"]
-size = Vector3(2.69165, 2.30957, 3.81934)
+size = Vector3(2.69165, 2.30957, 3.31116)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_d3g8y")
@@ -1733,7 +1733,7 @@ collision_layer = 8388609
 collision_layer = 8388609
 
 [node name="Point" parent="Truck/truck" index="6"]
-light_energy = 750.0
+light_energy = 600.0
 shadow_enabled = true
 omni_range = 2.848
 omni_attenuation = 1.932
@@ -2337,6 +2337,7 @@ script = ExtResource("47_pk1hd")
 detect_mode = "ON_EXIT"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeletingArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25409)
 shape = SubResource("BoxShape3D_c0r1p")
 
 [node name="Radio" parent="." instance=ExtResource("46_qocor")]
