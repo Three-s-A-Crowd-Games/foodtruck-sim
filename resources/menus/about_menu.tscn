@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://2o450nho2yiq"]
+[gd_scene load_steps=6 format=3 uid="uid://2o450nho2yiq"]
 
 [ext_resource type="FontFile" uid="uid://cip4s84xxhr1q" path="res://assets/font/lao-mn.ttf" id="1_i1ked"]
 [ext_resource type="Texture2D" uid="uid://dr5r6kfulr3kv" path="res://assets/startscreen/buttons/back-btn.png" id="1_pjscc"]
+[ext_resource type="Script" path="res://resources/menus/about_menu.gd" id="1_yqdp1"]
 [ext_resource type="Texture2D" uid="uid://ttn3ge8xqhoa" path="res://assets/startscreen/buttons/back-btn-pressed.png" id="2_lj3th"]
 [ext_resource type="Texture2D" uid="uid://b3j5pyd4mys01" path="res://assets/startscreen/hdm-logo.png" id="2_t63s3"]
 
 [node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_yqdp1")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 offset_right = 40.0

@@ -8,11 +8,11 @@
 [sub_resource type="Theme" id="Theme_0oyr6"]
 
 [node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_75n17")
 
 [node name="options-menu" type="VBoxContainer" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_75n17")
 
 [node name="options-title" type="Label" parent="options-menu"]
 layout_mode = 2

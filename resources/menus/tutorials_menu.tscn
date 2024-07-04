@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://snisrcc4foay"]
+[gd_scene load_steps=10 format=3 uid="uid://snisrcc4foay"]
 
+[ext_resource type="Script" path="res://resources/menus/tutorials_menu.gd" id="1_6gtcr"]
 [ext_resource type="Texture2D" uid="uid://cmljm23cxva2m" path="res://assets/startscreen/buttons/backward-btn.png" id="1_a8owp"]
 [ext_resource type="Texture2D" uid="uid://dr5r6kfulr3kv" path="res://assets/startscreen/buttons/back-btn.png" id="1_m86jq"]
 [ext_resource type="Texture2D" uid="uid://cbw4shde4sjmd" path="res://assets/startscreen/buttons/backward-btn-pressed.png" id="2_7gbhm"]
@@ -10,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://brscr1o7b2rbo" path="res://assets/startscreen/buttons/forward_btn_blocked.png" id="6_uj1iu"]
 
 [node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_6gtcr")
 
 [node name="tutorial-menu" type="VBoxContainer" parent="."]
 anchors_preset = 8
