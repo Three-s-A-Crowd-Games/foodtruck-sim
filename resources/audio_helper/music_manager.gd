@@ -24,7 +24,8 @@ static var selected_genres: Array[MusicGenre] = [MusicGenre.JAZZ]
 
 
 static func create_playlist() -> void:
-	var playlist := AudioStreamPlaylist.new()
+	var playlist := AudioStreamRandomizer.new()
+	var count: int = 0
 	for genre: MusicGenre in selected_genres:
 		if not DirAccess.dir_exists_absolute(GENRE_PATH_DIC[genre]):
 			push_warning("Specified directory '", GENRE_PATH_DIC[genre], "' does not exist. Please check the specified path.")
@@ -38,8 +39,9 @@ static func create_playlist() -> void:
 			push_warning("Tryed to add songs of the genre '", MusicGenre.keys()[genre],"' to the playlist. But no files were available at the given target directory: ", GENRE_PATH_DIC[genre], ".")
 			continue
 		for name: String in file_names:
-			playlist.stream_count += 1
-			playlist.set_list_stream(playlist.stream_count - 1, load(GENRE_PATH_DIC[genre] + name))
+			if not name.ends_with(".mp3"): continue
+			playlist.add_stream(count, load(GENRE_PATH_DIC[genre] + name))
+			count += 1
 	
 	var err := ResourceSaver.save(playlist, PLAYLIST_SAVE_PATH)
 	if err != OK:
