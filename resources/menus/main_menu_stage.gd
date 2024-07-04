@@ -17,6 +17,7 @@ const menu_dic: Dictionary = {
 	}
 
 const MENU_SCREEN_HEIGHT := 3
+const MAIN_MENU_SCREEN_HEIGHT := 1.5
 
 @onready var menu_display := $MenuDisplay
 
@@ -40,5 +41,10 @@ func _switch_menu(to: SceneType) -> void:
 		push_error("Failed to switch to scene: ", SceneType.keys()[to])
 		return
 	menu_display.viewport_size = menu.control_node.size
-	menu_display.screen_size = Vector2(screen_width, MENU_SCREEN_HEIGHT)
+	if to == SceneType.MAIN:
+		menu_display.screen_size = Vector2(
+			menu.control_node.size.x / menu.control_node.size.y * MAIN_MENU_SCREEN_HEIGHT,
+			MAIN_MENU_SCREEN_HEIGHT)
+	else:
+		menu_display.screen_size = Vector2(screen_width, MENU_SCREEN_HEIGHT)
 	menu_display.connect_scene_signal("scene_switch_requested", _switch_menu)

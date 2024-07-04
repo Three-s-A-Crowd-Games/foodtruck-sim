@@ -78,12 +78,13 @@ jolt_3d/solver/bounce_velocity_threshold=0.1
 [rendering]
 
 occlusion_culling/bvh_build_quality=0
+occlusion_culling/jitter_projection=false
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 driver/threads/thread_model=0
 textures/vram_compression/import_etc2_astc=true
 lights_and_shadows/use_physical_light_units=true
-lights_and_shadows/directional_shadow/size.mobile=1024
+lights_and_shadows/directional_shadow/size.mobile=512
 reflections/sky_reflections/ggx_samples.mobile=4
 reflections/reflection_atlas/reflection_size.mobile=32
 global_illumination/gi/use_half_resolution=true
@@ -99,7 +100,7 @@ limits/spatial_indexer/threaded_cull_minimum_instances=32
 limits/opengl/max_lights_per_object=12
 anti_aliasing/quality/msaa_3d=1
 occlusion_culling/use_occlusion_culling=true
-lights_and_shadows/positional_shadow/atlas_size.mobile=1024
+lights_and_shadows/positional_shadow/atlas_size.mobile=512
 lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=2
 lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=3
 
