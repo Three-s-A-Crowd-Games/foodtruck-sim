@@ -1,25 +1,9 @@
-extends Node3D
+extends XRToolsSceneBase
 
-var xr_interface: XRInterface
 
 func _ready():
-	xr_interface = XRServer.find_interface("OpenXR")
-	if xr_interface and xr_interface.is_initialized():
-		print("OpenXR initialized successfully")
+	super._ready()
 
-		# Turn off v-sync!
-		DisplayServer.window_set_vsync_mode(DisplayServer.VSYNC_DISABLED)
-
-		# Change our main viewport to output to the HMD
-		get_viewport().use_xr = true
-	else:
-		print("OpenXR not initialized, please check if your headset is connected")
-	
-	var xr_orig = null
-	if xr_interface.is_hand_tracking_supported():
-		XRToolsFunctionPickup.in_handtracking_mode = true
-		xr_orig = load("res://resources/xr_origin_handtracking.tscn").instantiate()
-	else:
-		xr_orig = load("res://resources/xr_origin_controller.tscn").instantiate()
-	xr_orig.transform = $SpawnPoint.transform
-	add_child(xr_orig)
+func _process(delta: float) -> void:
+	if(Input.is_action_just_pressed("ui_accept")):
+		load_scene("res://resources/main_menu.tscn")

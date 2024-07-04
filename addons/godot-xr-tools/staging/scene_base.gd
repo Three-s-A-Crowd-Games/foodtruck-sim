@@ -42,7 +42,14 @@ signal request_reset_scene(user_data)
 ## Interface
 
 func _ready() -> void:
-	pass
+	var xr_orig = null
+	if XRToolsStartXR.xr_interface.is_hand_tracking_supported():
+		XRToolsFunctionPickup.in_handtracking_mode = true
+		xr_orig = load("res://resources/xr_origin_handtracking.tscn").instantiate()
+	else:
+		xr_orig = load("res://resources/xr_origin_controller.tscn").instantiate()
+	xr_orig.transform = $SpawnPoint.transform
+	add_child(xr_orig)
 
 
 # Add support for is_xr_class on XRTools classes

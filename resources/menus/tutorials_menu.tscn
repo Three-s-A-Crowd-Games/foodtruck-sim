@@ -1,0 +1,93 @@
+[gd_scene load_steps=14 format=3 uid="uid://snisrcc4foay"]
+
+[ext_resource type="Script" path="res://resources/menus/tutorials_menu.gd" id="1_6gtcr"]
+[ext_resource type="Texture2D" uid="uid://cmljm23cxva2m" path="res://assets/startscreen/buttons/backward-btn.png" id="1_a8owp"]
+[ext_resource type="Texture2D" uid="uid://dr5r6kfulr3kv" path="res://assets/startscreen/buttons/back-btn.png" id="1_m86jq"]
+[ext_resource type="Texture2D" uid="uid://cbw4shde4sjmd" path="res://assets/startscreen/buttons/backward-btn-pressed.png" id="2_7gbhm"]
+[ext_resource type="Texture2D" uid="uid://ttn3ge8xqhoa" path="res://assets/startscreen/buttons/back-btn-pressed.png" id="2_q5j3k"]
+[ext_resource type="FontFile" uid="uid://cip4s84xxhr1q" path="res://assets/font/lao-mn.ttf" id="2_vc5a5"]
+[ext_resource type="Texture2D" uid="uid://50oydh8urfv2" path="res://assets/startscreen/buttons/backward-btn-blocked.png" id="3_w43jf"]
+[ext_resource type="Texture2D" uid="uid://3juvt2ny3h0v" path="res://assets/startscreen/buttons/forward-btn.png" id="4_sudxm"]
+[ext_resource type="Texture2D" uid="uid://crvxxbr62trb5" path="res://assets/startscreen/buttons/backward-btn-hover.png" id="5_74wxw"]
+[ext_resource type="Texture2D" uid="uid://ci1twr84lcq7n" path="res://assets/startscreen/buttons/forward-btn-pressed.png" id="5_pl6x5"]
+[ext_resource type="Texture2D" uid="uid://brscr1o7b2rbo" path="res://assets/startscreen/buttons/forward_btn_blocked.png" id="6_uj1iu"]
+[ext_resource type="Texture2D" uid="uid://5nfbqltfl5h6" path="res://assets/startscreen/buttons/forward-btn-hover.png" id="9_xtsyo"]
+[ext_resource type="Texture2D" uid="uid://213wudljyi2u" path="res://assets/startscreen/buttons/back-btn-hover.png" id="13_iuci3"]
+
+[node name="TutorialMenu" type="CanvasLayer"]
+script = ExtResource("1_6gtcr")
+
+[node name="tutorial-menu" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -427.0
+offset_top = -392.0
+offset_right = 427.0
+offset_bottom = 392.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="tutorial-title" type="Label" parent="tutorial-menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vc5a5")
+theme_override_font_sizes/font_size = 50
+text = "TUTORIALS"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu"]
+layout_mode = 2
+
+[node name="video" type="Panel" parent="tutorial-menu/HBoxContainer"]
+custom_minimum_size = Vector2(955, 600)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="CenterContainer" type="CenterContainer" parent="tutorial-menu/HBoxContainer/video"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -477.0
+offset_top = -184.0
+offset_right = 477.0
+offset_bottom = 184.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu/HBoxContainer/video/CenterContainer"]
+layout_mode = 2
+
+[node name="video-back" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_a8owp")
+texture_pressed = ExtResource("2_7gbhm")
+texture_hover = ExtResource("5_74wxw")
+texture_disabled = ExtResource("3_w43jf")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+loop = true
+
+[node name="video-skip" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("4_sudxm")
+texture_pressed = ExtResource("5_pl6x5")
+texture_hover = ExtResource("9_xtsyo")
+texture_disabled = ExtResource("6_uj1iu")
+
+[node name="back-button" type="TextureButton" parent="tutorial-menu"]
+layout_mode = 2
+texture_normal = ExtResource("1_m86jq")
+texture_pressed = ExtResource("2_q5j3k")
+texture_hover = ExtResource("13_iuci3")
+stretch_mode = 3
+
+[connection signal="pressed" from="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer/video-back" to="." method="_on_back"]
+[connection signal="pressed" from="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer/video-skip" to="." method="_on_forward"]

@@ -43,7 +43,7 @@ signal xr_ended
 
 
 ## Current XR interface
-var xr_interface : XRInterface
+static var xr_interface : XRInterface
 
 ## XR active flag
 var xr_active : bool = false

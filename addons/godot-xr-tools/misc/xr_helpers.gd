@@ -31,8 +31,8 @@ static func get_xr_origin(node: Node, path: NodePath = NodePath()) -> XROrigin3D
 	if origin:
 		return origin
 
-	# We check our children but only one level
-	origin = XRTools.find_xr_child(node, "*", "XROrigin3D", false)
+	# We check our children
+	origin = XRTools.find_xr_child(node, "*", "XROrigin3D", true)
 	if origin:
 		return origin
 
@@ -66,7 +66,7 @@ static func get_xr_camera(node: Node, path: NodePath = NodePath()) -> XRCamera3D
 		return camera
 
 	# Search all children of the origin for the camera
-	camera = XRTools.find_xr_child(origin, "*", "XRCamera3D", false)
+	camera = XRTools.find_xr_child(origin, "*", "XRCamera3D", true)
 	if camera:
 		return camera
 
@@ -134,4 +134,3 @@ static func _get_controller(
 
 	# Could not find the controller
 	return null
-

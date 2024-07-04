@@ -1,0 +1,106 @@
+[gd_scene load_steps=16 format=3 uid="uid://dycaltatac35e"]
+
+[ext_resource type="Script" path="res://resources/menus/main_menu.gd" id="1_7rave"]
+[ext_resource type="Texture2D" uid="uid://dixs7oc64lres" path="res://assets/startscreen/buttons/start-btn.png" id="1_p6r1c"]
+[ext_resource type="Texture2D" uid="uid://qk7gidqs2fjh" path="res://assets/startscreen/buttons/start-btn-pressed.png" id="2_a16wl"]
+[ext_resource type="Texture2D" uid="uid://4ma2mg4664me" path="res://assets/startscreen/buttons/tutorial-btn.png" id="3_yei7w"]
+[ext_resource type="Texture2D" uid="uid://cxfdr1fop50w" path="res://assets/startscreen/buttons/tutorial-btn-pressed.png" id="4_4ko5o"]
+[ext_resource type="Texture2D" uid="uid://c6mnyqsyyl640" path="res://assets/startscreen/buttons/start-btn-hover.png" id="4_22v21"]
+[ext_resource type="Texture2D" uid="uid://cy7f4yalkg6l1" path="res://assets/startscreen/buttons/options-btn.png" id="5_x67x8"]
+[ext_resource type="Texture2D" uid="uid://db4h7esxfy5qy" path="res://assets/startscreen/buttons/options-btn-pressed.png" id="6_r868i"]
+[ext_resource type="Texture2D" uid="uid://vimgo83d2c7x" path="res://assets/startscreen/buttons/tutorial-btn-hover.png" id="7_8jdrr"]
+[ext_resource type="Texture2D" uid="uid://2lh6alnf33d" path="res://assets/startscreen/buttons/about-btn.png" id="7_bj5fq"]
+[ext_resource type="Texture2D" uid="uid://d3wptmkdxt2ks" path="res://assets/startscreen/buttons/about-btn-pressed.png" id="8_uv62s"]
+[ext_resource type="Texture2D" uid="uid://d0wmjdujlpcu" path="res://assets/startscreen/buttons/options-btn-hover.png" id="10_uli4y"]
+[ext_resource type="Texture2D" uid="uid://yy25f1dv3akq" path="res://assets/startscreen/buttons/about-btn-hover.png" id="13_7qh44"]
+[ext_resource type="Texture2D" uid="uid://ingqlyj6t67v" path="res://assets/startscreen/pinching.png" id="14_a36x4"]
+[ext_resource type="FontFile" uid="uid://cip4s84xxhr1q" path="res://assets/font/lao-mn.ttf" id="15_rlpyi"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_7rave")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(200, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -269.0
+offset_top = 4.0
+offset_right = 243.0
+offset_bottom = 516.0
+grow_horizontal = 2
+scale = Vector2(0.247026, 0.247026)
+pivot_offset = Vector2(269.271, -2.92688)
+texture = ExtResource("14_a36x4")
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -168.0
+offset_right = 256.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("15_rlpyi")
+theme_override_font_sizes/font_size = 40
+text = "pinch
+to
+select"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="StartButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_p6r1c")
+texture_pressed = ExtResource("2_a16wl")
+texture_hover = ExtResource("4_22v21")
+
+[node name="TutorialButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("3_yei7w")
+texture_pressed = ExtResource("4_4ko5o")
+texture_hover = ExtResource("7_8jdrr")
+
+[node name="OptionsButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("5_x67x8")
+texture_pressed = ExtResource("6_r868i")
+texture_hover = ExtResource("10_uli4y")
+
+[node name="AboutButton" type="TextureButton" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("7_bj5fq")
+texture_pressed = ExtResource("8_uv62s")
+texture_hover = ExtResource("13_7qh44")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
