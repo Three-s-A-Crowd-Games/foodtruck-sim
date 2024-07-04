@@ -8,4 +8,4 @@ prompt_for_continue = false
 
 [node name="StartXR" parent="." index="4"]
 render_target_size_multiplier = 0.75
-target_refresh_rate = 72.0
+target_refresh_rate = 90.0

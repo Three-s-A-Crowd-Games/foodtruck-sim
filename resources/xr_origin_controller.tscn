@@ -11,34 +11,34 @@
 [ext_resource type="PackedScene" uid="uid://cqhw276realc" path="res://addons/godot-xr-tools/functions/function_pointer.tscn" id="8_banfg"]
 [ext_resource type="PackedScene" uid="uid://diyu06cw06syv" path="res://addons/godot-xr-tools/player/player_body.tscn" id="8_bnpr7"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2nd3n"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_on33t"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_al17q"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_52h0s"]
 animation = &"Grip"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_tpf4y"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5r00y"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Little_Distal_L", "Armature/Skeleton3D:Little_Intermediate_L", "Armature/Skeleton3D:Little_Metacarpal_L", "Armature/Skeleton3D:Little_Proximal_L", "Armature/Skeleton3D:Middle_Distal_L", "Armature/Skeleton3D:Middle_Intermediate_L", "Armature/Skeleton3D:Middle_Metacarpal_L", "Armature/Skeleton3D:Middle_Proximal_L", "Armature/Skeleton3D:Ring_Distal_L", "Armature/Skeleton3D:Ring_Intermediate_L", "Armature/Skeleton3D:Ring_Metacarpal_L", "Armature/Skeleton3D:Ring_Proximal_L", "Armature/Skeleton3D:Thumb_Distal_L", "Armature/Skeleton3D:Thumb_Metacarpal_L", "Armature/Skeleton3D:Thumb_Proximal_L", "Armature/Skeleton:Little_Distal_L", "Armature/Skeleton:Little_Intermediate_L", "Armature/Skeleton:Little_Proximal_L", "Armature/Skeleton:Middle_Distal_L", "Armature/Skeleton:Middle_Intermediate_L", "Armature/Skeleton:Middle_Proximal_L", "Armature/Skeleton:Ring_Distal_L", "Armature/Skeleton:Ring_Intermediate_L", "Armature/Skeleton:Ring_Proximal_L", "Armature/Skeleton:Thumb_Distal_L", "Armature/Skeleton:Thumb_Proximal_L"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6de58"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_53u2u"]
 animation = &"Grip 5"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_nef6d"]
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_smsby"]
 filter_enabled = true
 filters = ["Armature/Skeleton3D:Index_Distal_L", "Armature/Skeleton3D:Index_Intermediate_L", "Armature/Skeleton3D:Index_Metacarpal_L", "Armature/Skeleton3D:Index_Proximal_L", "Armature/Skeleton:Index_Distal_L", "Armature/Skeleton:Index_Intermediate_L", "Armature/Skeleton:Index_Proximal_L"]
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mk7r1"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_lhfcf"]
 graph_offset = Vector2(-536, 11)
-nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_2nd3n")
+nodes/ClosedHand1/node = SubResource("AnimationNodeAnimation_on33t")
 nodes/ClosedHand1/position = Vector2(-600, 300)
-nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_al17q")
+nodes/ClosedHand2/node = SubResource("AnimationNodeAnimation_52h0s")
 nodes/ClosedHand2/position = Vector2(-360, 300)
-nodes/Grip/node = SubResource("AnimationNodeBlend2_tpf4y")
+nodes/Grip/node = SubResource("AnimationNodeBlend2_5r00y")
 nodes/Grip/position = Vector2(0, 20)
-nodes/OpenHand/node = SubResource("AnimationNodeAnimation_6de58")
+nodes/OpenHand/node = SubResource("AnimationNodeAnimation_53u2u")
 nodes/OpenHand/position = Vector2(-600, 100)
-nodes/Trigger/node = SubResource("AnimationNodeBlend2_nef6d")
+nodes/Trigger/node = SubResource("AnimationNodeBlend2_smsby")
 nodes/Trigger/position = Vector2(-360, 20)
 node_connections = [&"Grip", 0, &"Trigger", &"Grip", 1, &"ClosedHand2", &"Trigger", 0, &"OpenHand", &"Trigger", 1, &"ClosedHand1", &"output", 0, &"Grip"]
 
@@ -82,7 +82,7 @@ bones/6/rotation = Quaternion(0.102925, -0.00993208, -0.00794416, 0.994608)
 bones/21/rotation = Quaternion(-0.0625182, -0.000225721, -0.115393, 0.991351)
 
 [node name="AnimationTree" parent="LeftHand-Controller/LeftHand" index="1"]
-tree_root = SubResource("AnimationNodeBlendTree_mk7r1")
+tree_root = SubResource("AnimationNodeBlendTree_lhfcf")
 parameters/current_length = 0.0416667
 parameters/current_position = 0.0416667
 parameters/current_delta = 0.0

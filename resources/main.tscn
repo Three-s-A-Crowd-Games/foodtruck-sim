@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=4 uid="uid://cfgqvg6rqsmoq"]
+[gd_scene load_steps=153 format=4 uid="uid://cfgqvg6rqsmoq"]
 
 [ext_resource type="Script" path="res://resources/main.gd" id="1_d3g8y"]
 [ext_resource type="Texture2D" uid="uid://x86488ulemea" path="res://assets/lonely_road_afternoon_puresky_1k.hdr" id="2_uhvn2"]
@@ -43,8 +43,11 @@
 [ext_resource type="PackedScene" uid="uid://iion2ersu5hy" path="res://assets/models/objects/furniture/order_sign.blend" id="39_eelyf"]
 [ext_resource type="LightmapGIData" uid="uid://bli7hrjndsi5u" path="res://resources/main.lmbake" id="40_yfmbj"]
 [ext_resource type="PackedScene" uid="uid://3urchnywicj" path="res://resources/objects/furniture/trashcan.tscn" id="46_52h4n"]
+[ext_resource type="PackedScene" uid="uid://df8ewa1rfqu6r" path="res://assets/models/objects/furniture/pin_thing_1.blend" id="46_bypwb"]
 [ext_resource type="PackedScene" uid="uid://crqhp3mfhswlh" path="res://resources/objects/furniture/radio.tscn" id="46_qocor"]
+[ext_resource type="PackedScene" uid="uid://ba6r51xud1lej" path="res://assets/models/objects/furniture/pin_thing_2.blend" id="47_8o80s"]
 [ext_resource type="Script" path="res://resources/special_areas/deleting_area.gd" id="47_pk1hd"]
+[ext_resource type="PackedScene" uid="uid://yuetx40t6oux" path="res://resources/objects/back_to_menu_button.tscn" id="48_twfff"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_w6e6x"]
 panorama = ExtResource("2_uhvn2")
@@ -1733,7 +1736,7 @@ collision_layer = 8388609
 collision_layer = 8388609
 
 [node name="Point" parent="Truck/truck" index="6"]
-light_energy = 600.0
+light_energy = 750.0
 shadow_enabled = true
 omni_range = 2.848
 omni_attenuation = 1.932
@@ -2343,9 +2346,19 @@ shape = SubResource("BoxShape3D_c0r1p")
 [node name="Radio" parent="." instance=ExtResource("46_qocor")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.994845, 1.84926, 0.875825)
 
+[node name="pin_thing_1" parent="." instance=ExtResource("46_bypwb")]
+transform = Transform3D(0, 1, 0, -1, 0, 0, 0, 0, 1, -1.23521, 2.30615, -0.350392)
+
+[node name="pin_thing_2" parent="." instance=ExtResource("47_8o80s")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.729962, 2.36188, -0.941315)
+
+[node name="BackToMenuButton" parent="." instance=ExtResource("48_twfff")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.515179, 2.73636, 0.95)
+
 [connection signal="body_exited" from="TraySpawner/ExitDetector" to="TraySpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="FriesboxSpawner/ExitDetector" to="FriesboxSpawner" method="_on_exit_detector_body_exited"]
 [connection signal="body_exited" from="PlateSpawner/ExitDetector" to="PlateSpawner" method="_on_exit_detector_body_exited"]
+[connection signal="back_to_menu_requested" from="BackToMenuButton" to="." method="_on_back_to_menu_button_back_to_menu_requested"]
 
 [editable path="Truck/truck"]
 [editable path="Truck/truck_canopy"]

@@ -1,19 +1,19 @@
 [gd_resource type="AudioStreamRandomizer" load_steps=8 format=3]
 
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Boogie Party.mp3" id="1_cwk7m"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Corncob.mp3" id="2_wb3oa"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/On Hold for You.mp3" id="3_ndj7l"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Rocket Power.mp3" id="4_fgtoa"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Rollin at 5.mp3" id="5_e5u0p"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Space Jazz.mp3" id="6_03s06"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Zazie.mp3" id="7_c606i"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Boogie Party.mp3" id="1_oke0o"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Corncob.mp3" id="2_ycv08"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/On Hold for You.mp3" id="3_t0wwc"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Rocket Power.mp3" id="4_q3m15"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Rollin at 5.mp3" id="5_8x0gl"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Space Jazz.mp3" id="6_xeqrw"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Zazie.mp3" id="7_p36g5"]
 
 [resource]
 streams_count = 7
-stream_0/stream = ExtResource("1_cwk7m")
-stream_1/stream = ExtResource("2_wb3oa")
-stream_2/stream = ExtResource("3_ndj7l")
-stream_3/stream = ExtResource("4_fgtoa")
-stream_4/stream = ExtResource("5_e5u0p")
-stream_5/stream = ExtResource("6_03s06")
-stream_6/stream = ExtResource("7_c606i")
+stream_0/stream = ExtResource("1_oke0o")
+stream_1/stream = ExtResource("2_ycv08")
+stream_2/stream = ExtResource("3_t0wwc")
+stream_3/stream = ExtResource("4_q3m15")
+stream_4/stream = ExtResource("5_8x0gl")
+stream_5/stream = ExtResource("6_xeqrw")
+stream_6/stream = ExtResource("7_p36g5")

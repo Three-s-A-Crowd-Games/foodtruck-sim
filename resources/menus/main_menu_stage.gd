@@ -17,7 +17,7 @@ const menu_dic: Dictionary = {
 	}
 
 const MENU_SCREEN_HEIGHT := 3
-const MAIN_MENU_SCREEN_HEIGHT := 3
+const MAIN_MENU_SCREEN_HEIGHT := 1.5
 
 var size := {}
 
