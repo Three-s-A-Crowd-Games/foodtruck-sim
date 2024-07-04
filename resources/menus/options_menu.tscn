@@ -8,7 +8,7 @@
 
 [sub_resource type="Theme" id="Theme_0oyr6"]
 
-[node name="MainMenu" type="CanvasLayer"]
+[node name="OptionsMenu" type="CanvasLayer"]
 script = ExtResource("1_75n17")
 
 [node name="options-menu" type="VBoxContainer" parent="."]

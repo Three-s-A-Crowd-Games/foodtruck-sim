@@ -4,7 +4,7 @@ extends CanvasLayer
 
 signal scene_switch_requested(menu: MainMenuStage.SceneType)
 
-@onready var control_node: Control = get_child(0)
+@onready var size: Vector2 = get_child(0).size
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var out: PackedStringArray

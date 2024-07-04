@@ -37,16 +37,26 @@ theme_override_font_sizes/font_size = 50
 text = "TUTORIALS"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="tutorial-menu"]
 layout_mode = 2
 
-[node name="video" type="Panel" parent="tutorial-menu/HBoxContainer"]
+[node name="Label" type="Label" parent="tutorial-menu/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_vc5a5")
+theme_override_font_sizes/font_size = 35
+text = "VIDEO TITLE"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu/VBoxContainer"]
+layout_mode = 2
+
+[node name="video" type="Panel" parent="tutorial-menu/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(955, 600)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="CenterContainer" type="CenterContainer" parent="tutorial-menu/HBoxContainer/video"]
+[node name="CenterContainer" type="CenterContainer" parent="tutorial-menu/VBoxContainer/HBoxContainer/video"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -60,22 +70,22 @@ offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu/HBoxContainer/video/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu/VBoxContainer/HBoxContainer/video/CenterContainer"]
 layout_mode = 2
 
-[node name="video-back" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer"]
+[node name="video-back" type="TextureButton" parent="tutorial-menu/VBoxContainer/HBoxContainer/video/CenterContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("1_a8owp")
 texture_pressed = ExtResource("2_7gbhm")
 texture_hover = ExtResource("5_74wxw")
 texture_disabled = ExtResource("3_w43jf")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="tutorial-menu/VBoxContainer/HBoxContainer/video/CenterContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 loop = true
 
-[node name="video-skip" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer"]
+[node name="video-skip" type="TextureButton" parent="tutorial-menu/VBoxContainer/HBoxContainer/video/CenterContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_sudxm")
 texture_pressed = ExtResource("5_pl6x5")
@@ -89,5 +99,5 @@ texture_pressed = ExtResource("2_q5j3k")
 texture_hover = ExtResource("13_iuci3")
 stretch_mode = 3
 
-[connection signal="pressed" from="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer/video-back" to="." method="_on_back"]
-[connection signal="pressed" from="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer/video-skip" to="." method="_on_forward"]
+[connection signal="pressed" from="tutorial-menu/VBoxContainer/HBoxContainer/video/CenterContainer/HBoxContainer/video-back" to="." method="_on_back"]
+[connection signal="pressed" from="tutorial-menu/VBoxContainer/HBoxContainer/video/CenterContainer/HBoxContainer/video-skip" to="." method="_on_forward"]

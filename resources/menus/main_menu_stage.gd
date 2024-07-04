@@ -17,7 +17,9 @@ const menu_dic: Dictionary = {
 	}
 
 const MENU_SCREEN_HEIGHT := 3
-const MAIN_MENU_SCREEN_HEIGHT := 1.5
+const MAIN_MENU_SCREEN_HEIGHT := 3
+
+var size := {}
 
 @onready var menu_display := $MenuDisplay
 
@@ -32,19 +34,20 @@ func _switch_menu(to: SceneType) -> void:
 		load_scene("res://resources/main.tscn")
 		MusicManager.create_playlist()
 		return
+	if size.has(to):
+		menu_display.viewport_size = size[to]
+		menu_display.screen_size = Vector2(size[to].x / size[to].y * MENU_SCREEN_HEIGHT, MENU_SCREEN_HEIGHT)
 	menu_display.set_scene(menu_dic[to])
 	var menu: MenuBase = menu_display.get_scene_instance()
 	var screen_width: float
 	if menu:
-		screen_width = menu.control_node.size.x / menu.control_node.size.y * MENU_SCREEN_HEIGHT
+		screen_width = menu.size.x / menu.size.y * MENU_SCREEN_HEIGHT
 	else:
 		push_error("Failed to switch to scene: ", SceneType.keys()[to])
 		return
-	menu_display.viewport_size = menu.control_node.size
-	if to == SceneType.MAIN:
-		menu_display.screen_size = Vector2(
-			menu.control_node.size.x / menu.control_node.size.y * MAIN_MENU_SCREEN_HEIGHT,
-			MAIN_MENU_SCREEN_HEIGHT)
-	else:
+	printt(SceneType.keys()[to], menu, menu.size)
+	if not size.has(to):
+		size[to] = menu.size
+		menu_display.viewport_size = menu.size
 		menu_display.screen_size = Vector2(screen_width, MENU_SCREEN_HEIGHT)
 	menu_display.connect_scene_signal("scene_switch_requested", _switch_menu)
