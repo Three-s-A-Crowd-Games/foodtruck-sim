@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://5nfbqltfl5h6" path="res://assets/startscreen/buttons/forward-btn-hover.png" id="9_xtsyo"]
 [ext_resource type="Texture2D" uid="uid://213wudljyi2u" path="res://assets/startscreen/buttons/back-btn-hover.png" id="13_iuci3"]
 
-[node name="MainMenu" type="CanvasLayer"]
+[node name="TutorialMenu" type="CanvasLayer"]
 script = ExtResource("1_6gtcr")
 
 [node name="tutorial-menu" type="VBoxContainer" parent="."]
@@ -40,46 +40,42 @@ horizontal_alignment = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu"]
 layout_mode = 2
 
-[node name="contents" type="Panel" parent="tutorial-menu/HBoxContainer"]
-custom_minimum_size = Vector2(150, 600)
+[node name="video" type="Panel" parent="tutorial-menu/HBoxContainer"]
+custom_minimum_size = Vector2(955, 600)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="tutorial-menu/HBoxContainer/contents"]
+[node name="CenterContainer" type="CenterContainer" parent="tutorial-menu/HBoxContainer/video"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -477.0
+offset_top = -184.0
+offset_right = 477.0
+offset_bottom = 184.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="video-title" type="Button" parent="tutorial-menu/HBoxContainer/contents/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu/HBoxContainer/video/CenterContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-text = "video 1"
 
-[node name="video" type="Panel" parent="tutorial-menu/HBoxContainer"]
-custom_minimum_size = Vector2(700, 600)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="HBoxContainer" type="HBoxContainer" parent="tutorial-menu/HBoxContainer/video"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="video-back" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/HBoxContainer"]
+[node name="video-back" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("1_a8owp")
 texture_pressed = ExtResource("2_7gbhm")
 texture_hover = ExtResource("5_74wxw")
 texture_disabled = ExtResource("3_w43jf")
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="tutorial-menu/HBoxContainer/video/HBoxContainer"]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+loop = true
 
-[node name="video-skip" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/HBoxContainer"]
+[node name="video-skip" type="TextureButton" parent="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer"]
 layout_mode = 2
 texture_normal = ExtResource("4_sudxm")
 texture_pressed = ExtResource("5_pl6x5")
@@ -92,3 +88,6 @@ texture_normal = ExtResource("1_m86jq")
 texture_pressed = ExtResource("2_q5j3k")
 texture_hover = ExtResource("13_iuci3")
 stretch_mode = 3
+
+[connection signal="pressed" from="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer/video-back" to="." method="_on_back"]
+[connection signal="pressed" from="tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer/video-skip" to="." method="_on_forward"]

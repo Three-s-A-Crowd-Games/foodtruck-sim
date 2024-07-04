@@ -1,4 +1,43 @@
 extends MenuBase
 
+enum TutorialType {
+	PotatoCutting,
+	Slicing
+}
+
+var video_dict :Dictionary = {
+	TutorialType.PotatoCutting: preload("res://assets/video/TutorialPotatoCutting.ogv"),
+	TutorialType.Slicing: preload("res://assets/video/TutorialSlicing.ogv")
+}
+
+@onready var v_player := $"tutorial-menu/HBoxContainer/video/CenterContainer/HBoxContainer/VideoStreamPlayer" 
+
+var current_video :TutorialType = -1
+
 func _ready() -> void:
 	$"tutorial-menu/back-button".pressed.connect(scene_switch_requested.emit.bind(MainMenuStage.SceneType.MAIN))
+	switch_tutorial(TutorialType.PotatoCutting)
+
+func switch_tutorial(type :TutorialType) -> void:
+	if current_video == type:
+		return
+	if v_player.is_playing():
+		v_player.stop()
+		v_player.set_stream(null)
+	current_video = type
+	v_player.set_stream(video_dict[type])
+	v_player.play()
+
+func _on_forward():
+	match (current_video):
+		TutorialType.PotatoCutting:
+			switch_tutorial(TutorialType.Slicing)
+		_:
+			switch_tutorial(TutorialType.PotatoCutting)
+
+func _on_back():
+	match (current_video):
+		TutorialType.Slicing:
+			switch_tutorial(TutorialType.PotatoCutting)
+		_:
+			switch_tutorial(TutorialType.Slicing)
