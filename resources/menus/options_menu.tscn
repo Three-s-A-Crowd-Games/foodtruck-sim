@@ -303,7 +303,7 @@ icon_alignment = 1
 [node name="rock-hard-check" type="CheckBox" parent="options-menu/categories/music-genre/music-genre/checkboxes"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 30
-text = "JAZZ"
+text = "ROCK-HARD"
 alignment = 1
 icon_alignment = 1
 
