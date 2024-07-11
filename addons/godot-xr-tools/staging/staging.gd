@@ -248,6 +248,10 @@ func load_scene(p_scene_path : String, user_data = null) -> void:
 	await get_tree().create_timer(0.1).timeout
 	current_scene.scene_loaded(user_data)
 	scene_loaded.emit(current_scene, user_data)
+	if $LoadingSound.playing:
+		var tw := create_tween()
+		tw.tween_property($LoadingSound, "volume_db", -60, 4).set_trans(Tween.TRANS_EXPO)
+		tw.tween_callback($LoadingSound.stop)
 
 	# Fade to visible
 	if _tween:
@@ -293,8 +297,10 @@ func _on_exit_to_main_menu():
 	load_scene(main_scene)
 
 
-func _on_load_scene(p_scene_path : String, user_data):
+func _on_load_scene(p_scene_path : String, user_data, play_loading_sound: bool = true):
 	load_scene(p_scene_path, user_data)
+	if play_loading_sound:
+		$LoadingSound.play()
 
 
 func _on_reset_scene(user_data):

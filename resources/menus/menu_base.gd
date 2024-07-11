@@ -4,7 +4,16 @@ extends CanvasLayer
 
 signal scene_switch_requested(menu: MainMenuStage.SceneType)
 
+const BUTTON_CLICK_SOUND: AudioStream = preload("res://audio/sfx/menu/click1.mp3")
+
+var sfx_player: AudioStreamPlayer3D
+
 @onready var size: Vector2 = get_child(0).size
+
+func _request_scene_switch(to: MainMenuStage.SceneType) -> void:
+	scene_switch_requested.emit(to)
+	sfx_player.stream = BUTTON_CLICK_SOUND
+	sfx_player.play()
 
 func _get_configuration_warnings() -> PackedStringArray:
 	var out: PackedStringArray

@@ -20,10 +20,13 @@ var title_dict :Dictionary = {
 var current_video :TutorialType = -1
 
 func _ready() -> void:
-	$"tutorial-menu/back-button".pressed.connect(scene_switch_requested.emit.bind(MainMenuStage.SceneType.MAIN))
+	$"tutorial-menu/back-button".pressed.connect(_request_scene_switch.bind(MainMenuStage.SceneType.MAIN))
 	switch_tutorial(TutorialType.PotatoCutting)
 
 func switch_tutorial(type :TutorialType) -> void:
+	if sfx_player:
+		sfx_player.stream = BUTTON_CLICK_SOUND
+		sfx_player.play()
 	if current_video == type:
 		return
 	if v_player.is_playing():

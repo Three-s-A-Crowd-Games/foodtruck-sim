@@ -19,9 +19,10 @@ const menu_dic: Dictionary = {
 const MENU_SCREEN_HEIGHT := 3
 const MAIN_MENU_SCREEN_HEIGHT := 1.5
 
-var size := {}
+var menu_sizes := {}
 
 @onready var menu_display := $MenuDisplay
+@onready var menu_sfx_player := $MenuDisplay/MenuSFXPlayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -34,20 +35,20 @@ func _switch_menu(to: SceneType) -> void:
 		load_scene("res://resources/main.tscn")
 		MusicManager.create_playlist()
 		return
-	if size.has(to):
-		menu_display.viewport_size = size[to]
-		menu_display.screen_size = Vector2(size[to].x / size[to].y * MENU_SCREEN_HEIGHT, MENU_SCREEN_HEIGHT)
+	if menu_sizes.has(to):
+		menu_display.viewport_size = menu_sizes[to]
+		menu_display.screen_size = Vector2(menu_sizes[to].x / menu_sizes[to].y * MENU_SCREEN_HEIGHT, MENU_SCREEN_HEIGHT)
 	menu_display.set_scene(menu_dic[to])
 	var menu: MenuBase = menu_display.get_scene_instance()
 	var screen_width: float
 	if menu:
 		screen_width = menu.size.x / menu.size.y * MENU_SCREEN_HEIGHT
+		menu.sfx_player = menu_sfx_player
 	else:
 		push_error("Failed to switch to scene: ", SceneType.keys()[to])
 		return
-	printt(SceneType.keys()[to], menu, menu.size)
-	if not size.has(to):
-		size[to] = menu.size
+	if not menu_sizes.has(to):
+		menu_sizes[to] = menu.size
 		menu_display.viewport_size = menu.size
 		menu_display.screen_size = Vector2(screen_width, MENU_SCREEN_HEIGHT)
 	menu_display.connect_scene_signal("scene_switch_requested", _switch_menu)
