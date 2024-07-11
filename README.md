@@ -132,3 +132,15 @@ http://creativecommons.org/licenses/by/4.0/
 - "Guess Who" Kevin MacLeod (incompetech.com)  
 Licensed under Creative Commons: By Attribution 4.0 License  
 http://creativecommons.org/licenses/by/4.0/
+
+"Vibing Over Venus" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+"Morning" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+"Evening" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
