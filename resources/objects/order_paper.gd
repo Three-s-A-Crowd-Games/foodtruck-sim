@@ -39,7 +39,7 @@ func set_order(le_order :Order):
 	
 	#Main
 	if(!le_order.main_recipe.ingredients.is_empty()):
-		var ingr_list_rev = le_order.main_recipe.ingredients
+		var ingr_list_rev = le_order.main_recipe.ingredients.duplicate()
 		ingr_list_rev.reverse()
 		for ingr in ingr_list_rev:
 			var path_to_tex = Ingredient.ingredients[ingr].get(Ingredient.Order_Paper_Tex)

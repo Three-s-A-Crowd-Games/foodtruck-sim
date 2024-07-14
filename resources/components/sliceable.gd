@@ -196,6 +196,7 @@ func _get_slice_transform(mesh_node_basis: Basis) -> Transform3D:
 
 func _create_slice(mesh: Mesh) -> BurgerPart:
 	var slice: BurgerPart = slice_scene.instantiate()
+	slice.type = _sliceable.type
 	slice.transform = _sliceable.transform
 	slice.transform.origin += slice.basis.x * (slice_width+slice_spawn_seperation_distance) * (slices_left +1)
 	slice.position.y = original_size.y/2 + 0.02 + _sliceable.position.y

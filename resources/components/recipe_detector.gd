@@ -9,9 +9,7 @@ func check_for_recipe(recipe: Recipe) -> bool:
 	if not is_instance_valid(recipe):
 		return false
 	
-	var rev_ingredients = recipe.ingredients
-	rev_ingredients.reverse()
-	return _recursive_check(rev_ingredients, 0, picked_up_object)
+	return _recursive_check(recipe.ingredients, 0, picked_up_object)
 
 func pick_up_object(body :Node3D):
 	super.pick_up_object(body)
@@ -55,7 +53,7 @@ func _recursive_check(ingredients: Array[Ingredient.Type], index: int, rawObject
 	# All other elements
 	index += 1
 	if object.type != ingredients[index-1]:
-		printt("WrongItem", object.type)
+		prints("WrongItem", Ingredient.Type.keys()[object.type], "at index", index-1)
 		return false
 	else:
 		#Check if Cooked/Fried

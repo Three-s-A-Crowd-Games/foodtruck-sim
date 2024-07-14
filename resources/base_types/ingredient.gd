@@ -11,28 +11,28 @@ enum Category{
 }
 
 enum Type{
-	BUN_TOP,
-	BUN_BOTTOM,
-	PATTY,
-	FRIES,
-	TOMATO,
-	POTATO,
-	LETTUCE,
-	CHEESE,
-	ONION,
-	CUCUMBER,
-	WATER,
-	COKE,
-	FANTA,
-	ORANGE_JUICE,
-	GREEN_JUICE,
-	PINK_JUICE,
-	KETCHUP,
-	BBQ,
-	MUSTARD,
-	WEDGES,
-	BACON,
-	V_PATTY,
+	BUN_TOP,		#0
+	BUN_BOTTOM,		#1
+	PATTY,			#2
+	FRIES,			#3
+	TOMATO,			#4
+	POTATO,			#5
+	LETTUCE,		#6
+	CHEESE,			#7
+	ONION,			#8
+	CUCUMBER,		#9
+	WATER,			#10
+	COKE,			#11
+	FANTA,			#12
+	ORANGE_JUICE,	#13
+	GREEN_JUICE,	#14
+	PINK_JUICE,		#15
+	KETCHUP,		#16
+	BBQ,			#17
+	MUSTARD,		#18
+	WEDGES,			#19
+	BACON,			#20
+	V_PATTY,		#21
 }
 
 enum Constraints{

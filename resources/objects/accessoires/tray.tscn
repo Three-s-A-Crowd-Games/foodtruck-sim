@@ -40,7 +40,7 @@ script = ExtResource("11_mxa8p")
 name = ""
 drop_sound = SubResource("AudioStreamRandomizer_twhti")
 
-[node name="Tray" instance=ExtResource("1_xu6s3")]
+[node name="Tray" groups=["consumables", "customer_carryable"] instance=ExtResource("1_xu6s3")]
 collision_mask = 8388615
 mass = 0.25
 freeze = true

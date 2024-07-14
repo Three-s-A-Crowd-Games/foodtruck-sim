@@ -69,9 +69,7 @@ func happy(le_tray :Node3D):
 	make_sound(SoundType.HAPPY)
 	can_leave = true
 	tray = le_tray
-	tray.get_parent().remove_child(tray)
-	$TrayCarrier.add_child(tray)
-	tray.position = Vector3(0,0,0)
+	tray.pick_up($TrayCarrier)
 
 func make_sound(sound_type: SoundType) -> void:
 	audio_player.stream = sound_type_stream[sound_type]

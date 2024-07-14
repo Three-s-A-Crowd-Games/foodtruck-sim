@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/audio_node_wrangler/plugin.cfg", "res://
 [global_group]
 
 appliances="Tools the player can use and that should be respawnable"
+customer_carryable="A pickable Object that can be carried by a customers hand"
 
 [input]
 

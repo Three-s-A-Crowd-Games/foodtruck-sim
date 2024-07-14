@@ -94,9 +94,13 @@ func _on_burger_stack_zone_has_picked_up(what: BurgerPart):
 	prints(what.name, "picked up by", name)
 	if not is_reversing:
 		stack_zone.transform = get_current_stack_zone_trans(what)
-		var root = get_stack_root()
-		root.mass += what.mass
-		root.center_of_mass.y += what.center_of_mass.y + burger_part_seperation_distance/2
+		call_deferred("add_mass_of_picked_up_object", what)
+	
+
+func _add_mass_of_picked_up_object(what: BurgerPart) -> void:
+	var root = get_stack_root()
+	root.mass += what.mass
+	root.center_of_mass.y += what.center_of_mass.y + burger_part_seperation_distance/2
 	
 
 func _on_burger_stack_zone_has_dropped(what: BurgerPart):

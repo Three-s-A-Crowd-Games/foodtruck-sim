@@ -1630,7 +1630,7 @@ size = Vector3(0.0147419, 0.231293, 0.830749)
 size = Vector3(0.44519, 0.0537109, 1.21478)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_c0r1p"]
-size = Vector3(2.69165, 2.30957, 3.31116)
+size = Vector3(20, 0.3, 20)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("1_d3g8y")
@@ -2335,12 +2335,10 @@ light_data = ExtResource("40_yfmbj")
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.985225, 0.855082, 0.171955)
 
 [node name="DeletingArea" type="Area3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80543, 0.849616)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.335436, 0.849616)
 script = ExtResource("47_pk1hd")
-detect_mode = "ON_EXIT"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DeletingArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.25409)
 shape = SubResource("BoxShape3D_c0r1p")
 
 [node name="Radio" parent="." instance=ExtResource("46_qocor")]
