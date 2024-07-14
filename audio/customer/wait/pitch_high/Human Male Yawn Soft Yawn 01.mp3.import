@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g0etsarftwaq"
+path="res://.godot/imported/Human Male Yawn Soft Yawn 01.mp3-abeae2150d7cbdd31428a6438313b414.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/wait/pitch_high/Human Male Yawn Soft Yawn 01.mp3"
+dest_files=["res://.godot/imported/Human Male Yawn Soft Yawn 01.mp3-abeae2150d7cbdd31428a6438313b414.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

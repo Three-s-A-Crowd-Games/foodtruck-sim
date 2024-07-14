@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://c54y4lqme3kal"]
+
+[ext_resource type="Script" path="res://resources/objects/furniture/food_bucket.gd" id="1_j6oae"]
+[ext_resource type="PackedScene" uid="uid://c43mpw7y30r72" path="res://resources/food/burger_parts/bun_bottom.tscn" id="2_3uq4g"]
+[ext_resource type="PackedScene" uid="uid://dp1po2dj134jq" path="res://assets/models/objects/furniture/bun_box_holder.blend" id="3_ajodj"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g2dah"]
+resource_local_to_scene = true
+size = Vector3(0.217834, 0.101436, 0.218262)
+
+[node name="BunBottomBox" type="Node3D"]
+
+[node name="ExitDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.849147, -0.528157, 0, 0.528157, 0.849147, 0, 0.161268, 0.0572302)
+collision_layer = 0
+collision_mask = 65536
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ExitDetector"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00234985, -0.0614861, 0.00366211)
+shape = SubResource("BoxShape3D_g2dah")
+
+[node name="Content" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.849147, -0.528157, 0, 0.528157, 0.849147, 0, 0.0532582, -0.00995031)
+script = ExtResource("1_j6oae")
+item_scene = ExtResource("2_3uq4g")
+
+[node name="BunBottom" parent="Content" instance=ExtResource("2_3uq4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0183323, 0)
+
+[node name="BunBottom2" parent="Content" instance=ExtResource("2_3uq4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0403022, 0)
+
+[node name="BunBottom3" parent="Content" instance=ExtResource("2_3uq4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0614316, 0)
+
+[node name="BunBottom4" parent="Content" instance=ExtResource("2_3uq4g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0828428, 0)
+
+[node name="bun_box_holder" parent="." instance=ExtResource("3_ajodj")]
+
+[connection signal="body_exited" from="ExitDetector" to="Content" method="_on_exit_detector_body_exited"]

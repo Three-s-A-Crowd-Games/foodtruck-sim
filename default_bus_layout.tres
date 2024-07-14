@@ -1,0 +1,82 @@
+[gd_resource type="AudioBusLayout" load_steps=4 format=3 uid="uid://dfqbpintqyjln"]
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_obcuw"]
+resource_name = "Limiter"
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_5c18i"]
+resource_name = "Reverb"
+room_size = 0.41
+
+[sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_qhjg4"]
+resource_name = "EQ21"
+band_db/22_hz = -60.0
+band_db/32_hz = -60.0
+band_db/44_hz = -60.0
+band_db/63_hz = -60.0
+band_db/90_hz = -60.0
+band_db/125_hz = -60.0
+band_db/175_hz = -60.0
+band_db/250_hz = -60.0
+band_db/350_hz = -15.0
+band_db/500_hz = 1.0
+band_db/700_hz = 2.0
+band_db/1000_hz = 3.0
+band_db/1400_hz = 3.0
+band_db/2000_hz = 4.0
+band_db/2800_hz = 12.0
+band_db/4000_hz = 4.0
+band_db/5600_hz = 15.0
+band_db/8000_hz = -30.0
+band_db/11000_hz = -60.0
+band_db/16000_hz = -60.0
+band_db/22000_hz = -60.0
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectLimiter_obcuw")
+bus/0/effect/0/enabled = true
+bus/1/name = &"SFX"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = 0.0
+bus/1/send = &"Master"
+bus/2/name = &"Collision"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"SFX"
+bus/3/name = &"Ambience"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Master"
+bus/4/name = &"Indoor Ambience"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = 0.0
+bus/4/send = &"Ambience"
+bus/4/effect/0/effect = SubResource("AudioEffectReverb_5c18i")
+bus/4/effect/0/enabled = true
+bus/5/name = &"Outdoor Ambience"
+bus/5/solo = false
+bus/5/mute = false
+bus/5/bypass_fx = false
+bus/5/volume_db = -0.00162125
+bus/5/send = &"Ambience"
+bus/6/name = &"Music"
+bus/6/solo = false
+bus/6/mute = false
+bus/6/bypass_fx = false
+bus/6/volume_db = 0.0
+bus/6/send = &"Master"
+bus/6/effect/0/effect = SubResource("AudioEffectEQ21_qhjg4")
+bus/6/effect/0/enabled = true
+bus/7/name = &"Voicelines"
+bus/7/solo = false
+bus/7/mute = false
+bus/7/bypass_fx = false
+bus/7/volume_db = 0.0
+bus/7/send = &"Master"

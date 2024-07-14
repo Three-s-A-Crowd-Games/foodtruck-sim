@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://doqn4cetycndv"]
+
+[ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_cqv41"]
+[ext_resource type="PackedScene" uid="uid://bn7400sgof75r" path="res://resources/components/sliceable.tscn" id="2_db2kg"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n8f2a"]
+height = 1.5
+radius = 0.1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qneac"]
+top_radius = 0.1
+bottom_radius = 0.1
+height = 1.5
+
+[node name="FoodPiece" instance=ExtResource("1_cqv41")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+rotation_edit_mode = 2
+shape = SubResource("CylinderShape3D_n8f2a")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_qneac")
+
+[node name="Sliceable" parent="." index="2" node_paths=PackedStringArray("_mesh_node_or_parent") instance=ExtResource("2_db2kg")]
+slice_count = 30
+_mesh_node_or_parent = NodePath("../MeshInstance3D")

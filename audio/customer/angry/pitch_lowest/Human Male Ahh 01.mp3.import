@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://q0eclnmq0u4k"
+path="res://.godot/imported/Human Male Ahh 01.mp3-63920214bcaea24727864702c840ed00.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/angry/pitch_lowest/Human Male Ahh 01.mp3"
+dest_files=["res://.godot/imported/Human Male Ahh 01.mp3-63920214bcaea24727864702c840ed00.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

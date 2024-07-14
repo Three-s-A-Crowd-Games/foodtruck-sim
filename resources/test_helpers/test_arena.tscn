@@ -1,0 +1,172 @@
+[gd_scene load_steps=26 format=3 uid="uid://5b36bokc0k4k"]
+
+[ext_resource type="Script" path="res://resources/main.gd" id="1_5moal"]
+[ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="1_8xdyp"]
+[ext_resource type="PackedScene" uid="uid://doqn4cetycndv" path="res://resources/test_helpers/food_piece.tscn" id="2_ek6i4"]
+[ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="4_xjd3b"]
+[ext_resource type="PackedScene" uid="uid://by6wtlw1qh67" path="res://resources/food/tomato.tscn" id="5_6vayu"]
+[ext_resource type="Script" path="res://resources/audio_helper/animalese_player.gd" id="6_hwbr7"]
+[ext_resource type="PackedScene" uid="uid://dvrvbjk0evblt" path="res://resources/food/cucumber.tscn" id="6_syx2q"]
+[ext_resource type="PackedScene" uid="uid://dec5p1w8uxafs" path="res://resources/food/onion.tscn" id="7_g5l8d"]
+[ext_resource type="PackedScene" uid="uid://btgalluoa7ukb" path="res://resources/test_helpers/cone.tscn" id="8_gyeit"]
+[ext_resource type="PackedScene" uid="uid://c43mpw7y30r72" path="res://resources/food/burger_parts/bun_bottom.tscn" id="9_bnktn"]
+[ext_resource type="PackedScene" uid="uid://b0e07jtb6csss" path="res://resources/food/burger_parts/bacon.tscn" id="11_4mdx6"]
+[ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="11_x88sq"]
+[ext_resource type="PackedScene" uid="uid://um05xwvrkanf" path="res://resources/objects/order_paper.tscn" id="12_wxbvo"]
+[ext_resource type="PackedScene" uid="uid://3urchnywicj" path="res://resources/objects/appliances/Trashcan.tscn" id="14_id316"]
+[ext_resource type="PackedScene" uid="uid://bw18w7lqkorf5" path="res://resources/objects/appliances/frying_basket.tscn" id="15_agif4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
+sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
+sky_horizon_color = Color(0.646078, 0.655975, 0.670505, 1)
+ground_horizon_color = Color(0.646078, 0.655975, 0.670505, 1)
+
+[sub_resource type="Sky" id="Sky_ux0ev"]
+sky_material = SubResource("ProceduralSkyMaterial_m270m")
+
+[sub_resource type="Environment" id="Environment_epmoj"]
+background_mode = 2
+sky = SubResource("Sky_ux0ev")
+tonemap_mode = 2
+
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ia6rj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kksl4"]
+albedo_color = Color(0.0901961, 0.137255, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kynpv"]
+material = SubResource("StandardMaterial3D_kksl4")
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6nylu"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_u47ly"]
+resource_local_to_scene = true
+size = Vector3(1, 8, 20)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ac5aa"]
+size = Vector3(20, 8, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6ju8"]
+size = Vector3(2, 1, 2)
+
+[node name="TestArena" type="Node3D"]
+script = ExtResource("1_5moal")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_epmoj")
+camera_attributes = SubResource("CameraAttributesPhysical_ia6rj")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="."]
+collision_layer = 8388609
+collision_mask = 65537
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+mesh = SubResource("BoxMesh_kynpv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_6nylu")
+
+[node name="CollisionShape3D6" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8, 0)
+shape = SubResource("BoxShape3D_6nylu")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 4, 0)
+shape = SubResource("BoxShape3D_u47ly")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4, 0)
+shape = SubResource("BoxShape3D_u47ly")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, -10)
+shape = SubResource("BoxShape3D_ac5aa")
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 10)
+shape = SubResource("BoxShape3D_ac5aa")
+
+[node name="InvisibleCounter" type="StaticBody3D" parent="."]
+collision_layer = 8388609
+collision_mask = 65537
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InvisibleCounter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("BoxShape3D_t6ju8")
+
+[node name="Cube" parent="." instance=ExtResource("1_8xdyp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.348558, 1.06296, -0.447136)
+collision_mask = 131079
+
+[node name="FoodPiece" parent="." instance=ExtResource("2_ek6i4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.958683, 2.93693)
+collision_mask = 196615
+
+[node name="Knife" parent="." instance=ExtResource("4_xjd3b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.575992, 1.14486, -0.609377)
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59908, 0, 0.0708036)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+bus = &"Voicelines"
+script = ExtResource("6_hwbr7")
+
+[node name="Tomato" parent="." instance=ExtResource("5_6vayu")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.621212, 1.21086, 0.54284)
+
+[node name="Sliceable" parent="Tomato" index="2" node_paths=PackedStringArray("_mesh_node_or_parent", "mesh_node_to_delete")]
+monitoring = true
+_mesh_node_or_parent = NodePath("../tomato2/tomato")
+mesh_node_to_delete = NodePath("../tomato2/tomato_stem")
+slice_sound_type = "Normal"
+
+[node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11529, 0)
+
+[node name="Sliceable" parent="Onion" index="2" node_paths=PackedStringArray("_mesh_node_or_parent")]
+monitoring = true
+_mesh_node_or_parent = NodePath("../onion")
+slice_sound_type = "Normal"
+
+[node name="Cucumber" parent="." instance=ExtResource("6_syx2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358656, 1, 0.279034)
+
+[node name="Sliceable" parent="Cucumber" index="1" node_paths=PackedStringArray("_mesh_node_or_parent")]
+monitoring = true
+_mesh_node_or_parent = NodePath("../cucumber")
+
+[node name="Cone" parent="." instance=ExtResource("8_gyeit")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176819, 1.15495, -0.435212)
+
+[node name="BunBottom" parent="." instance=ExtResource("9_bnktn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.783903, 1.00903, 0)
+
+[node name="Bacon" parent="." instance=ExtResource("11_4mdx6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.25033, 0.406181)
+
+[node name="OrderPaper" parent="." instance=ExtResource("12_wxbvo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.547668, 1.67304, -0.45851)
+
+[node name="Potato" parent="." instance=ExtResource("11_x88sq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.316388, 1.13906, 0)
+
+[node name="Trashcan" parent="." instance=ExtResource("14_id316")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28889, 0.561831, 0.618918)
+
+[node name="FryingBasket" parent="." instance=ExtResource("15_agif4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11269, 0.0944577, -0.899854)
+
+[editable path="Tomato"]
+[editable path="Tomato/tomato2"]
+[editable path="Onion"]
+[editable path="Cucumber"]
+[editable path="Cucumber/cucumber"]

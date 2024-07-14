@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgkwbpbs8uox4"]
+
+[ext_resource type="Texture2D" uid="uid://x03cq57c80in" path="res://assets/2d_images/Empty_Bar.png" id="1_m6tgg"]
+[ext_resource type="Script" path="res://resources/objects/furniture/order_progress_display.gd" id="1_yucef"]
+[ext_resource type="Texture2D" uid="uid://1gghtxd3vkur" path="res://assets/2d_images/Full_Bar.png" id="2_550al"]
+[ext_resource type="FontFile" uid="uid://c5xnb0e4ayhje" path="res://assets/font/AgencyFB-Bold.ttf" id="2_vp7w0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_olq14"]
+font = ExtResource("2_vp7w0")
+font_size = 128
+
+[node name="OrderProgressDisplay" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 40
+script = ExtResource("1_yucef")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+text = "#01"
+label_settings = SubResource("LabelSettings_olq14")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 75
+theme_override_constants/margin_right = 75
+
+[node name="Label" type="Label" parent="CenterContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_olq14")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CenterContainer/HBoxContainer"]
+layout_mode = 2
+texture_under = ExtResource("1_m6tgg")
+texture_progress = ExtResource("2_550al")

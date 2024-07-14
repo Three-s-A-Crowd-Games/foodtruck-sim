@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cyquot0luo414"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjf45"]
+resource_local_to_scene = true
+size = Vector3(0.0236969, 0.0543213, 0.639404)
+
+[node name="PinningArea" type="Area3D" groups=["pinning_zone"]]
+collision_layer = 67108864
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jjf45")

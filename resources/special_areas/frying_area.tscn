@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://oa4nb5wne6a6"]
+
+[ext_resource type="Script" path="res://resources/special_areas/frying_area.gd" id="1_v6wvc"]
+[ext_resource type="AudioStream" uid="uid://bj2mx8rjeom4h" path="res://audio/sfx/cooking/fry/fry_idle.mp3" id="2_jqy48"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjf45"]
+resource_local_to_scene = true
+size = Vector3(0.625122, 0.0263672, 0.639404)
+
+[node name="FryingArea" type="Area3D"]
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+script = ExtResource("1_v6wvc")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_jjf45")
+
+[node name="IdleAudioPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.963052, -0.131518)
+stream = ExtResource("2_jqy48")
+bus = &"Ambience"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

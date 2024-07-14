@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d3skymh23firy"
+path="res://.godot/imported/Human Male Ooh Disgusted Ooh 01.mp3-fc139c987b27c14b8d3c4986e6ddae59.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/angry/pitch_normal/Human Male Ooh Disgusted Ooh 01.mp3"
+dest_files=["res://.godot/imported/Human Male Ooh Disgusted Ooh 01.mp3-fc139c987b27c14b8d3c4986e6ddae59.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

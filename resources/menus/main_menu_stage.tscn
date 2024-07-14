@@ -1,0 +1,65 @@
+[gd_scene load_steps=11 format=3 uid="uid://h6hq3d0qcao5"]
+
+[ext_resource type="Script" path="res://resources/menus/main_menu_stage.gd" id="1_0wt60"]
+[ext_resource type="PackedScene" uid="uid://cx8m4qq3trsl" path="res://assets/startscreen/funny_bend.blend" id="2_sc840"]
+[ext_resource type="Texture2D" uid="uid://ds0bri7ergtkj" path="res://assets/startscreen/menu_background_4k.png" id="3_sfgfx"]
+[ext_resource type="PackedScene" uid="uid://clujaf3u776a3" path="res://addons/godot-xr-tools/objects/viewport_2d_in_3d.tscn" id="4_3dyxq"]
+[ext_resource type="AudioStream" uid="uid://b2b58lj8td3p4" path="res://audio/music/menu/Evening.mp3" id="5_tcbop"]
+[ext_resource type="AudioStream" uid="uid://cltb7uo3xejte" path="res://audio/music/menu/Morning.mp3" id="6_yqota"]
+[ext_resource type="AudioStream" uid="uid://w3xa0awbirld" path="res://audio/music/menu/Vibing Over Venus.mp3" id="7_wbp7l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o1vwi"]
+size = Vector3(20, 0.2, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ckmmi"]
+shading_mode = 0
+albedo_color = Color(0.641934, 0.641934, 0.641934, 1)
+albedo_texture = ExtResource("3_sfgfx")
+texture_filter = 1
+grow = true
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ip4rg"]
+streams_count = 3
+stream_0/stream = ExtResource("5_tcbop")
+stream_1/stream = ExtResource("6_yqota")
+stream_2/stream = ExtResource("7_wbp7l")
+
+[node name="MainMenuStage" type="Node3D"]
+script = ExtResource("1_0wt60")
+
+[node name="SpawnPoint" type="Marker3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.998869, -0.0101345, -0.0464497, 0.0475423, 0.212926, 0.975911, 0, -0.977016, 0.213167, 0, 13.8357, 0)
+light_intensity_lux = 25.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+collision_layer = 8388609
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_o1vwi")
+
+[node name="funny_bend" parent="." instance=ExtResource("2_sc840")]
+transform = Transform3D(-2.18557e-06, 0, -50, 0, 50, 0, 50, 0, -2.18557e-06, 0, 0, 0)
+
+[node name="Cylinder" parent="funny_bend" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.00141, 0, -1.74907e-07)
+material_override = SubResource("StandardMaterial3D_ckmmi")
+
+[node name="MenuDisplay" parent="." instance=ExtResource("4_3dyxq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.59155, -2.96293)
+unshaded = true
+
+[node name="MenuSFXPlayer" type="AudioStreamPlayer3D" parent="MenuDisplay"]
+unit_size = 15.0
+max_polyphony = 3
+bus = &"SFX"
+
+[node name="MenuMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ip4rg")
+volume_db = -12.0
+autoplay = true
+bus = &"Music"
+
+[editable path="funny_bend"]

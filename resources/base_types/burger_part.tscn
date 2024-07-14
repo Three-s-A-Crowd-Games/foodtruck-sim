@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://boqvit30nfpff"]
+
+[ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_ofrt4"]
+[ext_resource type="Script" path="res://resources/base_types/burger_part.gd" id="2_fyhlw"]
+[ext_resource type="PackedScene" uid="uid://c4ldylr6ugs4s" path="res://resources/components/burger_stack_zone.tscn" id="3_3dn0k"]
+
+[node name="BurgerPart" groups=["burger_part"] instance=ExtResource("1_ofrt4")]
+mass = 0.2
+center_of_mass_mode = 1
+script = ExtResource("2_fyhlw")
+ranged_grab_method = 3
+second_hand_grab = 1
+
+[node name="BurgerStackZone" parent="." index="1" instance=ExtResource("3_3dn0k")]

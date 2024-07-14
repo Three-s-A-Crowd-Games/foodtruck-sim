@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c43mpw7y30r72"]
+
+[ext_resource type="PackedScene" uid="uid://boqvit30nfpff" path="res://resources/base_types/burger_part.tscn" id="1_cjmcw"]
+[ext_resource type="PackedScene" uid="uid://cnsemmhmy7i3m" path="res://assets/models/food/bottom_bun.blend" id="1_h8gn1"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ccxtb"]
+height = 0.0118694
+radius = 0.06
+
+[node name="BunBottom" instance=ExtResource("1_cjmcw")]
+mass = 0.04
+center_of_mass = Vector3(0, 0.01, 0)
+type = 1
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00666172, 0)
+shape = SubResource("CylinderShape3D_ccxtb")
+
+[node name="BunBottom" parent="." index="1" instance=ExtResource("1_h8gn1")]
+
+[editable path="BunBottom"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cntf60lrcpidg"
+path="res://.godot/imported/Human Male Burp 02.mp3-179bcee75e778fff6e492c80ad6f7f0d.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/satisfied/pitch_lowest/Human Male Burp 02.mp3"
+dest_files=["res://.godot/imported/Human Male Burp 02.mp3-179bcee75e778fff6e492c80ad6f7f0d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

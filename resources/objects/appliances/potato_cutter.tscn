@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://b43qe84nsktof"]
+
+[ext_resource type="PackedScene" uid="uid://c80aiwmup0pf1" path="res://assets/models/objects/appliances/potato_cutter_bottom.blend" id="1_f1lyt"]
+[ext_resource type="Script" path="res://resources/objects/appliances/potato_cutter.gd" id="1_u3en0"]
+[ext_resource type="PackedScene" uid="uid://brhewcghesaex" path="res://assets/models/objects/appliances/potato_cutter_top.blend" id="2_p1ha5"]
+[ext_resource type="PackedScene" uid="uid://b0r6edl74ddo7" path="res://addons/godot-xr-tools/interactables/interactable_slider.tscn" id="2_wbi11"]
+[ext_resource type="PackedScene" uid="uid://bddj5m7ull6g0" path="res://addons/godot-xr-tools/interactables/interactable_handle.tscn" id="3_vn7le"]
+[ext_resource type="Script" path="res://audio/sfx/object_interaction/potato_cutter/potato_cutter-audio_normal.gd" id="7_dknf1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yp4h6"]
+size = Vector3(0.0123242, 0.085, 0.02)
+
+[sub_resource type="BoxMesh" id="BoxMesh_170ma"]
+size = Vector3(0.01, 0.12, 0.12)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ju1t"]
+size = Vector3(0.13, 0.16, 0.14)
+
+[node name="PotatoCutter" type="Node3D"]
+script = ExtResource("1_u3en0")
+
+[node name="potato_cutter_bottom" parent="." instance=ExtResource("1_f1lyt")]
+
+[node name="SliderOrigin" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.300236, 0.0892264)
+
+[node name="InteractableSlider" parent="SliderOrigin" instance=ExtResource("2_wbi11")]
+slider_limit_min = -0.265
+slider_limit_max = 0.0
+slider_steps = 0.0001
+default_on_release = true
+
+[node name="HandleOrigin" type="Node3D" parent="SliderOrigin/InteractableSlider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0183323, -0.00238158, -0.211675)
+
+[node name="InteractableHandle" parent="SliderOrigin/InteractableSlider/HandleOrigin" instance=ExtResource("3_vn7le")]
+mass = 0.1
+snap_distance = 0.15
+ranged_grab_method = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00116211, 0, 0)
+shape = SubResource("BoxShape3D_yp4h6")
+
+[node name="potato_cutter_top" parent="SliderOrigin/InteractableSlider" instance=ExtResource("2_p1ha5")]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.300236, 1.31237e-08, -0.0892264)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SliderOrigin/InteractableSlider"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0.0183323, -0.000351655, -0.0889733)
+cast_shadow = 3
+mesh = SubResource("BoxMesh_170ma")
+skeleton = NodePath("../HandleOrigin")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0952191, 0)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.707107, 0, 0.707107, 0, 1, 0, -0.707107, 0, 0.707107, 0, 0.0337125, 0)
+shape = SubResource("BoxShape3D_3ju1t")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.179712, 0)
+bus = &"SFX"
+script = ExtResource("7_dknf1")
+
+[connection signal="slider_limit_min_reached" from="SliderOrigin/InteractableSlider" to="." method="_on_interactable_slider_slider_limit_min_reached"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+
+[editable path="SliderOrigin/InteractableSlider"]
+[editable path="SliderOrigin/InteractableSlider/HandleOrigin/InteractableHandle"]

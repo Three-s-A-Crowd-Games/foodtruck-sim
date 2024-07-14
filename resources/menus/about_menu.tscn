@@ -1,0 +1,269 @@
+[gd_scene load_steps=7 format=3 uid="uid://2o450nho2yiq"]
+
+[ext_resource type="FontFile" uid="uid://cip4s84xxhr1q" path="res://assets/font/lao-mn.ttf" id="1_i1ked"]
+[ext_resource type="Texture2D" uid="uid://dr5r6kfulr3kv" path="res://assets/startscreen/buttons/back-btn.png" id="1_pjscc"]
+[ext_resource type="Script" path="res://resources/menus/about_menu.gd" id="1_yqdp1"]
+[ext_resource type="Texture2D" uid="uid://ttn3ge8xqhoa" path="res://assets/startscreen/buttons/back-btn-pressed.png" id="2_lj3th"]
+[ext_resource type="Texture2D" uid="uid://b3j5pyd4mys01" path="res://assets/startscreen/hdm-logo.png" id="2_t63s3"]
+[ext_resource type="Texture2D" uid="uid://213wudljyi2u" path="res://assets/startscreen/buttons/back-btn-hover.png" id="6_ah7ht"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("1_yqdp1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="LicencesSFX" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/LicencesSFX"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/LicencesSFX/MarginContainer"]
+layout_mode = 2
+
+[node name="licences-title" type="Label" parent="VBoxContainer/HBoxContainer/LicencesSFX/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i1ked")
+theme_override_font_sizes/font_size = 50
+text = "LICENCES SFX"
+horizontal_alignment = 1
+
+[node name="info" type="Label" parent="VBoxContainer/HBoxContainer/LicencesSFX/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "jppi_Stu
+https://freesound.org/people/jppi_Stu/sounds/16754/
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+Leoctiurs
+https://freesound.org/people/Leoctiurs/sounds/428278/
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+syntheffects
+https://freesound.org/people/syntheffects/sounds/611821/
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/"
+horizontal_alignment = 1
+
+[node name="Team" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Team"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/Team/MarginContainer"]
+custom_minimum_size = Vector2(530, 0)
+layout_mode = 2
+
+[node name="team-title" type="Label" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i1ked")
+theme_override_font_sizes/font_size = 50
+text = "TEAM"
+horizontal_alignment = 1
+
+[node name="dev-title" type="Label" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i1ked")
+theme_override_font_sizes/font_size = 25
+text = "GAME DEVELOPMENT"
+horizontal_alignment = 1
+
+[node name="devs" type="Label" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Janno Jens, Medieninformatik, Semester 6
+Henry Ruß, Medieninformatik, Semester 6
+Bruno Serra, Game Development, Semester 4"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="art-title" type="Label" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i1ked")
+theme_override_font_sizes/font_size = 25
+text = "GAME ART"
+horizontal_alignment = 1
+
+[node name="artists" type="Label" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Lea Junker, Medieninformatik, Semester 6
+Petya Ivanova, Mobile Medien, Semester 6
+Bassam Mednini, Mobile Medien, Semester 7"
+horizontal_alignment = 1
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="design-title" type="Label" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i1ked")
+theme_override_font_sizes/font_size = 25
+text = "GAME DESIGN"
+horizontal_alignment = 1
+
+[node name="designer" type="Label" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Benedek Lovas, Game Development, Semester 6"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="sound-title" type="Label" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i1ked")
+theme_override_font_sizes/font_size = 25
+text = "SOUND DESIGN"
+horizontal_alignment = 1
+
+[node name="sound-designer" type="Label" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Henry Ruß, Medieninformatik, Semester 6"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HdM-logo" type="TextureRect" parent="VBoxContainer/HBoxContainer/Team/MarginContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_t63s3")
+stretch_mode = 3
+
+[node name="LicencesMusic" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer/LicencesMusic"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/LicencesMusic/MarginContainer"]
+layout_mode = 2
+
+[node name="licences-title" type="Label" parent="VBoxContainer/HBoxContainer/LicencesMusic/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_i1ked")
+theme_override_font_sizes/font_size = 50
+text = "LICENCES MUSIC"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/LicencesMusic/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(530, 0)
+layout_mode = 2
+
+[node name="info1" type="Label" parent="VBoxContainer/HBoxContainer/LicencesMusic/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+text = "\"Metalmania\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"RetroFuture Nasty\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Motherlode\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Take the Lead\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Eighties Action\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Bet You Can\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Feral Angel Waltz\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Vibing Over Venus\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Evening\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/"
+horizontal_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer/LicencesMusic/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="info2" type="Label" parent="VBoxContainer/HBoxContainer/LicencesMusic/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 9
+text = "\"Burn The World Waltz\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Raw\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"What You Want (version 2)\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Pulse\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Modern Jazz Samba\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Space Jazz\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Rollin at 5\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Notanico Merengue\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/
+
+\"Morning\" Kevin MacLeod (incompetech.com)
+Licensed under Creative Commons: By Attribution 4.0 License
+http://creativecommons.org/licenses/by/4.0/"
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("1_pjscc")
+texture_pressed = ExtResource("2_lj3th")
+texture_hover = ExtResource("6_ah7ht")
+stretch_mode = 3

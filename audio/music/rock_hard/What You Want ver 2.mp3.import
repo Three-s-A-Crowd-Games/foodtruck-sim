@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5jkala7picve"
+path="res://.godot/imported/What You Want ver 2.mp3-cad2d4ccd3ec7f1484a388dc9f263cde.mp3str"
+
+[deps]
+
+source_file="res://audio/music/rock_hard/What You Want ver 2.mp3"
+dest_files=["res://.godot/imported/What You Want ver 2.mp3-cad2d4ccd3ec7f1484a388dc9f263cde.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

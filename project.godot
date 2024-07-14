@@ -11,5 +11,109 @@ config_version=5
 [application]
 
 config/name="Foodtruck-Sim"
-config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+run/main_scene="res://resources/main_stage.tscn"
+config/features=PackedStringArray("4.3")
+run/max_fps=72
+config/icon="res://assets/icon.svg"
+
+[audio_node_wrangler]
+
+settings/warn_of_uncommitted_git_changes=true
+
+[autoload]
+
+XRToolsUserSettings="*res://addons/godot-xr-tools/user_settings/user_settings.gd"
+XrSimulator="*res://addons/xr-simulator/XRSimulator.tscn"
+OrderController="*res://resources/base_types/order_controller.gd"
+AudioNodeWranglerMgr="*res://addons/audio_node_wrangler/audio_node_wrangler_mgr.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/audio_node_wrangler/plugin.cfg", "res://addons/godot-xr-tools/plugin.cfg")
+
+[global_group]
+
+appliances="Tools the player can use and that should be respawnable"
+customer_carryable="A pickable Object that can be carried by a customers hand"
+
+[input]
+
+toggle_audio_node_wrangler_hud={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":4194332,"physical_keycode":0,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
+]
+}
+
+[layer_names]
+
+3d_render/layer_20="Ebene 20"
+3d_physics/layer_1="Static World"
+3d_physics/layer_2="Dynamic World"
+3d_physics/layer_3="Pickable Objects"
+3d_physics/layer_4="Wall Walking"
+3d_physics/layer_5="Grappling Target"
+3d_physics/layer_6="Slicing"
+3d_physics/layer_16="SaucePusher"
+3d_physics/layer_17="Held Objects"
+3d_physics/layer_18="Player Hands"
+3d_physics/layer_19="Grab Handles"
+3d_physics/layer_20="Player Body"
+3d_physics/layer_21="Pointable Objects"
+3d_physics/layer_22="Hand Pose Areas"
+3d_physics/layer_23="UI Objects"
+3d_physics/layer_24="Floor"
+3d_physics/layer_25="ButtonInteractionLayer"
+3d_physics/layer_26="Flippable"
+3d_physics/layer_27="PaperPinning"
+
+[physics]
+
+common/physics_ticks_per_second=72
+common/max_physics_steps_per_frame=12
+3d/physics_engine="JoltPhysics3D"
+jolt_3d/sleep/enabled=false
+jolt_3d/collisions/use_shape_margins=false
+jolt_3d/collisions/use_enhanced_internal_edge_removal=false
+jolt_3d/continuous_cd/movement_threshold=40.0
+jolt_3d/continuous_cd/max_penetration=5.0
+jolt_3d/kinematics/recovery_iterations=6
+jolt_3d/kinematics/recovery_amount=60.0
+jolt_3d/solver/velocity_iterations=25
+jolt_3d/solver/position_iterations=6
+jolt_3d/solver/position_correction=30.0
+jolt_3d/solver/bounce_velocity_threshold=0.1
+
+[rendering]
+
+occlusion_culling/bvh_build_quality=0
+occlusion_culling/jitter_projection=false
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+driver/threads/thread_model=0
+textures/vram_compression/import_etc2_astc=true
+lights_and_shadows/use_physical_light_units=true
+lights_and_shadows/directional_shadow/size.mobile=512
+reflections/sky_reflections/ggx_samples.mobile=4
+reflections/reflection_atlas/reflection_size.mobile=32
+global_illumination/gi/use_half_resolution=true
+textures/default_filters/anisotropic_filtering_level=1
+environment/ssao/quality=1
+environment/ssil/quality=1
+occlusion_culling/occlusion_rays_per_thread=128
+environment/screen_space_reflection/roughness_quality=0
+environment/subsurface_scattering/subsurface_scattering_quality=0
+lightmapping/probe_capture/update_speed=10.0
+limits/spatial_indexer/threaded_cull_minimum_instances=32
+limits/opengl/max_lights_per_object=12
+anti_aliasing/quality/msaa_3d=1
+occlusion_culling/use_occlusion_culling=true
+lights_and_shadows/positional_shadow/atlas_size.mobile=512
+lights_and_shadows/positional_shadow/atlas_quadrant_2_subdiv=2
+lights_and_shadows/positional_shadow/atlas_quadrant_3_subdiv=3
+
+[xr]
+
+openxr/enabled=true
+openxr/foveation_level=3
+openxr/foveation_dynamic=true
+shaders/enabled=true

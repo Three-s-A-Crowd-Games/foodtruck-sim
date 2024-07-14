@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c7q707wq64piw"
+path="res://.godot/imported/Rollin at 5.mp3-f349106153e1240ba7caaa1470324d50.mp3str"
+
+[deps]
+
+source_file="res://audio/music/jazz/Rollin at 5.mp3"
+dest_files=["res://.godot/imported/Rollin at 5.mp3-f349106153e1240ba7caaa1470324d50.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

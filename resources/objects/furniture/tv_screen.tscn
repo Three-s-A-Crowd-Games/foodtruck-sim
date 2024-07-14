@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://ri8whwljtqxn"]
+
+[ext_resource type="Script" path="res://resources/objects/furniture/tv_screen.gd" id="1_xfpw6"]
+[ext_resource type="AudioStream" uid="uid://bdtyn7svtnfvq" path="res://audio/sfx/food_prep/tv/time_low.mp3" id="2_mjtx8"]
+[ext_resource type="AudioStream" uid="uid://lbo0giitbhbq" path="res://audio/sfx/food_prep/tv/time_runs_out.mp3" id="3_2gdwl"]
+[ext_resource type="AudioStream" uid="uid://dk7cj5lpal5hu" path="res://audio/sfx/food_prep/tv/order_failed.mp3" id="4_b2too"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_tx6jc"]
+viewport_path = NodePath("SubViewport")
+
+[node name="TV-Screen" type="Node3D"]
+script = ExtResource("1_xfpw6")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+pixel_size = 0.0005
+texture = SubResource("ViewportTexture_tx6jc")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(1280, 720)
+
+[node name="MainContainer" type="VBoxContainer" parent="SubViewport"]
+custom_minimum_size = Vector2(1280, 720)
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimeLowPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_mjtx8")
+volume_db = -18.0
+max_polyphony = 3
+bus = &"SFX"
+
+[node name="TimeRunningPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_2gdwl")
+max_polyphony = 3
+bus = &"SFX"
+
+[node name="OrderFailedPlayer" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_b2too")
+volume_db = -9.0
+max_polyphony = 3
+bus = &"SFX"

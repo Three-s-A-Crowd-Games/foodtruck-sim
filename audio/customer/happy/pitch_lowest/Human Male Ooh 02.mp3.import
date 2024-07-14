@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bn7f0nie0pfq3"
+path="res://.godot/imported/Human Male Ooh 02.mp3-c5cd1cd054a4b5f7ba636d36f7f74a0e.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/happy/pitch_lowest/Human Male Ooh 02.mp3"
+dest_files=["res://.godot/imported/Human Male Ooh 02.mp3-c5cd1cd054a4b5f7ba636d36f7f74a0e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

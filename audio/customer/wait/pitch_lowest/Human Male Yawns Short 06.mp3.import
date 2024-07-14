@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://02ddomco7ttq"
+path="res://.godot/imported/Human Male Yawns Short 06.mp3-17462c7447249179da2e9ffd2ead3124.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/wait/pitch_lowest/Human Male Yawns Short 06.mp3"
+dest_files=["res://.godot/imported/Human Male Yawns Short 06.mp3-17462c7447249179da2e9ffd2ead3124.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

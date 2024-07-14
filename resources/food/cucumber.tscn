@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvrvbjk0evblt"]
+
+[ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_inyaa"]
+[ext_resource type="PackedScene" uid="uid://dtwsdj4n52b0p" path="res://assets/models/food/cucumber.blend" id="2_r2n6v"]
+[ext_resource type="PackedScene" uid="uid://bn7400sgof75r" path="res://resources/components/sliceable.tscn" id="4_mjh3u"]
+[ext_resource type="Material" path="res://assets/materials/cucumber_inside_material_fix.tres" id="5_4uqi2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x8rbg"]
+radius = 0.0294231
+height = 0.125
+
+[node name="Cucumber" instance=ExtResource("1_inyaa")]
+collision_mask = 8519687
+mass = 0.3
+type = 9
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.0302247, 0)
+shape = SubResource("CapsuleShape3D_x8rbg")
+
+[node name="Sliceable" parent="." index="1" node_paths=PackedStringArray("_mesh_node_or_parent") instance=ExtResource("4_mjh3u")]
+cross_section_material = ExtResource("5_4uqi2")
+slice_count = 10
+_mesh_node_or_parent = NodePath("../cucumber")
+slice_sound_type = "Crunchy"
+
+[node name="cucumber" parent="." index="2" instance=ExtResource("2_r2n6v")]
+transform = Transform3D(1, 0, 0, 0, -1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0.0557129, 0)
+
+[editable path="cucumber"]

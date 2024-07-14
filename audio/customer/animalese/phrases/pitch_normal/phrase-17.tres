@@ -1,0 +1,59 @@
+[gd_resource type="AudioStreamPlaylist" load_steps=19 format=3 uid="uid://cedonllt3smcp"]
+
+[ext_resource type="AudioStream" uid="uid://dp685vtuq5sks" path="res://audio/customer/animalese/audio_files/pitch_normal/23-Letter.mp3" id="1_4bfcq"]
+[ext_resource type="AudioStream" uid="uid://b63d2480j47xe" path="res://audio/customer/animalese/audio_files/pitch_normal/08-Letter.mp3" id="2_5dml3"]
+[ext_resource type="AudioStream" uid="uid://tcvjni2iogqm" path="res://audio/customer/animalese/audio_files/pitch_normal/18-Letter.mp3" id="3_wdci8"]
+[ext_resource type="AudioStream" uid="uid://s8i6mkl40x1n" path="res://audio/customer/animalese/audio_files/29-space.mp3" id="4_m8yxk"]
+[ext_resource type="AudioStream" uid="uid://c7ew4am2wrx3f" path="res://audio/customer/animalese/audio_files/pitch_normal/06-Letter.mp3" id="5_8jluv"]
+[ext_resource type="AudioStream" uid="uid://c1ugcrtwyysbs" path="res://audio/customer/animalese/audio_files/pitch_normal/01-Letter.mp3" id="6_i2u4c"]
+[ext_resource type="AudioStream" uid="uid://c4v4xmxfgwj8e" path="res://audio/customer/animalese/audio_files/pitch_normal/22-Letter.mp3" id="7_ehsyf"]
+[ext_resource type="AudioStream" uid="uid://cshs5rqol2miv" path="res://audio/customer/animalese/audio_files/pitch_normal/15-Letter.mp3" id="8_x113b"]
+[ext_resource type="AudioStream" uid="uid://cv44fl12rtcj8" path="res://audio/customer/animalese/audio_files/pitch_normal/09-Letter.mp3" id="9_63w27"]
+[ext_resource type="AudioStream" uid="uid://coth3rjkn0om6" path="res://audio/customer/animalese/audio_files/pitch_normal/20-Letter.mp3" id="10_1qxii"]
+[ext_resource type="AudioStream" uid="uid://cr2bsyn1fl5bs" path="res://audio/customer/animalese/audio_files/pitch_normal/05-Letter.mp3" id="11_187ow"]
+[ext_resource type="AudioStream" uid="uid://c1o3ec2ly27pm" path="res://audio/customer/animalese/audio_files/pitch_normal/25-Letter.mp3" id="12_kl5vh"]
+[ext_resource type="AudioStream" uid="uid://bu325okigqdip" path="res://audio/customer/animalese/audio_files/pitch_normal/16-Letter.mp3" id="13_ikr5s"]
+[ext_resource type="AudioStream" uid="uid://btqk1ecmt8hqo" path="res://audio/customer/animalese/audio_files/pitch_normal/13-Letter.mp3" id="14_wfeaa"]
+[ext_resource type="AudioStream" uid="uid://ksidowb3s3sd" path="res://audio/customer/animalese/audio_files/pitch_normal/21-Letter.mp3" id="15_ljsgl"]
+[ext_resource type="AudioStream" uid="uid://dujye6fj78k5c" path="res://audio/customer/animalese/audio_files/pitch_normal/19-Letter.mp3" id="16_auvxu"]
+[ext_resource type="AudioStream" uid="uid://ddqojsv2g5tfq" path="res://audio/customer/animalese/audio_files/pitch_normal/03-Letter.mp3" id="17_1ek16"]
+[ext_resource type="AudioStream" uid="uid://ca2k0uwjmcovm" path="res://audio/customer/animalese/audio_files/30-break.mp3" id="18_ur1uj"]
+
+[resource]
+loop = false
+fade_time = 0.0
+stream_count = 34
+stream_0 = ExtResource("1_4bfcq")
+stream_1 = ExtResource("2_5dml3")
+stream_2 = ExtResource("6_i2u4c")
+stream_3 = ExtResource("10_1qxii")
+stream_4 = ExtResource("18_ur1uj")
+stream_5 = ExtResource("16_auvxu")
+stream_6 = ExtResource("4_m8yxk")
+stream_7 = ExtResource("12_kl5vh")
+stream_8 = ExtResource("8_x113b")
+stream_9 = ExtResource("15_ljsgl")
+stream_10 = ExtResource("3_wdci8")
+stream_11 = ExtResource("4_m8yxk")
+stream_12 = ExtResource("5_8jluv")
+stream_13 = ExtResource("6_i2u4c")
+stream_14 = ExtResource("7_ehsyf")
+stream_15 = ExtResource("8_x113b")
+stream_16 = ExtResource("3_wdci8")
+stream_17 = ExtResource("9_63w27")
+stream_18 = ExtResource("10_1qxii")
+stream_19 = ExtResource("11_187ow")
+stream_20 = ExtResource("4_m8yxk")
+stream_21 = ExtResource("10_1qxii")
+stream_22 = ExtResource("12_kl5vh")
+stream_23 = ExtResource("13_ikr5s")
+stream_24 = ExtResource("11_187ow")
+stream_25 = ExtResource("4_m8yxk")
+stream_26 = ExtResource("8_x113b")
+stream_27 = ExtResource("5_8jluv")
+stream_28 = ExtResource("4_m8yxk")
+stream_29 = ExtResource("14_wfeaa")
+stream_30 = ExtResource("15_ljsgl")
+stream_31 = ExtResource("16_auvxu")
+stream_32 = ExtResource("9_63w27")
+stream_33 = ExtResource("17_1ek16")

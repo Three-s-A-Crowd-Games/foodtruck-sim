@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4oy7brgq6ivj"]
+
+[ext_resource type="PackedScene" uid="uid://bnqnnnet4dw12" path="res://addons/godot-xr-tools/staging/staging.tscn" id="1_oov76"]
+[ext_resource type="AudioStream" uid="uid://njgngr5nh88e" path="res://audio/sfx/menu/start_game.mp3" id="2_4jeu0"]
+
+[node name="Staging" instance=ExtResource("1_oov76")]
+main_scene = "res://resources/menus/main_menu_stage.tscn"
+prompt_for_continue = false
+
+[node name="LoadingSound" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("2_4jeu0")
+bus = &"SFX"

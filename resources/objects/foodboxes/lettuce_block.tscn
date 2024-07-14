@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0brq67lg35qy"]
+
+[ext_resource type="PackedScene" uid="uid://wa0qw7gtqgym" path="res://resources/base_types/spawn_block.tscn" id="1_7ej6w"]
+[ext_resource type="PackedScene" uid="uid://dfs1nnktcexvm" path="res://resources/food/burger_parts/lettuce.tscn" id="2_4hk2o"]
+[ext_resource type="PackedScene" uid="uid://bu4xgrwgepc1l" path="res://assets/models/food/block_of_lettuce.blend" id="3_d161l"]
+
+[node name="LettuceBlock" instance=ExtResource("1_7ej6w")]
+item_scene = ExtResource("2_4hk2o")
+
+[node name="CollisionShape3D" parent="Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.100128, 0)
+
+[node name="SpawnPosition" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="block_of_lettuce" parent="." index="2" instance=ExtResource("3_d161l")]

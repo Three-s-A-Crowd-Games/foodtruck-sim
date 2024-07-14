@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dko2murkvbg2y"]
+
+[ext_resource type="PackedScene" uid="uid://bev1ber2ukq5y" path="res://resources/base_types/food.tscn" id="1_layyi"]
+[ext_resource type="Script" path="res://resources/food/fries.gd" id="2_4xiem"]
+[ext_resource type="Script" path="res://resources/components/fryable.gd" id="2_o57es"]
+[ext_resource type="PackedScene" uid="uid://82vhpl3tckxh" path="res://assets/models/food/fries.blend" id="3_s4j63"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qiqfu"]
+size = Vector3(0.0998878, 0.109802, 0.0681418)
+
+[node name="Fries" groups=["fries"] instance=ExtResource("1_layyi")]
+mass = 0.2
+script = ExtResource("2_4xiem")
+type = 3
+
+[node name="CollisionShape3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.999994, -0.00361282, 0, 0.00361282, 0.999994, -0.000417709, 0.0506544, -0.00495278)
+shape = SubResource("BoxShape3D_qiqfu")
+
+[node name="Fryable" type="Node" parent="." index="1"]
+script = ExtResource("2_o57es")
+frying_time = 20.0
+burning_time = 60.0
+
+[node name="fries" parent="." index="3" instance=ExtResource("3_s4j63")]
+
+[connection signal="fry_status_changed" from="Fryable" to="." method="_on_fryable_fry_status_changed"]
+
+[editable path="fries"]

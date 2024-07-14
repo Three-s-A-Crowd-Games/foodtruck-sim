@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctdvqvx5cr6gt"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_jaoao"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4uqon"]
+radius = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jjwea"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_2b1ap"]
+material = SubResource("StandardMaterial3D_jjwea")
+radius = 0.4
+height = 0.8
+
+[node name="Cube2" groups=["burger_part"] instance=ExtResource("1_jaoao")]
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_4uqon")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="1"]
+mesh = SubResource("SphereMesh_2b1ap")

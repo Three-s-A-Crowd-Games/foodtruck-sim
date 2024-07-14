@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddyy1xcl31pvm"
+path="res://.godot/imported/Verano Sensual.mp3-f0d8263287bc1ef5dd262c2b0f225c57.mp3str"
+
+[deps]
+
+source_file="res://audio/music/latin/Verano Sensual.mp3"
+dest_files=["res://.godot/imported/Verano Sensual.mp3-f0d8263287bc1ef5dd262c2b0f225c57.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

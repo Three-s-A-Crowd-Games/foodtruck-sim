@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bxfgtvrcb3ddv"
+path="res://.godot/imported/Human Male Yawning And Stretching 03.mp3-82ba51ef85a8758d0cd38d38ac596a86.mp3str"
+
+[deps]
+
+source_file="res://audio/customer/wait/pitch_high/Human Male Yawning And Stretching 03.mp3"
+dest_files=["res://.godot/imported/Human Male Yawning And Stretching 03.mp3-82ba51ef85a8758d0cd38d38ac596a86.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

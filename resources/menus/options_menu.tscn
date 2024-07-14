@@ -1,0 +1,354 @@
+[gd_scene load_steps=7 format=3 uid="uid://kje4o0xgibhe"]
+
+[ext_resource type="Script" path="res://resources/menus/options_menu.gd" id="1_75n17"]
+[ext_resource type="Texture2D" uid="uid://dr5r6kfulr3kv" path="res://assets/startscreen/buttons/back-btn.png" id="1_732sc"]
+[ext_resource type="FontFile" uid="uid://cip4s84xxhr1q" path="res://assets/font/lao-mn.ttf" id="1_tdxbu"]
+[ext_resource type="Texture2D" uid="uid://ttn3ge8xqhoa" path="res://assets/startscreen/buttons/back-btn-pressed.png" id="2_pcrq0"]
+[ext_resource type="Texture2D" uid="uid://213wudljyi2u" path="res://assets/startscreen/buttons/back-btn-hover.png" id="5_ftof7"]
+
+[sub_resource type="Theme" id="Theme_0oyr6"]
+
+[node name="OptionsMenu" type="CanvasLayer"]
+script = ExtResource("1_75n17")
+
+[node name="options-menu" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="options-title" type="Label" parent="options-menu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tdxbu")
+theme_override_font_sizes/font_size = 90
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="categories" type="HBoxContainer" parent="options-menu"]
+layout_mode = 2
+
+[node name="sound-volume" type="Panel" parent="options-menu/categories"]
+custom_minimum_size = Vector2(650, 500)
+layout_mode = 2
+
+[node name="sound-volume" type="VBoxContainer" parent="options-menu/categories/sound-volume"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_right = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sound-title" type="Label" parent="options-menu/categories/sound-volume/sound-volume"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tdxbu")
+theme_override_font_sizes/font_size = 50
+text = "SOUND VOLUME"
+horizontal_alignment = 1
+
+[node name="slider" type="VBoxContainer" parent="options-menu/categories/sound-volume/sound-volume"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="main-volume" type="MarginContainer" parent="options-menu/categories/sound-volume/sound-volume/slider"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="main-volume" type="Panel" parent="options-menu/categories/sound-volume/sound-volume/slider/main-volume"]
+custom_minimum_size = Vector2(570, 60)
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="options-menu/categories/sound-volume/sound-volume/slider/main-volume/main-volume"]
+custom_minimum_size = Vector2(550, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -25.0
+offset_right = 250.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="options-menu/categories/sound-volume/sound-volume/slider/main-volume/main-volume/hbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "MAIN VOLUME"
+
+[node name="HScrollBar" type="HScrollBar" parent="options-menu/categories/sound-volume/sound-volume/slider/main-volume/main-volume/hbox"]
+custom_minimum_size = Vector2(320, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+theme = SubResource("Theme_0oyr6")
+max_value = 2.0
+value = 1.0
+
+[node name="sfx-volume" type="MarginContainer" parent="options-menu/categories/sound-volume/sound-volume/slider"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="sfx-volume" type="Panel" parent="options-menu/categories/sound-volume/sound-volume/slider/sfx-volume"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="options-menu/categories/sound-volume/sound-volume/slider/sfx-volume/sfx-volume"]
+custom_minimum_size = Vector2(550, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -25.0
+offset_right = 250.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="options-menu/categories/sound-volume/sound-volume/slider/sfx-volume/sfx-volume/hbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "SFX VOLUME"
+
+[node name="HScrollBar" type="HScrollBar" parent="options-menu/categories/sound-volume/sound-volume/slider/sfx-volume/sfx-volume/hbox"]
+custom_minimum_size = Vector2(320, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+max_value = 2.0
+value = 1.0
+
+[node name="ambience-volume" type="MarginContainer" parent="options-menu/categories/sound-volume/sound-volume/slider"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ambience-volume" type="Panel" parent="options-menu/categories/sound-volume/sound-volume/slider/ambience-volume"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="options-menu/categories/sound-volume/sound-volume/slider/ambience-volume/ambience-volume"]
+custom_minimum_size = Vector2(550, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -25.0
+offset_right = 250.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="options-menu/categories/sound-volume/sound-volume/slider/ambience-volume/ambience-volume/hbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "AMBIENCE VOLUME"
+
+[node name="HScrollBar" type="HScrollBar" parent="options-menu/categories/sound-volume/sound-volume/slider/ambience-volume/ambience-volume/hbox"]
+custom_minimum_size = Vector2(320, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+max_value = 2.0
+value = 1.0
+
+[node name="music-volume" type="MarginContainer" parent="options-menu/categories/sound-volume/sound-volume/slider"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="music-volume" type="Panel" parent="options-menu/categories/sound-volume/sound-volume/slider/music-volume"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="options-menu/categories/sound-volume/sound-volume/slider/music-volume/music-volume"]
+custom_minimum_size = Vector2(550, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -25.0
+offset_right = 275.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="options-menu/categories/sound-volume/sound-volume/slider/music-volume/music-volume/hbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "MUSIC VOLUME"
+
+[node name="HScrollBar" type="HScrollBar" parent="options-menu/categories/sound-volume/sound-volume/slider/music-volume/music-volume/hbox"]
+custom_minimum_size = Vector2(320, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+max_value = 2.0
+value = 1.0
+
+[node name="dialogue-volume" type="MarginContainer" parent="options-menu/categories/sound-volume/sound-volume/slider"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="dialogue-volume" type="Panel" parent="options-menu/categories/sound-volume/sound-volume/slider/dialogue-volume"]
+custom_minimum_size = Vector2(510, 60)
+layout_mode = 2
+
+[node name="hbox" type="HBoxContainer" parent="options-menu/categories/sound-volume/sound-volume/slider/dialogue-volume/dialogue-volume"]
+custom_minimum_size = Vector2(550, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -275.0
+offset_top = -25.0
+offset_right = 275.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="options-menu/categories/sound-volume/sound-volume/slider/dialogue-volume/dialogue-volume/hbox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 23
+text = "DIALOGUE VOLUME"
+
+[node name="HScrollBar" type="HScrollBar" parent="options-menu/categories/sound-volume/sound-volume/slider/dialogue-volume/dialogue-volume/hbox"]
+custom_minimum_size = Vector2(320, 25)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+max_value = 2.0
+value = 1.0
+
+[node name="back-button" type="TextureButton" parent="options-menu/categories/sound-volume/sound-volume"]
+layout_mode = 2
+
+[node name="music-genre" type="Panel" parent="options-menu/categories"]
+custom_minimum_size = Vector2(650, 500)
+layout_mode = 2
+
+[node name="music-genre" type="VBoxContainer" parent="options-menu/categories/music-genre"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_right = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="music-title" type="Label" parent="options-menu/categories/music-genre/music-genre"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tdxbu")
+theme_override_font_sizes/font_size = 50
+text = "MUSIC GENRES"
+horizontal_alignment = 1
+
+[node name="checkboxes" type="VBoxContainer" parent="options-menu/categories/music-genre/music-genre"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="jazz-check" type="CheckBox" parent="options-menu/categories/music-genre/music-genre/checkboxes"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+button_pressed = true
+text = "JAZZ"
+alignment = 1
+icon_alignment = 1
+
+[node name="latin-check" type="CheckBox" parent="options-menu/categories/music-genre/music-genre/checkboxes"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "LATIN"
+alignment = 1
+icon_alignment = 1
+
+[node name="rock-soft-check" type="CheckBox" parent="options-menu/categories/music-genre/music-genre/checkboxes"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "ROCK-SOFT"
+alignment = 1
+icon_alignment = 1
+
+[node name="rock-hard-check" type="CheckBox" parent="options-menu/categories/music-genre/music-genre/checkboxes"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "ROCK-HARD"
+alignment = 1
+icon_alignment = 1
+
+[node name="unclassified-check" type="CheckBox" parent="options-menu/categories/music-genre/music-genre/checkboxes"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "UNCLASSIFIED"
+alignment = 1
+icon_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="options-menu/categories/music-genre/music-genre"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="music-effects" type="Label" parent="options-menu/categories/music-genre/music-genre"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_tdxbu")
+theme_override_font_sizes/font_size = 50
+text = "MUSIC EFFECTS"
+horizontal_alignment = 1
+
+[node name="checkbuttons" type="VBoxContainer" parent="options-menu/categories/music-genre/music-genre"]
+custom_minimum_size = Vector2(270, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="options-menu/categories/music-genre/music-genre/checkbuttons"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="vintage-effect-button" type="CheckButton" parent="options-menu/categories/music-genre/music-genre/checkbuttons/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+button_pressed = true
+
+[node name="Label" type="Label" parent="options-menu/categories/music-genre/music-genre/checkbuttons/HBoxContainer"]
+custom_minimum_size = Vector2(155, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "VINTAGE EFFECT"
+horizontal_alignment = 1
+
+[node name="back-button" type="TextureButton" parent="options-menu"]
+layout_mode = 2
+texture_normal = ExtResource("1_732sc")
+texture_pressed = ExtResource("2_pcrq0")
+texture_hover = ExtResource("5_ftof7")
+stretch_mode = 3

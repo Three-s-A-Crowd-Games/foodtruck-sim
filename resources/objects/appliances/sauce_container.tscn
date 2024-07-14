@@ -1,0 +1,137 @@
+[gd_scene load_steps=21 format=3 uid="uid://d088mil7a0mga"]
+
+[ext_resource type="PackedScene" uid="uid://cdtmfbjo7usea" path="res://assets/models/objects/appliances/sauce_container.blend" id="1_dsvtd"]
+[ext_resource type="Script" path="res://resources/objects/appliances/sauce_container.gd" id="1_frgr5"]
+[ext_resource type="PackedScene" uid="uid://eoa5f4noca6l" path="res://assets/models/objects/appliances/sauce_pump.blend" id="2_5lxv6"]
+[ext_resource type="AudioStream" uid="uid://cf2xi4roem26s" path="res://audio/sfx/object_interaction/sauce/sauce-layer1-1.mp3" id="4_ivlss"]
+[ext_resource type="AudioStream" uid="uid://kkoll2ur4o2m" path="res://audio/sfx/object_interaction/sauce/sauce_pump-down.mp3" id="4_ypwrp"]
+[ext_resource type="AudioStream" uid="uid://c8oqv4u0rolbi" path="res://audio/sfx/object_interaction/sauce/sauce_pump-up.mp3" id="5_73vsa"]
+[ext_resource type="AudioStream" uid="uid://cqu080pgud41m" path="res://audio/sfx/object_interaction/sauce/sauce-layer1-2.mp3" id="5_wnusw"]
+[ext_resource type="AudioStream" uid="uid://dhqwd0qovo3jl" path="res://audio/sfx/object_interaction/sauce/sauce-layer2-1.mp3" id="6_vunsy"]
+[ext_resource type="AudioStream" uid="uid://cgo06mw4pyxm6" path="res://audio/sfx/object_interaction/sauce/sauce-layer2-2.mp3" id="7_fxm6a"]
+[ext_resource type="AudioStream" uid="uid://buqb6js306yqh" path="res://audio/sfx/object_interaction/sauce/sauce-layer2-3.mp3" id="8_x1c7g"]
+[ext_resource type="AudioStream" uid="uid://bm28qdbhh63js" path="res://audio/sfx/object_interaction/sauce/sauce-layer2-4.mp3" id="9_pk68w"]
+[ext_resource type="AudioStream" uid="uid://brx62qsb3in1l" path="res://audio/sfx/object_interaction/sauce/sauce-layer2-5.mp3" id="10_o1mpd"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_hcxhu"]
+margin = 0.0
+height = 0.11
+radius = 0.02
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_lty67"]
+clip_count = 2
+clip_0/name = &"Sauce Pump-down"
+clip_0/stream = ExtResource("4_ypwrp")
+clip_0/auto_advance = 0
+clip_1/name = &"Sauce Pump-up"
+clip_1/stream = ExtResource("5_73vsa")
+clip_1/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+}
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ntsli"]
+direction = Vector3(1, 0, 1)
+spread = 180.0
+initial_velocity_max = 0.2
+collision_mode = 2
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4fyne"]
+resource_local_to_scene = true
+radius = 0.005
+height = 0.01
+radial_segments = 4
+rings = 3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_tbgg8"]
+height = 0.37
+radius = 0.0367188
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_i0vh2"]
+playback_mode = 1
+random_pitch = 1.3
+random_volume_offset_db = 2.0
+streams_count = 2
+stream_0/stream = ExtResource("4_ivlss")
+stream_1/stream = ExtResource("5_wnusw")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_jmqnv"]
+playback_mode = 1
+random_pitch = 1.3
+random_volume_offset_db = 2.0
+streams_count = 5
+stream_0/stream = ExtResource("6_vunsy")
+stream_1/stream = ExtResource("7_fxm6a")
+stream_2/stream = ExtResource("8_x1c7g")
+stream_3/stream = ExtResource("9_pk68w")
+stream_4/stream = ExtResource("10_o1mpd")
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_ycxd8"]
+stream_count = 2
+stream_0/stream = SubResource("AudioStreamRandomizer_i0vh2")
+stream_0/volume = -1.0
+stream_1/stream = SubResource("AudioStreamRandomizer_jmqnv")
+stream_1/volume = -1.0
+
+[node name="SauceContainer" type="Node3D"]
+script = ExtResource("1_frgr5")
+
+[node name="sauce_container" parent="." instance=ExtResource("1_dsvtd")]
+
+[node name="SaucePump" type="SpringArm3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.323098, 0)
+collision_mask = 32768
+shape = SubResource("CylinderShape3D_hcxhu")
+spring_length = 0.09
+margin = 0.0
+
+[node name="sauce_pump" parent="SaucePump" instance=ExtResource("2_5lxv6")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 9.88111e-10, -0.00129902)
+
+[node name="PumpSoundPlayer" type="AudioStreamPlayer3D" parent="SaucePump"]
+stream = SubResource("AudioStreamInteractive_lty67")
+bus = &"SFX"
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231688, 0.237603, 0)
+emitting = false
+amount = 30
+lifetime = 0.37
+one_shot = true
+randomness = 0.5
+process_material = SubResource("ParticleProcessMaterial_ntsli")
+draw_pass_1 = SubResource("CapsuleMesh_4fyne")
+
+[node name="SauceArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231543, 0.0881992, 0)
+collision_layer = 0
+collision_mask = 65540
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SauceArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0432284, 0)
+shape = SubResource("CylinderShape3D_tbgg8")
+
+[node name="SauceOutlet" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231688, 0.237603, 0)
+
+[node name="FloorFinder" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.231688, 0.237603, 0)
+target_position = Vector3(0, -3, 0)
+hit_back_faces = false
+
+[node name="SauceSoundPlayer" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.271783, 0.311733, 0)
+stream = SubResource("AudioStreamSynchronized_ycxd8")
+volume_db = -12.0
+bus = &"SFX"
+
+[connection signal="area_entered" from="SauceArea" to="." method="_on_sauce_area_area_entered"]
+[connection signal="area_exited" from="SauceArea" to="." method="_on_sauce_area_area_exited"]
+
+[editable path="sauce_container"]

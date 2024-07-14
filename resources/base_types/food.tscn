@@ -1,0 +1,27 @@
+[gd_scene load_steps=7 format=3 uid="uid://bev1ber2ukq5y"]
+
+[ext_resource type="PackedScene" uid="uid://c8l60rnugru40" path="res://addons/godot-xr-tools/objects/pickable.tscn" id="1_46wm3"]
+[ext_resource type="Script" path="res://resources/base_types/food.gd" id="2_4u0g5"]
+[ext_resource type="AudioStream" uid="uid://bqjns2m3a4cyo" path="res://audio/sfx/collision/Food/drop_food.mp3" id="3_eja32"]
+[ext_resource type="Script" path="res://addons/godot-xr-tools/audio/pickable_audio_type.gd" id="4_fmt4o"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_58f4c"]
+random_pitch = 1.3
+random_volume_offset_db = 2.0
+streams_count = 1
+stream_0/stream = ExtResource("3_eja32")
+
+[sub_resource type="Resource" id="Resource_x7auv"]
+script = ExtResource("4_fmt4o")
+name = ""
+drop_sound = SubResource("AudioStreamRandomizer_58f4c")
+
+[node name="Food" groups=["consumables", "food"] instance=ExtResource("1_46wm3")]
+collision_mask = 8585223
+freeze = true
+continuous_cd = true
+script = ExtResource("2_4u0g5")
+type = 0
+
+[node name="PickableSoundQueue3D" parent="." index="1"]
+pickable_audio_type = SubResource("Resource_x7auv")
