@@ -12,9 +12,14 @@ var is_on = false
 func _ready() -> void:
 	music_player.finished.connect(music_player.play)
 	music_player.stream = load(MusicManager.PLAYLIST_SAVE_PATH)
+	toggle_on_off()
 
 
 func _on_interactable_area_button_button_pressed(button: Variant) -> void:
+	toggle_on_off()
+	
+
+func toggle_on_off() -> void:
 	is_on = not is_on
 	if is_on:
 		sfx_player.stream = SOUND_ON

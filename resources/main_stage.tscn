@@ -7,10 +7,6 @@
 main_scene = "res://resources/menus/main_menu_stage.tscn"
 prompt_for_continue = false
 
-[node name="StartXR" parent="." index="4"]
-render_target_size_multiplier = 0.75
-target_refresh_rate = 90.0
-
 [node name="LoadingSound" type="AudioStreamPlayer" parent="." index="5"]
 stream = ExtResource("2_4jeu0")
 bus = &"SFX"

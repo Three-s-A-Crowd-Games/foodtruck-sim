@@ -19,6 +19,8 @@ shape = SubResource("BoxShape3D_qiqfu")
 
 [node name="Fryable" type="Node" parent="." index="1"]
 script = ExtResource("2_o57es")
+frying_time = 20.0
+burning_time = 60.0
 
 [node name="fries" parent="." index="3" instance=ExtResource("3_s4j63")]
 

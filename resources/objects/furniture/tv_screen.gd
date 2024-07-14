@@ -27,6 +27,7 @@ func _remove_order(le_order :Order, order_failed: bool):
 	order_bar.first_threshold_breached.disconnect(le_order.order_time_low.emit)
 	order_bar.second_threshold_breached.disconnect(time_low_player.play)
 	order_bar.third_threshold_breached.disconnect(time_running_player.play)
-	order_bar.queue_free()
 	order_bars.erase(le_order)
+	if not is_instance_valid(order_bar): return
+	order_bar.queue_free()
 	

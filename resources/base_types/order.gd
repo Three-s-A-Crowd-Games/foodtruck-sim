@@ -46,9 +46,9 @@ static func create_order(number :int) -> Order:
 	# Calculate Order-Time
 	var calc_wait_time = 0
 	if new_order.drink_recipe.ingredients.size() > 0:
-		calc_wait_time += 10
+		calc_wait_time += 100
 	if new_order.side_recipe.ingredients.size() > 0:
-		calc_wait_time += 30
+		calc_wait_time += 200
 	calc_wait_time += get_main_wait(new_order.main_recipe.ingredients.size())
 	
 	new_order.le_timer.wait_time = calc_wait_time
@@ -57,14 +57,14 @@ static func create_order(number :int) -> Order:
 	return new_order
 
 static func get_main_wait(amount :int) -> int:
-	var main_wait := 30
+	var main_wait := 60
 	
 	if amount > S_MAIN_ORDER:
-		main_wait = 40
+		main_wait = 200
 	if amount > M_MAIN_ORDER:
-		main_wait = 70
+		main_wait = 400
 	if amount > L_MAIN_ORDER:
-		main_wait = 90
+		main_wait = 600
 	
 	return main_wait
 	

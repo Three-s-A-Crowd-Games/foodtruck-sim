@@ -59,12 +59,13 @@ shape = SubResource("CylinderShape3D_mgd0g")
 [node name="Patty" parent="." index="1" instance=ExtResource("3_x70p6")]
 
 [node name="Circle" parent="Patty" index="0"]
-gi_mode = 2
 mesh = SubResource("ArrayMesh_v6fj5")
 surface_material_override/0 = ExtResource("4_c07d3")
 
 [node name="Cookable" type="Node3D" parent="." index="2"]
 script = ExtResource("4_gaj74")
+cooking_time = 20.0
+burning_time = 40.0
 
 [connection signal="cooked_status_changed" from="Cookable" to="." method="_on_cookable_cooked_status_changed"]
 

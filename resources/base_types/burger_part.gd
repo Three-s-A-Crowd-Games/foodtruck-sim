@@ -127,6 +127,7 @@ func get_current_stack_zone_trans(picked_up_object: BurgerPart) -> Transform3D:
 	return Transform3D(new_orientation, Vector3(0,new_height,0))
 	
 
+#TODO: add recursion breaker chekc if next == previous
 func get_stack_root() -> BurgerPart:
 	if is_stack_root:
 		return self

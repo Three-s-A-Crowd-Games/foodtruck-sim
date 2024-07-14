@@ -121,6 +121,6 @@ func _failed_order(le_order :Order):
 	customer.angry()
 
 func _finished_order(le_order :Order):
-	var customer = order_dict[le_order]
+	var customer: Customer = order_dict[le_order]
 	waiting_pos_usage[customer.wait_pos] = null
 	customer.happy(le_order.tray)

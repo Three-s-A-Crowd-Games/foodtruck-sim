@@ -72,12 +72,15 @@ common/physics_ticks_per_second=72
 common/max_physics_steps_per_frame=12
 3d/physics_engine="JoltPhysics3D"
 jolt_3d/sleep/enabled=false
+jolt_3d/collisions/use_shape_margins=false
+jolt_3d/collisions/use_enhanced_internal_edge_removal=false
 jolt_3d/continuous_cd/movement_threshold=40.0
 jolt_3d/continuous_cd/max_penetration=5.0
 jolt_3d/kinematics/recovery_iterations=6
-jolt_3d/solver/velocity_iterations=20
-jolt_3d/solver/position_iterations=4
-jolt_3d/solver/position_correction=25.0
+jolt_3d/kinematics/recovery_amount=60.0
+jolt_3d/solver/velocity_iterations=25
+jolt_3d/solver/position_iterations=6
+jolt_3d/solver/position_correction=30.0
 jolt_3d/solver/bounce_velocity_threshold=0.1
 
 [rendering]
@@ -96,7 +99,6 @@ global_illumination/gi/use_half_resolution=true
 textures/default_filters/anisotropic_filtering_level=1
 environment/ssao/quality=1
 environment/ssil/quality=1
-scaling_3d/scale=0.75
 occlusion_culling/occlusion_rays_per_thread=128
 environment/screen_space_reflection/roughness_quality=0
 environment/subsurface_scattering/subsurface_scattering_quality=0

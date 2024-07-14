@@ -46,6 +46,7 @@ size = Vector3(0.17, 0.135, 0.005)
 center_of_mass_mode = 1
 center_of_mass = Vector3(0, 0.05, -0.1)
 continuous_cd = true
+second_hand_grab = 1
 
 [node name="CollisionShape3D" parent="." index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0032959, 0.175443, -0.229431)

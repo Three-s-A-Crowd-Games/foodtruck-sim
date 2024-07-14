@@ -1,19 +1,31 @@
-[gd_resource type="AudioStreamRandomizer" load_steps=8 format=3]
+[gd_resource type="AudioStreamRandomizer" load_steps=14 format=3]
 
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Boogie Party.mp3" id="1_oke0o"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Corncob.mp3" id="2_ycv08"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/On Hold for You.mp3" id="3_t0wwc"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Rocket Power.mp3" id="4_q3m15"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Rollin at 5.mp3" id="5_8x0gl"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Space Jazz.mp3" id="6_xeqrw"]
-[ext_resource type="AudioStream" path="res://audio/music/jazz/Zazie.mp3" id="7_p36g5"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Boogie Party.mp3" id="1_q7ncf"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Corncob.mp3" id="2_fp7ev"]
+[ext_resource type="AudioStream" path="res://audio/music/rock_soft/Pulse Rock.mp3" id="3_vgrfm"]
+[ext_resource type="AudioStream" path="res://audio/music/rock_soft/Raw.mp3" id="4_bxviw"]
+[ext_resource type="AudioStream" path="res://audio/music/rock_soft/Take the Lead.mp3" id="5_8k8gd"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/On Hold for You.mp3" id="6_t4ua6"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Rocket Power.mp3" id="7_rw6et"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Rollin at 5.mp3" id="8_it065"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Space Jazz.mp3" id="9_hbatk"]
+[ext_resource type="AudioStream" path="res://audio/music/jazz/Zazie.mp3" id="10_oe18c"]
+[ext_resource type="AudioStream" path="res://audio/music/rock_soft/Eighties Action.mp3" id="11_cqlcw"]
+[ext_resource type="AudioStream" path="res://audio/music/rock_soft/Feral Angel Waltz .mp3" id="12_u3cep"]
+[ext_resource type="AudioStream" path="res://audio/music/rock_soft/Motherlode.mp3" id="13_a45ty"]
 
 [resource]
-streams_count = 7
-stream_0/stream = ExtResource("1_oke0o")
-stream_1/stream = ExtResource("2_ycv08")
-stream_2/stream = ExtResource("3_t0wwc")
-stream_3/stream = ExtResource("4_q3m15")
-stream_4/stream = ExtResource("5_8x0gl")
-stream_5/stream = ExtResource("6_xeqrw")
-stream_6/stream = ExtResource("7_p36g5")
+streams_count = 13
+stream_0/stream = ExtResource("1_q7ncf")
+stream_1/stream = ExtResource("2_fp7ev")
+stream_2/stream = ExtResource("6_t4ua6")
+stream_3/stream = ExtResource("7_rw6et")
+stream_4/stream = ExtResource("8_it065")
+stream_5/stream = ExtResource("9_hbatk")
+stream_6/stream = ExtResource("10_oe18c")
+stream_7/stream = ExtResource("11_cqlcw")
+stream_8/stream = ExtResource("12_u3cep")
+stream_9/stream = ExtResource("13_a45ty")
+stream_10/stream = ExtResource("3_vgrfm")
+stream_11/stream = ExtResource("4_bxviw")
+stream_12/stream = ExtResource("5_8k8gd")

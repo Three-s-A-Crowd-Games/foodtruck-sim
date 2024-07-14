@@ -19,6 +19,8 @@ shape = SubResource("BoxShape3D_owlsw")
 
 [node name="Cookable" type="Node" parent="." index="2"]
 script = ExtResource("2_oxljt")
+cooking_time = 20.0
+burning_time = 40.0
 
 [node name="bacon" parent="." index="4" instance=ExtResource("3_xyda1")]
 

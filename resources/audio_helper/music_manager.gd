@@ -20,7 +20,7 @@ const GENRE_PATH_DIC = {
 
 const PLAYLIST_SAVE_PATH := "res://audio/music/playlist.tres"
 
-static var selected_genres: Array[MusicGenre] = [MusicGenre.JAZZ]
+static var selected_genres: Array[MusicGenre] = [MusicGenre.JAZZ, MusicGenre.ROCK_SOFT]
 
 
 static func create_playlist() -> void:
