@@ -58,7 +58,7 @@ bus = &"SFX"
 
 [node name="MenuMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamRandomizer_ip4rg")
-volume_db = -12.0
+volume_db = -20.0
 autoplay = true
 bus = &"Music"
 
