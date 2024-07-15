@@ -1,5 +1,16 @@
 # foodtruck-sim
 
+## Mouse and keyboard controls 
+The game is somewhat "playable with mouse and keyboard.
+- Look around by moving your mouse
+- Move up and down with the mouse wheel
+- Move forward and backward with '**W**' and '**S**'
+- Move your left hand by holding '**Q**' and moving your mouse
+- Move your right hand by holding '**E**' and moving your mouse
+- rotate a hand by holding '**SHIFT**' + the button for the corresponding hand ('Q'/'E') and then move your mouse
+- grab something with a hand by holding the corresponding button ('Q'/'E') and the holding the '**LEFT MOUSEBUTTON**' 
+
+
 ## 3rd Party Credits
 ### SFX
 - [jppi_Stu](https://freesound.org/people/jppi_Stu/)
@@ -73,7 +84,7 @@ http://creativecommons.org/licenses/by/4.0/
 Licensed under Creative Commons: By Attribution 4.0 License  
 http://creativecommons.org/licenses/by/4.0/
 
-- No Frills Comparsa" Kevin MacLeod (incompetech.com)  
+- "No Frills Comparsa" Kevin MacLeod (incompetech.com)  
 Licensed under Creative Commons: By Attribution 4.0 License  
 http://creativecommons.org/licenses/by/4.0/
 
@@ -129,14 +140,14 @@ http://creativecommons.org/licenses/by/4.0/
 Licensed under Creative Commons: By Attribution 4.0 License  
 http://creativecommons.org/licenses/by/4.0/
 
-"Vibing Over Venus" Kevin MacLeod (incompetech.com)
+- "Vibing Over Venus" Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 
-"Morning" Kevin MacLeod (incompetech.com)
+- "Morning" Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
 
-"Evening" Kevin MacLeod (incompetech.com)
+- "Evening" Kevin MacLeod (incompetech.com)
 Licensed under Creative Commons: By Attribution 4.0 License
 http://creativecommons.org/licenses/by/4.0/
