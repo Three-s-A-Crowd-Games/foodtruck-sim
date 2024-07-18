@@ -1,6 +1,6 @@
 [gd_scene load_steps=26 format=3 uid="uid://5b36bokc0k4k"]
 
-[ext_resource type="Script" path="res://resources/main.gd" id="1_5moal"]
+[ext_resource type="Script" path="res://resources/test_helpers/test_arena.gd" id="1_0okte"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="1_8xdyp"]
 [ext_resource type="PackedScene" uid="uid://doqn4cetycndv" path="res://resources/test_helpers/food_piece.tscn" id="2_ek6i4"]
 [ext_resource type="PackedScene" uid="uid://duv6cyyl37x4j" path="res://resources/objects/accessoires/knife.tscn" id="4_xjd3b"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b0e07jtb6csss" path="res://resources/food/burger_parts/bacon.tscn" id="11_4mdx6"]
 [ext_resource type="PackedScene" uid="uid://jswmwgs1nelb" path="res://resources/food/potato.tscn" id="11_x88sq"]
 [ext_resource type="PackedScene" uid="uid://um05xwvrkanf" path="res://resources/objects/order_paper.tscn" id="12_wxbvo"]
-[ext_resource type="PackedScene" uid="uid://3urchnywicj" path="res://resources/objects/appliances/Trashcan.tscn" id="14_id316"]
+[ext_resource type="PackedScene" uid="uid://3urchnywicj" path="res://resources/objects/furniture/trashcan.tscn" id="14_id316"]
 [ext_resource type="PackedScene" uid="uid://bw18w7lqkorf5" path="res://resources/objects/appliances/frying_basket.tscn" id="15_agif4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
@@ -52,7 +52,7 @@ size = Vector3(20, 8, 1)
 size = Vector3(2, 1, 2)
 
 [node name="TestArena" type="Node3D"]
-script = ExtResource("1_5moal")
+script = ExtResource("1_0okte")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_epmoj")
@@ -123,26 +123,22 @@ script = ExtResource("6_hwbr7")
 [node name="Tomato" parent="." instance=ExtResource("5_6vayu")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.621212, 1.21086, 0.54284)
 
-[node name="Sliceable" parent="Tomato" index="2" node_paths=PackedStringArray("_mesh_node_or_parent", "mesh_node_to_delete")]
+[node name="Sliceable" parent="Tomato" index="2"]
 monitoring = true
-_mesh_node_or_parent = NodePath("../tomato2/tomato")
-mesh_node_to_delete = NodePath("../tomato2/tomato_stem")
 slice_sound_type = "Normal"
 
 [node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11529, 0)
 
-[node name="Sliceable" parent="Onion" index="2" node_paths=PackedStringArray("_mesh_node_or_parent")]
+[node name="Sliceable" parent="Onion" index="2"]
 monitoring = true
-_mesh_node_or_parent = NodePath("../onion")
 slice_sound_type = "Normal"
 
 [node name="Cucumber" parent="." instance=ExtResource("6_syx2q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358656, 1, 0.279034)
 
-[node name="Sliceable" parent="Cucumber" index="1" node_paths=PackedStringArray("_mesh_node_or_parent")]
+[node name="Sliceable" parent="Cucumber" index="1"]
 monitoring = true
-_mesh_node_or_parent = NodePath("../cucumber")
 
 [node name="Cone" parent="." instance=ExtResource("8_gyeit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176819, 1.15495, -0.435212)
