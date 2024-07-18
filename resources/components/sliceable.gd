@@ -297,7 +297,7 @@ func _on_has_left_spawn() -> void:
 func get_slicing_data():
 	var mesh_node = _get_mesh_node(_mesh_node_or_parent)
 	var orig_size = _get_original_size(mesh_node)
-	var width = original_size.x / slice_count
+	var width = orig_size.x / slice_count
 	var positions = _get_slice_positions(orig_size, width, slice_count)
 	var sliceable = get_parent()
 	return [sliceable.type, mesh_node.mesh, mesh_node.transform.basis, positions, cross_section_material]

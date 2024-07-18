@@ -60,23 +60,20 @@ static func slice_mesh(idx: int) -> void:
 	var slices: Array[Array] = []
 	slices.resize(data.slice_positions.size())
 	
+	var base_mesh: Mesh = data.mesh
 	for slice_num: int in data.slice_positions.size():
 		var trans = _get_slice_transform(type, slice_num)
-		slices[slice_num] = MeshSlicer.slice_mesh(trans, data.mesh, data.cross_ection_material)
+		slices[slice_num] = MeshSlicer.slice_mesh(trans, base_mesh, data.cross_ection_material)
+		base_mesh = slices[slice_num][0]
 	
 	slices_dic.get_or_add(type, slices)
 	print("slice mesh finished: ", Ingredient.Type.keys()[type])
 
 static func _get_slice_transform(type: Ingredient.Type, slice_num: int) -> Transform3D:
 	# As far as I know the mesh slicing tool cuts along the xy-plane of the given transform.
-	# The transform has to be in the local space of the mesh node.
+	# The transform has to be in the local space of the mesh.
 	var trans := Transform3D.IDENTITY.rotated(Vector3.UP, PI/2)
-	trans.basis = _slice_data[type].mesh_node_basis * trans.basis
-	var angle = _slice_data[type].mesh_node_basis.y.signed_angle_to(Vector3.UP, Vector3.BACK)
-	var _flip_factor = 1 if angle == 0 else sign(angle)
-	trans.origin.x = _slice_data[type].slice_positions[slice_num] * _flip_factor
-	trans.origin *= _slice_data[type].mesh_node_basis.inverse()
-	trans.basis.z *= _flip_factor
+	trans.origin.x = _slice_data[type].slice_positions[slice_num]
 	return trans
 	
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://5b36bokc0k4k"]
+[gd_scene load_steps=27 format=3 uid="uid://5b36bokc0k4k"]
 
 [ext_resource type="Script" path="res://resources/test_helpers/test_arena.gd" id="1_0okte"]
 [ext_resource type="PackedScene" uid="uid://bbibo1k8pkiqo" path="res://resources/test_helpers/cube.tscn" id="1_8xdyp"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://um05xwvrkanf" path="res://resources/objects/order_paper.tscn" id="12_wxbvo"]
 [ext_resource type="PackedScene" uid="uid://3urchnywicj" path="res://resources/objects/furniture/trashcan.tscn" id="14_id316"]
 [ext_resource type="PackedScene" uid="uid://bw18w7lqkorf5" path="res://resources/objects/appliances/frying_basket.tscn" id="15_agif4"]
+[ext_resource type="PackedScene" uid="uid://b72ihap4ul00u" path="res://resources/test_helpers/slicing_visual.tscn" id="16_u0lad"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_m270m"]
 sky_top_color = Color(0.384314, 0.454902, 0.54902, 1)
@@ -125,7 +126,6 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.621212, 1.21086, 0.54
 
 [node name="Sliceable" parent="Tomato" index="2"]
 monitoring = true
-slice_sound_type = "Normal"
 
 [node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11529, 0)
@@ -160,6 +160,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.28889, 0.561831, 0.618918)
 
 [node name="FryingBasket" parent="." instance=ExtResource("15_agif4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11269, 0.0944577, -0.899854)
+
+[node name="SlicingVisual" parent="." instance=ExtResource("16_u0lad")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86083, 1.01599, -1.80082)
 
 [editable path="Tomato"]
 [editable path="Tomato/tomato2"]
