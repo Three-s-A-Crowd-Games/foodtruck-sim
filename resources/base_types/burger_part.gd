@@ -49,7 +49,11 @@ func _ready():
 func _process(_delta):
 	if is_stack_root and adjust_flip() and (not is_picked_up() or get_picked_up_by() is XRToolsFunctionPickup):
 		_reverse_stack(_grab_driver.primary.pickup if _grab_driver else null)
-		get_stack_root()._recalculate_mass()
+		var root := get_stack_root()
+		if root == null:
+			push_warning("abort function '_process'. Retrieved stack root was null. Can't recalculate mass.")
+			return
+		root._recalculate_mass()
 	
 
 ## checks if the burger part is flipped.
@@ -94,11 +98,14 @@ func _on_burger_stack_zone_has_picked_up(what: BurgerPart):
 	prints(what.name, "picked up by", name)
 	if not is_reversing:
 		stack_zone.transform = get_current_stack_zone_trans(what)
-		call_deferred("add_mass_of_picked_up_object", what)
+		call_deferred("_add_mass_of_picked_up_object", what)
 	
 
 func _add_mass_of_picked_up_object(what: BurgerPart) -> void:
-	var root = get_stack_root()
+	var root := get_stack_root()
+	if root == null:
+		push_warning("abort function '_add_mass_of_picked_up_object'. Retrieved stack root was null. Can't add masses")
+		return
 	root.mass += what.mass
 	root.center_of_mass.y += what.center_of_mass.y + burger_part_seperation_distance/2
 	
@@ -107,8 +114,12 @@ func _on_burger_stack_zone_has_dropped(what: BurgerPart):
 	prints(what.name, "dropped by", name)
 	if not is_reversing:
 		stack_zone.transform = get_current_stack_zone_trans(null)
-		get_stack_root()._recalculate_mass(what)
-		what._recalculate_mass()
+	var root := get_stack_root()
+	if root == null:
+		push_warning("abort function '_finish_drop'. Retrieved stack root was null. Can't recalculate mass.")
+		return
+	root._recalculate_mass(what)
+	what._recalculate_mass()
 	
 
 func get_current_stack_zone_trans(picked_up_object: BurgerPart) -> Transform3D:
@@ -127,12 +138,15 @@ func get_current_stack_zone_trans(picked_up_object: BurgerPart) -> Transform3D:
 	return Transform3D(new_orientation, Vector3(0,new_height,0))
 	
 
-#TODO: add recursion breaker chekc if next == previous
-func get_stack_root() -> BurgerPart:
+func get_stack_root(previous: BurgerPart = self) -> BurgerPart:
 	if is_stack_root:
 		return self
 	else:
-		return get_picked_up_by().get_parent().get_stack_root()
+		var next := get_picked_up_by().get_parent()
+		if previous == next:
+			push_warning("Abort function 'get_stack_root'. previous item is the same as next. Preventing infinite recursion")
+			return null
+		return next.get_stack_root(self)
 	
 
 # WARNING: This is not 100% phisycally correct,

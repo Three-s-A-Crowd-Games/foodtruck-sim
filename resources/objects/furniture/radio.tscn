@@ -19,7 +19,7 @@ transform = Transform3D(1, 0, 0, 0, 0.986045, 0.16648, 0, -0.16648, 0.986045, 0.
 bus = &"SFX"
 
 [node name="MusicPlayer" type="AudioStreamPlayer3D" parent="."]
-volume_db = -30.0
+volume_db = -36.0
 bus = &"Music"
 
 [node name="InteractableAreaButton" parent="." instance=ExtResource("3_jf81n")]
