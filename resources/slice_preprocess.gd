@@ -14,11 +14,7 @@ func _run():
 	slice_all()
 	print("-------------------")
 	print(slices_dic)
-	print()
 	_save_slices()
-	print("Is da? ", FileAccess.file_exists(Sliceable.SLICE_LIBRARY_FILE_PATH))
-	var x = load(Sliceable.SLICE_LIBRARY_FILE_PATH) as SliceLibrary
-	print(x.library)
 	
 
 static func _get_slice_data() -> void:
@@ -32,6 +28,7 @@ static func _get_slice_data() -> void:
 		if sr.is_empty(): continue
 		var sliceable_comp: Sliceable = sr[0]
 		var data: Array = sliceable_comp.get_slicing_data()
+		print("adding ", name)
 		register_sliceable(data[0], data[1], data[2], data[3], data[4])
 	
 
