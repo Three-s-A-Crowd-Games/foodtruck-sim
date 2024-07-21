@@ -32,14 +32,16 @@ static func slice_mesh(slice_transform:Transform3D,mesh:Mesh,cross_section_mater
 	var at = slice_transform.origin
 	
 	var surfaces1 = []
-	var surfaces_mat1 = []	
+	var surfaces_mat1 = []
 	var surface_tool1_2 := SurfaceTool.new()
 	surface_tool1_2.begin(Mesh.PRIMITIVE_TRIANGLES)
 	var surfaces2 = []
 	var surfaces_mat2 = []
 	var surface_tool2_2 := SurfaceTool.new()
 	surface_tool2_2.begin(Mesh.PRIMITIVE_TRIANGLES)
-	vert_slice.clear()
+	if vert_slice == null: vert_slice = []
+	else: vert_slice.clear()
+	if mdt == null: mdt = MeshDataTool.new()
 	
 	if cross_section_material == null:
 		if mesh.get_surface_count() != 0:

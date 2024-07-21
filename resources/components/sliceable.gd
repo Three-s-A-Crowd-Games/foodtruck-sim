@@ -2,22 +2,16 @@
 class_name Sliceable
 extends Area3D
 
-# Constraint: Sliceable objects only get shorter in their x direction from positiv to negativ
+#INFO: Constraint: Sliceable objects only get shorter in their x direction from positiv to negativ
 #TODO: When the sliceable is facing downwards the slice might spawn beneath the ground an fall through
 
-var slice_thread :Thread
-var mutex := Mutex.new()
+const SLICE_LIBRARY_FILE_PATH = "res://resources/slice_library.res"
 
 var original_size: Vector3
-var slice_positions: Array[float]
 var slices_left: int
 var slice_width: float
 var slice_scene: PackedScene = preload("res://resources/base_types/burger_part.tscn")
-var _flip_factor: int
 var _mesh_node: MeshInstance3D
-var _inverse_mesh_basis: Basis
-var _is_mesh_ontop_xz := false
-var _next_slice_meshes: Array = []
 @export var cross_section_material: Material
 @export var slice_spawn_seperation_distance := 0.02
 ## Select how many slices the object will produce. But be sure to set it high enaugh so the slices won't be to big.
@@ -51,57 +45,68 @@ var hard_soft_sound_threshold: float = 3
 @onready var hard_player: SoundQueue3D = $SoundQueue3DHard
 @onready var soft_player: SoundQueue3D = $SoundQueue3DSoft
 
-@onready var _sliceable := get_parent()
+@onready var _sliceable: XRToolsPickable = get_parent()
+
+var slice_library := preload(SLICE_LIBRARY_FILE_PATH) as SliceLibrary
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if Engine.is_editor_hint():
-		child_entered_tree.connect(_updated_children)
-		child_exiting_tree.connect(_updated_children)
-		return
-	slice_thread = Thread.new()
-	mutex = Mutex.new()
+	if Engine.is_editor_hint(): return
 	
-	if _mesh_node_or_parent is MeshInstance3D:
-		_mesh_node = _mesh_node_or_parent
-	else:
-		_mesh_node = _mesh_node_or_parent.find_children("*", "MeshInstance3D", false)[0]
-	
-	assert(_mesh_node != null, "No mesh node could be found for slicing")
-	_inverse_mesh_basis = _mesh_node.transform.inverse().basis
+	_mesh_node = _get_mesh_node(_mesh_node_or_parent)
 	
 	#Copy the collision shape node of the parent
 	if find_children("*", "CollisionShape3D", false).size() == 0:
 		var my_coll_node:CollisionShape3D = get_parent().find_children("*", "CollisionShape3D", false)[0].duplicate()
-		# WARNING: Very dirty way to determine whether the mesh of the sliceable object is not centered in around the mesh node.
-		if my_coll_node.position.y != _mesh_node.position.y: _is_mesh_ontop_xz = true
 		my_coll_node.transform.origin -= transform.origin
 		add_child(my_coll_node)
 	
-	get_parent().has_left_spawn.connect(_on_has_left_spawn)
-	
 	body_entered.connect(_on_body_entered)
+	_sliceable.has_left_spawn.connect(_on_has_left_spawn)
 	
 	slices_left = slice_count
 	
-	var mesh_node_y_angle := _mesh_node.transform.basis.y.angle_to(Vector3.UP)
+	original_size = _get_original_size(_mesh_node)
+	slice_width = original_size.x / slice_count
+	#The scale for the parent is only taken into account because of the unique requirements of the tomato. For everything else this should be 0.
+	original_size *= _mesh_node_or_parent.scale * _mesh_node_or_parent.get_parent_node_3d().scale.x
+	slice_width *= _mesh_node_or_parent.scale.x * _mesh_node_or_parent.get_parent_node_3d().scale.x
 	
-	var aabb = _mesh_node.mesh.get_aabb()
+	collision_layer = 0
+	collision_mask = pow(2,5) # Mask layer 6
+	set_deferred("monitorable", false)
+	set_deferred("monitoring", false)
+	 
+	_set_up_sound()
+
+static func _get_mesh_node(mesh_node_or_parent: Node3D) -> MeshInstance3D:
+	var mesh_node: MeshInstance3D
+	if mesh_node_or_parent is MeshInstance3D:
+		mesh_node = mesh_node_or_parent
+	else:
+		mesh_node = mesh_node_or_parent.find_children("*", "MeshInstance3D", false)[0]
+	
+	assert(mesh_node != null, "No mesh node could be found for slicing")
+	return mesh_node
+
+static func _get_original_size(mesh_node: MeshInstance3D) -> Vector3:
+	var mesh_node_y_angle := mesh_node.transform.basis.y.angle_to(Vector3.UP)
+	var aabb = mesh_node.mesh.get_aabb()
+	var original_size: Vector3
 	original_size.x = sin(mesh_node_y_angle) * aabb.size.y + cos(mesh_node_y_angle) * aabb.size.x
 	original_size.y = cos(mesh_node_y_angle) * aabb.size.y + sin(mesh_node_y_angle) * aabb.size.x
 	original_size.z = aabb.size.z
-	slice_width = original_size.x / slice_count
+	return original_size
+	
+
+static func _get_slice_positions(original_size: Vector3, slice_width: float, slice_count: int) -> Array[float]:
+	var positions: Array[float] = []
 	for i in range(1,slice_count):
-		slice_positions.push_back(original_size.x/2 - slice_width * i)
-	original_size *= _mesh_node_or_parent.scale
-	slice_width *= _mesh_node_or_parent.scale.x
-		
-	collision_layer = 0
-	collision_mask = pow(2,5) # Mask layer 6
-	monitorable = false
-	 
-	#Take care about audio setup
+		positions.push_back(original_size.x/2 - slice_width * i)
+	return positions
+
+func _set_up_sound() -> void:
 	for player: AudioStreamPlayer3D in $SoundQueue3DHard.get_children():
 		match slice_sound_type:
 			"Normal":
@@ -115,12 +120,6 @@ func _ready():
 				player.stream = load("res://audio/sfx/slicing/normal/slice_normal_soft_audio_stream_randomizer.tres")
 			"Crunchy":
 				player.stream = load("res://audio/sfx/slicing/crunchy/slice_crunchy_soft_audio_stream_randomizer.tres")
-	
-
-func precalculate_slice():
-	var trans := _get_slice_transform(_mesh_node.transform.basis)
-	_next_slice_meshes = MeshSlicer.slice_mesh(trans, _mesh_node.mesh, cross_section_material)
-	slice_thread.call_deferred("wait_to_finish")
 	
 
 func _on_body_entered(body):
@@ -138,24 +137,21 @@ func _on_body_entered(body):
 
 func slice():
 	if slices_left <= 1: return
-	if _next_slice_meshes.is_empty():
-		slice_thread.start(precalculate_slice, Thread.PRIORITY_HIGH)
-		return
 	
 	slices_left -= 1
-	_mesh_node.mesh = _next_slice_meshes[0]
-	_adjust_collision_shape(_sliceable, _next_slice_meshes[0])
-	call_deferred("_adjust_collision_shape", self, _next_slice_meshes[0])
-	var slice := _create_slice(_next_slice_meshes[1])
+	_mesh_node.mesh = slice_library.get_remain_mesh(_sliceable.type, slice_count - slices_left - 1)
+	_adjust_collision_shape(_sliceable, _mesh_node.mesh)
+	call_deferred("_adjust_collision_shape", self, _mesh_node.mesh)
+	var slice := _create_slice(slice_library.get_slice_mesh(_sliceable.type, slice_count - slices_left - 1))
 	_sliceable.add_sibling(slice)
 	_make_slice_ready(slice)
 	
-	if slice_count - slices_left == delete_slice_count and mesh_node_to_delete:
+	if mesh_node_to_delete and slice_count - slices_left == delete_slice_count:
 		mesh_node_to_delete.queue_free()
 		
 	if slices_left == 1:
 		slices_left -= 1
-		slice = _create_slice(_next_slice_meshes[0])
+		slice = _create_slice(slice_library.get_remain_mesh(_sliceable.type, slice_count - slices_left - 2))
 		_sliceable.add_sibling(slice)
 		_make_slice_ready(slice)
 		get_parent_node_3d().visible = false
@@ -166,8 +162,6 @@ func slice():
 		get_parent().call_deferred("queue_free")
 		return
 	
-	_next_slice_meshes.clear()
-	slice_thread.start(precalculate_slice, Thread.PRIORITY_HIGH)
 
 ## This method sets up some properties of the slice
 ## and hereby overrides the values calculated by the ready mehtod in BurgerPart.gd
@@ -180,18 +174,6 @@ func _make_slice_ready(slice: BurgerPart) -> void:
 	slice.original_mass = slice_mass
 	slice.center_of_mass = Vector3(0, slice_width/2, 0)
 	slice.original_center_of_mass = Vector3(0, slice_width/2, 0)
-
-func _get_slice_transform(mesh_node_basis: Basis) -> Transform3D:
-	# As far as I know the mesh slicing tool cuts along the xy-plane of the given transform.
-	# The transform has to be in the local space of the mesh node.
-	var trans := Transform3D.IDENTITY.rotated(Vector3.UP, PI/2)
-	trans.basis = mesh_node_basis * trans.basis
-	var angle = mesh_node_basis.y.signed_angle_to(Vector3.UP, Vector3.BACK)
-	_flip_factor = 1 if angle == 0 else sign(angle)
-	trans.origin.x = slice_positions[slice_count - slices_left] * _flip_factor
-	trans.origin *= _inverse_mesh_basis
-	trans.basis.z *= _flip_factor
-	return trans
 	
 
 func _create_slice(mesh: Mesh) -> BurgerPart:
@@ -205,8 +187,8 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	var mesh_node := _find_mesh_child_node(slice)
 	if not mesh_node:
 		mesh_node = MeshInstance3D.new()
-		mesh_node.transform.basis = _inverse_mesh_basis
-		mesh_node.transform.basis *= _mesh_node_or_parent.scale.x
+		#The scale for the parent is only taken into account because of the unique requirements of the tomato. For everything else this should be 0.
+		mesh_node.transform.basis *= _mesh_node_or_parent.scale.x * _mesh_node_or_parent.get_parent_node_3d().scale.x
 		slice.add_child(mesh_node)
 	mesh_node.mesh = mesh
 	
@@ -234,11 +216,11 @@ func _position_child_nodes(mesh_node: MeshInstance3D, coll_node: CollisionShape3
 	# This shift is necessary because the mesh vertices created by the slicing are not always centered.
 	# They are relative to the original node's origin.
 	if slice_count % 2 == 0:
-		shift.y = slice_width * (ceil(slice_count/2.0) - (slices_left+1) + 0.5+0.5*_flip_factor) * _flip_factor
+		shift.y = slice_width * (slice_count/2 - slices_left)
 	else:
-		shift.y = slice_width * (ceil(slice_count/2.0) - (slices_left+1) + 0.5*_flip_factor) * _flip_factor
+		shift.y = slice_width * (ceil(slice_count/2.0) - (slices_left+1) + 0.5)
 	
-	shift.x = original_size.y/2 if _is_mesh_ontop_xz else 0
+	shift.x = original_size.y/2
 	
 	mesh_node.position += shift
 	coll_node.position.y = coll_node.shape.height/2
@@ -278,9 +260,6 @@ func _adjust_collision_shape(node: Node, mesh: Mesh) -> void:
 			coll_node.shape.radius = original_size.y/2
 			coll_node.shape.height = slice_width
 
-func _updated_children(node: Node) -> void:
-	update_configuration_warnings()
-
 func _get_configuration_warnings():
 	var out: Array[String] = []
 	var has_coll_shape: bool = false
@@ -295,11 +274,13 @@ func _get_configuration_warnings():
 	
 	return out
 
-func _on_has_left_spawn():
-	slice_thread.start(precalculate_slice, Thread.PRIORITY_HIGH)
-	monitoring = true
+func _on_has_left_spawn() -> void:
+	set_deferred("monitoring", true)
 
-# Thread must be disposed (or "joined"), for portability.
-func _exit_tree():
-	if Engine.is_editor_hint(): return
-	slice_thread.wait_to_finish()
+func get_slicing_data():
+	var mesh_node = _get_mesh_node(_mesh_node_or_parent)
+	var orig_size = _get_original_size(mesh_node)
+	var width = orig_size.x / slice_count
+	var positions = _get_slice_positions(orig_size, width, slice_count)
+	var sliceable = get_parent()
+	return [sliceable.type, mesh_node.mesh, mesh_node.transform.basis, positions, cross_section_material]

@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://b72ihap4ul00u"]
+
+[ext_resource type="Script" path="res://resources/test_helpers/slicing_visual.gd" id="1_2iyx1"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2ydyk"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_uysrt"]
+sky_material = SubResource("ProceduralSkyMaterial_2ydyk")
+
+[sub_resource type="Environment" id="Environment_25580"]
+background_mode = 2
+sky = SubResource("Sky_uysrt")
+tonemap_mode = 2
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_fvbnk"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_jqqqq"]
+size = Vector2(0.3, 0.3)
+
+[node name="SlicingVisual" type="Node3D"]
+script = ExtResource("1_2iyx1")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 1.4636, 2.143, -4.7705)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_25580")
+camera_attributes = SubResource("CameraAttributesPractical_fvbnk")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+
+[node name="MeshInstance3D1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.323088, -1.35274)
+
+[node name="SliceTrans" type="MeshInstance3D" parent="MeshInstance3D1"]
+visible = false
+mesh = SubResource("QuadMesh_jqqqq")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.545935, -0.2, -1.35274)
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.711839, -0.2, -1.35274)
