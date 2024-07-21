@@ -142,7 +142,7 @@ func _ready():
 			var duplicated_mesh: MeshInstance3D = mesh.duplicate()
 			var parent := mesh.get_parent()
 			if parent is not Food:
-				duplicated_mesh.scale = parent.scale
+				highlight_node.scale = parent.scale
 			highlight_node.add_child(duplicated_mesh)
 			duplicated_mesh.scale *= 1.1
 			duplicated_mesh.set_surface_override_material(0, material)
