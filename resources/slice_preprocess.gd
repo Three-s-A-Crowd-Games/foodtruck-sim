@@ -1,5 +1,4 @@
 @tool
-class_name SliceManager
 extends EditorScript
 
 # Ingredient type -> Slicedata
@@ -8,7 +7,6 @@ static var _slice_data: Dictionary
 static var slices_dic: Dictionary
 
 const DIR := "res://resources/food/"
-const DATA_FILE_PATH := "res://resources/slice_library.res"
 
 func _run():
 	_get_slice_data()
@@ -18,8 +16,8 @@ func _run():
 	print(slices_dic)
 	print()
 	_save_slices()
-	print("Is da? ", FileAccess.file_exists(DATA_FILE_PATH))
-	var x = load(DATA_FILE_PATH) as SliceLibrary
+	print("Is da? ", FileAccess.file_exists(Sliceable.SLICE_LIBRARY_FILE_PATH))
+	var x = load(Sliceable.SLICE_LIBRARY_FILE_PATH) as SliceLibrary
 	print(x.library)
 	
 
@@ -80,7 +78,7 @@ static func _get_slice_transform(type: Ingredient.Type, slice_num: int) -> Trans
 static func _save_slices() -> void:
 	var lib := SliceLibrary.new()
 	lib.library = slices_dic
-	var error := ResourceSaver.save(lib, DATA_FILE_PATH)
+	var error := ResourceSaver.save(lib, Sliceable.SLICE_LIBRARY_FILE_PATH)
 	if error != OK:
 		print_rich("[color=red]Failed to save slicecs library. Error code: ", error, "[/color]")
 	else:

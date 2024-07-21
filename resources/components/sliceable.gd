@@ -5,15 +5,13 @@ extends Area3D
 #INFO: Constraint: Sliceable objects only get shorter in their x direction from positiv to negativ
 #TODO: When the sliceable is facing downwards the slice might spawn beneath the ground an fall through
 
+const SLICE_LIBRARY_FILE_PATH = "res://resources/slice_library.res"
+
 var original_size: Vector3
-var slice_positions: Array[float]
 var slices_left: int
 var slice_width: float
 var slice_scene: PackedScene = preload("res://resources/base_types/burger_part.tscn")
-var _flip_factor: int
 var _mesh_node: MeshInstance3D
-var _inverse_mesh_basis: Basis
-var _is_mesh_ontop_xz := false
 @export var cross_section_material: Material
 @export var slice_spawn_seperation_distance := 0.02
 ## Select how many slices the object will produce. But be sure to set it high enaugh so the slices won't be to big.
@@ -49,7 +47,7 @@ var hard_soft_sound_threshold: float = 3
 
 @onready var _sliceable: XRToolsPickable = get_parent()
 
-var slice_library: SliceLibrary = preload(SliceManager.DATA_FILE_PATH) as SliceLibrary
+var slice_library := preload(SLICE_LIBRARY_FILE_PATH) as SliceLibrary
 
 
 # Called when the node enters the scene tree for the first time.
@@ -57,13 +55,10 @@ func _ready():
 	if Engine.is_editor_hint(): return
 	
 	_mesh_node = _get_mesh_node(_mesh_node_or_parent)
-	_inverse_mesh_basis = _mesh_node.transform.inverse().basis
 	
 	#Copy the collision shape node of the parent
 	if find_children("*", "CollisionShape3D", false).size() == 0:
 		var my_coll_node:CollisionShape3D = get_parent().find_children("*", "CollisionShape3D", false)[0].duplicate()
-		# WARNING: Very dirty way to determine whether the mesh of the sliceable object is not centered in around the mesh node.
-		if my_coll_node.position.y != _mesh_node.position.y: _is_mesh_ontop_xz = true
 		my_coll_node.transform.origin -= transform.origin
 		add_child(my_coll_node)
 	
@@ -74,9 +69,9 @@ func _ready():
 	
 	original_size = _get_original_size(_mesh_node)
 	slice_width = original_size.x / slice_count
-	slice_positions = _get_slice_positions(original_size, slice_width, slice_count)
-	original_size *= _mesh_node_or_parent.scale
-	slice_width *= _mesh_node_or_parent.scale.x
+	#The scale for the parent is only taken into account because of the unique requirements of the tomato. For everything else this should be 0.
+	original_size *= _mesh_node_or_parent.scale * _mesh_node_or_parent.get_parent_node_3d().scale.x
+	slice_width *= _mesh_node_or_parent.scale.x * _mesh_node_or_parent.get_parent_node_3d().scale.x
 	
 	collision_layer = 0
 	collision_mask = pow(2,5) # Mask layer 6
@@ -156,7 +151,7 @@ func slice():
 		
 	if slices_left == 1:
 		slices_left -= 1
-		slice = _create_slice(slice_library.get_remain_mesh(_sliceable.type, slice_count - slices_left - 1))
+		slice = _create_slice(slice_library.get_remain_mesh(_sliceable.type, slice_count - slices_left - 2))
 		_sliceable.add_sibling(slice)
 		_make_slice_ready(slice)
 		get_parent_node_3d().visible = false
@@ -179,18 +174,6 @@ func _make_slice_ready(slice: BurgerPart) -> void:
 	slice.original_mass = slice_mass
 	slice.center_of_mass = Vector3(0, slice_width/2, 0)
 	slice.original_center_of_mass = Vector3(0, slice_width/2, 0)
-
-func _get_slice_transform(mesh_node_basis: Basis) -> Transform3D:
-	# As far as I know the mesh slicing tool cuts along the xy-plane of the given transform.
-	# The transform has to be in the local space of the mesh node.
-	var trans := Transform3D.IDENTITY.rotated(Vector3.UP, PI/2)
-	trans.basis = mesh_node_basis * trans.basis
-	var angle = mesh_node_basis.y.signed_angle_to(Vector3.UP, Vector3.BACK)
-	_flip_factor = 1 if angle == 0 else sign(angle)
-	trans.origin.x = slice_positions[slice_count - slices_left] * _flip_factor
-	trans.origin *= _inverse_mesh_basis
-	trans.basis.z *= _flip_factor
-	return trans
 	
 
 func _create_slice(mesh: Mesh) -> BurgerPart:
@@ -204,8 +187,8 @@ func _create_slice(mesh: Mesh) -> BurgerPart:
 	var mesh_node := _find_mesh_child_node(slice)
 	if not mesh_node:
 		mesh_node = MeshInstance3D.new()
-		mesh_node.transform.basis = _inverse_mesh_basis
-		mesh_node.transform.basis *= _mesh_node_or_parent.scale.x
+		#The scale for the parent is only taken into account because of the unique requirements of the tomato. For everything else this should be 0.
+		mesh_node.transform.basis *= _mesh_node_or_parent.scale.x * _mesh_node_or_parent.get_parent_node_3d().scale.x
 		slice.add_child(mesh_node)
 	mesh_node.mesh = mesh
 	
@@ -233,11 +216,11 @@ func _position_child_nodes(mesh_node: MeshInstance3D, coll_node: CollisionShape3
 	# This shift is necessary because the mesh vertices created by the slicing are not always centered.
 	# They are relative to the original node's origin.
 	if slice_count % 2 == 0:
-		shift.y = slice_width * (ceil(slice_count/2.0) - (slices_left+1) + 0.5+0.5*_flip_factor) * _flip_factor
+		shift.y = slice_width * (slice_count/2 - slices_left)
 	else:
-		shift.y = slice_width * (ceil(slice_count/2.0) - (slices_left+1) + 0.5*_flip_factor) * _flip_factor
+		shift.y = slice_width * (ceil(slice_count/2.0) - (slices_left+1) + 0.5)
 	
-	shift.x = original_size.y/2 if _is_mesh_ontop_xz else 0
+	shift.x = original_size.y/2
 	
 	mesh_node.position += shift
 	coll_node.position.y = coll_node.shape.height/2

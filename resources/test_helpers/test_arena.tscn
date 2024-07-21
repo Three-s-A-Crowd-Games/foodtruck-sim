@@ -121,25 +121,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.59908, 0, 0.0708036)
 bus = &"Voicelines"
 script = ExtResource("6_hwbr7")
 
-[node name="Tomato" parent="." instance=ExtResource("5_6vayu")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.621212, 1.21086, 0.54284)
-
-[node name="Sliceable" parent="Tomato" index="2"]
-monitoring = true
-
-[node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.11529, 0)
-
-[node name="Sliceable" parent="Onion" index="2"]
-monitoring = true
-slice_sound_type = "Normal"
-
-[node name="Cucumber" parent="." instance=ExtResource("6_syx2q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.358656, 1, 0.279034)
-
-[node name="Sliceable" parent="Cucumber" index="1"]
-monitoring = true
-
 [node name="Cone" parent="." instance=ExtResource("8_gyeit")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.176819, 1.15495, -0.435212)
 
@@ -164,8 +145,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.11269, 0.0944577, -0.89985
 [node name="SlicingVisual" parent="." instance=ExtResource("16_u0lad")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.86083, 1.01599, -1.80082)
 
-[editable path="Tomato"]
-[editable path="Tomato/tomato2"]
-[editable path="Onion"]
-[editable path="Cucumber"]
-[editable path="Cucumber/cucumber"]
+[node name="Onion" parent="." instance=ExtResource("7_g5l8d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.708593, 1, 0.65008)
+
+[node name="Tomato" parent="." instance=ExtResource("5_6vayu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.732194, 1, 0.442573)
+
+[node name="Cucumber" parent="." instance=ExtResource("6_syx2q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.347939, 1, 0.572458)

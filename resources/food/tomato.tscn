@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bn7400sgof75r" path="res://resources/components/sliceable.tscn" id="5_q14ek"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_aj645"]
-radius = 0.0917422
+radius = 0.046
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h5kmj"]
 resource_name = "tomato_stem"
@@ -89,7 +89,6 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_7duvc")
 
 [node name="Tomato" instance=ExtResource("1_rmspk")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 collision_mask = 8519687
 mass = 0.2
 center_of_mass_mode = 1
@@ -98,10 +97,11 @@ angular_damp = 21.0
 type = 4
 
 [node name="CollisionShape3D" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0875052, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.044, 0)
 shape = SubResource("SphereShape3D_aj645")
 
 [node name="tomato2" parent="." index="1" instance=ExtResource("2_1kums")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="tomato_stem" parent="tomato2" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00592546, 0.1447, 0.0136126)
